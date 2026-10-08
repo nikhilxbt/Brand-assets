@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1600, initial-scale=1" />
+<title>THORWallet Card — Android Beta</title>
+<style>
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-SemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:block;}
+
+  :root{
+    --navy:#0A1A2B; --surface:#142A40; --surface2:#18324B;
+    --cyan:#00CCFF; --green:#33FF99; --accent:#1FD9A6; --warn:#FBC538;
+    --grad:linear-gradient(120deg,#00CCFF 0%,#33FF99 100%);
+    --t100:#FFFFFF; --t70:rgba(255,255,255,.70); --t50:rgba(255,255,255,.50); --t34:rgba(255,255,255,.34);
+    --line:rgba(255,255,255,.09); --line-str:rgba(255,255,255,.16);
+    --font:"OT Sono","Space Grotesk",Inter,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:#0A1A2B; font-family:var(--font); -webkit-font-smoothing:antialiased; width:1600px; height:900px; overflow:hidden;}
+
+  .art{position:absolute; left:0; top:0; width:1600px; height:900px; overflow:hidden; background:var(--navy); color:var(--t100);}
+
+  .amb{position:absolute; inset:0; pointer-events:none;}
+  .amb .grid{position:absolute; inset:0; opacity:.6;
+    background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);
+    background-size:60px 60px; -webkit-mask-image:radial-gradient(120% 110% at 28% 22%,#000 46%,transparent 100%); mask-image:radial-gradient(120% 110% at 28% 22%,#000 46%,transparent 100%);}
+  .amb .blob{position:absolute; border-radius:50%; filter:blur(80px);}
+
+  /* top bar */
+  .topbar{position:absolute; left:66px; right:66px; top:58px; display:flex; align-items:center; justify-content:space-between;}
+  .wordmark{height:34px; width:auto; display:block;}
+  .pill{display:inline-flex; align-items:center; gap:9px; height:38px; padding:0 18px; border-radius:999px;
+    background:rgba(255,255,255,.05); border:1px solid var(--line-str); color:var(--t70); font-size:14px; font-weight:500; letter-spacing:.02em;}
+  .pill .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px rgba(31,217,166,.9);}
+
+  /* hero text */
+  .left{position:absolute; left:66px; top:150px; width:850px;}
+  .eyebrow{display:inline-flex; align-items:center; gap:11px; font-size:14px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--accent);}
+  .eyebrow .gdot{width:9px; height:9px; border-radius:50%; background:var(--grad); box-shadow:0 0 12px rgba(51,255,153,.7);}
+  h1{margin-top:20px; font-weight:600; font-size:82px; line-height:.98; letter-spacing:-0.035em; color:var(--t100);}
+  h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;}
+  .sub{margin-top:24px; max-width:660px; font-size:22px; line-height:1.5; font-weight:400; color:var(--t70);}
+  .sub b{color:var(--t100); font-weight:600;}
+
+  /* feature rows */
+  .feats{margin-top:34px; display:flex; flex-direction:column; gap:20px;}
+  .feat{display:flex; align-items:flex-start; gap:18px;}
+  .feat .ic{width:52px; height:52px; flex-shrink:0; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    background:var(--surface); border:1px solid var(--line); box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
+  .feat .ic svg{stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; fill:none;}
+  .feat .ic.teal svg{stroke:var(--cyan);} .feat .ic.grn svg{stroke:var(--green);} .feat .ic.acc svg{stroke:var(--accent);}
+  .feat .ft{font-size:20px; font-weight:600; color:var(--t100); letter-spacing:-0.01em;}
+  .feat .fb{font-size:15.5px; font-weight:400; color:var(--t70); margin-top:3px; line-height:1.42;}
+
+  /* CTA pill */
+  .cta{position:absolute; left:66px; bottom:64px; width:820px; height:64px; border-radius:999px; padding:2px;
+    background:var(--grad); box-shadow:0 0 40px rgba(0,204,255,.22);}
+  .cta-in{display:flex; align-items:center; gap:18px; height:100%; border-radius:999px; background:#0C1E30; padding:0 10px 0 8px;}
+  .cta .tag{display:inline-flex; align-items:center; gap:8px; height:48px; padding:0 20px; border-radius:999px; background:var(--grad);
+    color:#04241a; font-size:14px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; flex-shrink:0;}
+  .cta .tag svg{stroke:#04241a; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round;}
+  .cta .msg{font-size:20px; font-weight:500; color:var(--t100); letter-spacing:-0.005em;}
+  .cta .msg b{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; font-weight:600;}
+
+  /* phone */
+  .phone-wrap{position:absolute; right:120px; top:78px;}
+  .phglow{position:absolute; left:50%; top:52%; width:560px; height:640px; transform:translate(-50%,-50%);
+    border-radius:50%; background:radial-gradient(circle,rgba(0,204,255,.30),rgba(51,255,153,.08) 58%,transparent 72%); filter:blur(24px);}
+  .phone{position:relative; width:372px; border-radius:46px; background:#060f18; border:1px solid rgba(255,255,255,.12); padding:10px;
+    box-shadow:0 46px 100px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.08), 0 0 60px rgba(0,204,255,.10);}
+  .screen{position:relative; border-radius:38px; overflow:hidden; background:#0A1A2B;}
+  .screen .sbar{position:relative; height:34px; display:flex; align-items:center; justify-content:space-between; padding:0 22px; background:#0A1A2B;}
+  .screen .sbar .tm{font-size:13px; font-weight:600; color:#fff;}
+  .screen .sbar .si{display:flex; gap:5px; align-items:center;}
+  .screen .sbar .si svg{fill:#fff;}
+  .screen img{display:block; width:100%; height:auto;}
+  .notch{position:absolute; top:20px; left:50%; transform:translateX(-50%); width:96px; height:26px; background:#000; border-radius:14px; z-index:6;}
+
+  /* floating callouts */
+  .callout{position:absolute; display:flex; align-items:center; gap:12px; padding:13px 17px; border-radius:16px;
+    background:rgba(19,38,58,.86); border:1px solid var(--line-str); backdrop-filter:blur(10px);
+    box-shadow:0 18px 40px rgba(0,0,0,.5); z-index:5;}
+  .callout .cico{width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .callout .ct{font-size:15px; font-weight:600; color:var(--t100); line-height:1.15;}
+  .callout .cs{font-size:12.5px; font-weight:400; color:var(--t50); margin-top:1px;}
+  .callout .badge{display:inline-flex; align-items:center; gap:5px; height:22px; padding:0 9px; border-radius:7px; font-size:11px; font-weight:600;
+    background:rgba(51,255,153,.13); border:1px solid rgba(51,255,153,.32); color:var(--green); margin-left:2px;}
+
+  .foot{position:absolute; left:66px; width:820px; text-align:right; bottom:26px; font-size:15px; font-weight:500; color:var(--t34); letter-spacing:.02em;}
+</style>
+</head>
+<body>
+  <section class="art" data-screen-label="Android Card Beta">
+    <div class="amb">
+      <div class="grid"></div>
+      <div class="blob" style="width:640px;height:640px;right:-140px;top:-180px;background:rgba(0,204,255,.14);"></div>
+      <div class="blob" style="width:560px;height:560px;left:-180px;bottom:-220px;background:rgba(51,255,153,.10);"></div>
+    </div>
+
+    <div class="topbar">
+      <img class="wordmark" src="assets/thorwallet-logo-white.png" alt="THORWallet" />
+    </div>
+
+    <div class="left">
+      <div class="eyebrow"><span class="gdot"></span>Android Beta</div>
+      <h1>Test the THORWallet Card. <span class="g">Free.</span></h1>
+      <p class="sub">Android early access is open. A crypto MasterCard you top up from your wallet and <b>spend anywhere</b> - fully self-custody.</p>
+
+      <div class="feats">
+        <div class="feat">
+          <div class="ic grn"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <div><div class="ft">Free to test</div><div class="fb">No cost to join the Android beta. Get a real card, on us.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ic teal"><svg width="26" height="26" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg></div>
+          <div><div class="ft">Spend anywhere</div><div class="fb">MasterCard-accepted worldwide. Top up straight from your wallet.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ic acc"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><div class="ft">Self-custody</div><div class="fb">Your keys, your coins. Native assets, nothing wrapped.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta-in">
+        <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg>Early Access</span>
+        <span class="msg">DM <b>@noob_rune</b> on X to get in.</span>
+      </div>
+    </div>
+
+    <!-- phone -->
+    <div class="phone-wrap">
+      <div class="phglow"></div>
+      <div class="phone">
+        <div class="screen">
+          <div class="notch"></div>
+          <div class="sbar">
+            <span class="tm">10:38</span>
+            <span class="si">
+              <svg viewBox="0 0 18 12" width="16" height="11"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4" width="3" height="8" rx="1"/><rect x="10" y="1.5" width="3" height="10.5" rx="1"/></svg>
+              <svg viewBox="0 0 16 12" width="15" height="11"><path d="M8 2.5c2.2 0 4.2.85 5.7 2.2l-1.4 1.5A6 6 0 0 0 8 4.8 6 6 0 0 0 3.7 6.2L2.3 4.7A8.2 8.2 0 0 1 8 2.5z"/><path d="M8 6.6c1.1 0 2.1.42 2.8 1.15L8 10.5 5.2 7.75A4 4 0 0 1 8 6.6z"/></svg>
+              <svg viewBox="0 0 24 12" width="22" height="11"><rect x="1" y="2" width="19" height="8" rx="2.4" fill="none" stroke="#fff" stroke-width="1" opacity=".6"/><rect x="2.4" y="3.4" width="15" height="5.2" rx="1.2"/><rect x="21" y="4.4" width="1.6" height="3.6" rx="1"/></svg>
+            </span>
+          </div>
+          <img src="assets/card-screen.png" alt="THORWallet Card screen" />
+        </div>
+      </div>
+
+      <!-- callouts -->
+      <div class="callout" style="left:-96px; top:196px;">
+        <div class="cico" style="background:var(--grad);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#04241a"><path d="M12 2l2.4 6.6L21 9l-5 4.4L17.6 21 12 17l-5.6 4L8 13.4 3 9l6.6-.4z"/></svg>
+        </div>
+        <div><div class="ct">Free beta</div><div class="cs">Android early access</div></div>
+      </div>
+
+      <div class="callout" style="right:-72px; bottom:150px;">
+        <div class="cico" style="background:rgba(51,255,153,.14); border:1px solid rgba(51,255,153,.3);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33FF99" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div><div class="ct">Spend anywhere</div><div class="cs">MasterCard accepted</div></div>
+      </div>
+    </div>
+
+    <div class="foot">thorwallet.org/cards</div>
+  </section>
+</body>
+</html>

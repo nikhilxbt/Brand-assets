@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Typography — Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .type-hero {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 900px) { .type-hero { grid-template-columns: 1fr; padding: 32px; } }
+
+  .specimen { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 32px; }
+  .specimen-row {
+    display: grid; grid-template-columns: 120px 1fr; gap: 24px;
+    padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline;
+  }
+  .specimen-row:last-child { border-bottom: 0; }
+  .specimen-row .meta {
+    font-family: var(--font-sono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);
+  }
+  .specimen-row .meta .scale { display: block; color: var(--ink); margin-top: 4px; letter-spacing: 0.04em; }
+  .charset { font-family: var(--font-sono); font-size: 22px; line-height: 1.6; color: var(--ink); word-break: break-all; }
+
+  .scale-table { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--surface); }
+  .scale-row {
+    display: grid; grid-template-columns: 140px 80px 80px 1fr;
+    align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--line); gap: 16px;
+  }
+  .scale-row:last-child { border-bottom: 0; }
+  .scale-row.head { background: var(--surface-2); font-family: var(--font-sono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+  .scale-row .name { font-family: var(--font-sono); font-size: 12px; color: var(--ink-soft); }
+  .scale-row .num { font-family: var(--font-sono); font-size: 12px; color: var(--ink-2); }
+  .scale-row .sample { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.05; color: var(--ink); }
+
+  .pairing { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .pairing { grid-template-columns: 1fr; } }
+  .pairing .ex {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+    padding: 32px; min-height: 240px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .pairing .ex h4 { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); margin: 0 0 24px; }
+  .pairing .ex .h {
+    font-family: var(--font-display); font-weight: 600; font-size: 36px; line-height: 1.05;
+    letter-spacing: -0.025em; margin: 0 0 12px; color: var(--ink);
+  }
+  .pairing .ex .b { font-family: var(--font-sono); font-size: 14px; line-height: 1.6; color: var(--ink-2); margin: 0; }
+
+  .substitution {
+    border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; background: var(--surface);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 720px) { .substitution { grid-template-columns: 1fr; } }
+  .substitution .row { display: grid; gap: 8px; }
+  .substitution .lbl { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); }
+  .substitution .from { font-family: var(--font-display); font-weight: 600; font-size: 24px; color: var(--ink); }
+  .substitution .to { font-family: Arial, sans-serif; font-weight: 700; font-size: 24px; color: var(--ink); }
+  .substitution .arrow { font-family: var(--font-sono); color: var(--ink-mute); }
+
+  .weight-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+    padding: 32px; display: flex; flex-direction: column; gap: 16px;
+  }
+  .weight-card .big { font-family: var(--font-display); font-size: 96px; line-height: 1; letter-spacing: -0.04em; color: var(--ink); }
+  .weight-card .meta { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); }
+  .weight-card .role { font-family: var(--font-sono); font-size: 13px; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="04 · Typography"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta"><span>04 · Typography</span><span>New Brand Guidelines · v0.1</span></div>
+    <div class="title">
+      <div class="eyebrow">Typography</div>
+      <h1 class="display-1">One typeface.<br/>Three weights.</h1>
+      <p class="lead">Thorwallet uses a single corporate typeface — <strong>OT Sono</strong> by Oh no Type Co. — across everything: display, body, UI, data. Three weights cover the whole system.</p>
+    </div>
+  </header>
+
+  <!-- Hero specimen — three weights -->
+  <section class="section" data-screen-label="Weights">
+    <div class="section-head">
+      <div class="num">04.1 — The typeface</div>
+      <div class="head-text">
+        <h2>OT Sono.</h2>
+        <p>A geometric sans with even stroke width and a quietly mechanical feel. Sono carries both the brand voice and the working interface — without ever needing a second family.</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="weight-card">
+        <span class="meta">Semibold · 600</span>
+        <div class="big" style="font-weight:600;">Aa</div>
+        <div class="role">Display, headlines, the wordmark, big numbers.</div>
+      </div>
+      <div class="weight-card">
+        <span class="meta">Medium · 500</span>
+        <div class="big" style="font-weight:500;">Aa</div>
+        <div class="role">Subtitles, overtitles, button labels, table headers.</div>
+      </div>
+      <div class="weight-card">
+        <span class="meta">Regular · 400</span>
+        <div class="big" style="font-weight:400;">Aa</div>
+        <div class="role">Body text, leads, captions, quotes, everything else.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specimen / charset -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">04.2 — Specimen</div>
+      <div class="head-text">
+        <h2>Character set.</h2>
+        <p>OT Sono ships extended Latin and full numerals. Use tabular figures inside data tables and balance lines.</p>
+      </div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-row">
+        <div class="meta">Semibold<span class="scale">600</span></div>
+        <div class="charset" style="font-weight:600;">ABCDEFGHIJKLMNOP<br/>QRSTUVWXYZ<br/>abcdefghijklmnopqrstuvwxyz<br/>0123456789</div>
+      </div>
+      <div class="specimen-row">
+        <div class="meta">Medium<span class="scale">500</span></div>
+        <div class="charset" style="font-weight:500;font-size:18px;">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+      </div>
+      <div class="specimen-row">
+        <div class="meta">Regular<span class="scale">400</span></div>
+        <div class="charset" style="font-weight:400;font-size:18px;">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 !?@#$%&amp;*()[]{} ← → ↑ ↓ ⌘ ⏎</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scale -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">04.3 — Type Scale</div>
+      <div class="head-text">
+        <h2>Sized for legibility.</h2>
+        <p>Eight steps. Use them as-is — don't introduce new sizes.</p>
+      </div>
+    </div>
+    <div class="scale-table">
+      <div class="scale-row head"><div>Token</div><div>Size</div><div>LH</div><div>Sample</div></div>
+      <div class="scale-row"><div class="name">display-1</div><div class="num">112 / 96</div><div class="num">0.96</div><div class="sample" style="font-size:48px;font-weight:600;">All chains. One app.</div></div>
+      <div class="scale-row"><div class="name">display-2</div><div class="num">72 / 64</div><div class="num">1.0</div><div class="sample" style="font-size:36px;font-weight:600;">No bridges. No wraps.</div></div>
+      <div class="scale-row"><div class="name">display-3</div><div class="num">44 / 36</div><div class="num">1.05</div><div class="sample" style="font-size:28px;font-weight:600;">Swap across any chain.</div></div>
+      <div class="scale-row"><div class="name">heading</div><div class="num">22 / 18</div><div class="num">1.3</div><div class="sample" style="font-size:18px;font-weight:500;">Section title</div></div>
+      <div class="scale-row"><div class="name">lead</div><div class="num">18</div><div class="num">1.55</div><div class="sample" style="font-size:16px;font-weight:400;">Swap, earn and spend across every chain.</div></div>
+      <div class="scale-row"><div class="name">body</div><div class="num">14</div><div class="num">1.6</div><div class="sample" style="font-size:14px;font-weight:400;">Body copy at fourteen points.</div></div>
+      <div class="scale-row"><div class="name">caption</div><div class="num">12</div><div class="num">1.5</div><div class="sample" style="font-size:12px;color:var(--ink-soft);font-weight:400;">Captions and metadata.</div></div>
+      <div class="scale-row"><div class="name">eyebrow</div><div class="num">11</div><div class="num">1.4</div><div class="sample" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-mute);font-weight:500;">Eyebrow Label</div></div>
+    </div>
+  </section>
+
+  <!-- Pairing — same family, different weights -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">04.4 — Voice in use</div>
+      <div class="head-text">
+        <h2>Weight does the work.</h2>
+        <p>Without a second face, hierarchy comes from weight, size, and tracking. Lead with Semibold; let Regular carry the rest.</p>
+      </div>
+    </div>
+    <div class="pairing">
+      <div class="ex">
+        <h4>Marketing — Hero</h4>
+        <div>
+          <div class="h">All chains. One app.</div>
+          <p class="b">Swap BTC, ETH and SOL natively across chains — no bridges, no wrapped tokens. Self-custodial, multi-chain, and quietly Swiss.</p>
+        </div>
+      </div>
+      <div class="ex">
+        <h4>Editorial — Long form</h4>
+        <div>
+          <div class="h" style="font-size:28px;">The case for autonomy.</div>
+          <p class="b" style="margin-top:24px;">For decades, moving money meant trusting a middleman. Thorwallet flips the contract: the wallet is yours, the keys are yours, the swap is yours — across every chain, with no one in between.</p>
+        </div>
+      </div>
+      <div class="ex">
+        <h4>Product — Balance card</h4>
+        <div>
+          <div class="b" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-mute);">Total balance</div>
+          <div class="h" style="font-weight:600;font-size:48px;margin-top:8px;">$ 2'450.00</div>
+          <div class="b" style="color:var(--success);font-weight:500;">+$8.16 this month · ~4% APY</div>
+        </div>
+      </div>
+      <div class="ex">
+        <h4>Documentation</h4>
+        <div>
+          <div class="b" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-mute);">Endpoint</div>
+          <div class="h" style="font-weight:500;font-size:18px;margin-top:8px;">POST /v1/wallets/swap</div>
+          <p class="b" style="margin-top:16px;">Initiates a cross-chain swap. Returns a transaction hash and the on-chain confirmation status.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- System fonts -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">04.5 — System Fonts</div>
+      <div class="head-text">
+        <h2>When licenses can't follow.</h2>
+        <p>For emails and any context where corporate fonts can't render reliably, substitute Arial. Substitution is a fallback — never a starting point.</p>
+      </div>
+    </div>
+    <div class="substitution">
+      <div class="row">
+        <div class="lbl">OT Sono Medium</div>
+        <div class="from" style="font-weight:500;">All chains. All yield.</div>
+        <div class="lbl">Arial Bold <span class="arrow">←</span></div>
+        <div class="to">All chains. All yield.</div>
+      </div>
+      <div class="row">
+        <div class="lbl">OT Sono Regular</div>
+        <div class="from" style="font-weight:400;">Swap without bridges.</div>
+        <div class="lbl">Arial Regular <span class="arrow">←</span></div>
+        <div class="to" style="font-weight:400;">Swap without bridges.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Licensing -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">04.6 — Licensing</div>
+      <div class="head-text">
+        <h2>Buy once, share within.</h2>
+        <p>OT Sono is licensed for desktop, web and app use. Don't re-host the font files outside of approved repositories.</p>
+      </div>
+    </div>
+    <div class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+      <div>
+        <div class="eyebrow">Corporate font</div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:32px;letter-spacing:-0.02em;margin:8px 0 16px;color:var(--ink);">OT Sono</h3>
+        <p class="body">Foundry: Oh no Type Co.<br/>Weights licensed: Regular 400, Medium 500, Semibold 600.</p>
+        <p class="caption" style="margin-top:12px;">License: Desktop + Web + App</p>
+      </div>
+      <div>
+        <div class="eyebrow">Roles</div>
+        <ul style="list-style:none;padding:0;margin:8px 0 0;font-family:var(--font-sono);font-size:13px;line-height:1.9;color:var(--ink-2);">
+          <li><strong style="font-weight:600;color:var(--ink);">Semibold</strong> — Display, headlines, wordmark.</li>
+          <li><strong style="font-weight:500;color:var(--ink);">Medium</strong> — Subtitles, overtitles, UI labels.</li>
+          <li>Regular — Body, leads, captions, quotes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+</body>
+</html>

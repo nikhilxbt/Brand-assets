@@ -1,0 +1,59 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/card", "destination": "/cards", "permanent": true },
+    { "source": "/cards-page", "destination": "/cards", "permanent": true },
+    { "source": "/token", "destination": "/titn", "permanent": true },
+    { "source": "/tgt", "destination": "/titn", "permanent": true },
+    { "source": "/titn-token", "destination": "/titn", "permanent": true },
+    { "source": "/staking", "destination": "/titn", "permanent": true },
+    { "source": "/privacy", "destination": "/privacy-policy", "permanent": true },
+    { "source": "/privacy_policy", "destination": "/privacy-policy", "permanent": true },
+    { "source": "/terms-of-service", "destination": "/terms", "permanent": true },
+    { "source": "/terms-and-conditions", "destination": "/terms", "permanent": true },
+    { "source": "/career", "destination": "/careers", "permanent": true },
+    { "source": "/jobs", "destination": "/careers", "permanent": true },
+    { "source": "/press", "destination": "/brand", "permanent": true },
+    { "source": "/media", "destination": "/brand", "permanent": true },
+    { "source": "/brand-kit", "destination": "/brand", "permanent": true },
+    { "source": "/faq", "destination": "https://faqs.thorwallet.org/", "permanent": true },
+    { "source": "/faqs", "destination": "https://faqs.thorwallet.org/", "permanent": true },
+    { "source": "/support", "destination": "https://faqs.thorwallet.org/", "permanent": true },
+    { "source": "/app", "destination": "https://app.thorwallet.org/", "permanent": true },
+    { "source": "/web", "destination": "https://app.thorwallet.org/", "permanent": true },
+    { "source": "/blog/:path+", "destination": "/blog", "permanent": true },
+    { "source": "/post/:path+", "destination": "/blog", "permanent": true },
+    { "source": "/news/:path+", "destination": "/blog", "permanent": true },
+    { "source": "/de/:path*", "destination": "/", "permanent": true },
+    { "source": "/es/:path*", "destination": "/", "permanent": true },
+    { "source": "/fr/:path*", "destination": "/", "permanent": true },
+    { "source": "/pt/:path*", "destination": "/", "permanent": true },
+    { "source": "/ru/:path*", "destination": "/", "permanent": true },
+    { "source": "/zh/:path*", "destination": "/", "permanent": true },
+    { "source": "/ko/:path*", "destination": "/", "permanent": true },
+    { "source": "/nl/:path*", "destination": "/", "permanent": true },
+    { "source": "/uk/:path*", "destination": "/", "permanent": true }
+  ]
+}

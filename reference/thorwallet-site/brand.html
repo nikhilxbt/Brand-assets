@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>try{var t=localStorage.getItem("tw-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brand Kit — THORWallet</title>
+<meta name="description" content="Official THORWallet logos, $TITN token icon, colors and typography. Download brand assets and use them correctly." />
+<link rel="stylesheet" href="site.css" />
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo-white.png" />
+<meta name="ext-resource-dependency" content="assets/thorwallet-lockup-gradient.png" />
+<meta name="ext-resource-dependency" content="assets/thorwallet-lockup-darktext.png" />
+<link rel="canonical" href="https://www.thorwallet.org/brand.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0A1A2B" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="THORWallet" />
+<meta property="og:title" content="Brand Kit — Logos, $TITN Token Icon, Colors | THORWallet" />
+<meta property="og:description" content="Official THORWallet logos, the $TITN token icon, brand colors and typography. Download assets and use them correctly." />
+<meta property="og:url" content="https://www.thorwallet.org/brand.html" />
+<meta property="og:image" content="https://www.thorwallet.org/assets/og/og-brand.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thorwallet" />
+<meta name="twitter:title" content="Brand Kit — Logos, $TITN Token Icon, Colors | THORWallet" />
+<meta name="twitter:description" content="Official THORWallet logos, the $TITN token icon, brand colors and typography. Download assets and use them correctly." />
+<meta name="twitter:image" content="https://www.thorwallet.org/assets/og/og-brand.png" />
+<style>
+  .bk-section { padding-block: clamp(48px, 7vw, 96px); border-top: 1px solid var(--hairline); }
+  .bk-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
+  .bk-head h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 2.2rem); letter-spacing: -0.02em; color: var(--text-hi); }
+  .bk-head .eyebrow { display: block; margin-bottom: 12px; }
+  .bk-head p { color: var(--text-low); font-size: 0.95rem; max-width: 52ch; margin-top: 8px; }
+
+  /* logo cards */
+  .bk-logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .bk-card { border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; background: var(--surface); display: flex; flex-direction: column; }
+  .bk-stage { aspect-ratio: 16 / 8; display: grid; place-items: center; padding: 32px; position: relative; }
+  .bk-stage.on-dark { background: radial-gradient(120% 120% at 50% 0%, #11283d, #0a1a2b); }
+  .bk-stage.on-light { background: #f4f7fa; }
+  .bk-stage.on-grad { background: var(--signal); }
+  .bk-stage img { max-width: min(72%, 340px); max-height: 96px; width: auto; height: auto; object-fit: contain; }
+  .bk-stage .mark-sm { max-height: 84px; }
+  .bk-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-top: 1px solid var(--hairline); }
+  .bk-meta .bk-name { font-size: 0.9rem; color: var(--text-mid); font-weight: 500; }
+  .bk-dl { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-solid); border: 1px solid var(--hairline-strong); border-radius: var(--r-pill); padding: 7px 13px; transition: background var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease); }
+  .bk-dl:hover { background: var(--surface-2); border-color: var(--accent-line); }
+  .bk-dl svg { width: 13px; height: 13px; }
+
+  /* token + icon row */
+  .bk-icons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .bk-icon-card { border: 1px solid var(--hairline); border-radius: var(--r-lg); background: var(--surface); padding: 28px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+  .bk-token { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(120% 120% at 50% 0%, #11283d, #060f18); border: 1px solid var(--hairline-strong); box-shadow: 0 0 36px -8px var(--accent-glow); }
+  .bk-token img { width: 52px; height: auto; }
+  .bk-rounded { width: 96px; height: 96px; border-radius: 24px; display: grid; place-items: center; background: #060f18; border: 1px solid var(--hairline-strong); }
+  .bk-rounded img { width: 54px; }
+  .bk-icon-card .bk-name { font-size: 0.95rem; color: var(--text-hi); font-weight: 600; }
+  .bk-icon-card .bk-sub { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-low); margin-top: -8px; }
+
+  /* colors */
+  .bk-colors { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .bk-swatch { border: 1px solid var(--hairline); border-radius: var(--r-md); overflow: hidden; cursor: pointer; background: var(--surface); transition: transform var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease); text-align: left; padding: 0; font: inherit; }
+  .bk-swatch:hover { transform: translateY(-3px); border-color: var(--accent-line); }
+  .bk-chip { height: 84px; }
+  .bk-swatch-body { padding: 12px 14px; }
+  .bk-swatch .nm { font-size: 0.84rem; color: var(--text-hi); font-weight: 500; }
+  .bk-swatch .hx { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-low); display: flex; align-items: center; gap: 6px; margin-top: 3px; }
+  .bk-swatch .hx .copied { color: var(--accent-solid); }
+
+  /* type */
+  .bk-type { border: 1px solid var(--hairline); border-radius: var(--r-lg); background: var(--surface); padding: clamp(28px, 4vw, 48px); }
+  .bk-type .aa { font-family: var(--font-display); font-weight: 600; font-size: clamp(5rem, 14vw, 10rem); line-height: 0.9; letter-spacing: -0.04em; background: var(--signal); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bk-type .name { font-family: var(--font-display); font-size: 1.3rem; color: var(--text-hi); margin-top: 10px; }
+  .bk-type .glyphs { font-family: var(--font-display); color: var(--text-mid); font-size: 1.4rem; letter-spacing: 0.02em; margin-top: 18px; border-top: 1px solid var(--hairline); padding-top: 18px; word-break: break-word; }
+  .bk-weights { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 18px; }
+  .bk-weights span { color: var(--text-mid); font-size: 1.05rem; }
+  .bk-weights .w4 { font-weight: 400; } .bk-weights .w5 { font-weight: 500; } .bk-weights .w6 { font-weight: 600; }
+
+  /* boilerplate */
+  .bk-boiler { border: 1px solid var(--hairline); border-radius: var(--r-lg); background: var(--surface); padding: clamp(24px, 3vw, 36px); position: relative; }
+  .bk-boiler p { color: var(--text-mid); line-height: 1.6; max-width: 70ch; }
+  .bk-boiler p + p { margin-top: 12px; }
+  .bk-copy { margin-top: 20px; }
+  .bk-note { font-size: var(--fs-cap); color: var(--text-low); margin-top: 18px; }
+
+  .bk-toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px); background: var(--bg-elev-1); border: 1px solid var(--accent-line); color: var(--text-hi); font-size: 0.9rem; padding: 12px 20px; border-radius: var(--r-pill); box-shadow: var(--shadow-ambient); opacity: 0; pointer-events: none; transition: opacity .25s var(--ease), transform .25s var(--ease); z-index: 300; }
+  .bk-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 760px) {
+    .bk-logos { grid-template-columns: 1fr; }
+    .bk-icons { grid-template-columns: 1fr; }
+    .bk-colors { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<!-- Analytics: consent-gated, loaded by consent.js -->
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" rx="20" fill="#0A1A2B"/>
+    <defs>
+      <linearGradient id="tw-g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#00CCFF"/>
+        <stop offset="1" stop-color="#33FF99"/>
+      </linearGradient>
+    </defs>
+    <path d="M52 30 L42 41 a1 1 0 0 0 .6 1.7 L65 47 a1 1 0 0 0 1-1.4 Z M42 41 L29 70 a1 1 0 0 0 1.5 1.2 L52 60 a1 1 0 0 0 .5-1.3 Z" fill="url(#tw-g)"/>
+  </svg>
+</template>
+<main>
+  <section class="subhero">
+    <div class="container">
+      <span class="eyebrow reveal">Brand Kit</span>
+      <h1 class="display reveal" data-delay="1">Use the brand,<br/><span class="outline-accent">the right way.</span></h1>
+      <p class="lead reveal" data-delay="2">Official THORWallet logos, the $TITN token icon, colors and typography. Please keep the mark intact, respect clear-space, and don't recolor or stretch it.</p>
+      <div class="cta-row reveal" data-delay="3" style="display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;">
+        <button type="button" class="btn btn-accent" id="dl-all">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download all assets
+        </button>
+        <a class="btn btn-ghost" href="mailto:info@thorwallet.org?subject=Brand%20%26%20press%20enquiry">Press &amp; partnerships</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <section class="bk-section">
+    <div class="container">
+      <div class="bk-head reveal">
+        <div><span class="eyebrow">Logo</span><h2>The mark &amp; wordmark.</h2><p>The gradient is the signature. On busy or light backgrounds, use the solid white version.</p></div>
+      </div>
+      <div class="bk-logos">
+        <div class="bk-card reveal">
+          <div class="bk-stage on-dark"><img src="assets/thorwallet-lockup-gradient.png" alt="THORWallet gradient logo on dark" /></div>
+          <div class="bk-meta"><span class="bk-name">Primary · gradient on dark</span><a class="bk-dl" href="assets/thorwallet-lockup-gradient.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>PNG</a></div>
+        </div>
+        <div class="bk-card reveal" data-delay="1">
+          <div class="bk-stage on-light"><img src="assets/thorwallet-lockup-darktext.png" alt="THORWallet gradient logo on light" /></div>
+          <div class="bk-meta"><span class="bk-name">Gradient on light</span><a class="bk-dl" href="assets/thorwallet-lockup-darktext.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>PNG</a></div>
+        </div>
+        <div class="bk-card reveal">
+          <div class="bk-stage on-dark"><img data-logo-white="1" src="assets/thorwallet-logo-white.png" alt="THORWallet white logo" /></div>
+          <div class="bk-meta"><span class="bk-name">Mono · white</span><a class="bk-dl" href="assets/thorwallet-logo-white.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>PNG</a></div>
+        </div>
+        <div class="bk-card reveal" data-delay="1">
+          <div class="bk-stage on-grad"><img class="mark-sm" src="assets/thorwallet-logo-white.png" alt="THORWallet white logo on gradient" /></div>
+          <div class="bk-meta"><span class="bk-name">White on signal gradient</span><a class="bk-dl" href="assets/thorwallet-logo-white.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>PNG</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ICON + TOKEN -->
+  <section class="bk-section">
+    <div class="container">
+      <div class="bk-head reveal"><div><span class="eyebrow">App icon &amp; token</span><h2>The chevron mark.</h2><p>Use the mark on its own as the app icon or the $TITN token symbol. Keep it centered with even padding.</p></div></div>
+      <div class="bk-icons">
+        <div class="bk-icon-card reveal">
+          <div class="bk-token"><img src="assets/titn-token.webp" alt="$TITN token logo" style="width:auto; height:70px;" /></div>
+          <div><div class="bk-name">$TITN token</div><div class="bk-sub">Network · Base</div></div>
+          <a class="bk-dl" href="assets/titn-token.webp" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>PNG</a>
+        </div>
+        <div class="bk-icon-card reveal" data-delay="1">
+          <div class="bk-rounded"><img src="assets/thorwallet-mark.png" alt="THORWallet app icon" /></div>
+          <div><div class="bk-name">App icon</div><div class="bk-sub">Gradient mark</div></div>
+          <a class="bk-dl" href="assets/thorwallet-mark.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>PNG</a>
+        </div>
+        <div class="bk-icon-card reveal" data-delay="2">
+          <div class="bk-rounded" style="background:#142A40;"><img src="assets/thorwallet-mark-white.png" alt="THORWallet white mark" /></div>
+          <div><div class="bk-name">Mark · white</div><div class="bk-sub">Mono</div></div>
+          <a class="bk-dl" href="assets/thorwallet-mark-white.png" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>PNG</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLORS -->
+  <section class="bk-section">
+    <div class="container">
+      <div class="bk-head reveal"><div><span class="eyebrow">Color</span><h2>Palette.</h2><p>Click any swatch to copy its hex. The cyan→green signal is the brand light source — use it sparingly for emphasis.</p></div></div>
+      <div class="bk-colors" id="swatches">
+        <button class="bk-swatch reveal" data-hex="#0A1A2B"><div class="bk-chip" style="background:#0A1A2B"></div><div class="bk-swatch-body"><div class="nm">Canvas Navy</div><div class="hx"><span class="val">#0A1A2B</span></div></div></button>
+        <button class="bk-swatch reveal" data-hex="#142A40"><div class="bk-chip" style="background:#142A40"></div><div class="bk-swatch-body"><div class="nm">Surface</div><div class="hx"><span class="val">#142A40</span></div></div></button>
+        <button class="bk-swatch reveal" data-hex="#00CCFF"><div class="bk-chip" style="background:#00CCFF"></div><div class="bk-swatch-body"><div class="nm">Signal Cyan</div><div class="hx"><span class="val">#00CCFF</span></div></div></button>
+        <button class="bk-swatch reveal" data-hex="#33FF99"><div class="bk-chip" style="background:#33FF99"></div><div class="bk-swatch-body"><div class="nm">Signal Green</div><div class="hx"><span class="val">#33FF99</span></div></div></button>
+        <button class="bk-swatch reveal" data-hex="#1FD9A6"><div class="bk-chip" style="background:#1FD9A6"></div><div class="bk-swatch-body"><div class="nm">Accent Solid</div><div class="hx"><span class="val">#1FD9A6</span></div></div></button>
+        <button class="bk-swatch reveal" data-hex="#2A6BF2"><div class="bk-chip" style="background:#2A6BF2"></div><div class="bk-swatch-body"><div class="nm">Royal Blue</div><div class="hx"><span class="val">#2A6BF2</span></div></div></button>
+        <button class="bk-swatch reveal" data-hex="linear-gradient(120deg,#00CCFF,#19DAC8,#33FF99)"><div class="bk-chip" style="background:linear-gradient(120deg,#00CCFF,#19DAC8,#33FF99)"></div><div class="bk-swatch-body"><div class="nm">Signal Gradient</div><div class="hx"><span class="val">120° · cyan → green</span></div></div></button>
+        <button class="bk-swatch reveal" data-hex="#FFFFFF"><div class="bk-chip" style="background:#FFFFFF"></div><div class="bk-swatch-body"><div class="nm">Text Hi</div><div class="hx"><span class="val">#FFFFFF</span></div></div></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPE -->
+  <section class="bk-section">
+    <div class="container">
+      <div class="bk-head reveal"><div><span class="eyebrow">Typography</span><h2>OT Sono.</h2><p>One typeface across the brand — used at 400 / 500 / 600. Tight tracking on display sizes.</p></div></div>
+      <div class="bk-type reveal">
+        <div class="aa">Aa</div>
+        <div class="name">OT Sono · Display &amp; Text</div>
+        <div class="bk-weights"><span class="w4">Regular 400</span><span class="w5">Medium 500</span><span class="w6">SemiBold 600</span></div>
+        <div class="glyphs">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 $ % → ·</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOILERPLATE -->
+  <section class="bk-section">
+    <div class="container">
+      <div class="bk-head reveal"><div><span class="eyebrow">Boilerplate</span><h2>About, in one line.</h2><p>Approved description for listings and press. Copy and paste.</p></div></div>
+      <div class="bk-boiler reveal">
+        <p id="boiler">THORWallet is a self-custody, multi-chain DeFi superapp - more cross-chain swap routes than any wallet in crypto, a Swiss account and global Mastercard, yield, and multisig vaults. All chains. All yield. One app. Your keys never leave your device.</p>
+        <button type="button" class="btn btn-ghost btn-sm bk-copy" id="copy-boiler">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          Copy boilerplate
+        </button>
+        <p class="bk-note">For the $TITN contract address, official links and additional formats (SVG), contact <a href="mailto:info@thorwallet.org" style="color:var(--accent-solid);">info@thorwallet.org</a>. $TITN is a utility token, not an investment.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="bk-toast" id="toast">Copied</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="site-nav.js"></script>
+<script src="i18n-data.js"></script>
+<script src="i18n-data2.js"></script>
+<script src="i18n-data3.js"></script>
+<script src="i18n-data4.js"></script>
+<script src="i18n-data5.js"></script>
+<script src="i18n-data6.js"></script>
+<script src="i18n-data7.js"></script>
+<script src="i18n-data8.js"></script>
+<script src="i18n.js"></script>
+<script src="consent.js"></script>
+<script src="site.js"></script>
+<script>
+(function () {
+  var toast = document.getElementById("toast"), tT;
+  function ping(msg) { toast.textContent = msg || "Copied"; toast.classList.add("show"); clearTimeout(tT); tT = setTimeout(function () { toast.classList.remove("show"); }, 1400); }
+  function copy(text, msg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function(){ping(msg);}, function(){fallback(text);ping(msg);}); }
+    else { fallback(text); ping(msg); }
+  }
+  function fallback(text){ var ta=document.createElement("textarea"); ta.value=text; ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select(); try{document.execCommand("copy");}catch(e){} document.body.removeChild(ta); }
+
+  document.getElementById("swatches").addEventListener("click", function (e) {
+    var s = e.target.closest(".bk-swatch"); if (!s) return;
+    var hex = s.getAttribute("data-hex");
+    copy(hex, "Copied " + hex);
+    var v = s.querySelector(".val"), old = v.textContent;
+    v.innerHTML = '<span class="copied">Copied ✓</span>'; setTimeout(function(){ v.textContent = old; }, 1200);
+  });
+
+  var cb = document.getElementById("copy-boiler");
+  if (cb) cb.addEventListener("click", function(){ copy(document.getElementById("boiler").textContent.trim(), "Boilerplate copied"); });
+
+  var ASSETS = [
+    "assets/thorwallet-lockup-gradient.png",
+    "assets/thorwallet-logo-white.png",
+    "assets/thorwallet-mark.png",
+    "assets/thorwallet-mark-white.png"
+  ];
+  var COLORS = "THORWallet — Colors\\n\\nCanvas Navy   #0A1A2B\\nSurface       #142A40\\nSignal Cyan   #00CCFF\\nSignal Green  #33FF99\\nAccent Solid  #1FD9A6\\nRoyal Blue    #2A6BF2\\nText Hi       #FFFFFF\\nSignal Gradient  linear-gradient(120deg, #00CCFF, #19DAC8, #33FF99)\\n";
+  var BOILER = document.getElementById("boiler").textContent.trim();
+
+  var dlAll = document.getElementById("dl-all");
+  dlAll.addEventListener("click", function () {
+    if (!window.JSZip) { ASSETS.forEach(function (u) { var a = document.createElement("a"); a.href = u; a.download = ""; document.body.appendChild(a); a.click(); a.remove(); }); return; }
+    ping("Preparing zip…");
+    var zip = new JSZip(), folder = zip.folder("THORWallet-Brand-Kit");
+    folder.file("colors.txt", COLORS.replace(/\\n/g, "\n"));
+    folder.file("boilerplate.txt", BOILER);
+    Promise.all(ASSETS.map(function (u) {
+      return fetch(u).then(function (r) { return r.blob(); }).then(function (b) { folder.file("logos/" + u.split("/").pop(), b); }).catch(function(){});
+    })).then(function () {
+      return zip.generateAsync({ type: "blob" });
+    }).then(function (blob) {
+      var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "THORWallet-Brand-Kit.zip"; document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1000); ping("Downloaded");
+    }).catch(function(){ ping("Download failed"); });
+  });
+})();
+</script>
+<script>
+(function () {
+  // After site-nav.js injects the nav/footer (which hardcode a relative logo path),
+  // copy the src of an in-page white logo onto them. In the standalone bundle that
+  // src is an inlined data URI; on the live site it is the normal relative path.
+  function syncLogos() {
+    var ref = document.querySelector('img[data-logo-white]');
+    if (!ref) return;
+    var src = ref.currentSrc || ref.src;
+    if (!src) return;
+    var targets = document.querySelectorAll('.nav-logo img, .footer-brand img');
+    for (var i = 0; i < targets.length; i++) {
+      if ((targets[i].getAttribute('src') || '').indexOf('data:') !== 0) targets[i].src = src;
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncLogos);
+  else syncLogos();
+  window.addEventListener('load', syncLogos);
+})();
+</script>
+<script src="theme.js"></script>
+</body>
+</html>

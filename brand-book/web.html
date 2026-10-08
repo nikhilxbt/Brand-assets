@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Web System — Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* spec table */
+  .spec-table { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+  .spec-table .row { display: grid; grid-template-columns: 180px 1fr; padding: 13px 20px; border-bottom: 1px solid var(--line); font-family: var(--font-sono); font-size: 13px; color: var(--ink-2); }
+  .spec-table .row:last-child { border-bottom: 0; }
+  .spec-table .row span:first-child { color: var(--ink-mute); }
+  @media (max-width: 600px) { .spec-table .row { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* demo surface */
+  .demo { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 44px 36px; position: relative; overflow: hidden; }
+  .demo + .spec-table, .demo + .donts { margin-top: 24px; }
+  .demo-tag { position: absolute; top: 18px; right: 22px; font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); }
+
+  /* outline-accent keyword demo */
+  .kw-head { font-family: var(--font-display); font-weight: 600; font-size: clamp(34px, 5.4vw, 76px); line-height: 1.0; letter-spacing: -0.035em; color: var(--ink); margin: 0; }
+  .kw-out { color: transparent; -webkit-text-stroke: 1.6px var(--signal-start); }
+  .kw-grad { background: var(--signal); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* mini phone */
+  .mini-phone { width: 100%; max-width: 230px; aspect-ratio: 1320/2868; border-radius: 12% / 5.4%; background: #05101A; border: 1px solid var(--line-strong); padding: 6px; }
+  .mini-phone .inner { width: 100%; height: 100%; border-radius: 9% / 4.6%; overflow: hidden; background: radial-gradient(circle at 50% 30%, #13303F, #08141D 72%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .mini-phone .inner img { width: 36%; max-width: 96px; }
+  .mini-phone .inner .lbl { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* two-col spec layout */
+  .splitcol { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 820px) { .splitcol { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* swatch row for themes */
+  .theme-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .theme-demo { grid-template-columns: 1fr; } }
+  .theme-card { border-radius: var(--r-md); border: 1px solid var(--line); overflow: hidden; }
+  .theme-card .bar { padding: 14px 18px; font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .theme-card .stage { padding: 30px 24px; display: flex; flex-direction: column; gap: 14px; }
+  .tc-dark { background: #0A1A2B; }
+  .tc-dark .bar { color: #8A9DB0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .tc-dark .h { font-family: var(--font-display); font-weight: 600; font-size: 26px; letter-spacing: -0.03em; color: #fff; }
+  .tc-dark .h .o { color: transparent; -webkit-text-stroke: 1.4px #00CCFF; }
+  .tc-dark .p { font-family: var(--font-sono); font-size: 12px; color: #C5D2DE; }
+  .tc-dark .chip { align-self: flex-start; padding: 9px 16px; border-radius: 999px; background: #2A6BF2; color: #fff; font-size: 12px; font-family: var(--font-sono); }
+  .tc-light { background: #FFFFFF; }
+  .tc-light .bar { color: #6A8198; border-bottom: 1px solid rgba(10,26,43,0.10); }
+  .tc-light .h { font-family: var(--font-display); font-weight: 600; font-size: 26px; letter-spacing: -0.03em; color: #0A1A2B; }
+  .tc-light .h .o { color: transparent; -webkit-text-stroke: 1.4px #0094C6; }
+  .tc-light .p { font-family: var(--font-sono); font-size: 12px; color: #3A5168; }
+  .tc-light .chip { align-self: flex-start; padding: 9px 16px; border-radius: 999px; background: #2A6BF2; color: #fff; font-size: 12px; font-family: var(--font-sono); }
+
+  /* token grid */
+  .tok-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+  @media (max-width: 720px) { .tok-grid { grid-template-columns: 1fr; } }
+  .tok { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm); font-family: var(--font-sono); font-size: 12px; color: var(--ink-2); }
+  .tok .sw { width: 30px; height: 30px; border-radius: 7px; border: 1px solid var(--line-strong); flex-shrink: 0; }
+  .tok b { color: var(--ink); font-weight: 600; }
+  .tok .hex { margin-left: auto; color: var(--ink-mute); }
+
+  /* rate table demo */
+  .rt { width: 100%; border-collapse: separate; border-spacing: 0; }
+  .rt th, .rt td { padding: 13px 18px; text-align: right; border-bottom: 1px solid var(--line); font-size: 13px; }
+  .rt th:first-child, .rt td:first-child { text-align: left; }
+  .rt tr:last-child td { border-bottom: 0; }
+  .rt thead th { background: var(--surface-2); font-family: var(--font-sono); font-weight: 600; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); }
+  .rt thead th:last-child { color: var(--green); }
+  .rt td { color: var(--ink-2); font-family: var(--font-sono); }
+  .rt td:first-child { color: var(--ink); }
+  .rt .s { color: var(--ink); }
+
+  /* faq demo */
+  .faqd { border-top: 1px solid var(--line); }
+  .faqd .q { display: flex; justify-content: space-between; align-items: center; padding: 18px 4px; border-bottom: 1px solid var(--line); font-family: var(--font-display); font-weight: 500; font-size: 17px; color: var(--ink); }
+  .faqd .q .pm { color: var(--green); font-size: 20px; }
+
+  /* CTA demo */
+  .btn-primary-demo { display: inline-block; padding: 14px 26px; border-radius: 999px; background: var(--blue); color: #fff; font-family: var(--font-sono); font-weight: 600; font-size: 14px; text-decoration: none; border: 0; }
+  .btn-accent-demo { display: inline-block; padding: 14px 26px; border-radius: 999px; background: var(--signal); color: #06222B; font-family: var(--font-sono); font-weight: 600; font-size: 14px; text-decoration: none; }
+  .btn-ghost-demo { display: inline-block; padding: 14px 26px; border-radius: 999px; background: transparent; color: var(--ink); border: 1px solid var(--line-strong); font-family: var(--font-sono); font-weight: 600; font-size: 14px; text-decoration: none; }
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="08 · Web System"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta"><span>08 · Web System</span><span>New Brand Guidelines · v0.2 · 2026</span></div>
+    <div class="title">
+      <div class="eyebrow">Web System</div>
+      <h1 class="display-1">The website,<br/>spec'd.</h1>
+      <p class="lead">The living system behind <strong>thorwallet.org</strong> — the outline-accent headline, the scroll-driven device hero, the frosted mega-menu, editorial plan cards, rate tables, the FAQ pattern, dual light/dark themes, and the social &amp; SEO layer. This is the source of truth for every marketing build.</p>
+    </div>
+  </header>
+
+  <!-- 08.1 Outline-accent keyword -->
+  <section class="section" data-screen-label="Outline keyword">
+    <div class="section-head">
+      <div class="num">08.1 — Signature headline</div>
+      <div class="head-text">
+        <h2>The outline-accent keyword.</h2>
+        <p>Every section headline is white ink with <strong>one keyword</strong> carrying the brand. On dark surfaces the keyword is a cyan-stroked <em>outline</em>; on mobile (and any small/busy context) it switches to a solid signal-gradient <em>fill</em> for legibility. One accented keyword per headline — never two.</p>
+      </div>
+    </div>
+    <div class="demo">
+      <span class="demo-tag">Desktop · outline</span>
+      <p class="kw-head">The best crypto wallet for <span class="kw-out">Swaps &amp; DeFi.</span></p>
+      <p class="kw-head" style="margin-top:28px;">Accepted in <span class="kw-out">175+ countries.</span></p>
+    </div>
+    <div class="demo" style="margin-top:24px;">
+      <span class="demo-tag">Mobile · gradient fill</span>
+      <p class="kw-head">The best crypto wallet for <span class="kw-grad">Swaps &amp; DeFi.</span></p>
+    </div>
+    <div class="spec-table" style="margin-top:24px;">
+      <div class="row"><span>Base ink</span><span>White (#FFFFFF dark) / Navy (#0A1A2B light)</span></div>
+      <div class="row"><span>Keyword — dark</span><span>Outline, 1.6px stroke in Signal Cyan #00CCFF, transparent fill</span></div>
+      <div class="row"><span>Keyword — mobile / light</span><span>Solid signal gradient, background-clip: text</span></div>
+      <div class="row"><span>Type</span><span>OT Sono 600 · -0.035em tracking · line 1.0</span></div>
+      <div class="row"><span>Rule</span><span>Exactly one accented keyword per headline</span></div>
+    </div>
+  </section>
+
+  <!-- 08.2 Hero & device -->
+  <section class="section" data-screen-label="Hero device">
+    <div class="section-head">
+      <div class="num">08.2 — Hero &amp; the device</div>
+      <div class="head-text">
+        <h2>A phone that moves with the scroll.</h2>
+        <p>The homepage hero centres the gradient lockup, the outline headline and the download CTAs over a <strong>scroll-driven device animation</strong>. As the user scrolls, the phone scrubs through a frame sequence while short lines fly in — "Swap across every chain", then "Your money. Always."</p>
+      </div>
+    </div>
+    <div class="splitcol">
+      <div class="mini-phone"><div class="inner"><img src="assets/thorwallet-mark.png" alt="" /><span class="lbl">App screen</span></div></div>
+      <div>
+        <div class="spec-table">
+          <div class="row"><span>Desktop</span><span>Landscape frame sequence, pinned, scrubbed to scroll progress</span></div>
+          <div class="row"><span>Mobile / iPad</span><span>Portrait sequence; phone peeks from the bottom, scrubs upward</span></div>
+          <div class="row"><span>Text</span><span>Lede + 2 fly-in panels, opacity/translate keyed to scroll</span></div>
+          <div class="row"><span>Reduced motion</span><span>Jumps to final frame — no scrubbing</span></div>
+          <div class="row"><span>Device chrome</span><span>Silent — no notch, glare, tilt or perspective skew</span></div>
+        </div>
+        <p class="body" style="margin-top:18px;">The device is the imagery. Keep it centred and upright; let the screen do the work. Never composite it onto stock photography or rotate it.</p>
+      </div>
+    </div>
+  <!-- 08.3 Navigation -->
+  <section class="section" data-screen-label="Navigation">
+    <div class="section-head">
+      <div class="num">08.3 — Navigation</div>
+      <div class="head-text">
+        <h2>Frosted bar, mega-menu.</h2>
+        <p>A sticky, frosted navigation bar (navy at ~78% with a blur) holds the lockup, a <strong>Features</strong> mega-menu, the language picker, the theme toggle and the actions. On mobile it collapses to lockup + hamburger; everything else moves into a scrollable sheet.</p>
+      </div>
+    </div>
+    <div class="splitcol">
+      <div>
+        <div class="eyebrow" style="margin-bottom:14px;">Features mega-menu — 3 columns</div>
+        <div class="spec-table">
+          <div class="row"><span>Trade</span><span>Swap · Multisig · Limit Orders · Stocks · Earn</span></div>
+          <div class="row"><span>Grow &amp; secure</span><span>Card &amp; Swiss account · $TITN · Rewards</span></div>
+          <div class="row"><span>For Whales &amp; Degens</span><span>Multisig vaults, 20k+ tokens, your keys</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:14px;">Bar contents &amp; behaviour</div>
+        <div class="spec-table">
+          <div class="row"><span>Background</span><span>rgba(10,26,43,0.78) · blur(20px) saturate(140%)</span></div>
+          <div class="row"><span>Left</span><span>Gradient lockup (flips to black ink in light theme)</span></div>
+          <div class="row"><span>Right</span><span>Theme toggle · Language · Web App (ghost) · Download (primary)</span></div>
+          <div class="row"><span>Mobile</span><span>Lockup + hamburger → scrollable sheet with all items</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08.4 Editorial tier cards -->
+  <section class="section" data-screen-label="Tier cards">
+    <div class="section-head">
+      <div class="num">08.4 — Plan &amp; tier cards</div>
+      <div class="head-text">
+        <h2>The editorial tier card.</h2>
+        <p>Card plans and $TITN tiers share one editorial card: a mono tier eyebrow (<em>01 / Tier</em>), a large display name paired with the physical card render, a signal-gradient price, label↔value rows, and an expandable "See all benefits &amp; fees". The featured tier carries a <strong>Most popular</strong> ribbon. On the $TITN page the three cards fan out on scroll.</p>
+      </div>
+    </div>
+    <div class="splitcol">
+      <div class="demo" style="padding:32px 28px;">
+        <span class="demo-tag">02 / Tier</span>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <h3 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:34px;letter-spacing:-0.03em;color:var(--ink);">Premium</h3>
+        </div>
+        <p style="font-family:var(--font-sono);font-size:13px;color:var(--ink-soft);margin:6px 0 18px;">For people who spend.</p>
+        <div style="font-family:var(--font-display);font-weight:600;font-size:40px;letter-spacing:-0.03em;" class="kw-grad">$6.25</div>
+        <div style="font-family:var(--font-sono);font-size:11px;color:var(--ink-mute);margin-bottom:18px;">/ month · billed yearly</div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--font-sono);font-size:13px;padding:8px 0;border-top:1px solid var(--line);"><span style="color:var(--ink-soft);">Cashback</span><span style="color:var(--ink);">Up to 2%</span></div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--font-sono);font-size:13px;padding:8px 0;border-top:1px solid var(--line);"><span style="color:var(--ink-soft);">Monthly limit</span><span style="color:var(--ink);">$125,000</span></div>
+      </div>
+      <div>
+        <div class="spec-table">
+          <div class="row"><span>Eyebrow</span><span>Mono "0n / Tier", uppercase, muted</span></div>
+          <div class="row"><span>Name</span><span>OT Sono 600 display + card render at right</span></div>
+          <div class="row"><span>Price</span><span>Signal-gradient text-clip + mono per-unit caption</span></div>
+          <div class="row"><span>Rows</span><span>label (soft) ↔ value (ink), hairline separated</span></div>
+          <div class="row"><span>Expand</span><span>"See all benefits &amp; fees" reveals secondary rows</span></div>
+          <div class="row"><span>Featured</span><span>Signal-gradient "Most popular" ribbon</span></div>
+          <div class="row"><span>$TITN motion</span><span>Cards fan out from a stacked pile on scroll (GSAP)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08.5 Rate tables -->
+  <section class="section" data-screen-label="Rate tables">
+    <div class="section-head">
+      <div class="num">08.5 — Rate &amp; limit tables</div>
+      <div class="head-text">
+        <h2>Numbers, set with care.</h2>
+        <p>Fees, limits and reward tiers use one table style: uppercase mono headers with the payoff column in signal green, left-aligned labels and <strong>right-aligned monospace, tabular-figure</strong> values, hairline rows and a subtle green row-hover. On mobile each table scrolls horizontally inside its card.</p>
+      </div>
+    </div>
+    <div class="demo" style="padding:0;">
+      <table class="rt">
+        <thead><tr><th>Spend tier</th><th>Monthly spend</th><th>Cashback</th></tr></thead>
+        <tbody>
+          <tr><td>Tier 1</td><td>$0 – $100</td><td class="s">1.0%</td></tr>
+          <tr><td>Tier 2</td><td>$100 – $500</td><td class="s">1.5%</td></tr>
+          <tr><td>Tier 3</td><td>$500 – $1,000</td><td class="s">1.75%</td></tr>
+          <tr><td>Tier 4</td><td>$1,000+</td><td class="s">2.0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 08.6 FAQ -->
+  <section class="section" data-screen-label="FAQ">
+    <div class="section-head">
+      <div class="num">08.6 — FAQ pattern</div>
+      <div class="head-text">
+        <h2>Questions, answered.</h2>
+        <p>FAQs use native <code>&lt;details&gt;</code> accordions — a display-weight question with a signal-green +/× toggle, hairline dividers, and an answer that eases in. Always paired with <strong>FAQPage</strong> structured data so the Q&amp;As are eligible for rich results and cited accurately by AI answer engines.</p>
+      </div>
+    </div>
+    <div class="demo" style="padding:8px 24px;">
+      <div class="faqd" style="border-top:0;">
+        <div class="q">Is the THORWallet card available in my country?<span class="pm">+</span></div>
+        <div class="q">Do I keep self-custody of my crypto?<span class="pm">+</span></div>
+        <div class="q">What are the fees?<span class="pm">+</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08.7 Themes -->
+  <section class="section" data-screen-label="Themes">
+    <div class="section-head">
+      <div class="num">08.7 — Light &amp; dark themes</div>
+      <div class="head-text">
+        <h2>One brand, two modes.</h2>
+        <p>The site ships <strong>dark by default</strong> with an opt-in light theme, toggled from the nav and remembered across visits (an inline script applies it before first paint, so there's no flash). Light is Apple-clean: white canvas, navy ink, a deeper accent and signal-text gradient that stay readable, and monochrome logos flipped to black.</p>
+      </div>
+    </div>
+    <div class="theme-demo">
+      <div class="theme-card tc-dark">
+        <div class="bar">Dark · default</div>
+        <div class="stage"><div class="h">Swap across <span class="o">every chain.</span></div><p class="p">Self-custody · cross-chain swaps.</p><span class="chip">Download</span></div>
+      </div>
+      <div class="theme-card tc-light">
+        <div class="bar">Light · opt-in</div>
+        <div class="stage"><div class="h">Swap across <span class="o">every chain.</span></div><p class="p">Self-custody · cross-chain swaps.</p><span class="chip">Download</span></div>
+      </div>
+    </div>
+    <div class="tok-grid" style="margin-top:24px;">
+      <div class="tok"><span class="sw" style="background:#0A1A2B;"></span><b>Canvas</b><span class="hex">#0A1A2B → #FFFFFF</span></div>
+      <div class="tok"><span class="sw" style="background:#142A40;"></span><b>Surface</b><span class="hex">#142A40 → #F2F6FB</span></div>
+      <div class="tok"><span class="sw" style="background:#FFFFFF;"></span><b>Ink hi</b><span class="hex">#FFFFFF → #0A1A2B</span></div>
+      <div class="tok"><span class="sw" style="background:linear-gradient(120deg,#00CCFF,#33FF99);"></span><b>Signal text</b><span class="hex">bright → deepened</span></div>
+    </div>
+  </section>
+
+  <!-- 08.8 CTAs -->
+  <section class="section" data-screen-label="CTAs">
+    <div class="section-head">
+      <div class="num">08.8 — Buttons &amp; CTAs</div>
+      <div class="head-text">
+        <h2>Three actions, no more.</h2>
+        <p>Primary actions use the <strong>royal-blue</strong> fill (matching the app). The signal gradient is reserved for the occasional hero/"Get started" accent — one per view. Ghost buttons handle secondary actions. All download CTAs — nav, hero, footer — point to the referral link.</p>
+      </div>
+    </div>
+    <div class="demo" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+      <a class="btn-primary-demo" href="#">Download</a>
+      <a class="btn-accent-demo" href="#">Get started</a>
+      <a class="btn-ghost-demo" href="#">Web App</a>
+    </div>
+    <div class="spec-table" style="margin-top:24px;">
+      <div class="row"><span>Primary</span><span>Royal blue #2A6BF2 · white text · pill</span></div>
+      <div class="row"><span>Accent</span><span>Signal gradient · dark ink · one per view max</span></div>
+      <div class="row"><span>Ghost</span><span>Transparent · ink text · hairline border</span></div>
+      <div class="row"><span>Download target</span><span>referral.thorwallet.org/oYHz/website</span></div>
+    </div>
+  </section>
+
+  <!-- 08.9 Social & SEO -->
+  <section class="section" data-screen-label="Social & SEO">
+    <div class="section-head">
+      <div class="num">08.9 — Social &amp; SEO layer</div>
+      <div class="head-text">
+        <h2>How a link looks &amp; ranks.</h2>
+        <p>Every shared link renders a branded <strong>1200×630</strong> card: navy canvas with signal glow, the gradient lockup and outline headline on the left, the teal card render on the right, and the chain-coin row. Under the hood every page carries canonical, Open Graph + Twitter tags and structured data.</p>
+      </div>
+    </div>
+    <div class="splitcol">
+      <div class="demo" style="aspect-ratio:1200/630;display:flex;align-items:center;justify-content:center;padding:0;">
+        <img src="assets/og-cover.png" alt="THORWallet social share image" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:14px;">Structured data per page</div>
+        <div class="spec-table">
+          <div class="row"><span>Organization</span><span>Name, logo, social profiles</span></div>
+          <div class="row"><span>WebSite</span><span>Site identity for search</span></div>
+          <div class="row"><span>SoftwareApplication</span><span>Finance app · iOS/Android/macOS/Web · free</span></div>
+          <div class="row"><span>FAQPage</span><span>Card FAQ → rich results + AI citations</span></div>
+          <div class="row"><span>Blog / BlogPosting</span><span>Generated live from the Medium feed</span></div>
+          <div class="row"><span>Crawl</span><span>robots.txt · sitemap.xml · llms.txt (AI-friendly)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+</body>
+</html>

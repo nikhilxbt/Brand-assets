@@ -1,0 +1,45 @@
+/* THORWallet spacing, radii and layout. 4px base grid. */
+:root{
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --space-8:64px;
+  --space-9:96px;
+  --space-10:128px;
+
+  /* Marketing radii — larger than the app's */
+  --r-sm:12px;
+  --r-md:16px;
+  --r-lg:24px;
+  --r-xl:32px;
+  --r-pill:999px;
+
+  /* Brand-book / print radii */
+  --r-doc-sm:6px;
+  --r-doc-md:12px;
+  --r-doc-lg:20px;
+  --r-doc-xl:28px;
+
+  /* Layout */
+  --container:1320px; /* @kind spacing */
+  --gutter:clamp(20px,5vw,80px); /* @kind spacing */
+  --section-y:clamp(96px,12vw,184px); /* @kind spacing */
+  --deck-pad-x:88px;
+  --deck-pad-y:66px;
+}
+@media (min-width:1600px){
+  :root{
+    --container:1560px;
+    --fs-display:clamp(3rem,7.5vw,7.6rem); /* @kind font */
+    --fs-h1:clamp(2.3rem,4.6vw,5rem); /* @kind font */
+    --fs-h2:clamp(1.5rem,3vw,2.9rem); /* @kind font */
+    --fs-lead:clamp(1.1rem,1.5vw,1.62rem); /* @kind font */
+    --fs-body:1.16rem;
+    --fs-cap:0.9rem;
+    --section-y:clamp(120px,12vw,210px); /* @kind spacing */
+  }
+}

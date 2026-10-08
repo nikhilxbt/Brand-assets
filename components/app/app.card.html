@@ -1,0 +1,47 @@
+<!-- @dsCard group="Components" viewport="1100x560" name="Wallet app components" subtitle="Screen chrome, rows, fields, tabs, nav, toast, banner" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>App</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>*{box-sizing:border-box;margin:0}body{background:var(--bg-base);color:var(--text-hi);font-family:var(--font-body);padding:20px}a{color:var(--accent-solid)}a:hover{color:var(--accent-to)}.lbl{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-low);display:block;margin-bottom:9px}.cols{display:grid;grid-template-columns:375px 1fr;gap:28px}.stack{display:flex;flex-direction:column;gap:18px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { AppScreen, AppStatusBar, AppBackHeader, AppBottomNav, AppCard, AppListRow, AppButton, AppAmountField, AppInputField, AppSearchBar, AppIconButton, AppTabs, AppChip, AppToast, AppBanner, AppTokenPill } = window.ThorwalletBrandDesignWebsite_258ce2;
+function Demo(){const [tab,setTab]=React.useState('Savers');return(<div className="cols">
+  <div>
+    <span className="lbl">AppScreen composed</span>
+    <div style={{border:'1px solid var(--hairline)',borderRadius:20,overflow:'hidden',width:375,height:500,position:'relative'}}>
+      <AppScreen style={{height:812,position:'absolute',top:0,left:0}}>
+        <AppStatusBar/>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'14px 20px 4px'}}>
+          <AppTabs tabs={['Savers','Pools','Stake']} active={tab} onChange={setTab}/>
+          <AppIconButton><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{width:16,height:16}}><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></AppIconButton>
+        </div>
+        <div style={{flex:1,padding:'0 14px',display:'flex',flexDirection:'column',gap:10,marginTop:8}}>
+          <AppCard><AppListRow iconSrc="../../assets/chains/btc.png" name="Bitcoin" sub="0.482 BTC" value="$31,204.10" delta="+2.4%"/>
+            <div style={{height:12}}/><AppListRow iconSrc="../../assets/chains/eth.png" name="Ethereum" sub="4.18 ETH" value="$8,410.00" delta="-0.6%" deltaDir="down"/></AppCard>
+          <AppAmountField amount="0.482" symbol="BTC" iconSrc="../../assets/chains/btc.png" fiat="≈ $31,204" balance="Balance 0.61"/>
+        </div>
+        <AppToast>Limit order placed</AppToast>
+        <AppBottomNav active="earn"/>
+      </AppScreen>
+    </div>
+  </div>
+  <div className="stack">
+    <div><span className="lbl">AppButton</span><div style={{display:'flex',gap:12}}><AppButton>Continue</AppButton><AppButton variant="ghost">Add device</AppButton></div></div>
+    <div><span className="lbl">AppInputField</span><AppInputField label="Recipient address" placeholder="bc1q…" action="Paste" helper="Bitcoin network"/></div>
+    <div><span className="lbl">AppSearchBar · AppChip · AppTokenPill</span>
+      <AppSearchBar placeholder="Search tokens"/>
+      <div style={{display:'flex',gap:8,marginTop:10,alignItems:'center'}}><AppChip on>Stablecoins</AppChip><AppChip>Majors</AppChip><AppChip>New</AppChip><AppTokenPill symbol="USDC" icon="$"/></div>
+    </div>
+    <div><span className="lbl">AppBanner + grouped block</span>
+      <AppBanner>Pair at least 2 devices</AppBanner>
+      <div style={{background:'rgba(24,41,61,0.45)',border:'1px solid var(--app-border-soft)',borderTop:0,borderRadius:'0 0 16px 16px',padding:'18px 14px',display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:10}}>
+        {['iPhone','MacBook','Add'].map(t=>(<div key={t} style={{background:'var(--app-card)',border:t==='Add'?'1px dashed var(--app-border)':'1px solid var(--app-border)',borderRadius:12,padding:'16px 8px 12px',textAlign:'center',fontFamily:'var(--app-font)',fontSize:12,fontWeight:600,color:'var(--app-text-2)'}}>{t}</div>))}
+      </div>
+    </div>
+    <div><span className="lbl">AppBackHeader</span><div style={{background:'var(--app-bg)',borderRadius:12,fontFamily:'var(--app-font)'}}><AppBackHeader title="Support"/></div></div>
+  </div>
+</div>)}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

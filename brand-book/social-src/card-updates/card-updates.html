@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1600, initial-scale=1" />
+<title>THORWallet - Security Updates</title>
+<style>
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-SemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:block;}
+
+  :root{
+    --navy:#0A1A2B; --surface:#142A40; --surface2:#18324B;
+    --cyan:#00CCFF; --green:#33FF99; --accent:#1FD9A6; --warn:#FBC538; --err:#FF6B6B;
+    --grad:linear-gradient(120deg,#00CCFF 0%,#33FF99 100%);
+    --t100:#FFFFFF; --t70:rgba(255,255,255,.70); --t50:rgba(255,255,255,.50); --t34:rgba(255,255,255,.34);
+    --line:rgba(255,255,255,.09); --line-str:rgba(255,255,255,.16);
+    /* app palette for vignettes */
+    --app-bg:#121F32; --app-card:#18293D; --app-el:#1C3046; --app-border:#243A54;
+    --app-blue:#2A7AF7; --app-link:#57A4FF; --app-mute:#7E9EA8; --app-sec:#ABBFC7;
+    --font:"OT Sono","Space Grotesk",Inter,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:#0A1A2B; font-family:var(--font); -webkit-font-smoothing:antialiased; width:1600px; height:900px; overflow:hidden;}
+
+  .art{position:absolute; left:0; top:0; width:1600px; height:900px; overflow:hidden; background:var(--navy); color:var(--t100);}
+
+  .amb{position:absolute; inset:0; pointer-events:none;}
+  .amb .grid{position:absolute; inset:0; opacity:.6;
+    background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);
+    background-size:60px 60px; -webkit-mask-image:radial-gradient(120% 110% at 28% 22%,#000 46%,transparent 100%); mask-image:radial-gradient(120% 110% at 28% 22%,#000 46%,transparent 100%);}
+  .amb .blob{position:absolute; border-radius:50%; filter:blur(80px);}
+
+  /* top bar */
+  .topbar{position:absolute; left:66px; right:66px; top:58px; display:flex; align-items:center; justify-content:space-between; z-index:8;}
+  .wordmark{height:34px; width:auto; display:block;}
+  .pill{display:inline-flex; align-items:center; gap:9px; height:38px; padding:0 18px; border-radius:999px;
+    background:rgba(255,255,255,.05); border:1px solid var(--line-str); color:var(--t70); font-size:14px; font-weight:500; letter-spacing:.02em;}
+  .pill .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px rgba(31,217,166,.9);}
+
+  /* hero text */
+  .left{position:absolute; left:66px; top:168px; width:830px; z-index:6;}
+  .eyebrow{display:inline-flex; align-items:center; gap:11px; font-size:14px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--accent);}
+  .eyebrow .gdot{width:9px; height:9px; border-radius:50%; background:var(--grad); box-shadow:0 0 12px rgba(51,255,153,.7);}
+  h1{margin-top:20px; font-weight:600; font-size:78px; line-height:1.0; letter-spacing:-0.035em; color:var(--t100);}
+  h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;}
+  .sub{margin-top:24px; max-width:680px; font-size:21px; line-height:1.5; font-weight:400; color:var(--t70);}
+  .sub b{color:var(--t100); font-weight:600;}
+
+  /* feature rows */
+  .feats{margin-top:34px; display:flex; flex-direction:column; gap:20px;}
+  .feat{display:flex; align-items:flex-start; gap:18px;}
+  .feat .ic{width:52px; height:52px; flex-shrink:0; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    background:var(--surface); border:1px solid var(--line); box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
+  .feat .ic svg{stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; fill:none;}
+  .feat .ic.teal svg{stroke:var(--cyan);} .feat .ic.grn svg{stroke:var(--green);} .feat .ic.acc svg{stroke:var(--accent);}
+  .feat .ft{font-size:21px; font-weight:600; color:var(--t100); letter-spacing:-0.01em;}
+  .feat .fb{font-size:16px; font-weight:400; color:var(--t70); margin-top:3px; line-height:1.42;}
+
+  /* bottom bar */
+  .bottombar{position:absolute; left:66px; bottom:44px; display:flex; align-items:center; gap:20px; z-index:8;}
+  .tagline{display:inline-flex; align-items:center; gap:12px; height:44px; padding:0 22px; border-radius:999px;
+    background:rgba(255,255,255,.05); border:1px solid var(--line-str); color:var(--t70); font-size:15px; font-weight:500;}
+  .tagline b{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; font-weight:600;}
+  .tagline .sep{width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,.24);}
+  .foot{font-size:15px; font-weight:500; color:var(--t34); letter-spacing:.02em;}
+
+  /* ------- app vignettes (right) ------- */
+  .vis{position:absolute; right:0; top:0; width:660px; height:900px; z-index:5;}
+  .vis .vglow{position:absolute; left:46%; top:50%; width:760px; height:760px; transform:translate(-50%,-50%);
+    border-radius:50%; background:radial-gradient(circle,rgba(0,204,255,.20),rgba(51,255,153,.07) 58%,transparent 72%); filter:blur(30px);}
+
+  .vg{position:absolute; width:560px; border-radius:24px;
+    background:linear-gradient(180deg,#1B2E46 0%,#16273C 100%);
+    border:1px solid #2B4260;
+    box-shadow:0 44px 90px rgba(0,0,0,.62), 0 12px 28px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.07);
+    padding:26px 28px; font-family:var(--font);}
+  .vg.sheet{padding-top:32px;}
+  .vg.sheet::before{content:""; position:absolute; top:11px; left:50%; transform:translateX(-50%); width:44px; height:5px; border-radius:999px; background:#506A79;}
+  .vg .vh{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;}
+  .vg .vt{font-size:18px; font-weight:600; color:var(--t100); letter-spacing:-0.01em;}
+  .vg .chipset{display:flex; gap:8px;}
+  .chip{display:inline-flex; align-items:center; gap:6px; height:31px; padding:0 13px; border-radius:999px;
+    background:var(--app-el); border:1px solid var(--app-border); color:var(--app-sec); font-size:12.5px; font-weight:500; letter-spacing:.01em;}
+  .chip.on{background:var(--app-blue); border-color:#4D90FF; color:#fff; font-weight:600; box-shadow:0 4px 14px rgba(42,122,247,.4), inset 0 1px 0 rgba(255,255,255,.25);}
+  .chip.risk{background:rgba(237,54,54,.12); border-color:rgba(255,107,107,.5); color:var(--err); font-weight:600; box-shadow:0 0 18px rgba(237,54,54,.18);}
+  .chip.rev{background:rgba(49,253,157,.10); border-color:rgba(51,255,153,.42); color:var(--green); font-weight:600; box-shadow:0 0 18px rgba(51,255,153,.14);}
+  .chip svg{flex-shrink:0;}
+
+  .route{border-radius:16px; background:linear-gradient(180deg,#1E3450,#1A2C44); border:1px solid var(--app-border); padding:16px 18px; display:flex; flex-direction:column; gap:12px; box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
+  .route.best{border:1.5px solid var(--app-blue); box-shadow:0 0 0 3px rgba(42,122,247,.16), 0 10px 30px rgba(42,122,247,.20), inset 0 1px 0 rgba(255,255,255,.07);}
+  .route + .route{margin-top:12px;}
+  .route .r1{display:flex; align-items:center; justify-content:space-between;}
+  .route .rname{display:flex; align-items:center; gap:10px; font-size:15px; font-weight:500; color:var(--app-sec);}
+  .route .rname .ric{width:30px; height:30px; border-radius:50%; background:radial-gradient(circle at 32% 28%,#20406B,#0D1726 78%); border:1px solid #33507A; display:flex; align-items:center; justify-content:center; font-size:15px; box-shadow:0 3px 8px rgba(0,0,0,.4);}
+  .route .ramt{font-size:17.5px; font-weight:600; color:var(--t100); letter-spacing:-0.01em;}
+  .route .r2{display:flex; align-items:center; justify-content:flex-end; gap:10px;}
+  .route .r2 .rusd{font-size:16px; font-weight:600; color:var(--t100); margin-left:2px;}
+  .route .rtime{display:inline-flex; align-items:center; gap:6px; margin-right:auto; color:var(--app-mute); font-size:13.5px; font-weight:500;}
+
+  .aprow{display:flex; align-items:center; gap:15px; border-radius:16px; background:linear-gradient(180deg,#1E3450,#1A2C44); border:1px solid var(--app-border); padding:15px 17px; box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
+  .aprow .tok{position:relative; width:46px; height:46px; flex-shrink:0;}
+  .aprow .tok svg.main{display:block; filter:drop-shadow(0 3px 8px rgba(0,0,0,.4));}
+  .aprow .tok .subb{position:absolute; right:-3px; bottom:-3px; width:21px; height:21px; border-radius:50%; background:#627EEA; border:2.5px solid #1A2C44; display:flex; align-items:center; justify-content:center;}
+  .aprow .meta{flex:1; min-width:0; display:flex; flex-direction:column;}
+  .aprow .tn{font-size:16px; font-weight:600; color:var(--t100);}
+  .aprow .ta{font-size:12.5px; color:var(--app-mute); margin-top:2px;}
+  .aprow .tv{font-size:13px; color:var(--app-sec); margin-top:3px;}
+  .aprow .tv b{color:var(--warn); font-weight:600;}
+  .revoke{height:40px; padding:0 22px; border-radius:12px; border:1.5px solid var(--app-blue); color:#fff; font-size:14px; font-weight:500;
+    display:inline-flex; align-items:center; background:rgba(42,122,247,.08); box-shadow:0 0 16px rgba(42,122,247,.18); flex-shrink:0;}
+
+  .psbt{border-radius:16px; border:1.5px solid rgba(251,197,56,.85); background:linear-gradient(180deg,rgba(251,197,56,.06),rgba(251,197,56,.02)); padding:16px 18px; box-shadow:0 0 24px rgba(251,197,56,.10), inset 0 1px 0 rgba(255,255,255,.05);}
+  .psbt .ph{display:flex; align-items:center; justify-content:space-between;}
+  .psbt .pt{font-size:16.5px; font-weight:600; color:var(--t100);}
+  .psbt .badge{height:24px; padding:0 10px; border-radius:6px; background:var(--warn); color:#3A2A00; font-size:11.5px; font-weight:600; letter-spacing:.08em; display:inline-flex; align-items:center; box-shadow:0 3px 10px rgba(251,197,56,.35);}
+  .psbt .outs{margin-top:13px; display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .psbt .out{border-radius:10px; background:rgba(10,22,37,.55); border:1px solid rgba(255,255,255,.07); padding:9px 12px; font-size:12px; color:var(--app-mute); line-height:1.4;}
+  .psbt .out b{display:block; font-size:14.5px; color:var(--t100); font-weight:600; margin-top:2px; font-variant-numeric:tabular-nums;}
+  .psbt .note{margin-top:12px; padding:9px 12px; border-left:3px solid var(--warn); background:rgba(251,197,56,.08); border-radius:0 8px 8px 0;
+    font-size:12.5px; color:var(--warn); line-height:1.4;}
+</style>
+</head>
+<body>
+  <section class="art" data-screen-label="Security Updates">
+    <div class="amb">
+      <div class="grid"></div>
+      <div class="blob" style="width:640px;height:640px;right:-140px;top:-180px;background:rgba(0,204,255,.14);"></div>
+      <div class="blob" style="width:560px;height:560px;left:-180px;bottom:-220px;background:rgba(51,255,153,.10);"></div>
+    </div>
+
+    <div class="topbar">
+      <img class="wordmark" src="assets/thorwallet-logo-white.png" alt="THORWallet" />
+      <span class="pill"><span class="dot"></span>Product update</span>
+    </div>
+
+    <div class="left">
+      <div class="eyebrow"><span class="gdot"></span>New in THORWallet</div>
+      <h1>See every risk <span class="g">before you sign.</span></h1>
+      <p class="sub">A wave of security upgrades just shipped: <b>MEV risk on every route</b>, one-tap approval revokes, and fully decoded Bitcoin signing.</p>
+
+      <div class="feats">
+        <div class="feat">
+          <div class="ic teal"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div>
+          <div><div class="ft">MEV protection, made visible</div><div class="fb">Every swap route shows its estimated MEV exposure before you commit.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ic grn"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12"/><path d="M3.5 6l1 1 2-2M3.5 12l1 1 2-2M3.5 18l1 1 2-2"/></svg></div>
+          <div><div class="ft">Audit and revoke approvals</div><div class="fb">See exactly what each contract can spend - and cut it off in one tap.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ic acc"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><div class="ft">No more blind signing</div><div class="fb">Bitcoin PSBTs decoded into plain outputs and amounts before you approve.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- app vignettes -->
+    <div class="vis">
+      <div class="vglow"></div>
+
+      <!-- routes + MEV -->
+      <div class="vg sheet" style="right:56px; top:108px; transform:rotate(-1.6deg);">
+        <div class="vh">
+          <span class="vt">Routes</span>
+          <span class="chipset"><span class="chip on">Best Price</span><span class="chip">Fastest</span><span class="chip">Decentralized</span></span>
+        </div>
+        <div class="route best">
+          <div class="r1"><span class="rname"><span class="ric">🦄</span>1Inch Intent</span><span class="ramt">42,371.41 USDT</span></div>
+          <div class="r2">
+            <span class="rtime"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4M9 2h6"/></svg>2m</span>
+            <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#57A4FF" stroke-width="2.4" stroke-linecap="round"><path d="M12 2v20M17 6H9.5a3 3 0 0 0 0 6h5a3 3 0 0 1 0 6H6"/></svg>Best Price</span>
+            <span class="chip rev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#33FF99" stroke-width="2.4" stroke-linecap="round"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/></svg>MEV Protected</span>
+            <span class="rusd">$42,321.29</span>
+          </div>
+        </div>
+        <div class="route">
+          <div class="r1"><span class="rname"><span class="ric">🦄</span>1Inch</span><span class="ramt">42,375.81 USDT</span></div>
+          <div class="r2">
+            <span class="chip risk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>MEV Risk ~$214</span>
+            <span class="rusd">$42,325.68</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- approvals -->
+      <div class="vg" style="right:120px; top:428px; transform:rotate(1.2deg); width:530px;">
+        <div class="vh"><span class="vt">Token Approvals</span><span class="chip">ETH</span></div>
+        <div class="aprow">
+          <span class="tok">
+            <svg class="main" width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#2775CA"/><circle cx="23" cy="23" r="14" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-dasharray="66 22" stroke-dashoffset="-12" stroke-linecap="round"/><text x="23" y="29.5" text-anchor="middle" font-family="OT Sono, sans-serif" font-size="18" font-weight="600" fill="#FFFFFF">$</text></svg>
+            <span class="subb"><svg width="10" height="12" viewBox="0 0 12 16"><path d="M6 0 L11.2 8 L6 11.2 L0.8 8 Z" fill="#fff"/><path d="M6 16 L11.2 9.6 L6 12.8 L0.8 9.6 Z" fill="#fff" opacity=".75"/></svg></span>
+          </span>
+          <span class="meta">
+            <span class="tn">USDC</span>
+            <span class="ta">0x0000...8ba3 · Approved: <b style="color:#FF6B6B;">Unlimited</b></span>
+            <span class="tv">At risk $0.00</span>
+          </span>
+          <span class="revoke">Revoke</span>
+        </div>
+      </div>
+
+      <!-- PSBT -->
+      <div class="vg" style="right:40px; top:606px; transform:rotate(-1deg); width:560px;">
+        <div class="psbt">
+          <div class="ph"><span class="pt">Sign Bitcoin PSBT</span><span class="badge">REVIEW</span></div>
+          <div class="outs">
+            <div class="out">Output 1 → bc1q2rvc...knk6jq<b>0.0007 BTC</b></div>
+            <div class="out">Output 2 → bc1qrkxw...925wxr9<b>0.0000546 BTC</b></div>
+          </div>
+          <div class="note">Verify every output address and amount before approving.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottombar">
+      <span class="tagline"><b>The Best Crypto Wallet For Swaps &amp; DeFi</b><span class="sep"></span>Update rolling out now</span>
+      <span class="foot">thorwallet.org</span>
+    </div>
+  </section>
+</body>
+</html>

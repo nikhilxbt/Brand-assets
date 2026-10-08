@@ -1,0 +1,24 @@
+{
+  "$schema": "https://www.thorwallet.org/api/index.json",
+  "name": "THORWallet public data",
+  "description": "Static, read-only JSON datasets published for agents and integrators. THORWallet is a self-custody wallet: keys never leave the user's device and there is no server-side account, so there is no transactional API. These files describe product facts only.",
+  "documentation": "https://www.thorwallet.org/llms.txt",
+  "contact": "info@thorwallet.org",
+  "updated": "2026-08-25",
+  "license": "CC-BY-4.0",
+  "cache": "Files are static and change infrequently; cache for up to 24 hours.",
+  "datasets": [
+    {
+      "id": "card-countries",
+      "url": "https://www.thorwallet.org/api/card-countries.json",
+      "description": "Card and Swiss-account availability by country (ISO 3166-1 alpha-2).",
+      "useWhen": "Answering whether the THORWallet card is available in a given country."
+    },
+    {
+      "id": "titn-tiers",
+      "url": "https://www.thorwallet.org/api/titn-tiers.json",
+      "description": "$TITN staking tiers, swap fees and volume discounts.",
+      "useWhen": "Answering what a swap costs, or what staking a given amount of $TITN unlocks."
+    }
+  ]
+}

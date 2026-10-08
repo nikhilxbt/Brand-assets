@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1600, initial-scale=1" />
+<title>THORWallet - Card Free Tier Teaser</title>
+<style>
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-SemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:block;}
+
+  :root{
+    --navy:#0A1A2B;
+    --cyan:#00CCFF; --green:#33FF99; --accent:#1FD9A6;
+    --grad:linear-gradient(120deg,#00CCFF 0%,#33FF99 100%);
+    --t100:#FFFFFF; --t70:rgba(255,255,255,.70); --t50:rgba(255,255,255,.50); --t34:rgba(255,255,255,.34);
+    --line:rgba(255,255,255,.09); --line-str:rgba(255,255,255,.16);
+    --font:"OT Sono","Space Grotesk",Inter,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:#0A1A2B; font-family:var(--font); -webkit-font-smoothing:antialiased; width:1600px; height:900px; overflow:hidden;}
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{color:var(--green);}
+
+  .art{position:absolute; left:0; top:0; width:1600px; height:900px; overflow:hidden; background:var(--navy); color:var(--t100);}
+
+  /* ambient */
+  .amb{position:absolute; inset:0; pointer-events:none;}
+  .amb .grid{position:absolute; inset:0; opacity:.6;
+    background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);
+    background-size:60px 60px;
+    -webkit-mask-image:radial-gradient(120% 110% at 30% 26%,#000 46%,transparent 100%);
+    mask-image:radial-gradient(120% 110% at 30% 26%,#000 46%,transparent 100%);}
+  .amb .blob{position:absolute; border-radius:50%; filter:blur(90px);}
+  .amb .b1{width:900px; height:900px; right:-320px; top:-300px; background:radial-gradient(circle,rgba(0,204,255,.16),transparent 70%);}
+  .amb .b2{width:760px; height:760px; right:-120px; bottom:-420px; background:radial-gradient(circle,rgba(51,255,153,.12),transparent 70%);}
+  .amb .b3{width:700px; height:700px; left:-330px; bottom:-330px; background:radial-gradient(circle,rgba(0,204,255,.07),transparent 70%);}
+  /* globe arcs */
+  .amb svg.globe{position:absolute; right:-140px; top:50%; transform:translateY(-50%); opacity:.5;}
+
+  /* ghost number */
+  .ghost{position:absolute; right:-30px; bottom:-88px; font-size:460px; font-weight:600; letter-spacing:-0.05em; line-height:1;
+    color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,.075); z-index:1; user-select:none;}
+
+  /* ghost variants (?v=1|2|3) */
+  .art.v1 .ghost{-webkit-text-stroke:2.5px rgba(255,255,255,.20); font-size:520px; right:-50px; bottom:-104px;
+    text-shadow:0 0 90px rgba(0,204,255,.25);}
+  .art.v2 .ghost{-webkit-text-stroke:0; font-size:560px; right:-60px; bottom:-116px;
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; opacity:.17;}
+  .art.v3 .ghost{-webkit-text-stroke:0; font-size:430px; right:20px; bottom:-6px;
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; opacity:.30;
+    -webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 96%); mask-image:linear-gradient(180deg,#000 30%,transparent 96%);}
+  .art .ghostlabel{display:none;}
+  .art.v3 .ghostlabel{display:block; position:absolute; right:36px; bottom:44px; z-index:1;
+    font-size:56px; font-weight:600; letter-spacing:.42em; color:rgba(255,255,255,.14); text-transform:uppercase; user-select:none;}
+
+  /* top bar */
+  .topbar{position:absolute; left:66px; right:66px; top:58px; display:flex; align-items:center; justify-content:space-between; z-index:8;}
+  .wordmark{height:34px; width:auto; display:block;}
+  .pill{display:inline-flex; align-items:center; gap:10px; height:38px; padding:0 18px; border-radius:999px;
+    background:rgba(255,255,255,.05); border:1px solid var(--line-str); color:var(--t70); font-size:14px; font-weight:500; letter-spacing:.02em;}
+  .pill .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px rgba(31,217,166,.9);}
+
+  /* hero text */
+  .left{position:absolute; left:66px; top:200px; width:820px; z-index:6;}
+  .eyebrow{display:inline-flex; align-items:center; gap:11px; font-size:14px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--accent);}
+  .eyebrow .gdot{width:9px; height:9px; border-radius:50%; background:var(--grad); box-shadow:0 0 12px rgba(51,255,153,.7);}
+  h1{margin-top:24px; font-weight:600; font-size:96px; line-height:1.02; letter-spacing:-0.04em; color:var(--t100);}
+  h1 .g{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;}
+  .sub{margin-top:28px; max-width:640px; font-size:22px; line-height:1.55; font-weight:400; color:var(--t70);}
+  .sub b{color:var(--t100); font-weight:600;}
+
+  .stats{margin-top:42px; display:flex; align-items:center; gap:36px;}
+  .stat.big .sv{font-size:58px;}
+  .stat.big .sl{font-size:16px; color:var(--t70);}
+  .stat .sv{font-size:34px; font-weight:600; letter-spacing:-0.02em; color:var(--t100);}
+  .stat .sv .g{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;}
+  .stat .sl{margin-top:4px; font-size:14px; font-weight:500; color:var(--t50); letter-spacing:.04em;}
+  .vsep{width:1px; height:46px; background:var(--line-str);}
+
+  /* bottom bar */
+  .bottombar{position:absolute; left:66px; bottom:44px; display:flex; align-items:center; gap:20px; z-index:8;}
+  .tagline{display:inline-flex; align-items:center; gap:12px; height:44px; padding:0 22px; border-radius:999px;
+    background:rgba(255,255,255,.05); border:1px solid var(--line-str); color:var(--t70); font-size:15px; font-weight:500;}
+  .tagline b{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; font-weight:600;}
+  .tagline .sep{width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,.24);}
+  .foot{font-size:15px; font-weight:500; color:var(--t34); letter-spacing:.02em;}
+
+  /* card visual */
+  .vis{position:absolute; right:0; top:0; width:700px; height:900px; z-index:5;}
+  .vis .vglow{position:absolute; left:52%; top:47%; width:820px; height:820px; transform:translate(-50%,-50%);
+    border-radius:50%; background:radial-gradient(circle,rgba(0,204,255,.18),rgba(51,255,153,.07) 56%,transparent 72%); filter:blur(30px);}
+  .cardwrap{position:absolute; left:50%; top:47%; transform:translate(-50%,-50%) rotate(-10deg); width:520px;}
+  .cardwrap .edge{position:absolute; inset:-2px; border-radius:34px; background:var(--grad); opacity:.85;
+    filter:blur(1px);}
+  .cardwrap img{position:relative; display:block; width:100%; border-radius:32px;
+    box-shadow:0 60px 120px rgba(0,0,0,.66), 0 18px 44px rgba(0,0,0,.5);}
+  .cardwrap .sheen{position:absolute; inset:0; border-radius:32px; pointer-events:none;
+    background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.10) 50%,transparent 58%);}
+  .freechip{position:absolute; right:-26px; top:-26px; height:52px; padding:0 24px; border-radius:999px;
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--grad); color:#04231A; font-size:19px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    box-shadow:0 0 36px rgba(49,253,157,.45), 0 10px 26px rgba(0,0,0,.4); transform:rotate(10deg);}
+</style>
+</head>
+<body>
+<div class="art v3" data-screen-label="Card Free Tier Teaser">
+  <div class="amb">
+    <div class="grid"></div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <svg class="globe" width="1000" height="1000" viewBox="0 0 1000 1000" fill="none">
+      <circle cx="500" cy="500" r="380" stroke="rgba(255,255,255,0.06)" stroke-width="1"></circle>
+      <circle cx="500" cy="500" r="290" stroke="rgba(255,255,255,0.045)" stroke-width="1"></circle>
+      <ellipse cx="500" cy="500" rx="380" ry="150" stroke="rgba(255,255,255,0.05)" stroke-width="1"></ellipse>
+      <ellipse cx="500" cy="500" rx="150" ry="380" stroke="rgba(255,255,255,0.05)" stroke-width="1"></ellipse>
+    </svg>
+  </div>
+
+  <div class="ghost">172</div>
+  <div class="ghostlabel">Countries</div>
+
+  <div class="topbar">
+    <img class="wordmark" src="assets/thorwallet-logo-white.png" alt="THORWallet" />
+    <span class="pill"><span class="dot"></span>Coming soon</span>
+  </div>
+
+  <div class="left">
+    <div class="eyebrow"><span class="gdot"></span>THORWallet Card</div>
+    <h1>The <span class="g">free tier</span><br />is coming.</h1>
+    <p class="sub">One card, accepted in more countries than almost any crypto card on the market. Soon it costs <b>nothing to start</b>.</p>
+    <div class="stats">
+      <div class="stat"><div class="sv"><span class="g">0%</span></div><div class="sl">USDC top-up fee</div></div>
+      <div class="vsep"></div>
+      <div class="stat"><div class="sv"><span class="g">Earn</span></div><div class="sl">Yield on your USDC</div></div>
+      <div class="vsep"></div>
+      <div class="stat"><div class="sv"><span class="g">No middleman</span></div><div class="sl">Fully on-chain trading</div></div>
+    </div>
+  </div>
+
+  <div class="vis">
+    <div class="vglow"></div>
+    <div class="cardwrap">
+      <div class="edge"></div>
+      <img src="assets/card-orange.png" alt="THORWallet Card" />
+      <div class="sheen"></div>
+      <div class="freechip">Free</div>
+    </div>
+  </div>
+
+  <div class="bottombar">
+    <span class="tagline"><b>Mastercard</b><span class="sep"></span>Self-custody<span class="sep"></span>Spend crypto anywhere<span class="sep"></span>iOS &amp; Android</span>
+    <span class="foot">thorwallet.org</span>
+  </div>
+</div>
+<script>
+  var v = new URLSearchParams(location.search).get("v");
+  if (v === "1" || v === "2" || v === "3") document.querySelector(".art").classList.add("v" + v);
+</script>
+</body>
+</html>

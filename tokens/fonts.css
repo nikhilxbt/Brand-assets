@@ -1,0 +1,13 @@
+/* THORWallet webfonts.
+   OT Sono — the brand typeface. Marketing site, brand book, decks, print.
+   Montserrat — the in-app typeface (mobile/desktop wallet UI only). */
+@font-face{font-family:"OT Sono";src:url("../fonts/OT-Sono-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"OT Sono";src:url("../fonts/OT-Sono-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"OT Sono";src:url("../fonts/OT-Sono-SemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/MontserratLight.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/MontserratRegular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/MontserratMedium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/MontserratSemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/MontserratBold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/MontserratExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/MontserratBlack.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Slide deck" description="1920×1080 THORWallet deck — cover, stats + chart, product tiles, statement, copy + device, table" -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}html,body{background:#05121a}a{color:#1FD9A6;text-decoration:none}a:hover{color:#33FF99}</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="Cover" data-screen-label="01" style="background:#0A1A2B;color:rgba(255,255,255,.74);overflow:hidden;font-family:'OT Sono',-apple-system,sans-serif">
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);background-size:64px 64px;pointer-events:none"></div>
+<div style="position:absolute;width:720px;height:720px;right:-200px;top:-220px;border-radius:50%;filter:blur(110px);background:radial-gradient(circle,rgba(0,204,255,.17),transparent 70%);pointer-events:none"></div>
+<div style="position:absolute;width:640px;height:640px;left:-220px;bottom:-260px;border-radius:50%;filter:blur(110px);background:radial-gradient(circle,rgba(51,255,153,.10),transparent 70%);pointer-events:none"></div>
+<div style="position:absolute;inset:0;padding:66px 88px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:34px">
+<img src="../../assets/logos/thorwallet-lockup-gradient.png" alt="THORWallet" style="height:66px;width:auto;position:relative;z-index:2;filter:drop-shadow(0 10px 44px rgba(0,204,255,.28))" />
+<h1 style="position:relative;z-index:2;font-size:112px;font-weight:600;line-height:.94;letter-spacing:-.04em;color:#FFFFFF;max-width:22ch">All chains.<br />All yield.<br /><span style="background:linear-gradient(120deg,#00CCFF 0%,#19DAC8 52%,#33FF99 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">One app.</span></h1>
+<p style="position:relative;z-index:2;font-size:25px;line-height:1.42;color:rgba(255,255,255,.74);max-width:52ch">Self-custodial multi-chain wallet with native swaps, multisig vaults and a Swiss account.</p>
+<div style="position:relative;z-index:2;display:flex;align-items:baseline;gap:38px;margin-top:22px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);width:100%;font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)"><span>Investor briefing</span><span>September 2026</span><span style="margin-left:auto">thorwallet.org</span></div>
+</div>
+</section>
+
+<section data-label="The Market" data-screen-label="02" style="background:#0A1A2B;color:rgba(255,255,255,.74);overflow:hidden;font-family:'OT Sono',-apple-system,sans-serif">
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);background-size:64px 64px;pointer-events:none"></div>
+<div style="position:absolute;width:720px;height:720px;right:-200px;top:-220px;border-radius:50%;filter:blur(110px);background:radial-gradient(circle,rgba(0,204,255,.17),transparent 70%);pointer-events:none"></div>
+<div style="position:absolute;inset:0;padding:66px 88px;display:flex;flex-direction:column;gap:26px">
+<div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between">
+<span style="display:inline-flex;align-items:center;gap:11px;font-size:17px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#1FD9A6"><span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#00CCFF,#33FF99);box-shadow:0 0 12px rgba(51,255,153,.75)"></span>The Market</span>
+<img src="../../assets/logos/thorwallet-logo-white.png" alt="THORWallet" style="height:26px;width:auto;opacity:.92" />
+</div>
+<div style="position:relative;z-index:2">
+<h1 style="font-size:62px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:#FFFFFF">Two <span style="background:linear-gradient(120deg,#00CCFF 0%,#19DAC8 52%,#33FF99 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">giants</span> own the market</h1>
+<p style="font-size:25px;line-height:1.42;color:rgba(255,255,255,.74);max-width:66ch;margin-top:16px">One leads on-chain, one leads exchanges. <b style="font-weight:600;color:#fff">We're built to take on both.</b></p>
+</div>
+<div style="position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:20px 26px;box-shadow:0 12px 32px rgba(0,0,0,.38);display:flex;flex-direction:column;gap:8px"><div style="font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,#00CCFF,#33FF99);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">$18B</div><div style="font-size:19px;line-height:1.32;color:rgba(255,255,255,.5)">Total market, annualized</div></div>
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:20px 26px;box-shadow:0 12px 32px rgba(0,0,0,.38);display:flex;flex-direction:column;gap:8px"><div style="font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,#00CCFF,#33FF99);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">~80%</div><div style="font-size:19px;line-height:1.32;color:rgba(255,255,255,.5)">Held by a single player</div></div>
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:20px 26px;box-shadow:0 12px 32px rgba(0,0,0,.38);display:flex;flex-direction:column;gap:8px"><div style="font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,#00CCFF,#33FF99);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">+230%</div><div style="font-size:19px;line-height:1.32;color:rgba(255,255,255,.5)">Volume growth year over year</div></div>
+</div>
+<div style="position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1.42fr 1fr;gap:44px;min-height:0">
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.46);padding:34px 40px;display:flex;flex-direction:column">
+<span style="font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)">Annualized volume</span>
+<div style="margin-top:26px;display:flex;flex-direction:column;gap:24px;flex:1;justify-content:center">
+<div style="display:grid;grid-template-columns:210px 1fr;align-items:center;gap:22px"><div style="text-align:right"><div style="font-size:21px;font-weight:600;color:#fff;letter-spacing:-.01em">Leader A</div><div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px">on-chain #1</div></div><div style="position:relative;height:34px"><div style="position:absolute;left:0;top:0;bottom:0;border-radius:8px;width:88%;background:linear-gradient(90deg,#1FB0D8,#33FF99)"></div><span style="position:absolute;top:50%;transform:translateY(-50%);left:88%;margin-left:16px;font-size:20px;font-weight:600;color:#fff">$10B</span></div></div>
+<div style="display:grid;grid-template-columns:210px 1fr;align-items:center;gap:22px"><div style="text-align:right"><div style="font-size:21px;font-weight:600;color:#fff;letter-spacing:-.01em">Incumbent B</div><div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px">off-chain · est.</div></div><div style="position:relative;height:34px"><div style="position:absolute;left:0;top:0;bottom:0;border-radius:8px;width:44%;background:rgba(42,107,242,.35)"></div><span style="position:absolute;top:50%;transform:translateY(-50%);left:44%;margin-left:16px;font-size:20px;font-weight:600;color:#fff">~$5B</span></div></div>
+<div style="display:grid;grid-template-columns:210px 1fr;align-items:center;gap:22px"><div style="text-align:right"><div style="font-size:21px;font-weight:600;color:#fff;letter-spacing:-.01em">Challenger C</div><div style="font-size:14px;color:rgba(255,255,255,.5);margin-top:4px">~$60M / mo</div></div><div style="position:relative;height:34px"><div style="position:absolute;left:0;top:0;bottom:0;border-radius:8px;width:6.2%;min-width:8px;background:linear-gradient(90deg,#5A6870,#6B7A82)"></div><span style="position:absolute;top:50%;transform:translateY(-50%);left:6.2%;margin-left:16px;font-size:20px;font-weight:600;color:#fff">$0.7B</span></div></div>
+</div>
+</div>
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.46);padding:32px 34px;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#1FD9A6">Our play</span><span style="font-size:26px;font-weight:600;letter-spacing:-.02em;color:#fff">Hit both flanks</span></div>
+<div style="border-radius:18px;padding:22px 24px;background:rgba(42,107,242,.12);border:1px solid rgba(42,107,242,.42)"><div style="font-size:20px;font-weight:600;color:#fff;line-height:1.32">Everyday spend, custodial</div><div style="margin-top:11px;font-size:19px;line-height:1.44">We take it with <b style="color:#fff;font-weight:600">self-custody and better FX</b>.</div></div>
+<div style="border-radius:18px;padding:22px 24px;background:rgba(31,217,166,.10);border:1px solid rgba(31,217,166,.40)"><div style="font-size:20px;font-weight:600;color:#fff;line-height:1.32">Metal cards as status</div><div style="margin-top:11px;font-size:19px;line-height:1.44">We take it with <b style="color:#fff;font-weight:600">premium tiers, fairer pricing</b>.</div></div>
+</div>
+</div>
+<p style="position:relative;z-index:2;font-size:12px;line-height:1.5;color:rgba(255,255,255,.5);opacity:.82">Volumes are annualized run-rates from public reporting. Off-chain card TPV is not disclosed and is estimated.</p>
+</div>
+</section>
+
+<section data-label="Statement" data-screen-label="03" style="background:#0A1A2B;color:rgba(255,255,255,.74);overflow:hidden;font-family:'OT Sono',-apple-system,sans-serif">
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);background-size:64px 64px;pointer-events:none"></div>
+<div style="position:absolute;width:900px;height:900px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;filter:blur(110px);background:radial-gradient(circle,rgba(31,217,166,.16),transparent 70%);pointer-events:none"></div>
+<div style="position:absolute;inset:0;padding:66px 88px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:40px">
+<span style="position:relative;z-index:2;display:inline-flex;align-items:center;gap:11px;font-size:17px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#1FD9A6"><span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#00CCFF,#33FF99);box-shadow:0 0 12px rgba(51,255,153,.75)"></span>Positioning</span>
+<h1 style="position:relative;z-index:2;font-size:96px;font-weight:600;line-height:1;letter-spacing:-.04em;color:#FFFFFF;max-width:26ch">Your keys never<br />leave <span style="background:linear-gradient(120deg,#00CCFF 0%,#19DAC8 52%,#33FF99 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">your phone.</span></h1>
+<div style="position:relative;z-index:2;padding-top:28px;border-top:1px solid rgba(255,255,255,.16);font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)">Self-custody since 2021 · Built in Switzerland</div>
+</div>
+</section>
+
+<section data-label="Product" data-screen-label="04" style="background:#0A1A2B;color:rgba(255,255,255,.74);overflow:hidden;font-family:'OT Sono',-apple-system,sans-serif">
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);background-size:64px 64px;pointer-events:none"></div>
+<div style="position:absolute;width:720px;height:720px;right:-200px;top:-220px;border-radius:50%;filter:blur(110px);background:radial-gradient(circle,rgba(0,204,255,.17),transparent 70%);pointer-events:none"></div>
+<div style="position:absolute;inset:0;padding:66px 88px;display:flex;flex-direction:column;gap:26px">
+<div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between">
+<span style="display:inline-flex;align-items:center;gap:11px;font-size:17px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#1FD9A6"><span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#00CCFF,#33FF99);box-shadow:0 0 12px rgba(51,255,153,.75)"></span>Product</span>
+<img src="../../assets/logos/thorwallet-logo-white.png" alt="THORWallet" style="height:26px;width:auto;opacity:.92" />
+</div>
+<div style="position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1fr .78fr;gap:80px;align-items:center;min-height:0">
+<div>
+<h1 style="font-size:62px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:#FFFFFF">Swap across<br /><span style="background:linear-gradient(120deg,#00CCFF 0%,#19DAC8 52%,#33FF99 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">every chain.</span></h1>
+<p style="font-size:25px;line-height:1.42;color:rgba(255,255,255,.74);margin-top:22px;max-width:38ch">Native settlement, chain to chain. No bridges, no wrapped assets, no custodian in the middle.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px">
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:26px 28px"><div style="font-size:14px;font-weight:600;letter-spacing:.1em;color:#1FD9A6">01</div><div style="font-size:24px;font-weight:600;letter-spacing:-.02em;color:#fff;margin:12px 0 8px">20,000+ tokens</div><div style="font-size:18px;line-height:1.45;color:rgba(255,255,255,.5)">Every major chain, one balance.</div></div>
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:26px 28px"><div style="font-size:14px;font-weight:600;letter-spacing:.1em;color:#1FD9A6">02</div><div style="font-size:24px;font-weight:600;letter-spacing:-.02em;color:#fff;margin:12px 0 8px">Gasless routes</div><div style="font-size:18px;line-height:1.45;color:rgba(255,255,255,.5)">Supported pairs settle with no top-up.</div></div>
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:26px 28px"><div style="font-size:14px;font-weight:600;letter-spacing:.1em;color:#1FD9A6">03</div><div style="font-size:24px;font-weight:600;letter-spacing:-.02em;color:#fff;margin:12px 0 8px">Best-rate routing</div><div style="font-size:18px;line-height:1.45;color:rgba(255,255,255,.5)">Aggregated liquidity picks the path.</div></div>
+<div style="background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:26px 28px"><div style="font-size:14px;font-weight:600;letter-spacing:.1em;color:#1FD9A6">04</div><div style="font-size:24px;font-weight:600;letter-spacing:-.02em;color:#fff;margin:12px 0 8px">$2.5B+ swapped</div><div style="font-size:18px;line-height:1.45;color:rgba(255,255,255,.5)">Native volume since launch.</div></div>
+</div>
+</div>
+<div style="display:flex;justify-content:center;align-items:center;height:100%">
+<div style="width:400px;aspect-ratio:1320/2868;border-radius:14% / 6.5%;background:#05101A;border:1px solid rgba(255,255,255,.15);padding:2.6%;box-shadow:0 24px 60px rgba(0,0,0,.46),0 0 140px -40px rgba(31,217,166,.35)">
+<div style="width:100%;height:100%;border-radius:11% / 5.2%;overflow:hidden;background:#121F32"><img src="../../assets/screens/swap.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block" /></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section data-label="Tiers" data-screen-label="05" style="background:#0A1A2B;color:rgba(255,255,255,.74);overflow:hidden;font-family:'OT Sono',-apple-system,sans-serif">
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);background-size:64px 64px;pointer-events:none"></div>
+<div style="position:absolute;width:640px;height:640px;left:-220px;bottom:-260px;border-radius:50%;filter:blur(110px);background:radial-gradient(circle,rgba(51,255,153,.10),transparent 70%);pointer-events:none"></div>
+<div style="position:absolute;inset:0;padding:66px 88px;display:flex;flex-direction:column;gap:26px">
+<div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between">
+<span style="display:inline-flex;align-items:center;gap:11px;font-size:17px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#1FD9A6"><span style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#00CCFF,#33FF99);box-shadow:0 0 12px rgba(51,255,153,.75)"></span>Token</span>
+<img src="../../assets/logos/thorwallet-logo-white.png" alt="THORWallet" style="height:26px;width:auto;opacity:.92" />
+</div>
+<div style="position:relative;z-index:2">
+<h1 style="font-size:62px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:#FFFFFF">Stake once. Trade <span style="background:linear-gradient(120deg,#00CCFF 0%,#19DAC8 52%,#33FF99 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">cheaper forever</span></h1>
+<p style="font-size:25px;line-height:1.42;color:rgba(255,255,255,.74);max-width:66ch;margin-top:16px">Swap fees fall with every $TITN tier. No lockups, no subscriptions.</p>
+</div>
+<div style="position:relative;z-index:2;flex:1;display:flex;align-items:center">
+<table style="width:100%;border-collapse:collapse;background:#0F2438;border:1px solid rgba(255,255,255,.09);border-radius:22px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.38)">
+<thead><tr>
+<th style="text-align:left;font-size:15px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);padding:20px 30px;background:rgba(255,255,255,.03)">Tier</th>
+<th style="text-align:left;font-size:15px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);padding:20px 30px;background:rgba(255,255,255,.03)">$TITN staked</th>
+<th style="text-align:left;font-size:15px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);padding:20px 30px;background:rgba(255,255,255,.03)">Swap fee</th>
+<th style="text-align:left;font-size:15px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);padding:20px 30px;background:rgba(255,255,255,.03)">Annual saving at $50k / mo</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:22px;font-weight:600;color:#fff">Base</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px">—</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;font-weight:600;color:#1FD9A6">0.35%</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;color:#EAF6F3">—</td></tr>
+<tr><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:22px;font-weight:600;color:#fff">Bronze</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px">5,000</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;font-weight:600;color:#1FD9A6">0.30%</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;color:#EAF6F3">$300</td></tr>
+<tr><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:22px;font-weight:600;color:#fff">Silver</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px">25,000</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;font-weight:600;color:#1FD9A6">0.25%</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;color:#EAF6F3">$600</td></tr>
+<tr><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:22px;font-weight:600;color:#fff">Gold</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px">250,000</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;font-weight:600;color:#1FD9A6">0.10%</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;color:#EAF6F3;font-weight:600">$1,500</td></tr>
+<tr><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:22px;font-weight:600;color:#fff">Platinum</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px">1,000,000</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;font-weight:600;color:#1FD9A6">0.05%</td><td style="padding:22px 30px;border-top:1px solid rgba(255,255,255,.09);font-size:21px;color:#EAF6F3;font-weight:600">$1,800</td></tr>
+</tbody>
+</table>
+</div>
+<p style="position:relative;z-index:2;font-size:12px;line-height:1.5;color:rgba(255,255,255,.5);opacity:.82">Savings modelled on $50,000 monthly swap volume against the base tier.</p>
+</div>
+</section>
+
+</x-import>
+
+</x-dc>
+</body>
+</html>

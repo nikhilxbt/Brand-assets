@@ -1,0 +1,420 @@
+/* ==========================================================
+   THORWALLET — NEW BRAND GUIDELINE STYLESHEET (DARK)
+   Derived from the Mine brand system. Shared across all pages.
+   Light "bone" surfaces inverted to deep navy ink;
+   OT Sono type and the teal -> amber -> coral sunset gradient kept.
+   ========================================================== */
+
+@font-face {
+  font-family: "OT Sono";
+  src: url("fonts/OT-Sono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OT Sono";
+  src: url("fonts/OT-Sono-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OT Sono";
+  src: url("fonts/OT-Sono-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-display: swap;
+}
+:root {
+  /* Surfaces — deep navy, tuned to the THORWallet app */
+  --bg: #0A1A2B;          /* page background, deepest */
+  --surface: #16273D;     /* cards / panels */
+  --surface-2: #1E3450;   /* elevated, footer, hover */
+  --panel: #112338;       /* feature panel base (quote, etc.) */
+  --neutral: #16273D;
+
+  /* Hairlines (light at low alpha) */
+  --line: rgba(255,255,255,0.08);
+  --line-strong: rgba(255,255,255,0.16);
+
+  /* legacy alias kept so old rules using var(--bone)/var(--taupe)/var(--paper)
+     for *backgrounds* resolve to dark surfaces */
+  --bone: var(--bg);
+  --taupe: var(--surface-2);
+  --paper: var(--surface);
+
+  /* Ink — cool white scale (matches the app) */
+  --ink: #FFFFFF;         /* primary text */
+  --ink-2: #C5D2DE;       /* secondary */
+  --ink-soft: #8A9DB0;    /* supporting */
+  --ink-mute: #5F7286;    /* meta / eyebrow muted */
+
+  /* Light color for text/marks on gradient + feature panels */
+  --on-dark: #FFFFFF;
+
+  /* PRIMARY — royal blue (every primary action in the app) */
+  --blue: #2A6BF2;
+  --blue-bright: #3D80FF;
+
+  /* ACCENT — mint/cyan green (positive values, highlights) */
+  --green: #33E0A0;
+  --green-deep: #1FB47E;
+
+  /* Logo gradient — Cyan -> Green ("The Signal"): the mark, app icon, small accents */
+  --signal-start: #00CCFF;
+  --signal-end: #33FF99;
+  --signal: linear-gradient(135deg, #00CCFF 0%, #33FF99 100%);
+
+  /* Expressive brand gradient — Blue -> Green (reward banners, hero highlights) */
+  --brand-grad: linear-gradient(120deg, #2A6BF2 0%, #1FB0D8 55%, #33FF99 100%);
+
+  /* legacy sunset names remapped onto the new brand palette so any stray
+     reference stays on-brand (sunset gradient has been retired) */
+  --teal: #33E0A0;
+  --teal-deep: #1FB47E;
+  --amber: #E7A23C;       /* gold accent — SPARKS / gold card only */
+  --coral: #E2603F;       /* danger / strike */
+  --coral-deep: #C94B30;
+
+  /* Functional (digital) */
+  --success: #33E0A0;
+  --warning: #E7A23C;
+  --danger: #E2603F;
+  --info: #57A4FF;
+
+  /* Type — Sono is the only typeface */
+  --font-sono: "OT Sono", -apple-system, "Helvetica Neue", "Inter", sans-serif;
+  --font-display: "OT Sono", -apple-system, "Helvetica Neue", "Inter", sans-serif;
+  --font-whyte: var(--font-display);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Radii */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  --max: 1320px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sono);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ============ WORDMARK ============ */
+img.wm,
+img.mw-mark {
+  display: inline-block;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+img.wm { height: 0.7em; width: auto; }
+img.mw-mark { height: 1em; width: auto; }
+.wordmark img.wm { height: auto; }
+
+/* Text wordmark (Thorwallet has no Mine-style SVG wordmark yet) */
+.tw-wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ============ DISPLAY / EDITORIAL TYPE ============ */
+.display, .display-1, .display-2, .display-3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  color: var(--ink);
+}
+.display-1 { font-size: clamp(48px, 7.5vw, 112px); }
+.display-2 { font-size: clamp(36px, 5vw, 72px); }
+.display-3 { font-size: clamp(28px, 3.4vw, 48px); line-height: 1.05; }
+
+.eyebrow {
+  font-family: var(--font-sono);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.lead {
+  font-family: var(--font-sono);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+.body { font-family: var(--font-sono); font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+.caption { font-family: var(--font-sono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.04em; }
+
+/* ============ NAV ============ */
+.brand-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in oklab, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.brand-nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.brand-nav .logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand-nav .logo-link .tw-wordmark { font-size: 15px; }
+.brand-nav .crumbs {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.brand-nav .nav-links {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.brand-nav .nav-links a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-family: var(--font-sono);
+  font-weight: 500;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: var(--r-pill);
+  letter-spacing: 0;
+  transition: color .15s, background .15s;
+}
+.brand-nav .nav-links a:hover {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+.brand-nav .nav-links a.active {
+  color: #fff;
+  background: var(--blue);
+}
+
+/* ============ PAGE FRAME ============ */
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 64px 32px 128px;
+}
+
+.page-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 64px;
+}
+.page-header .meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  font-family: var(--font-sono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.page-header .title { display: flex; flex-direction: column; gap: 14px; }
+.page-header .lead { margin-top: 8px; }
+
+/* ============ SECTIONS ============ */
+.section {
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+}
+.section:first-of-type { border-top: 0; padding-top: 0; }
+.section-head {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+  align-items: baseline;
+}
+.section-head .num {
+  font-family: var(--font-sono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.section-head .head-text h2 {
+  font-family: var(--font-whyte);
+  font-weight: 500;
+  font-size: clamp(28px, 3.2vw, 44px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 8px;
+}
+.section-head .head-text p {
+  font-family: var(--font-sono);
+  font-size: 14px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .section-head { grid-template-columns: 1fr; gap: 8px; }
+}
+
+/* ============ CARDS / SURFACES ============ */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 24px;
+}
+.flat-card {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: 24px;
+}
+
+/* ============ FOOTER ============ */
+.brand-foot {
+  border-top: 1px solid var(--line);
+  margin-top: 64px;
+  padding: 48px 32px;
+  background: var(--surface-2);
+}
+.brand-foot-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.brand-foot h4 {
+  font-family: var(--font-sono);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 12px;
+}
+.brand-foot ul { list-style: none; padding: 0; margin: 0; }
+.brand-foot li { padding: 4px 0; }
+.brand-foot a { color: var(--ink); text-decoration: none; font-size: 14px; }
+.brand-foot a:hover { text-decoration: underline; }
+.brand-foot .colophon {
+  font-family: var(--font-sono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ============ UTILITY ============ */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+@media (max-width: 900px) {
+  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  font-family: var(--font-sono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; display: inline-block; }
+
+.mark-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-whyte);
+  font-weight: 500;
+}
+
+/* gradient strip used as brand DNA */
+.gradient-strip {
+  height: 6px;
+  border-radius: var(--r-pill);
+  background: var(--brand-grad);
+}
+
+/* swatch */
+.swatch {
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--surface);
+}
+.swatch .chip { height: 140px; }
+.swatch .meta {
+  padding: 14px 16px;
+  display: grid;
+  gap: 4px;
+}
+.swatch .name { font-family: var(--font-whyte); font-weight: 500; font-size: 14px; }
+.swatch .codes { font-family: var(--font-sono); font-size: 11px; color: var(--ink-soft); }
+
+/* ============ PRINT ============ */
+@media print {
+  .brand-nav, .brand-foot { display: none; }
+  body { background: var(--bg); }
+  .page { padding: 0; }
+}

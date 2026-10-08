@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>try{var t=localStorage.getItem("tw-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy - THORWallet</title>
+<meta name="description" content="How THORWallet collects, processes, uses, transfers and secures your personal data." />
+<link rel="stylesheet" href="site.css" />
+<link rel="canonical" href="https://www.thorwallet.org/privacy-policy.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0A1A2B" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="THORWallet" />
+<meta property="og:title" content="Privacy Policy | THORWallet" />
+<meta property="og:description" content="How THORWallet collects, processes, uses, transfers and secures your personal data — and the rights you have over it." />
+<meta property="og:url" content="https://www.thorwallet.org/privacy-policy.html" />
+<meta property="og:image" content="https://www.thorwallet.org/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thorwallet" />
+<meta name="twitter:title" content="Privacy Policy | THORWallet" />
+<meta name="twitter:description" content="How THORWallet collects, processes, uses, transfers and secures your personal data — and the rights you have over it." />
+<meta name="twitter:image" content="https://www.thorwallet.org/assets/og-cover.png" />
+<style>
+  .legal-layout { display: grid; grid-template-columns: 260px 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; margin-top: 8px; }
+  .legal-toc { position: sticky; top: 100px; border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 22px; background: var(--surface); }
+  .legal-toc h4 { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-low); margin-bottom: 14px; }
+  .legal-toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 2px; }
+  .legal-toc li { counter-increment: toc; }
+  .legal-toc a { display: flex; gap: 10px; padding: 7px 8px; border-radius: 8px; font-size: 0.86rem; line-height: 1.35; color: var(--text-mid); transition: color var(--dur-micro) var(--ease), background var(--dur-micro) var(--ease); }
+  .legal-toc a::before { content: counter(toc, decimal-leading-zero); font-family: var(--font-mono); font-size: 0.74rem; color: var(--accent-solid); flex-shrink: 0; }
+  .legal-toc a:hover { color: var(--text-hi); background: var(--surface-2); }
+  .legal-body { max-width: 760px; }
+  .legal-body section { scroll-margin-top: 100px; padding-block: 26px; border-top: 1px solid var(--hairline); }
+  .legal-body section:first-of-type { border-top: 0; padding-top: 4px; }
+  .legal-body h2 { display: flex; align-items: baseline; gap: 14px; font-family: var(--font-display); font-weight: 600; color: var(--text-hi); font-size: clamp(1.4rem, 2.2vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+  .legal-body h2 .n { font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-solid); flex-shrink: 0; }
+  .legal-body h3 { font-family: var(--font-display); font-weight: 600; color: var(--text-hi); font-size: 1.12rem; letter-spacing: -0.01em; margin: 22px 0 8px; }
+  .legal-body p { color: var(--text-mid); margin-bottom: 14px; line-height: 1.65; }
+  .legal-body ul { margin: 0 0 16px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .legal-body ul li { position: relative; padding-left: 22px; color: var(--text-mid); line-height: 1.6; }
+  .legal-body ul li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-solid); }
+  .legal-body a { color: var(--accent-solid); }
+  .legal-body a:hover { text-decoration: underline; }
+  .legal-callout { border: 1px solid var(--hairline-strong); border-left: 3px solid var(--accent-solid); border-radius: var(--r-md); padding: 18px 20px; background: var(--surface); margin-bottom: 16px; }
+  .legal-callout p { margin-bottom: 0; }
+  .legal-addr { border: 1px solid var(--hairline); border-radius: var(--r-md); padding: 18px 20px; background: var(--surface); color: var(--text-mid); line-height: 1.6; margin-bottom: 14px; }
+  .legal-addr b { color: var(--text-hi); font-weight: 600; }
+  @media (max-width: 920px) {
+    .legal-layout { grid-template-columns: 1fr; }
+    .legal-toc { position: static; }
+  }
+</style>
+
+<!-- Analytics: consent-gated, loaded by consent.js -->
+</head>
+<body>
+<main>
+  <section class="subhero">
+    <div class="container">
+      <span class="eyebrow reveal">Documentation</span>
+      <h1 class="display reveal" data-delay="1">Privacy Policy.</h1>
+      <p class="lead reveal" data-delay="2">How THORWallet collects, processes, uses, transfers and secures your personal data - and the rights you have over it.</p>
+      <p class="footnote reveal" data-delay="3">Last updated 8 June 2026</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 24px;">
+    <div class="container">
+      <div class="legal-layout reveal">
+        <aside class="legal-toc" aria-label="Table of contents">
+          <h4>On this page</h4>
+          <ol>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#controller">Controller</a></li>
+            <li><a href="#scope">Scope</a></li>
+            <li><a href="#data">Data we collect</a></li>
+            <li><a href="#purposes">Purposes</a></li>
+            <li><a href="#basis">Basis &amp; sharing</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </aside>
+
+        <div class="legal-body">
+          <section id="overview">
+            <h2><span class="n">01</span>Overview</h2>
+            <h3>What is this privacy policy about?</h3>
+            <p>This privacy policy (“<b>Privacy Policy</b>”) lists the data privacy practices and processes of EMM Ventures AG, Bahnhofstrasse 11, 6300 Zug, Switzerland (“<b>THORWallet</b>”, “we”, “our”, or “us”). Protection and security of the personal data of our users is very important to THORWallet, as is your trust in us and the services we provide. THORWallet is committed to handling your personal data responsibly and in compliance with all legal requirements. The Privacy Policy describes how we collect, process, use, transfer, and secure your personal data when you access and use THORWallet.org (the “Website”) or any of our mobile applications (the “App”) which allow access to the blockchain from a mobile device and, where you apply for and use our payment card (the “Card”) issued through our third-party card issuing partner (the Website, the App and the Card collectively the “<b>Services</b>”).</p>
+          </section>
+
+          <section id="controller">
+            <h2><span class="n">02</span>Controller</h2>
+            <h3>Who is the controller for processing your personal data?</h3>
+            <p>EMM Ventures AG, Bahnhofstrasse 11, 6300 Zug, Switzerland is the controller for THORWallet’s processing of your personal data under this Privacy Policy, unless we tell you otherwise in an individual case. Where you apply for the Card, our card issuing partner processes your identity verification data as a separate controller for the purpose of meeting its own legal and regulatory obligations (see sections 04 and 06).</p>
+          </section>
+
+          <section id="scope">
+            <h2><span class="n">03</span>Scope</h2>
+            <h3>For whom and for what purpose is the Privacy Policy intended?</h3>
+            <p>This Privacy Policy applies to all persons whose personal data we process (hereinafter referred to as “<b>you</b>”) when you use our Services, regardless of which channel you use to contact us (e.g. on a website, in an app, via a social network, at an event, etc.). It applies to the processing of personal data that have already been collected and personal data that will be collected in the future.</p>
+          </section>
+
+          <section id="data">
+            <h2><span class="n">04</span>Data</h2>
+            <h3>How and what types of personal data do we collect and process</h3>
+            <p>When you use the Website or the App to create a wallet, subscribe to notifications or newsletters, or report a problem with the Website or App or otherwise use our Services, we may collect, store and use certain personal data that you disclose to us.</p>
+            <p>The personal data we collect from you may include: your IP address, email address, feedback information as well as personal data you may disclose to us from time to time on a voluntary basis, such as your name, address and other contact details.</p>
+            <p><b>Card and identity verification data.</b> If you apply for the Card, you are required to complete an identity verification (“Know Your Customer” or “KYC”) process. During this process we collect identity verification information you provide, which may include: images of your government-issued identity document (such as a passport or identity card), proof of address, the personal details contained in those documents (such as your name, date of birth, nationality and document number), and, where required for the verification, a facial image (selfie) used to confirm that you match your identity document. This information is collected through the App and provided to our card issuing partner, which carries out and is responsible for the identity verification, sanctions screening, transaction monitoring and related anti-money-laundering checks, and which processes this data as a separate controller for those regulatory purposes.</p>
+            <p>We shall also collect information about you when you visit and interact with the Website and/or App through the use of technologies such as cookies. The following are examples of information we may collect when you visit and interact with the Website and/or App:</p>
+            <ul>
+              <li>information about your device, browser or operating system;</li>
+              <li>time zone setting;</li>
+              <li>your IP address (Website and App);</li>
+              <li>information about interactions you have with the Website (such as scrolling and clicks);</li>
+              <li>information about the way you use and the actions you take within the Website;</li>
+              <li>length of time on the Website and App and time spent within certain sections;</li>
+              <li>response times; and</li>
+              <li>download errors.</li>
+            </ul>
+            <p>For more information about cookies as well as online tracking and online advertising techniques, see <a href="#cookies">section 07</a> below.</p>
+          </section>
+
+          <section id="purposes">
+            <h2><span class="n">05</span>Purposes</h2>
+            <h3>For what purposes do we use your personal data</h3>
+            <p>We use your personal data for the following purposes:</p>
+            <ul>
+              <li>Communication with you;</li>
+              <li>Provision, execution and administration (including support) of Services;</li>
+              <li>Issuing and operating your Card, including identity verification and other legal and regulatory checks carried out by our card issuing partner;</li>
+              <li>Retaining, only where you have given your separate and optional consent, a copy of your identity verification documents so that they can be reused - with your choice each time - to onboard you to other Services that require identity verification, without you having to verify again each time (see <a href="#basis">section 06</a>);</li>
+              <li>Marketing, improvement and maintenance of Services as well as services and product development;</li>
+              <li>Security and prevention;</li>
+              <li>Compliance with statutory and regulatory requirements;</li>
+              <li>Protection of rights.</li>
+            </ul>
+          </section>
+
+          <section id="basis">
+            <h2><span class="n">06</span>Basis &amp; sharing</h2>
+            <h3>Legal basis for processing and disclosure of your personal data</h3>
+
+            <h3>Lawful basis for processing your personal data</h3>
+            <p>We will only use your personal data when the law allows us to. Most commonly we will use your personal data in the following circumstances:</p>
+            <ul>
+              <li>Where you have asked us to do so, or consented to us doing so;</li>
+              <li>Where it is necessary for the performance of a Service or in order to take steps at your request prior to providing the Services;</li>
+              <li>Where it is necessary for our legitimate interests (or those of a third party) and your fundamental rights do not override those interests;</li>
+              <li>Where we need to comply with a legal or regulatory obligation.</li>
+            </ul>
+            <p>You will receive marketing messages from us by email if you have given us your consent to do so.</p>
+            <p>To unsubscribe from marketing emails at any time and without cost, please click on the unsubscribe link at the bottom of any marketing email. You may also contact us (<a href="mailto:info@thorwallet.org">info@thorwallet.org</a>) to inform us if you do not wish to receive any marketing materials from us.</p>
+
+            <h3>Reusing your identity verification documents across our Services</h3>
+            <p>Where you have given your <b>separate and optional consent</b>, we keep a secure copy of the identity verification documents you submitted during onboarding so that, where you choose to use them, your verified documents can be reused to onboard you to other Services that require identity verification - without you having to repeat the verification process each time. These Services include:</p>
+            <ul>
+              <li>the issuance and operation of your Card, including any change to a new or replacement card issuing partner;</li>
+              <li>personalized virtual accounts (for example, account or IBAN details) provided through our partners;</li>
+              <li>crypto on-ramp and off-ramp services provided through our partners; and</li>
+              <li>other regulated financial Services that we may offer within THORWallet and that require identity verification.</li>
+            </ul>
+            <p>The legal basis for this retention and reuse is <b>your consent</b>. It is optional: you can use our Services without giving it, you choose each time whether to reuse your documents for a new Service, and you can withdraw your consent at any time (see “Withdrawal of Consent” below), in which case we delete our copy. Each Service provider remains independently responsible for its own identity verification and anti-money-laundering checks and acts as a separate controller for those purposes; reuse only spares you from re-submitting the documents and does not transfer any provider’s compliance responsibility.</p>
+            <p>Our retained copy includes your identity document images, proof of address and the details contained in them. It does <b>not</b> include any facial image (selfie), which is used only for the initial verification and is not stored by us for this purpose.</p>
+
+            <h3>Sharing your personal information</h3>
+            <p>Depending on how and why you provide us with your personal data, we may share it in the following ways:</p>
+            <ul>
+              <li>with any member of our group, which means our subsidiaries, our ultimate holding company and its subsidiaries;</li>
+              <li>with our card issuing partner, and any successor or replacement card issuing partner, for the purpose of issuing and operating your Card and (only where you have consented as described above) enabling the transfer of your identity verification documents;</li>
+              <li>with selected third parties including business partners, suppliers and sub-contractors for the performance of any contract we enter into with them (see “Service Providers” below); or</li>
+              <li>with analytics that assist us in the improvement and optimisation of the Services.</li>
+            </ul>
+            <p>We may also disclose your personal data to third parties in the following events:</p>
+            <ul>
+              <li>if we were to sell or buy any business or assets, in which case we might disclose your personal data to the prospective seller or buyer of such business or assets;</li>
+              <li>if THORWallet or substantially all of its assets are acquired by a third party, in which case personal data held by us about our users will be one of the transferred assets; or</li>
+              <li>if we are under a duty to disclose or share your personal data in order to comply with any legal obligation, or to protect the rights, property, or safety of our company, our customers, or others. This includes exchanging personal data with other companies and organisations for the purposes of fraud protection and credit risk reduction.</li>
+            </ul>
+
+            <h3>Service Providers</h3>
+            <p>Our service providers provide us with a variety of administrative, statistical, and technical services. We will only provide service providers with the minimum amount of personal data they need to fulfil the services we request, and we stipulate that they protect this information and do not use it for any other purpose. We take these relationships seriously and oblige all of our data processors to sign contracts with us that clearly set out their commitment to respecting individual rights, and their commitments to assisting us to help you exercise your rights as a data subject. They will only process your personal data on our instructions and they are subject to a duty of confidentiality.</p>
+            <p>We have put in place procedures to deal with any suspected personal data breach and will notify you and any applicable regulator of a breach where we are legally required to do so.</p>
+
+            <h3>International Data Transfers</h3>
+            <p>Please note that some of our service providers and other recipients may be based outside of Switzerland and the European Economic Area (the “EEA”). These service providers may work for us or for one of our suppliers and may be engaged in, among other things, the fulfilment of your request for information, products and services, and the provision of support services.</p>
+            <p>Where we transfer your data to a service provider or other recipient that is neither in Switzerland nor in the EEA we seek to ensure that appropriate safeguards are in place to make sure that your personal data is held securely and that your rights as a data subject are upheld. In such a case transfers of personal data are either made:</p>
+            <ul>
+              <li>to a country recognised by the Swiss Federal Data Protection and Information Commissioner as well as the European Commission as providing an adequate level of protection; or</li>
+              <li>to a country which does not offer adequate protection but whose transfer has been governed by the standard contractual clauses of the European Commission or by implementing other appropriate cross-border transfer solutions to provide adequate protection. Please note that such contractual arrangements can partially compensate for weaker or missing statutory protection but cannot rule out all risks completely (e.g. government access abroad).</li>
+            </ul>
+            <p>Data may also be transferred to countries without adequate protection in exceptional cases, for example if consent is granted, in connection with legal proceedings abroad, or if transfer is necessary for the processing of an agreement or in cases of other legal authorization or another exception exists. By submitting your personal data, you agree to this transfer, storing or processing.</p>
+            <p>If you would like more information about the mechanism via which your personal data is transferred, please contact <a href="mailto:info@thorwallet.org">info@thorwallet.org</a>.</p>
+
+            <h3>Other Disclosures</h3>
+            <p>During your use of the App, your app store provider and mobile network operator may also collect personal data about you regarding your use of the App such as your identity, your usage and location.</p>
+            <p>These third parties shall act as separate and independent controllers of that personal data and shall process it in accordance with their own privacy policy.</p>
+
+            <h3>Links to third party sites</h3>
+            <p>The Website and App may, from time to time, contain links to and from the websites of our partner networks, advertisers and affiliates. We may also provide links to third party websites that are not affiliated with the Website and App. All third-party websites are out of our control and are not covered by this Privacy Policy. If you access third party sites using the links provided, the operators of these sites may collect personal data from you that could be used by them, in accordance with their own privacy policies. Please check these policies before you submit any personal data to those websites.</p>
+
+            <h3>How long we keep your personal data</h3>
+            <p>We will hold your personal data on our systems only for as long as required for the purposes of processing and compatible purposes, including for the purposes of satisfying any legal, regulatory, tax, accounting or reporting requirements. We may retain your personal data for a longer period in the event of a complaint or if we reasonably believe there is a prospect of litigation in respect to our relationship with you.</p>
+            <p>Identity verification documents that we retain on the basis of your consent (as described above) are kept only for as long as you hold a Card with us and your consent remains in place. If you withdraw your consent or close your account, we securely delete our copy of these documents, subject only to any shorter or longer period strictly required by applicable law.</p>
+
+            <h3>Your Rights</h3>
+            <p>As a data subject you have a number of rights in relation to your personal data. Below, we have described the various rights that you have as well as how you can exercise them (provided that the applicable conditions are met and subject to applicable statutory exceptions).</p>
+
+            <h3>Right of Access</h3>
+            <p>You may, at any time, request access to the personal data that we hold which relates to you (you may have heard of this right being described as a “subject access request”).</p>
+            <p>Please note that this right entitles you to receive a copy of the personal data that we hold about you in order to enable you to check that it is correct and to ensure that we are processing that personal data lawfully. It is not a right that allows you to request personal data about other people, or a right to request specific documents from us that do not relate to your personal data.</p>
+            <p>You can exercise this right at any time by writing to us (<a href="mailto:info@thorwallet.org">info@thorwallet.org</a>) and telling us that you are making a “subject access request”. You do not have to fill in a specific form to make this kind of request.</p>
+
+            <h3>Your Right to Rectification and Erasure</h3>
+            <p>You may, at any time, request that we correct personal data that we hold about you which you believe is incorrect or inaccurate. Please note that we may ask you to verify any new personal data that you provide to us and may take our own steps to check that the new data you have supplied us with is right.</p>
+            <p>You may also ask us to erase personal data that we control if you do not believe that we need to continue retaining it (you may have heard of this right described as the “right to be forgotten”). Although we will do everything to respect your request and personal data, it may not always be possible to erase all of your personal data as there may be legal requirements to keep certain personal data or technical limitations to the data we can delete.</p>
+            <p>There may also be legitimate interests in keeping certain personal data including, amongst others, if the personal data is required for the App to function. If this is the case, we will continue to process this personal data.</p>
+            <p>If erasure is not technically possible or we believe that we have a good legal reason to continue processing personal data that you ask us to erase, we will tell you this and our reasoning at the time we respond to your request.</p>
+            <p>You can exercise this right at any time by writing to us (<a href="mailto:info@thorwallet.org">info@thorwallet.org</a>) and telling us that you are making a request to have your personal data rectified or erased and on what basis you are making that request. If you want us to replace inaccurate data with new data, you should tell us what that new data is. You do not have to fill in a specific form to make this kind of request.</p>
+
+            <h3>Your Right to Restrict Processing</h3>
+            <p>Where we process your personal data on the basis of a legitimate interest, you are entitled to ask us to stop processing it in that way if you feel that our continuing to do so impacts on your fundamental rights and freedoms or if you feel that those legitimate interests are not valid.</p>
+            <p>We will comply with your request unless we have a compelling overriding legitimate interest for processing or we need to continue processing your personal data to establish, exercise or defend a legal claim.</p>
+
+            <h3>Your Right to stop receiving marketing communications</h3>
+            <p>To unsubscribe from receiving marketing messages at any time, please click on the unsubscribe link at the bottom of any marketing email and update your notification preferences in the App. For details on your rights to ask us to stop sending you various kinds of communications, please contact us (<a href="mailto:info@thorwallet.org">info@thorwallet.org</a>).</p>
+
+            <h3>Your Right to object to automated Decision Making and Profiling</h3>
+            <p>You have the right to be informed about the existence of any automated decision making and profiling of your personal data, and where appropriate, be provided with meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing that affects you.</p>
+
+            <h3>Withdrawal of Consent</h3>
+            <p>Where we are relying on consent to process your personal data, you may withdraw consent at any time. However, this will not affect the lawfulness of any processing carried out before you withdraw your consent. If you withdraw your consent, we may not be able to provide certain products or services to you. We will advise you if this is the case at the time you withdraw your consent. In particular, if you withdraw the separate consent described in <a href="#basis">section 06</a> (“Reusing your identity verification documents across our Services”), we will delete our copy of those documents, while the relevant Service providers may continue to retain their own copy where they are legally required to do so.</p>
+
+            <h3>Exercising your rights</h3>
+            <p>When you write to us making a request to exercise your rights, we are entitled to ask you to prove that you are who you say you are. We may ask you to provide copies of relevant ID documents to help us to verify your identity.</p>
+            <p>It will help us to process your request if you clearly state which right you wish to exercise and, where relevant, why it is that you are exercising it. The clearer and more specific you can be, the faster and more efficiently we can deal with your request. If you do not provide us with sufficient information, then we may delay actioning your request until you have provided us with additional information (and where this is the case, we will tell you).</p>
+            <p>For contact information to make a request or exercise your right, see also <a href="#contact">section 08</a> below.</p>
+          </section>
+
+          <section id="cookies">
+            <h2><span class="n">07</span>Cookies</h2>
+            <h3>Online tracking and online advertising techniques including use of cookies</h3>
+            <p>We use various techniques on our Website that allow us and third parties engaged by us to recognize you during your use of our Website and possibly to track you across several visits. This section informs you about this.</p>
+            <p>In essence, we wish to distinguish access by you (through your system) from access by other users, so that we can ensure the functionality of the website and carry out analysis and personalization. We do not intend to determine your identity.</p>
+            <p><b>Cookies</b> are individual codes (for example a serial number) that our server, or a server of our service providers or advertising partners, transmits to your system when you connect to our Website, and that your system accepts and stores until the set expiration time. Your system transmits these codes back with each additional access, so you are recognised even if your identity is unknown.</p>
+            <p>You can set your browser to block or deceive certain types of cookies or alternative technologies, or to delete existing cookies. You can also add software to your browser that blocks certain third-party tracking. We distinguish the following categories of cookies (including other technologies):</p>
+            <ul>
+              <li><b>Necessary cookies</b> - required for the functioning of the Website or certain features (e.g. moving between pages without losing form data, staying logged in). Some are session-only; others persist up to 12 months. Legal basis: our legitimate interest to provide all functions of our Website.</li>
+              <li><b>Performance cookies</b> - used to record and analyse use of our Website to optimise it. We ask for your consent first; legal basis is your consent, which you can withdraw at any time. Expiration up to 12 months.</li>
+              <li><b>Advertisement cookies</b> - used by us and our advertising partners, with your consent, to target advertising and record content accessed. Expiration ranges from a few days to 12 months. Legal basis: your consent.</li>
+              <li><b>Functional cookies</b> - help perform functionalities such as sharing content on social media and collecting feedback.</li>
+              <li><b>Analytical cookies</b> - used to understand how visitors interact with the Website (number of visitors, bounce rate, traffic source, etc.).</li>
+              <li><b>Other cookies</b> - uncategorised cookies that are being analysed and have not yet been classified.</li>
+            </ul>
+            <p>We currently use offers from the following service providers and advertising partners where they use data from you or cookies set on your computer for advertising purposes:</p>
+            <ul>
+              <li><b>Google Analytics</b> (Google LLC; Google Ireland Ltd. as controller for GDPR and the Swiss DPA). Google tracks visitor behaviour through performance cookies and creates reports for us. We have configured the service so that visitor IP addresses are truncated within Europe before being forwarded to the United States. See Google’s information on <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">data protection with Google Analytics</a>.</li>
+              <li><b>Facebook Custom Audiences</b> (Facebook Ireland Ltd.). Our Website may make use of Facebook Pixel and similar technologies to display our activated Facebook ads to relevant users and to measure ad effectiveness (conversion measurement). We are jointly responsible with Facebook for the exchange of data received or collected via these functions and have concluded a supplementary controller agreement to that effect.</li>
+            </ul>
+            <p>The detailed list of all necessary, performance and marketing cookies used on our Website and their specific expiration periods can be found in the cookie settings on the Website.</p>
+          </section>
+
+          <section id="contact">
+            <h2><span class="n">08</span>Contact</h2>
+            <h3>How can you contact us?</h3>
+            <p>If you have any questions or concerns relating to this Privacy Policy or the processing of your personal data, please contact us as follows:</p>
+            <div class="legal-addr"><b>EMM Ventures AG</b><br/>Bahnhofstrasse 11<br/>6300 Zug<br/>Switzerland<br/><a href="mailto:info@thorwallet.org">info@thorwallet.org</a></div>
+            <p class="footnote" style="margin-top:18px;">Last updated 8 June 2026 · THORWallet · EMM Ventures AG · Zug, Switzerland</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="site-nav.js"></script>
+<script src="i18n-data.js"></script>
+<script src="i18n-data2.js"></script>
+<script src="i18n-data3.js"></script>
+<script src="i18n-data4.js"></script>
+<script src="i18n-data5.js"></script>
+<script src="i18n-data6.js"></script>
+<script src="i18n-data7.js"></script>
+<script src="i18n-data8.js"></script>
+<script src="i18n.js"></script>
+<script src="consent.js"></script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
+</body>
+</html>

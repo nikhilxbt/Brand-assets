@@ -1,0 +1,14 @@
+{
+  "subject": "Forgot to top up your THORWallet Card?",
+  "preheader": "0% USDC top-up fee. A competitive 1.5% FX markup. Cashback is on the way.",
+  "audience": "Card approved AND no successful card top-up AND eligible for marketing email",
+  "variables": [
+    "asset_base_url",
+    "first_name",
+    "top_up_url",
+    "sender_postal_address",
+    "view_in_browser_url",
+    "unsubscribe_url"
+  ],
+  "source": "https://faqs.thorwallet.org/thorwallet-card"
+}

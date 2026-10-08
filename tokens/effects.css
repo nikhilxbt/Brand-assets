@@ -1,0 +1,25 @@
+/* THORWallet shadows, glows, motion. Glow — never a hard drop shadow — is the
+   brand's depth cue: the Signal gradient leaking light behind a surface. */
+:root{
+  --shadow-ambient:0 24px 70px -24px rgba(0,0,0,0.7);
+  --shadow-sm:0 12px 32px rgba(0,0,0,0.38);
+  --shadow-deck:0 24px 60px rgba(0,0,0,0.46);
+  --shadow-glow:0 0 90px -24px var(--accent-glow);
+  --shadow-inset-top:inset 0 1px 0 rgba(255,255,255,0.04);
+  --shadow-blue:0 10px 30px -12px rgba(42,107,242,0.7);
+  --shadow-blue-hover:0 16px 40px -12px rgba(42,107,242,0.85);
+  --focus-ring:0 0 0 2px rgba(49,253,157,0.24);
+
+  /* Ambient mesh — the two-blob page wash sat behind every dark surface */
+  --mesh:radial-gradient(60% 50% at 82% 8%,rgba(0,204,255,0.10),transparent 60%),
+radial-gradient(55% 45% at 12% 78%,rgba(51,224,160,0.08),transparent 60%); /* @kind color */
+  --grain-opacity:0.035; /* @kind other */
+  --grid-overlay:rgba(255,255,255,0.017); /* @kind color */
+
+  /* Motion */
+  --ease:cubic-bezier(0.22,1,0.36,1); /* @kind other */
+  --ease-brand:cubic-bezier(0.2,0.8,0.2,1); /* @kind other */
+  --dur-micro:180ms; /* @kind other */
+  --dur:440ms; /* @kind other */
+  --dur-slow:700ms; /* @kind other */
+}

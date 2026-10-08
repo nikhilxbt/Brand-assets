@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Iconography — Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 900px) { .icon-grid { grid-template-columns: repeat(4,1fr); } }
+  @media (max-width: 600px) { .icon-grid { grid-template-columns: repeat(3,1fr); } }
+  .icon-cell {
+    aspect-ratio: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--ink);
+    padding: 12px;
+  }
+  .icon-cell svg { width: 32px; height: 32px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .icon-cell .name { font-family: var(--font-sono); font-size: 10px; letter-spacing: 0.06em; color: var(--ink-soft); }
+
+  .construction-icon {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+    padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
+  }
+  @media (max-width: 720px) { .construction-icon { grid-template-columns: 1fr; } }
+  .construction-icon svg { width: 100%; max-width: 320px; height: auto; }
+  .construction-icon dl { font-family: var(--font-sono); font-size: 12px; line-height: 1.7; margin: 0; }
+  .construction-icon dt { color: var(--ink-mute); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 12px; }
+  .construction-icon dd { margin: 4px 0 0; color: var(--ink); }
+
+  .sizes {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    align-items: end;
+  }
+  @media (max-width: 720px) { .sizes { grid-template-columns: 1fr 1fr; } }
+  .size-c {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+    padding: 24px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start;
+  }
+  .size-c svg { stroke: var(--ink); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .size-c .meta { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); }
+  .size-c .name { font-family: var(--font-whyte); font-weight: 500; font-size: 16px; color: var(--ink); }
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="06 · Iconography"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta"><span>06 · Iconography</span><span>New Brand Guidelines · v0.1</span></div>
+    <div class="title">
+      <div class="eyebrow">Iconography</div>
+      <h1 class="display-1">A line<br/>system.</h1>
+      <p class="lead">A monoweight stroked icon family designed to sit alongside Sono. Geometric, calm, never decorative — covering wallet, swap, earn, multisig and card surfaces.</p>
+    </div>
+  </header>
+
+  <section class="section" data-screen-label="Construction">
+    <div class="section-head">
+      <div class="num">06.1 — Construction</div>
+      <div class="head-text">
+        <h2>One stroke. One radius.</h2>
+        <p>All icons live on a 24-unit grid with a 1.5-unit stroke and 2u corner radius. Terminals are rounded.</p>
+      </div>
+    </div>
+    <div class="construction-icon">
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="rgba(243,236,232,0.18)" stroke-width="1">
+          <line x1="20" y1="20" x2="220" y2="20"/>
+          <line x1="20" y1="220" x2="220" y2="220"/>
+          <line x1="20" y1="20" x2="20" y2="220"/>
+          <line x1="220" y1="20" x2="220" y2="220"/>
+          <line x1="40" y1="20" x2="40" y2="220" stroke-dasharray="2 4"/>
+          <line x1="200" y1="20" x2="200" y2="220" stroke-dasharray="2 4"/>
+          <line x1="20" y1="40" x2="220" y2="40" stroke-dasharray="2 4"/>
+          <line x1="20" y1="200" x2="220" y2="200" stroke-dasharray="2 4"/>
+        </g>
+        <g stroke="#F3ECE8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <rect x="40" y="70" width="160" height="110" rx="14"/>
+          <path d="M150 125 h40"/>
+          <circle cx="160" cy="125" r="6" fill="#F3ECE8" stroke="none"/>
+        </g>
+      </svg>
+      <dl>
+        <dt>Grid</dt><dd>24 × 24 units · 2u safe-area</dd>
+        <dt>Stroke</dt><dd>1.5u monoweight</dd>
+        <dt>Corners</dt><dd>2u radius · rounded terminals</dd>
+        <dt>Style</dt><dd>Geometric · two-state (line / fill on active)</dd>
+        <dt>Color</dt><dd>Inherits currentColor — typically Bone</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">06.2 — Core Set</div>
+      <div class="head-text">
+        <h2>The starter library.</h2>
+        <p>Eighteen icons cover the wallet's primary surfaces. Names follow noun-first convention.</p>
+      </div>
+    </div>
+    <div class="icon-grid">
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg><span class="name">wallet</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 4 v12 M7 11 l5 5 5-5"/><path d="M4 20 h16"/></svg><span class="name">deposit</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 20 V8 M7 13 l5-5 5 5"/><path d="M4 4 h16"/></svg><span class="name">send</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 9 h12 M5 9 l3-3 M5 9 l3 3"/><path d="M19 15 H7 M19 15 l-3 -3 M19 15 l-3 3"/></svg><span class="name">swap</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 12 l2 2 4-4"/></svg><span class="name">confirm</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8 v5 M12 16 v.01"/></svg><span class="name">info</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 3 l8 4 v6 c0 4 -3 7 -8 8 c-5 -1 -8 -4 -8 -8 V7 z"/></svg><span class="name">security</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16 l4 4"/></svg><span class="name">search</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 4 v16 l4 -3 3 3 3 -3 4 3 V4 z"/><path d="M9 9 h6 M9 13 h4"/></svg><span class="name">history</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 20 c0 -4 3 -6 7 -6 s7 2 7 6"/></svg><span class="name">account</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3 v3 M12 18 v3 M3 12 h3 M18 12 h3 M5 5 l2 2 M17 17 l2 2 M19 5 l-2 2 M7 17 l-2 2"/></svg><span class="name">settings</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10 h18"/></svg><span class="name">card</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 18 V11 M9 18 V8 M14 18 V13 M19 18 V5"/></svg><span class="name">chart</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 3 v18"/><path d="M16 7 H10 a3 3 0 0 0 0 6 h4 a3 3 0 0 1 0 6 H8"/></svg><span class="name">price</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M6 8 V6 a6 6 0 0 1 12 0 v2"/><rect x="4" y="8" width="16" height="12" rx="2"/></svg><span class="name">lock</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 12 h14 M5 12 l4 -4 M5 12 l4 4"/></svg><span class="name">back</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 8 l8 8 M16 8 l-8 8"/></svg><span class="name">close</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 3 c-3 0 -5 2 -5 5 v3 l-2 4 h14 l-2 -4 V8 c0 -3 -2 -5 -5 -5 z"/><path d="M10 19 a2 2 0 0 0 4 0"/></svg><span class="name">notify</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">06.3 — Sizing</div>
+      <div class="head-text">
+        <h2>Four ratified sizes.</h2>
+        <p>Don't draw between these. Each size has a designated stroke weight to maintain optical balance.</p>
+      </div>
+    </div>
+    <div class="sizes">
+      <div class="size-c">
+        <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg>
+        <div class="meta">16px · 2u stroke</div>
+        <div class="name">Inline · Caption</div>
+      </div>
+      <div class="size-c">
+        <svg width="20" height="20" viewBox="0 0 24 24" stroke-width="1.75"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg>
+        <div class="meta">20px · 1.75u stroke</div>
+        <div class="name">Body · Buttons</div>
+      </div>
+      <div class="size-c">
+        <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg>
+        <div class="meta">24px · 1.5u stroke</div>
+        <div class="name">Tab bar · Default</div>
+      </div>
+      <div class="size-c">
+        <svg width="40" height="40" viewBox="0 0 24 24" stroke-width="1.25"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg>
+        <div class="meta">40px · 1.25u stroke</div>
+        <div class="name">Empty state · Feature</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">06.4 — States</div>
+      <div class="head-text">
+        <h2>Default &amp; Active.</h2>
+        <p>Two visual states. Active swaps the stroke for a fill in the primary blue. Avoid building a third state for hover — use color change instead.</p>
+      </div>
+    </div>
+    <div class="grid-4">
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" stroke="var(--ink)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg>
+        <div class="caption">Default</div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;gap:12px;background:var(--blue);border-color:transparent;">
+        <svg width="40" height="40" viewBox="0 0 24 24" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg>
+        <div class="caption" style="color:#fff;font-weight:600;">Active</div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" stroke="var(--ink-mute)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg>
+        <div class="caption">Disabled</div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" stroke="var(--danger)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12 h3"/></svg>
+        <div class="caption">Danger</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+</body>
+</html>

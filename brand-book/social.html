@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Social - Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+a{color:var(--green)}a:hover{color:var(--signal-end)}
+.principle-list{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface)}
+@media (max-width:900px){.principle-list{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.principle-list{grid-template-columns:1fr}}
+.principle-list .item{padding:24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.principle-list .item h4{font-family:var(--font-display);font-weight:500;font-size:18px;letter-spacing:-.015em;margin:0 0 8px;color:var(--ink)}
+.principle-list .item .num{font-family:var(--font-sono);font-size:11px;letter-spacing:.18em;color:var(--ink-mute)}
+.principle-list .item p{font-family:var(--font-sono);font-size:13px;color:var(--ink-soft);margin:8px 0 0;line-height:1.55}
+.post{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface);display:flex;flex-direction:column}
+.post .vis{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0A1A2B}
+.post .vis img{width:100%;height:100%;object-fit:cover;display:block}
+.post .vis iframe{position:absolute;top:0;left:0;width:1600px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
+.post .meta{padding:14px 18px;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.post .meta .name{font-family:var(--font-display);font-weight:500;font-size:15px;color:var(--ink)}
+.post .meta .spec{font-family:var(--font-sono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap}
+.feature-post{display:grid;grid-template-columns:1fr;gap:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.grid-2{grid-template-columns:1fr}}
+.anatomy{display:grid;grid-template-columns:1.35fr 1fr;gap:32px;align-items:start}
+@media (max-width:960px){.anatomy{grid-template-columns:1fr}}
+.anatomy .shot{position:relative;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line)}
+.anatomy .shot img{width:100%;display:block}
+.pin{position:absolute;width:28px;height:28px;border-radius:50%;background:var(--signal);color:#06222B;font-family:var(--font-sono);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(10,26,43,.7)}
+.legend{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.legend .row{display:grid;grid-template-columns:36px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.legend .n{width:26px;height:26px;border-radius:50%;background:var(--signal);color:#06222B;font-family:var(--font-sono);font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center}
+.legend h4{margin:0 0 4px;font-family:var(--font-display);font-weight:500;font-size:16px;color:var(--ink)}
+.legend p{margin:0;font-family:var(--font-sono);font-size:13px;line-height:1.55;color:var(--ink-soft)}
+.formats{display:grid;grid-template-columns:1.2fr .7fr 1.6fr;gap:16px;align-items:end}
+@media (max-width:900px){.formats{grid-template-columns:1fr}}
+.fmt .box{border:1px dashed var(--line-strong);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-sono);font-size:12px;color:var(--ink-soft);background:rgba(255,255,255,.02)}
+.fmt h4{margin:14px 0 4px;font-family:var(--font-display);font-weight:500;font-size:16px;color:var(--ink)}
+.fmt p{margin:0;font-family:var(--font-sono);font-size:12px;line-height:1.55;color:var(--ink-soft)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){.compare{grid-template-columns:1fr}}
+.compare .col{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px}
+.compare .lbl{font-family:var(--font-sono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.compare .do .lbl::before,.compare .dont .lbl::before{content:"";width:12px;height:12px;border-radius:50%}
+.compare .do .lbl::before{background:var(--green)}.compare .dont .lbl::before{background:var(--danger)}
+.compare ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-family:var(--font-sono);font-size:13px;line-height:1.5;color:var(--ink-soft)}
+.banner{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line)}
+.banner img{width:100%;display:block}
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="10 · Social"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta"><span>10 · Social</span><span>New Brand Guidelines · v0.2</span></div>
+    <div class="title">
+      <div class="eyebrow">Social</div>
+      <h1 class="display-1">One post.<br/>One promise.</h1>
+      <p class="lead">Every post on X follows the same layout: copy on the left, the real product on the right, all on the navy canvas. Each post makes one claim and backs it with a real app screen.</p>
+    </div>
+  </header>
+
+  <section class="section" data-screen-label="Anatomy">
+    <div class="section-head">
+      <div class="num">10.1 - Anatomy</div>
+      <div class="head-text">
+        <h2>Five parts, always in this order.</h2>
+        <p>Taken from our latest post. Copy this structure for every launch, feature or update post.</p>
+      </div>
+    </div>
+    <div class="anatomy">
+      <div class="shot">
+        <img src="assets/social/confidential-swaps.png" alt="Confidential cross-chain swaps post" />
+        <span class="pin" style="left:4%;top:15%">1</span>
+        <span class="pin" style="left:46%;top:27%">2</span>
+        <span class="pin" style="left:39%;top:43%">3</span>
+        <span class="pin" style="left:48%;top:57%">4</span>
+        <span class="pin" style="left:4%;top:78%">5</span>
+        <span class="pin" style="left:91%;top:10%">6</span>
+      </div>
+      <div class="legend">
+        <div class="row"><span class="n">1</span><div><h4>Status eyebrow</h4><p>Signal dot plus a short label in wide, spaced capitals: Coming soon, Android beta, Native USDC.</p></div></div>
+        <div class="row"><span class="n">2</span><div><h4>Two-line headline</h4><p>SemiBold, tight tracking. The final word carries the cyan to green signal gradient.</p></div></div>
+        <div class="row"><span class="n">3</span><div><h4>One-sentence lead</h4><p>Plain words, with the key action or name in bold. No more than two lines.</p></div></div>
+        <div class="row"><span class="n">4</span><div><h4>Three proof rows</h4><p>Line icon in signal green, one fact each. Honest, including trade-offs ("Costs a little more").</p></div></div>
+        <div class="row"><span class="n">5</span><div><h4>Lockup footer</h4><p>White THORWallet lockup, hairline divider, then partner or URL in muted capitals.</p></div></div>
+        <div class="row"><span class="n">6</span><div><h4>Real device</h4><p>An actual app screenshot in a navy phone frame with a soft cyan to green edge glow. Never a mock UI.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Rules">
+    <div class="section-head">
+      <div class="num">10.2 - Rules</div>
+      <div class="head-text">
+        <h2>Six rules.</h2>
+        <p>Every post we publish follows all six.</p>
+      </div>
+    </div>
+    <div class="principle-list">
+      <div class="item"><div class="num">S · 01</div><h4>Navy canvas.</h4><p>#0A1A2B with a faint grid and blue and green ambient glow in the corners. Never a light background.</p></div>
+      <div class="item"><div class="num">S · 02</div><h4>Copy left, product right.</h4><p>The text column sits on the left, around 55% of the width. The device or card takes the right side.</p></div>
+      <div class="item"><div class="num">S · 03</div><h4>Signal on one word.</h4><p>Only the payoff word gets the gradient: "swaps.", "Free.", "100% free.". Never the whole line.</p></div>
+      <div class="item"><div class="num">S · 04</div><h4>Facts over hype.</h4><p>Concrete numbers and plain claims. If there is a cost or a limit, say it.</p></div>
+      <div class="item"><div class="num">S · 05</div><h4>One call to action.</h4><p>At most one pill (Early access, $0.00 swap fees) plus the URL. Nothing else competes.</p></div>
+      <div class="item"><div class="num">S · 06</div><h4>Export at 2x.</h4><p>Design at 1600 x 900 and export at 3200 x 1800 so it stays sharp on X and in Telegram.</p></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Latest posts">
+    <div class="section-head">
+      <div class="num">10.3 - Latest posts</div>
+      <div class="head-text">
+        <h2>Recent work.</h2>
+        <p>Our latest launch and feature posts. Use them as references when you make a new one.</p>
+      </div>
+    </div>
+    <div class="feature-post">
+      <div class="post"><div class="vis"><img src="assets/social/confidential-swaps.png" alt="" /></div><div class="meta"><span class="name">Confidential cross-chain swaps</span><span class="spec">Coming soon · 16:9</span></div></div>
+      <div class="grid-2">
+        <div class="post"><div class="vis"><img src="assets/social/usdc-free.png" alt="" /></div><div class="meta"><span class="name">Native USDC swaps, 100% free</span><span class="spec">Launch · 16:9</span></div></div>
+        <div class="post"><div class="vis"><img src="assets/social/card-android-beta.png" alt="" /></div><div class="meta"><span class="name">THORWallet Card, Android beta</span><span class="spec">Beta · 16:9</span></div></div>
+        <div class="post"><div class="vis"><iframe data-scale src="social-src/card-free-tier/card-free-tier.html" title="Card free tier" loading="lazy" tabindex="-1"></iframe></div><div class="meta"><span class="name">Card free tier teaser</span><span class="spec">Teaser · 16:9</span></div></div>
+        <div class="post"><div class="vis"><iframe data-scale src="social-src/card-mica/card-mica.html" title="MiCA compliant" loading="lazy" tabindex="-1"></iframe></div><div class="meta"><span class="name">MiCA compliant</span><span class="spec">Trust · 16:9</span></div></div>
+        <div class="post"><div class="vis"><iframe data-scale src="social-src/card-updates/card-updates.html" title="Security updates" loading="lazy" tabindex="-1"></iframe></div><div class="meta"><span class="name">Security updates</span><span class="spec">Update · 16:9</span></div></div>
+        <div class="post"><div class="vis"><img src="assets/social/release-380-16x9.png" alt="" /></div><div class="meta"><span class="name">Release 3.8.0</span><span class="spec">Release · 16:9</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Formats">
+    <div class="section-head">
+      <div class="num">10.4 - Formats</div>
+      <div class="head-text">
+        <h2>Three sizes.</h2>
+        <p>Most posts are 16:9. Release notes also get a square version, and the profile header is a wide banner.</p>
+      </div>
+    </div>
+    <div class="formats">
+      <div class="fmt"><div class="box" style="aspect-ratio:16/9">16 : 9</div><h4>Post, landscape</h4><p>1600 x 900, export 3200 x 1800. Default for X, Telegram and LinkedIn.</p></div>
+      <div class="fmt"><div class="post"><div class="vis" style="aspect-ratio:1/1"><img src="assets/social/release-380-1x1.png" alt="" /></div></div><h4>Post, square</h4><p>1080 x 1080. Release notes and carousels.</p></div>
+      <div class="fmt"><div class="banner"><img src="assets/social/x-banner.png" alt="THORWallet X banner" /></div><h4>X header</h4><p>1500 x 500. Keep copy inside the centre 60% because the avatar covers the bottom left.</p></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Do and don't">
+    <div class="section-head">
+      <div class="num">10.5 - Do &amp; don't</div>
+      <div class="head-text"><h2>Keep it clean.</h2></div>
+    </div>
+    <div class="compare">
+      <div class="col do"><div class="lbl">Do</div><ul><li>Use real screenshots from the current build.</li><li>Put the gradient on one payoff word.</li><li>Keep proof rows to three.</li><li>Use a hyphen or a comma, never a long dash.</li></ul></div>
+      <div class="col dont"><div class="lbl">Don't</div><ul><li>Stack several calls to action or competing pills.</li><li>Use stock photos, 3D coins or meme art.</li><li>Tilt, skew or add glare to the phone.</li><li>Set body copy in the gradient.</li></ul></div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+<script>
+(function(){
+  function fit(){document.querySelectorAll('iframe[data-scale]').forEach(function(f){var w=f.parentElement.clientWidth;f.style.transform='scale('+(w/1600)+')';});}
+  window.addEventListener('resize',fit);
+  if('ResizeObserver' in window){var ro=new ResizeObserver(fit);document.querySelectorAll('iframe[data-scale]').forEach(function(f){ro.observe(f.parentElement);});}
+  fit();
+})();
+</script>
+</body>
+</html>

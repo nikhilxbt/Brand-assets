@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>THORWallet X Banner — Export B</title>
+<style>
+  @font-face { font-family:"OT Sono"; src:url("../fonts/OT-Sono-Regular.otf") format("opentype"); font-weight:400; font-display:block; }
+  @font-face { font-family:"OT Sono"; src:url("../fonts/OT-Sono-Medium.otf") format("opentype"); font-weight:500; font-display:block; }
+  @font-face { font-family:"OT Sono"; src:url("../fonts/OT-Sono-SemiBold.otf") format("opentype"); font-weight:600; font-display:block; }
+  :root{
+    --bg-base:#0A1A2B; --surface:#142A40;
+    --accent-from:#00CCFF; --accent-to:#33FF99; --accent-solid:#1FD9A6;
+    --signal:linear-gradient(120deg,#00CCFF 0%,#19DAC8 52%,#33FF99 100%);
+    --text-hi:#FFFFFF; --text-mid:#C5D2DE; --text-low:#8A9DB0;
+    --hairline-strong:rgba(255,255,255,0.15);
+    --font:"OT Sono",-apple-system,"Helvetica Neue",sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; width:100vw; height:auto; background:var(--bg-base); overflow:hidden; }
+  .frame{ position:relative; width:100vw; height:calc(100vw / 3); overflow:hidden; }
+  .scaler{ position:absolute; top:0; left:0; width:1500px; height:500px; transform-origin:top left; }
+  .banner{ position:absolute; inset:0; width:1500px; height:500px; overflow:hidden;
+           background:radial-gradient(130% 150% at 78% 12%, #0E2233 0%, #0A1A2B 52%, #07121d 100%); font-family:var(--font); }
+  .grid{ position:absolute; inset:0; opacity:0.5;
+    background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
+    background-size:64px 64px; }
+  .glow{ position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none; }
+  .glow.cyan{ background:radial-gradient(closest-side, rgba(0,204,255,0.55), transparent 70%); width:520px; height:520px; left:-180px; top:-200px; }
+  .glow.green{ background:radial-gradient(closest-side, rgba(51,255,153,0.5), transparent 70%); width:600px; height:600px; right:-220px; top:-160px; }
+  .vignette{ position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,18,29,0.5) 0%, transparent 28%, transparent 72%, rgba(6,18,29,0.45) 100%); }
+  .accent{ background:var(--signal); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+  .lockup{ display:block; filter:drop-shadow(0 10px 40px rgba(0,204,255,0.28)); }
+  .cardart{ filter:drop-shadow(0 30px 60px rgba(0,0,0,0.6)); }
+  .pill{ display:inline-flex; align-items:center; gap:9px; padding:11px 18px; border-radius:999px;
+         background:rgba(255,255,255,0.04); border:1px solid var(--hairline-strong); font-size:16px; color:var(--text-mid); }
+  .pill .star{ color:var(--accent-solid); } .pill b{ color:var(--text-hi); font-weight:600; }
+  .inner{ position:absolute; inset:0; display:flex; align-items:center; }
+  .left{ padding-left:92px; max-width:880px; transform:translateY(-30px); }
+  .left .lockup{ height:44px; margin-bottom:16px; }
+  h1{ font-weight:600; font-size:46px; line-height:1.06; letter-spacing:-0.03em; color:var(--text-hi); margin:0 0 22px; }
+  .pills{ display:flex; gap:14px; margin:0 0 24px; }
+  .eyebrow{ font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-low); margin-bottom:15px; }
+  .creds{ display:flex; align-items:center; gap:54px; height:30px; }
+  .creds img{ height:100%; width:auto; object-fit:contain; filter:brightness(0) invert(1); opacity:0.5; }
+  .creds .c-accel{ height:24px; } .creds .c-cva{ height:36px; }
+  .cardwrap{ position:absolute; right:-90px; top:50%; transform:translateY(-50%) rotate(-14deg); }
+  .cardwrap img{ width:470px; }
+</style>
+</head>
+<body>
+  <div class="frame"><div class="scaler">
+  <div class="banner">
+    <div class="grid"></div>
+    <div class="glow cyan"></div><div class="glow green"></div>
+    <div class="cardwrap"><img class="cardart" src="../assets/cards/card-hero.png" alt="THORWallet card" /></div>
+    <div class="vignette"></div>
+    <div class="inner"><div class="left">
+      <img class="lockup" src="../assets/thorwallet-lockup-gradient.png" alt="THORWallet" />
+      <h1>The Best Crypto Wallet For<br /><span class="accent">Swaps &amp; DeFi</span></h1>
+      <div class="eyebrow">Backed &amp; featured by</div>
+      <div class="creds">
+        <img src="../assets/logos/binance.png" alt="Binance" />
+        <img src="../assets/logos/coinmarketcap.svg" alt="CoinMarketCap" />
+        <img class="c-accel" src="../assets/logos/cointelegraph-accelerator-trim.png" alt="Cointelegraph" />
+        <img class="c-cva" src="../assets/logos/cva.png" alt="Crypto Valley Association" />
+      </div>
+    </div></div>
+  </div></div>
+<script>
+  function fit(){ document.querySelector('.scaler').style.transform = 'scale(' + (window.innerWidth/1500) + ')'; }
+  window.addEventListener('resize', fit); window.addEventListener('load', fit); fit();
+</script>
+</body>
+</html>

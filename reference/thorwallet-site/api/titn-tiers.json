@@ -1,0 +1,77 @@
+{
+  "$schema": "https://www.thorwallet.org/api/schemas/titn-tiers.schema.json",
+  "resource": "titn-tiers",
+  "description": "$TITN staking tiers and the swap fees they unlock. $TITN is a utility token, not an investment. Volume discounts apply automatically on top of the tier fee.",
+  "documentation": "https://www.thorwallet.org/titn",
+  "updated": "2026-08-25",
+  "license": "CC-BY-4.0",
+  "notes": [
+    "Swaps under $100 are free on every tier.",
+    "Higher transaction volume unlocks further discounts on top of the tier fee.",
+    "Tiers recalculate continuously from the staked balance; there is no lockup."
+  ],
+  "tiers": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "rank": 1,
+      "titnStaked": 0,
+      "swapFeePercent": 1.25,
+      "usdcFeeRebate": null,
+      "communityPerks": false,
+      "volumeDiscounts": "standard",
+      "support": "standard"
+    },
+    {
+      "id": "community",
+      "name": "Community",
+      "rank": 2,
+      "titnStaked": 10000,
+      "swapFeePercent": 0.5,
+      "usdcFeeRebate": "up to ~70%",
+      "communityPerks": true,
+      "volumeDiscounts": "boosted",
+      "support": "standard"
+    },
+    {
+      "id": "community-plus",
+      "name": "Community Plus",
+      "rank": 3,
+      "titnStaked": 100000,
+      "swapFeePercent": 0.2,
+      "usdcFeeRebate": "up to ~70%",
+      "communityPerks": "priority",
+      "volumeDiscounts": "maximum",
+      "support": "priority"
+    }
+  ],
+  "volumeDiscounts": {
+    "description": "Swap fee percentage by transaction size, per tier.",
+    "brackets": [
+      "<$100",
+      "$100-$50k",
+      "$50k-$500k",
+      ">$500k"
+    ],
+    "byTier": {
+      "standard": [
+        0,
+        1.25,
+        0.6,
+        0.4
+      ],
+      "community": [
+        0,
+        0.5,
+        0.4,
+        0.2
+      ],
+      "community-plus": [
+        0,
+        0.2,
+        0.18,
+        0.16
+      ]
+    }
+  }
+}

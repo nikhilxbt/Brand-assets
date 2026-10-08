@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>try{var t=localStorage.getItem("tw-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cross-Chain Crypto Swaps - No Bridges, No Wrapped Tokens | THORWallet</title>
+<meta name="description" content="Swap BTC, ETH, SOL and 20,000+ tokens natively across every major chain - no bridges, no wrapped tokens. Best-rate routing, gasless on supported routes, free under $100. Self-custody, from one app." />
+<link rel="stylesheet" href="site.css" />
+<link rel="canonical" href="https://www.thorwallet.org/swap.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0A1A2B" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="THORWallet" />
+<meta property="og:title" content="Cross-Chain Crypto Swaps — No Bridges, No Wrapped Tokens" />
+<meta property="og:description" content="Swap BTC, ETH, SOL and 20,000+ tokens natively. More cross-chain routes than any wallet in crypto - from self-custody." />
+<meta property="og:url" content="https://www.thorwallet.org/swap.html" />
+<meta property="og:image" content="https://www.thorwallet.org/assets/og/og-swap.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thorwallet" />
+<meta name="twitter:title" content="Cross-Chain Crypto Swaps — No Bridges, No Wrapped Tokens" />
+<meta name="twitter:description" content="Swap BTC, ETH, SOL and 20,000+ tokens natively. More cross-chain routes than any wallet in crypto." />
+<meta name="twitter:image" content="https://www.thorwallet.org/assets/og/og-swap.png" />
+<style>
+  /* swap pair cards */
+  .sw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(36px, 4.5vw, 56px); }
+  @media (max-width: 900px) { .sw-grid { grid-template-columns: 1fr; max-width: 460px; } }
+  .sw-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: clamp(20px, 2vw, 28px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); transition: transform var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease); }
+  .sw-card:hover { transform: translateY(-4px); border-color: var(--accent-line); }
+  .sw-leg { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .sw-amt { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 2vw, 2rem); letter-spacing: -0.02em; color: var(--text-hi); font-variant-numeric: tabular-nums; }
+  .sw-amt.got { background: var(--signal-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+  .sw-pill { display: inline-flex; align-items: center; gap: 9px; background: var(--surface-2); border: 1px solid var(--hairline-strong); border-radius: var(--r-pill); padding: 7px 14px 7px 8px; font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; color: var(--text-hi); flex-shrink: 0; }
+  .sw-pill img { width: 26px; height: 26px; border-radius: 50%; display: block; }
+  .sw-sub { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-low); margin-top: 8px; font-variant-numeric: tabular-nums; }
+  .sw-div { position: relative; display: flex; align-items: center; margin: 18px 0; }
+  .sw-div::before { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-line), transparent); }
+  .sw-fab { position: absolute; left: 50%; transform: translateX(-50%); width: 34px; height: 34px; border-radius: 50%; background: var(--bg-elev-1); border: 1px solid var(--accent-line); display: grid; place-items: center; color: var(--accent-solid); }
+  .sw-fab svg { width: 15px; height: 15px; }
+  .sw-note { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-low); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--hairline); display: flex; justify-content: space-between; gap: 10px; }
+  .sw-note b { color: var(--accent-solid); font-weight: 600; }
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Are THORWallet swaps really native?","acceptedAnswer":{"@type":"Answer","text":"Yes. Cross-chain swaps settle natively - you send real BTC and receive real SOL on the destination chain. There are no bridges and no wrapped tokens involved, which removes bridge risk entirely."}},
+{"@type":"Question","name":"What do swaps cost?","acceptedAnswer":{"@type":"Answer","text":"Swaps under $100 are free. Above that, the fee is 0.2–1.25% depending on your $TITN staking tier, and stakers earn up to ~70% of fees back in USDC. Larger transactions unlock automatic volume discounts."}},
+{"@type":"Question","name":"Do I need gas tokens on every chain?","acceptedAnswer":{"@type":"Answer","text":"Not on supported routes - swaps are gasless there, so you don't need to hold the destination chain's native token first."}},
+{"@type":"Question","name":"Which tokens can I swap?","acceptedAnswer":{"@type":"Answer","text":"20,000+ tokens across every major chain - Bitcoin, Ethereum, Solana, BNB Chain, Stellar, Sui, Cosmos, THORChain and more - with best-rate routing across aggregated liquidity."}}
+]}
+</script>
+
+<!-- Analytics: consent-gated, loaded by consent.js -->
+</head>
+<body>
+<main>
+  <section class="subhero">
+    <div class="container">
+      <span class="eyebrow reveal">Cross-chain swaps</span>
+      <h1 class="display reveal" data-delay="1">Swap anything.<br/><span class="outline-accent">Across every chain.</span></h1>
+      <p class="lead reveal" data-delay="2">More native cross-chain routes than any wallet in crypto. Real BTC for real SOL - no bridges, no wrapped tokens - straight from self-custody.</p>
+      <div class="hero-coins reveal" data-delay="3" style="justify-content:flex-start; margin-top:30px;">
+        <img src="assets/chains/btc.png" alt="Bitcoin" />
+        <img src="assets/chains/eth.png" alt="Ethereum" />
+        <img src="assets/chains/sol.png" alt="Solana" />
+        <img src="assets/chains/bnb.png" alt="BNB Chain" />
+        <img src="assets/chains/stellar.png" alt="Stellar" />
+        <img src="assets/chains/sui.png" alt="Sui" />
+        <span class="more">+ many more</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: clamp(40px, 5vw, 64px); padding-bottom: 0;">
+    <div class="container">
+      <div class="card-highlights reveal">
+        <div class="ch-item"><div class="ch-v"><span data-count="2.5" data-prefix="$" data-suffix="B+" data-dec="1">$2.5B+</span></div><div class="ch-k">Swapped natively since 2021</div></div>
+        <div class="ch-item"><div class="ch-v"><span data-count="20" data-suffix="k+">20k+</span></div><div class="ch-k">Tokens across every major chain</div></div>
+        <div class="ch-item"><div class="ch-v">0</div><div class="ch-k">Bridges. None. Ever.</div></div>
+      </div>
+
+      <div class="rails" style="margin-top: clamp(44px, 5vw, 72px);">
+        <div class="rail">
+          <div class="rail-num">→ 01</div>
+          <div><div class="rail-name">Pick any pair</div><p class="rail-desc">BTC to SOL, ETH to stablecoins - 20,000+ tokens, one balance, one app.</p></div>
+          <div class="rail-fact"><span>Tokens</span><span class="v">20k+</span></div>
+        </div>
+        <div class="rail">
+          <div class="rail-num">→ 02</div>
+          <div><div class="rail-name">Best route, found</div><p class="rail-desc">Aggregated liquidity finds the best rate automatically - gasless on supported routes.</p></div>
+          <div class="rail-fact"><span>Routing</span><span class="v">Best-rate</span></div>
+        </div>
+        <div class="rail">
+          <div class="rail-num">→ 03</div>
+          <div><div class="rail-name">Native settlement</div><p class="rail-desc">Real assets arrive on the destination chain. No bridges, no wrapped tokens, no IOUs.</p></div>
+          <div class="rail-fact"><span>Bridges</span><span class="v">None</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- popular routes: real pairs, native settlement -->
+  <section class="section" style="padding-block: clamp(88px, 10vw, 150px);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Popular routes</span>
+        <h2 class="h1">Any asset, <span class="outline-accent">any chain.</span></h2>
+        <p class="lead">One tap from native Bitcoin to native Ethereum or Solana - the asset that arrives is the real thing.</p>
+      </div>
+      <div class="sw-grid">
+        <div class="sw-card reveal">
+          <div class="sw-leg"><span class="sw-amt">1</span><span class="sw-pill"><img src="assets/chains/btc.png" alt="" />BTC</span></div>
+          <div class="sw-sub">$96,824.56</div>
+          <div class="sw-div"><span class="sw-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v13M7 4 4 7m3-3 3 3"/><path d="M17 20V7m0 13 3-3m-3 3-3-3"/></svg></span></div>
+          <div class="sw-leg"><span class="sw-amt got">22.59</span><span class="sw-pill"><img src="assets/chains/eth.png" alt="" />ETH</span></div>
+          <div class="sw-sub">$96,792.10</div>
+          <div class="sw-note"><span>Route</span><b>Native · no bridge</b></div>
+        </div>
+        <div class="sw-card reveal" data-delay="1">
+          <div class="sw-leg"><span class="sw-amt">1</span><span class="sw-pill"><img src="assets/chains/sol.png" alt="" />SOL</span></div>
+          <div class="sw-sub">$171.65</div>
+          <div class="sw-div"><span class="sw-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v13M7 4 4 7m3-3 3 3"/><path d="M17 20V7m0 13 3-3m-3 3-3-3"/></svg></span></div>
+          <div class="sw-leg"><span class="sw-amt got">0.0018</span><span class="sw-pill"><img src="assets/chains/btc.png" alt="" />BTC</span></div>
+          <div class="sw-sub">$171.40</div>
+          <div class="sw-note"><span>Route</span><b>Native · no bridge</b></div>
+        </div>
+        <div class="sw-card reveal" data-delay="2">
+          <div class="sw-leg"><span class="sw-amt">1</span><span class="sw-pill"><img src="assets/chains/eth.png" alt="" />ETH</span></div>
+          <div class="sw-sub">$4,286.21</div>
+          <div class="sw-div"><span class="sw-fab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v13M7 4 4 7m3-3 3 3"/><path d="M17 20V7m0 13 3-3m-3 3-3-3"/></svg></span></div>
+          <div class="sw-leg"><span class="sw-amt got">24.97</span><span class="sw-pill"><img src="assets/chains/sol.png" alt="" />SOL</span></div>
+          <div class="sw-sub">$4,285.96</div>
+          <div class="sw-note"><span>Route</span><b>Native · no bridge</b></div>
+        </div>
+      </div>
+      <p class="footnote reveal" style="margin-top:22px;">Illustrative rates. Live quotes in the app reflect market prices at execution.</p>
+    </div>
+  </section>
+
+  <section class="section elev" style="padding-block: clamp(88px, 10vw, 150px);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Fees</span>
+        <h2 class="h1">Your fee. <span class="outline-accent">Your call.</span></h2>
+        <p class="lead">Swaps under $100 are free. Stake $TITN to cut your fee to as low as 0.2% - and earn up to ~70% of it back in USDC.<a class="fn-ref" href="#fn-1" aria-label="See fine print note 1"><sup>1</sup></a></p>
+      </div>
+      <div class="titn-table reveal" data-delay="1">
+        <div class="titn-row head"><span>Tier</span><span class="stake">Stake</span><span class="fee">Swap fee</span></div>
+        <div class="titn-row"><span class="tier">Standard</span><span class="stake">0 $TITN</span><span class="fee">1.25%</span></div>
+        <div class="titn-row"><span class="tier">Community</span><span class="stake">10,000 $TITN</span><span class="fee">0.5%</span></div>
+        <div class="titn-row"><span class="tier">Community Plus</span><span class="stake">100,000 $TITN</span><span class="fee">0.2%</span></div>
+      </div>
+      <p class="titn-note reveal">Bigger trades unlock further automatic discounts. <a href="titn.html" style="color:var(--accent-solid);">See all tiers &amp; rebates →</a></p>
+
+      <div class="section-head reveal" style="margin-top: clamp(64px, 8vw, 100px);">
+        <span class="eyebrow">Volume discounts</span>
+        <h2 class="h1">Bigger trades, <span class="outline-accent">smaller fees.</span></h2>
+        <p class="lead">Fees fall further as your transaction size grows - applied automatically on top of your tier.</p>
+      </div>
+      <div class="compare-wrap reveal" data-delay="1">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Transaction size</th><th>&lt; $100</th><th>$100 - $50k</th><th>$50k - $500k</th><th>&gt; $500k</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Standard</td><td>0.0%</td><td>1.25%</td><td>0.6%</td><td>0.4%</td></tr>
+            <tr><td>Community</td><td>0.0%</td><td>0.5%</td><td>0.4%</td><td>0.2%</td></tr>
+            <tr><td>Community Plus</td><td>0.0%</td><td>0.2%</td><td>0.18%</td><td>0.16%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" style="padding-block: clamp(88px, 10vw, 150px);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="h1">Swap questions, answered.</h2>
+      </div>
+      <div class="faq reveal" data-delay="1">
+        <details class="faq-item">
+          <summary>Are the swaps really native?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-a"><p>Yes. You send real BTC and receive real SOL on the destination chain. No bridges, no wrapped tokens - which means no bridge risk.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>What do swaps cost?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-a"><p>Swaps under $100 are free. Above that, 0.2–1.25% depending on your $TITN staking tier - and stakers earn up to ~70% of fees back in USDC. Larger transactions unlock automatic volume discounts.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need gas tokens on every chain?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-a"><p>Not on supported routes - swaps there are gasless, so you don't need to hold the destination chain's native token before you receive funds on it.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Which tokens can I swap?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-a"><p>20,000+ tokens across every major chain - Bitcoin, Ethereum, Solana, BNB Chain, Stellar, Sui, Cosmos, THORChain and more - with best-rate routing across aggregated liquidity.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container reveal">
+      <h2 class="display">Swap natively.</h2>
+      <p class="lead">Every chain, one app, your keys.</p>
+      <div class="cta-row">
+        <a class="btn btn-accent" href="download.html">Get THORWallet</a>
+        <a class="btn btn-ghost" href="https://app.thorwallet.org">Open the Web App</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINE PRINT ============ -->
+  <section class="fine-print" aria-label="Fine print">
+    <div class="container">
+      <h2 class="fp-h">The fine print</h2>
+      <ol>
+        <li id="fn-1">Swap fees, rebates and volume discounts are variable and may change. $TITN is a utility token, not an investment; its value may fluctuate and could fall to zero.</li>
+        <li id="fn-2">Gasless execution is available on supported routes only. Network conditions can affect settlement times.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<script src="site-nav.js"></script>
+<script src="i18n-data.js"></script>
+<script src="i18n-data2.js"></script>
+<script src="i18n-data3.js"></script>
+<script src="i18n-data4.js"></script>
+<script src="i18n-data5.js"></script>
+<script src="i18n-data6.js"></script>
+<script src="i18n-data7.js"></script>
+<script src="i18n-data8.js"></script>
+<script src="i18n.js"></script>
+<script src="consent.js"></script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
+</body>
+</html>

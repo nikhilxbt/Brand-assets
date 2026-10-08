@@ -1,0 +1,140 @@
+from pathlib import Path
+import html
+import json
+
+ROOT = Path(__file__).parent
+FAQ = 'https://faqs.thorwallet.org/thorwallet-card'
+APP = 'https://referral.thorwallet.org/oYHz/website'
+
+TEMPLATE = '''<!doctype html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting"><meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark">
+<title>Forgot to top up your THORWallet Card?</title>
+<!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+<style>
+:root {color-scheme:light dark;supported-color-schemes:light dark;}
+body {margin:0!important;padding:0!important;width:100%!important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+table,td {mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;}
+img {border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;}
+a[x-apple-data-detectors] {color:inherit!important;text-decoration:none!important;}
+@font-face {font-family:'OT Sono';font-weight:400;src:url('{{asset_base_url}}/OT-Sono-Regular.otf') format('opentype');}
+@font-face {font-family:'OT Sono';font-weight:600;src:url('{{asset_base_url}}/OT-Sono-SemiBold.otf') format('opentype');}
+@media screen and (max-width:620px) {
+ .outer-pad {padding:12px 8px!important;} .pad {padding-left:24px!important;padding-right:24px!important;}
+ .headline {font-size:36px!important;line-height:40px!important;} .hero-copy {font-size:16px!important;line-height:25px!important;}
+ .card-art {width:100%!important;max-width:245px!important;height:auto!important;}
+ .content-pad {padding:30px 24px!important;} .cta {width:100%!important;} .cta a {display:block!important;padding-left:12px!important;padding-right:12px!important;}
+ .footer {padding:24px 16px!important;}
+}
+@media (prefers-color-scheme:dark) {
+ .body-bg {background-color:#071421!important;} .paper {background-color:#0E2233!important;} .ink {color:#FFFFFF!important;}
+ .copy {color:#C5D2DE!important;} .muted {color:#8A9DB0!important;} .divider {border-color:#284055!important;}
+ .note {background-color:#142A40!important;} .footer-link {color:#C5D2DE!important;}
+}
+[data-ogsc] .paper {background-color:#0E2233!important;} [data-ogsc] .ink {color:#FFFFFF!important;}
+[data-ogsc] .copy {color:#C5D2DE!important;} [data-ogsc] .muted {color:#8A9DB0!important;}
+[data-ogsc] .note {background-color:#142A40!important;} [data-ogsc] .footer-link {color:#C5D2DE!important;}
+</style>
+<!--[if mso]><style>body,table,td,p,a,h1,h2{font-family:Arial,Helvetica,sans-serif!important;}</style><![endif]-->
+</head>
+<body class="body-bg" style="background-color:#EAF0F5;margin:0;padding:0;">
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">0% USDC top-up fee. A competitive 1.5% FX markup. Cashback is on the way.&#847; &#847; &#847; &#847; &#847; &#847;</div>
+<table role="presentation" width="100%" class="body-bg" bgcolor="#EAF0F5" style="background-color:#EAF0F5;"><tr><td align="center" class="outer-pad" style="padding:32px 16px;">
+<!--[if mso]><table role="presentation" width="600" align="center"><tr><td><![endif]-->
+<table role="presentation" width="100%" style="max-width:600px;font-family:'OT Sono',Arial,Helvetica,sans-serif;">
+<tr><td bgcolor="#0A1A2B" style="background-color:#0A1A2B;background-image:linear-gradient(#0A1A2B,#0A1A2B);border-radius:24px 24px 0 0;">
+<table role="presentation" width="100%">
+<tr><td class="pad" style="padding:32px 40px 30px;">
+<table role="presentation"><tr><td width="24" valign="middle"><img src="{{asset_base_url}}/thorwallet-mark.png" width="20" height="26" alt="" style="display:block;width:20px;height:26px;"></td><td style="padding-left:8px;color:#FFFFFF;font-family:'OT Sono',Arial,Helvetica,sans-serif;font-size:19px;font-weight:600;letter-spacing:-0.5px;">THORWallet</td></tr></table>
+</td></tr>
+<tr><td class="pad" style="padding:0 40px;">
+<p style="margin:0 0 18px;color:#73E8C2;font-size:11px;line-height:16px;font-weight:600;letter-spacing:2px;">YOUR CARD IS WAITING</p>
+<h1 class="headline" style="margin:0;color:#FFFFFF;font-size:44px;line-height:48px;letter-spacing:-1.5px;font-weight:600;">Forgot something?<br><span style="color:#73E8C2;">Your first top-up.</span></h1>
+<p class="hero-copy" style="margin:20px 0 0;color:#C5D2DE;font-size:17px;line-height:27px;">You’ve got the card.<br>Now put it to work.</p>
+</td></tr>
+<tr><td class="pad" align="center" style="padding:24px 40px 28px;">
+<img src="{{asset_base_url}}/c-orange.png" width="380" height="243" alt="Your THORWallet Mastercard" style="display:block;width:100%;max-width:380px;height:auto;">
+</td></tr>
+<tr><td height="3" bgcolor="#1FD9A6" style="height:3px;background-color:#1FD9A6;background-image:linear-gradient(120deg,#00CCFF,#19DAC8 52%,#33FF99);font-size:0;line-height:0;">&nbsp;</td></tr>
+</table></td></tr>
+<tr><td class="paper content-pad" bgcolor="#FFFFFF" style="padding:36px 40px 40px;background-color:#FFFFFF;border-radius:0 0 24px 24px;">
+<p class="ink" style="margin:0 0 14px;color:#0A1A2B;font-size:17px;line-height:27px;">Hey {{first_name}},</p>
+<p class="copy" style="margin:0 0 28px;color:#3A5168;font-size:16px;line-height:26px;">Looks like you haven’t topped up your card yet. Your application is already approved, so you can skip the setup and add USDC whenever you’re ready.</p>
+<table role="presentation" class="cta" width="100%"><tr><td align="center" bgcolor="#2A6BF2" style="background-color:#2A6BF2;background-image:linear-gradient(#2A6BF2,#2A6BF2);border-radius:28px;">
+<!--[if mso]><v:roundrect href="{{top_up_url}}" style="height:54px;v-text-anchor:middle;width:520px;" arcsize="50%" stroke="f" fillcolor="#2A6BF2"><w:anchorlock xmlns:w="urn:schemas-microsoft-com:office:word"/><center style="color:#FFFFFF;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">Top up your card</center></v:roundrect><![endif]-->
+<!--[if !mso]><!--><a href="{{top_up_url}}" target="_blank" style="display:block;padding:17px 28px;color:#FFFFFF;text-decoration:none;font-size:16px;line-height:20px;font-weight:600;text-align:center;mso-hide:all;">Top up your card</a><!--<![endif]-->
+</td></tr></table>
+<p class="muted" style="margin:12px 0 32px;color:#6A8198;font-size:12px;line-height:19px;text-align:center;">Open THORWallet and go to your card to add USDC.</p>
+<h2 class="ink" style="margin:0 0 8px;color:#0A1A2B;font-size:24px;line-height:31px;letter-spacing:-0.6px;font-weight:600;">Ready for everyday.</h2>
+<table role="presentation" width="100%">
+<tr><td class="divider" width="52" valign="top" style="padding:20px 0;border-bottom:1px solid #E3EAF0;color:#2A6BF2;font-size:22px;line-height:26px;font-weight:600;">0%</td><td class="divider" style="padding:20px 0 20px 14px;border-bottom:1px solid #E3EAF0;"><p class="ink" style="margin:0 0 5px;color:#0A1A2B;font-size:16px;line-height:22px;font-weight:600;">No USDC top-up fee</p><p class="copy" style="margin:0;color:#3A5168;font-size:14px;line-height:22px;">THORWallet doesn’t charge you to add USDC.</p></td></tr>
+<tr><td class="divider" width="52" valign="top" style="padding:20px 0;border-bottom:1px solid #E3EAF0;color:#2A6BF2;font-size:20px;line-height:26px;font-weight:600;">1.5%</td><td class="divider" style="padding:20px 0 20px 14px;border-bottom:1px solid #E3EAF0;"><p class="ink" style="margin:0 0 5px;color:#0A1A2B;font-size:16px;line-height:22px;font-weight:600;">A competitive FX markup</p><p class="copy" style="margin:0;color:#3A5168;font-size:14px;line-height:22px;">Pay in other currencies with a 1.5% FX markup.</p></td></tr>
+<tr><td class="divider" width="52" valign="top" style="padding:20px 0;border-bottom:1px solid #E3EAF0;color:#2A6BF2;font-size:12px;line-height:26px;font-weight:600;letter-spacing:1px;">SPEND</td><td class="divider" style="padding:20px 0 20px 14px;border-bottom:1px solid #E3EAF0;"><p class="ink" style="margin:0 0 5px;color:#0A1A2B;font-size:16px;line-height:22px;font-weight:600;">From subscriptions to your next trip</p><p class="copy" style="margin:0;color:#3A5168;font-size:14px;line-height:22px;">Pay online and for everyday purchases wherever Mastercard is accepted.</p></td></tr>
+<tr><td width="52" valign="top" style="padding:20px 0;color:#2A6BF2;font-size:20px;line-height:26px;font-weight:600;">24/7</td><td style="padding:20px 0 20px 14px;"><p class="ink" style="margin:0 0 5px;color:#0A1A2B;font-size:16px;line-height:22px;font-weight:600;">Your card. Right in the app.</p><p class="copy" style="margin:0;color:#3A5168;font-size:14px;line-height:22px;">Access your virtual Mastercard and get in-app support around the clock.</p></td></tr>
+</table>
+<table role="presentation" width="100%"><tr><td class="note" bgcolor="#F2F6FB" style="padding:18px 20px;background-color:#F2F6FB;border-radius:12px;"><table role="presentation" width="100%"><tr><td width="90" valign="middle" style="padding-right:14px;"><img src="{{asset_base_url}}/card-basic.png" width="76" height="63" alt="" style="display:block;width:76px;height:auto;"></td><td><p class="copy" style="margin:0;color:#3A5168;font-size:13px;line-height:21px;"><strong class="ink" style="color:#0A1A2B;">Cashback is on the way.</strong><br>We’re putting the finishing touches on a new cashback program. We’ll share the details when it’s ready.</p></td></tr></table></td></tr></table>
+<p class="copy" style="margin:26px 0 0;color:#3A5168;font-size:14px;line-height:23px;">Your next purchase starts here.<br><strong class="ink" style="color:#0A1A2B;font-weight:600;">The THORWallet team</strong></p>
+</td></tr>
+<tr><td class="footer" style="padding:26px 24px 8px;text-align:center;">
+<p class="muted" style="margin:0 0 14px;color:#6A8198;font-size:11px;line-height:18px;">FX markup is 1.5%. Other fees, including ATM charges, may apply. The new cashback program is not live yet; details are being finalised. See <a class="footer-link" href="https://faqs.thorwallet.org/thorwallet-card" style="color:#3A5168;text-decoration:underline;">card benefits and fees</a>.</p>
+<p class="muted" style="margin:0 0 12px;color:#6A8198;font-size:11px;line-height:18px;">You’re receiving this because your THORWallet Card application was approved and you haven’t made your first top-up.</p>
+<p class="muted" style="margin:0 0 12px;color:#6A8198;font-size:11px;line-height:18px;">THORWallet · {{sender_postal_address}}</p>
+<p style="margin:0;font-size:11px;line-height:18px;"><a class="footer-link" href="{{view_in_browser_url}}" style="color:#3A5168;text-decoration:underline;">View in browser</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a class="footer-link" href="{{unsubscribe_url}}" style="color:#3A5168;text-decoration:underline;">Unsubscribe</a></p>
+</td></tr></table>
+<!--[if mso]></td></tr></table><![endif]-->
+</td></tr></table></body></html>'''
+
+TEMPLATE = TEMPLATE.replace('style="padding:20px 0;', 'class="benefit-number" style="padding:20px 0;')
+TEMPLATE = TEMPLATE.replace('class="divider" width="52"', 'class="divider benefit-number" width="52"')
+TEMPLATE = TEMPLATE.replace('class="divider benefit-number" width="52" valign="top" class="benefit-number"', 'class="divider benefit-number" width="52" valign="top"')
+TEMPLATE = TEMPLATE.replace(' .body-bg {background-color:#071421', ' .benefit-number {color:#57A4FF!important;} .body-bg {background-color:#071421')
+TEMPLATE = TEMPLATE.replace('[data-ogsc] .paper', '[data-ogsc] .benefit-number {color:#57A4FF!important;} [data-ogsc] .paper', 1)
+(ROOT / 'email.html').write_text(TEMPLATE)
+demo = TEMPLATE
+values = {'asset_base_url': 'assets', 'first_name': 'Alex', 'top_up_url': APP,
+          'sender_postal_address': '[Sender postal address]', 'view_in_browser_url': 'preview.html', 'unsubscribe_url': '#preview-only'}
+for key, val in values.items():
+    demo = demo.replace('{{' + key + '}}', html.escape(val, quote=True))
+(ROOT / 'preview.html').write_text(demo)
+light_css = '.body-bg{background-color:#EAF0F5!important}.paper{background-color:#FFFFFF!important}.ink{color:#0A1A2B!important}.copy{color:#3A5168!important}.muted{color:#6A8198!important}.divider{border-color:#E3EAF0!important}.note{background-color:#F2F6FB!important}.footer-link{color:#3A5168!important}.benefit-number{color:#2A6BF2!important}'
+dark_css = '.body-bg{background-color:#071421!important}.paper{background-color:#0E2233!important}.ink{color:#FFFFFF!important}.copy{color:#C5D2DE!important}.muted{color:#8A9DB0!important}.divider{border-color:#284055!important}.note{background-color:#142A40!important}.footer-link{color:#C5D2DE!important}.benefit-number{color:#57A4FF!important}'
+(ROOT / 'preview-light.html').write_text(demo.replace('</head>', '<style>'+light_css+'</style></head>'))
+(ROOT / 'preview-dark.html').write_text(demo.replace('</head>', '<style>'+dark_css+'</style></head>'))
+(ROOT / 'campaign.json').write_text(json.dumps({'subject':'Forgot to top up your THORWallet Card?', 'preheader':'0% USDC top-up fee. A competitive 1.5% FX markup. Cashback is on the way.', 'audience':'Card approved AND no successful card top-up AND eligible for marketing email', 'variables':list(values), 'source':FAQ}, indent=2))
+
+# A complete raw-HTML campaign body used with the included pass-through template.
+listmonk = TEMPLATE.replace('{{first_name}}', '{{ if .Subscriber.FirstName }}{{ .Subscriber.FirstName }}{{ else }}there{{ end }}')
+listmonk = listmonk.replace('{{asset_base_url}}', 'https://YOUR-ASSET-HOST.example/thorwallet-card')
+listmonk = listmonk.replace('{{top_up_url}}', APP).replace('{{unsubscribe_url}}', '{{ UnsubscribeURL }}')
+listmonk = listmonk.replace('{{view_in_browser_url}}', '{{ MessageURL }}').replace('{{sender_postal_address}}', '[ADD SENDER POSTAL ADDRESS]')
+(ROOT / 'listmonk-campaign.html').write_text(listmonk)
+(ROOT / 'listmonk-base.html').write_text('{{ template "content" . }}\n')
+(ROOT / 'plain-text.txt').write_text('''Hey {{ if .Subscriber.FirstName }}{{ .Subscriber.FirstName }}{{ else }}there{{ end }},
+
+Forgot to top up your card? Your application is already approved. Add USDC whenever you’re ready.
+
+Add USDC to your THORWallet Card and put it to work on the things you buy every day.
+
+Top up your card:
+https://referral.thorwallet.org/oYHz/website
+Open THORWallet and go to your card to add USDC.
+
+- No THORWallet USDC top-up fee.
+- A competitive 1.5% FX markup when paying in other currencies.
+- Spend on subscriptions, travel and everyday purchases wherever Mastercard is accepted.
+- Access your virtual Mastercard and 24/7 in-app support.
+
+Cashback is on the way. We’re putting the finishing touches on a new cashback program. We’ll share the details when it’s ready.
+
+Your next purchase starts here.
+The THORWallet team
+
+FX markup is 1.5%. Other fees, including ATM charges, may apply. The new cashback program is not live yet; details are being finalised.
+Card benefits and fees: https://faqs.thorwallet.org/thorwallet-card
+
+You’re receiving this because your THORWallet Card application was approved and you haven’t made your first top-up.
+THORWallet · [ADD SENDER POSTAL ADDRESS]
+Unsubscribe: {{ UnsubscribeURL }}
+''')

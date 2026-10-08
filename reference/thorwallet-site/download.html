@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>try{var t=localStorage.getItem("tw-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Download - THORWallet</title>
+<meta name="description" content="Download THORWallet for iOS and Android, or open the web app. Self-custody cross-chain swaps, multisig vaults and a Swiss account with a global Mastercard - on every device." />
+<link rel="stylesheet" href="site.css" />
+<link rel="canonical" href="https://www.thorwallet.org/download.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0A1A2B" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="THORWallet" />
+<meta property="og:title" content="Download THORWallet — iOS, Android &amp; Web" />
+<meta property="og:description" content="One wallet on every device. Scan the QR code or pick your platform - self-custody swaps, multisig and a global Mastercard." />
+<meta property="og:url" content="https://www.thorwallet.org/download.html" />
+<meta property="og:image" content="https://www.thorwallet.org/assets/og/og-download.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thorwallet" />
+<meta name="twitter:title" content="Download THORWallet — iOS, Android &amp; Web" />
+<meta name="twitter:description" content="One wallet on every device. Scan the QR code or pick your platform." />
+<meta name="twitter:image" content="https://www.thorwallet.org/assets/og/og-download.png" />
+<style>
+  /* ---- download hero band ---- */
+  .dl-band { display: grid; grid-template-columns: auto 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; margin-top: clamp(36px, 5vw, 56px); border: 1px solid var(--hairline); border-radius: var(--r-xl); background: var(--surface); padding: clamp(28px, 4vw, 56px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); position: relative; overflow: hidden; }
+  .dl-band::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(60% 120% at 100% 0%, rgba(0,204,255,0.10), transparent 60%), radial-gradient(60% 120% at 0% 100%, rgba(51,255,153,0.08), transparent 62%); }
+  .dl-band > * { position: relative; z-index: 1; }
+  .dl-qr { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .dl-qr-card { background: #FFFFFF; border-radius: var(--r-lg); padding: 18px; box-shadow: 0 18px 44px -18px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.12); display: block; line-height: 0; }
+  .dl-qr-card canvas, .dl-qr-card img, .dl-qr-card table { width: 196px !important; height: 196px !important; display: block; }
+  .dl-qr-cap { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-low); text-align: center; }
+  .dl-main h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.7rem, 2.8vw, 2.6rem); letter-spacing: -0.025em; line-height: 1.05; color: var(--text-hi); }
+  .dl-main .lead { margin-top: 14px; max-width: 44ch; }
+  .dl-main .store-badges { justify-content: flex-start; margin-top: 28px; }
+  .dl-main .dl-note { font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-low); margin-top: 18px; }
+  @media (max-width: 860px) {
+    .dl-band { grid-template-columns: 1fr; }
+    .dl-qr { display: none; } /* phones don't scan themselves */
+    .dl-main .store-badges { justify-content: center; }
+    .dl-main { text-align: center; }
+    .dl-main .lead { margin-inline: auto; }
+  }
+
+  /* ---- platform grid ---- */
+  .dl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+  @media (max-width: 980px) { .dl-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .dl-grid { grid-template-columns: 1fr; } }
+  .dl-card { position: relative; display: flex; flex-direction: column; gap: 0; background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 28px 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); transition: transform var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease), box-shadow var(--dur-micro) var(--ease); }
+  .dl-card:hover { transform: translateY(-4px); border-color: var(--accent-line); box-shadow: 0 18px 40px -22px rgba(0,0,0,0.7); }
+  .dl-card.is-you { border-color: var(--accent-line); box-shadow: 0 0 0 1px var(--accent-line), 0 0 60px -24px var(--accent-glow); }
+  .dl-you { position: absolute; top: 14px; right: 14px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: #06241B; background: var(--signal); padding: 5px 10px; border-radius: var(--r-pill); display: none; }
+  .dl-card.is-you .dl-you { display: inline-flex; }
+  .dl-ico { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; background: var(--bg-base); border: 1px solid var(--hairline-strong); margin-bottom: 18px; }
+  .dl-ico svg { width: 22px; height: 22px; color: var(--text-hi); fill: currentColor; }
+  .dl-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.015em; color: var(--text-hi); }
+  .dl-card .dl-sub { color: var(--text-low); font-size: 0.9rem; line-height: 1.5; margin-top: 6px; }
+  .dl-card .dl-go { display: inline-flex; align-items: center; gap: 7px; color: var(--accent-solid); font-weight: 600; font-size: 0.92rem; margin-top: 22px; }
+  .dl-card .dl-go svg { width: 15px; height: 15px; transition: transform var(--dur-micro) var(--ease); }
+  .dl-card:hover .dl-go svg { transform: translateX(3px); }
+
+  /* ---- trust row ---- */
+  .dl-trust { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; margin-top: clamp(56px, 8vw, 96px); border-block: 1px solid var(--hairline); padding-block: 30px; }
+  .dl-trust .hstat { border-left: 1px solid var(--hairline); }
+  .dl-trust .hstat:first-child { border-left: 0; }
+  @media (max-width: 600px) { .dl-trust .hstat { border-left: 0; flex: 1 1 40%; padding-block: 10px; } }
+</style>
+
+<!-- Analytics: consent-gated, loaded by consent.js -->
+</head>
+<body>
+<main>
+  <section class="subhero">
+    <div class="container">
+      <span class="eyebrow reveal">Download</span>
+      <h1 class="display reveal" data-delay="1">One wallet.<br/><span class="outline-accent">Every device.</span></h1>
+      <p class="lead reveal" data-delay="2">Self-custody swaps, multisig vaults and a Swiss account with a global Mastercard - on iOS, Android and the web. Your keys never leave your device.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 8px;">
+    <div class="container">
+
+      <div class="dl-band reveal">
+        <div class="dl-qr">
+          <a class="dl-qr-card" id="dl-qr" href="https://referral.thorwallet.org/oYHz/website" target="_blank" rel="noopener" aria-label="Download THORWallet"></a>
+          <span class="dl-qr-cap">Scan with your phone camera</span>
+        </div>
+        <div class="dl-main">
+          <h2>Get the app in seconds.</h2>
+          <p class="lead">Point your phone camera at the code and you'll land in the right store automatically - or pick your platform below.</p>
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/ch/app/thorwallet-crypto-wallet/id1592064324" target="_blank" rel="noopener" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+              <span class="sb-txt"><span class="sb-top">Download on the</span><span class="sb-main">App Store</span></span>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=defisuisse.thorwallet&amp;hl=de_CH" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5v19l16-9.5z"/></svg>
+              <span class="sb-txt"><span class="sb-top">Get it on</span><span class="sb-main">Google Play</span></span>
+            </a>
+          </div>
+          <p class="dl-note">Free · Self-custody · No account required to start</p>
+        </div>
+      </div>
+
+      <div class="dl-grid">
+        <a class="dl-card reveal" data-platform="ios" href="https://apps.apple.com/ch/app/thorwallet-crypto-wallet/id1592064324" target="_blank" rel="noopener">
+          <span class="dl-you">For this device</span>
+          <span class="dl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg></span>
+          <h3>iOS</h3>
+          <p class="dl-sub">iPhone &amp; iPad. The full wallet, in your pocket.</p>
+          <span class="dl-go">App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="dl-card reveal" data-delay="1" data-platform="android" href="https://play.google.com/store/apps/details?id=defisuisse.thorwallet&amp;hl=de_CH" target="_blank" rel="noopener">
+          <span class="dl-you">For this device</span>
+          <span class="dl-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5v19l16-9.5z"/></svg></span>
+          <h3>Android</h3>
+          <p class="dl-sub">Phones &amp; tablets. Same wallet, same keys.</p>
+          <span class="dl-go">Google Play <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="dl-card reveal" data-delay="2" data-platform="web" href="https://app.thorwallet.org" target="_blank" rel="noopener">
+          <span class="dl-you">For this device</span>
+          <span class="dl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"/></svg></span>
+          <h3>Web App</h3>
+          <p class="dl-sub">Desktop &amp; browser. Open your vaults - nothing to install.</p>
+          <span class="dl-go">app.thorwallet.org <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </div>
+
+      <div class="dl-trust reveal">
+        <div class="hstat"><div class="hstat-v"><span class="hstat-star" aria-hidden="true">★</span> 4.7</div><div class="hstat-k">App Store rating</div></div>
+        <div class="hstat"><div class="hstat-v">3,000+</div><div class="hstat-k">Five-star ratings</div></div>
+        <div class="hstat"><div class="hstat-v">$2.5B+</div><div class="hstat-k">Swapped natively</div></div>
+        <div class="hstat"><div class="hstat-v">Since 2021</div><div class="hstat-k">Self-custody</div></div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="site-nav.js"></script>
+<script src="i18n-data.js"></script>
+<script src="i18n-data2.js"></script>
+<script src="i18n-data3.js"></script>
+<script src="i18n-data4.js"></script>
+<script src="i18n-data5.js"></script>
+<script src="i18n-data6.js"></script>
+<script src="i18n-data7.js"></script>
+<script src="i18n-data8.js"></script>
+<script src="i18n.js"></script>
+<script src="consent.js"></script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
+<script>
+(function () {
+  /* QR code - points at the referral smart link (routes to the right store) */
+  var host = document.getElementById("dl-qr");
+  if (host && window.QRCode) {
+    new QRCode(host, {
+      text: "https://referral.thorwallet.org/oYHz/website",
+      width: 196, height: 196,
+      colorDark: "#0A1A2B", colorLight: "#FFFFFF",
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  } else if (host) {
+    host.style.cssText = "padding:24px;line-height:1.4;font-family:var(--font-mono);font-size:0.8rem;color:#0A1A2B;text-align:center;";
+    host.textContent = "referral.thorwallet.org";
+  }
+
+  /* Highlight the visitor's platform */
+  var ua = navigator.userAgent || "";
+  var p = "";
+  if (/iPhone|iPad|iPod/i.test(ua)) p = "ios";
+  else if (/Android/i.test(ua)) p = "android";
+  else p = "web";
+  if (p) {
+    var card = document.querySelector('.dl-card[data-platform="' + p + '"]');
+    if (card) card.classList.add("is-you");
+  }
+})();
+</script>
+</body>
+</html>

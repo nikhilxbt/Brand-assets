@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Story &amp; Tone of Voice — Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .promises {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .promises { grid-template-columns: 1fr; } }
+  .promise {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .promise .img {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--panel);
+  }
+  .promise .body-c {
+    padding: 24px;
+    display: grid;
+    gap: 12px;
+  }
+  .promise h3 {
+    font-family: var(--font-whyte);
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .promise .keys {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 4px;
+  }
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 720px) { .voice-grid { grid-template-columns: 1fr; } }
+  .voice-card {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 24px;
+    background: var(--surface);
+  }
+  .voice-card h4 {
+    font-family: var(--font-sono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0 0 12px;
+  }
+  .voice-card.do { border-left: 3px solid var(--teal); }
+  .voice-card.dont { border-left: 3px solid var(--coral); }
+  .voice-card .ex {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+  .voice-card .why {
+    font-family: var(--font-sono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .principles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    background: var(--surface);
+  }
+  @media (max-width: 720px) { .principles { grid-template-columns: 1fr; } }
+  .principle {
+    padding: 28px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .principle:nth-child(2n) { border-right: 0; }
+  .principle .num {
+    font-family: var(--font-sono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+  .principle h4 {
+    font-family: var(--font-whyte);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .principle p {
+    font-family: var(--font-sono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="01 · Story"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta">
+      <span>01 · Story &amp; Tone of Voice</span>
+      <span>New Brand Guidelines · v0.1</span>
+    </div>
+    <div class="title">
+      <div class="eyebrow">Brand Story</div>
+      <h1 class="display-1">Self-sovereign,<br/>by design.</h1>
+      <p class="lead">Thorwallet is the all-in-one mobile DeFi wallet — swap across any chain, secure any asset with multisig, and spend anywhere with a Swiss-grade card. Every line in this manual flows from one idea: full control, no middleman.</p>
+    </div>
+  </header>
+
+  <section class="section" data-screen-label="Promises">
+    <div class="section-head">
+      <div class="num">01.1 — Promises</div>
+      <div class="head-text">
+        <h2>Three promises.</h2>
+        <p>These promises are the spine of the brand. Use them as a checklist for any communication: at least one promise should answer "why".</p>
+      </div>
+    </div>
+    <div class="promises">
+      <article class="promise">
+        <div class="img" style="background: radial-gradient(circle at 50% 38%, rgba(0,204,255,0.35), transparent 62%), var(--panel);"></div>
+        <div class="body-c">
+          <h3>Self-custody is yours.</h3>
+          <p class="body">Your keys never leave your device. The first multichain, multi-asset multisig in the world — co-sign across your devices. Full control, zero compromises, no middleman.</p>
+          <div class="keys">
+            <span class="tag">Non-custodial</span>
+            <span class="tag">Multisig</span>
+            <span class="tag">No middleman</span>
+          </div>
+        </div>
+      </article>
+      <article class="promise">
+        <div class="img" style="background: radial-gradient(circle at 50% 38%, rgba(42,107,242,0.45), transparent 62%), var(--panel);"></div>
+        <div class="body-c">
+          <h3>Swap across any chain.</h3>
+          <p class="body">Trade BTC, ETH, SOL and 20k+ tokens natively across chains — no bridges, no wrapped tokens. Gasless and cross-chain, right inside the app.</p>
+          <div class="keys">
+            <span class="tag">Cross-chain</span>
+            <span class="tag">No bridges</span>
+            <span class="tag">Gasless</span>
+          </div>
+        </div>
+      </article>
+      <article class="promise">
+        <div class="img" style="background: radial-gradient(circle at 50% 38%, rgba(51,224,160,0.42), transparent 62%), var(--panel);"></div>
+        <div class="body-c">
+          <h3>Your money should earn.</h3>
+          <p class="body">Deposit stablecoins or crypto into Earn and generate yield instantly — ~4% APY on USDC, no lockups, withdraw anytime. Plus a complimentary Swiss IBAN gateway.</p>
+          <div class="keys">
+            <span class="tag">Earn ~4% APY</span>
+            <span class="tag">Swiss IBAN</span>
+            <span class="tag">Audited</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">01.2 — Principles</div>
+      <div class="head-text">
+        <h2>How we think.</h2>
+        <p>Decisions across product, design and copy run through these four filters.</p>
+      </div>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <div class="num">P · 01</div>
+        <h4>Plain over polished.</h4>
+        <p>Crypto is full of jargon and theatre. We strip both away. If a sentence needs a glossary, rewrite it.</p>
+      </div>
+      <div class="principle">
+        <div class="num">P · 02</div>
+        <h4>Mountains, not moonshots.</h4>
+        <p>Our metaphors come from the Swiss landscape — solid, lasting, earned. Not rockets, lambos, or hype.</p>
+      </div>
+      <div class="principle">
+        <div class="num">P · 03</div>
+        <h4>The user owns the keys.</h4>
+        <p>Every interaction reaffirms control. Defaults are conservative; risky actions take two confirmations.</p>
+      </div>
+      <div class="principle">
+        <div class="num">P · 04</div>
+        <h4>Clarity is a feature.</h4>
+        <p>Numbers are never decorative. Currency, fees, and balances are always sized for reading first.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">01.3 — Voice</div>
+      <div class="head-text">
+        <h2>How we sound.</h2>
+        <p>Direct. Confident. Technical but plain-spoken. We don't sell crypto — we sell autonomy. Use these examples as calibration when writing UI strings, marketing copy, or documentation.</p>
+      </div>
+    </div>
+
+    <div class="voice-grid">
+      <div class="voice-card do">
+        <h4>Do — straight</h4>
+        <p class="ex">"Your money. Your keys. Your call."</p>
+        <p class="why">Short. Owns the relationship. No jargon.</p>
+      </div>
+      <div class="voice-card dont">
+        <h4>Don't — hype</h4>
+        <p class="ex">"Unleash your wealth on the next-gen, AI-powered Web3 super-app! 🚀"</p>
+        <p class="why">Empty intensifiers, emoji theatre, no actual claim.</p>
+      </div>
+      <div class="voice-card do">
+        <h4>Do — concrete</h4>
+        <p class="ex">"Swap BTC for SOL in one move. No bridges. No wrapped tokens."</p>
+        <p class="why">Names the verbs. Says what's true.</p>
+      </div>
+      <div class="voice-card dont">
+        <h4>Don't — vague</h4>
+        <p class="ex">"Empowering everyone, everywhere, in the new financial paradigm."</p>
+        <p class="why">"Empowering" is a tell. So is "paradigm".</p>
+      </div>
+      <div class="voice-card do">
+        <h4>Do — calm under risk</h4>
+        <p class="ex">"This transaction is irreversible. Confirm to send 0.5 ETH."</p>
+        <p class="why">States the consequence, then asks. No fear, no fluff.</p>
+      </div>
+      <div class="voice-card dont">
+        <h4>Don't — alarm</h4>
+        <p class="ex">"⚠️ DANGER! You may lose all funds! Are you SURE?!"</p>
+        <p class="why">Capital letters and emoji are not warnings — they're noise.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">01.4 — Vocabulary</div>
+      <div class="head-text">
+        <h2>The words we use.</h2>
+        <p>A small lexicon. Thorwallet is always one word, TitleCase T and W. The token is TITN, all caps.</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-family:var(--font-sono);font-weight:500;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 16px;">Prefer</h4>
+        <ul style="font-family:var(--font-sono);font-size:14px;line-height:2;list-style:none;padding:0;margin:0;color:var(--ink);">
+          <li>your wallet</li>
+          <li>self-custody</li>
+          <li>cross-chain · native swaps</li>
+          <li>send · receive · swap · earn</li>
+          <li>network fee</li>
+          <li>all chains, all yield, one app</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="font-family:var(--font-sono);font-weight:500;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 16px;">Avoid</h4>
+        <ul style="font-family:var(--font-sono);font-size:14px;line-height:2;list-style:none;padding:0;margin:0;color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--coral);">
+          <li>HODL</li>
+          <li>degen</li>
+          <li>moon, ape, lambo</li>
+          <li>"revolution", "disrupt"</li>
+          <li>gas (use "network fee")</li>
+          <li>web3 super-app</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+</body>
+</html>

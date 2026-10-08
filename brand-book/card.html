@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>THORWallet Card - Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+a{color:var(--green)}a:hover{color:var(--signal-end)}
+.hero-card{position:relative;border-radius:var(--r-lg);border:1px solid var(--line);overflow:hidden;padding:64px 32px;display:flex;justify-content:center;align-items:center;gap:0;background:radial-gradient(circle at 25% 30%,rgba(42,107,242,.40),transparent 55%),radial-gradient(circle at 80% 80%,rgba(51,224,160,.28),transparent 55%),var(--panel);min-height:440px}
+.hero-card img{width:min(46%,440px);height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.55))}
+.hero-card img.back{transform:rotate(-8deg) translateX(14%);z-index:1}
+.hero-card img.front{transform:rotate(6deg) translateX(-14%) translateY(8%);z-index:2}
+.hero-card .lab{position:absolute;bottom:18px;left:22px;right:22px;display:flex;justify-content:space-between;font-family:var(--font-sono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.digital{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.digital{grid-template-columns:1fr}}
+.tile{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface)}
+.tile .vis{display:flex;align-items:center;justify-content:center;padding:40px;background:radial-gradient(circle at 50% 40%,#14304a,#0A1A2B 75%)}
+.tile .vis img{width:100%;max-width:420px;height:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+.tile .meta{padding:14px 18px;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.tile .name{font-family:var(--font-display);font-weight:500;font-size:15px;color:var(--ink)}
+.tile .spec{font-family:var(--font-sono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.metal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:900px){.metal{grid-template-columns:1fr 1fr}}
+.metal .tile .vis{padding:0;background:#0d0d0f}
+.metal .tile .vis img{max-width:none;filter:none;display:block}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:900px){.tiers{grid-template-columns:1fr 1fr}}
+.tiers .tile .vis{padding:20px;background:var(--panel)}
+.tiers .tile .vis img{max-width:220px;filter:none}
+.tiers .desc{padding:0 18px 16px;font-family:var(--font-sono);font-size:12px;line-height:1.55;color:var(--ink-soft)}
+.specs{display:grid;grid-template-columns:200px 1fr;border-top:1px solid var(--line)}
+.specs dt,.specs dd{padding:18px 0;border-bottom:1px solid var(--line);margin:0}
+.specs dt{font-family:var(--font-sono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute)}
+.specs dd{font-family:var(--font-display);font-size:18px;line-height:1.4;letter-spacing:-.01em;color:var(--ink)}
+.specs dd span{color:var(--ink-soft);font-family:var(--font-sono);font-size:13px;display:block;margin-top:4px;letter-spacing:0}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){.compare{grid-template-columns:1fr}}
+.compare .col{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px}
+.compare .lbl{font-family:var(--font-sono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.compare .do .lbl::before,.compare .dont .lbl::before{content:"";width:12px;height:12px;border-radius:50%}
+.compare .do .lbl::before{background:var(--green)}.compare .dont .lbl::before{background:var(--danger)}
+.compare ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-family:var(--font-sono);font-size:13px;line-height:1.5;color:var(--ink-soft)}
+.in-use{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.in-use{grid-template-columns:1fr}}
+.in-use .tile .vis{padding:0;aspect-ratio:16/9;background:#0A1A2B}
+.in-use .tile .vis img{max-width:none;width:100%;height:100%;object-fit:cover;filter:none}
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="11 · Card"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta"><span>11 · THORWallet Card</span><span>New Brand Guidelines · v0.2</span></div>
+    <div class="title">
+      <div class="eyebrow">THORWallet Card</div>
+      <h1 class="display-1">Spend it<br/>anywhere.</h1>
+      <p class="lead">The THORWallet Card is a crypto Mastercard you top up from your wallet. It is the one place in the brand where strong colour is allowed. Everything around it stays navy.</p>
+    </div>
+  </header>
+
+  <section class="section" data-screen-label="Hero">
+    <div class="hero-card">
+      <img class="back" src="assets/card/card-dark.png" alt="THORWallet Card, dark" />
+      <img class="front" src="assets/card/card-orange.png" alt="THORWallet Card, sunrise" />
+      <div class="lab"><span>Card · Hero pairing</span><span>Sunrise over dark</span></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Digital card">
+    <div class="section-head">
+      <div class="num">11.1 - Digital card</div>
+      <div class="head-text">
+        <h2>Two faces, one mark.</h2>
+        <p>Use these in the app, on the website and in posts. The chevron sits in the centre as a tonal watermark, with the Mastercard mark top right and the wordmark bottom right.</p>
+      </div>
+    </div>
+    <div class="digital">
+      <div class="tile"><div class="vis"><img src="assets/card/card-orange.png" alt="" /></div><div class="meta"><span class="name">Sunrise</span><span class="spec">Orange to magenta · default</span></div></div>
+      <div class="tile"><div class="vis"><img src="assets/card/card-dark.png" alt="" /></div><div class="meta"><span class="name">Dark</span><span class="spec">Navy · secondary</span></div></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Tiers">
+    <div class="section-head">
+      <div class="num">11.2 - Tier art</div>
+      <div class="head-text">
+        <h2>One colourway per tier.</h2>
+        <p>The tier art used on the membership and card pages of the website. Each tier keeps its own colour, and tiers never share one.</p>
+      </div>
+    </div>
+    <div class="tiers">
+      <div class="tile"><div class="vis"><img src="assets/card/card-basic.png" alt="" /></div><div class="meta"><span class="name">Basic</span><span class="spec">Free</span></div><p class="desc">Sunrise gradient. Virtual card.</p></div>
+      <div class="tile"><div class="vis"><img src="assets/card/card-premium.png" alt="" /></div><div class="meta"><span class="name">Premium</span><span class="spec">Paid</span></div><p class="desc">Pine green. Physical and virtual.</p></div>
+      <div class="tile"><div class="vis"><img src="assets/card/card-swiss.png" alt="" /></div><div class="meta"><span class="name">Swiss Banking</span><span class="spec">IBAN</span></div><p class="desc">Glacier teal. Comes with an account.</p></div>
+      <div class="tile"><div class="vis"><img src="assets/card/card-hero.png" alt="" /></div><div class="meta"><span class="name">Hero stack</span><span class="spec">Marketing</span></div><p class="desc">Stacked tiers for page headers.</p></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Metal">
+    <div class="section-head">
+      <div class="num">11.3 - Metal renders</div>
+      <div class="head-text">
+        <h2>Studio light, embossed.</h2>
+        <p>Photographic renders for premium moments: an embossed mark, a chip and a tonal Mastercard mark, under hard studio light on black. Use one at a time and never place them on the navy canvas next to the flat digital cards.</p>
+      </div>
+    </div>
+    <div class="metal">
+      <div class="tile"><div class="vis"><img src="assets/card/c-metal.png" alt="" /></div><div class="meta"><span class="name">Black metal</span></div></div>
+      <div class="tile"><div class="vis"><img src="assets/card/c-gold.png" alt="" /></div><div class="meta"><span class="name">Gold</span></div></div>
+      <div class="tile"><div class="vis"><img src="assets/card/c-green.png" alt="" /></div><div class="meta"><span class="name">Green</span></div></div>
+      <div class="tile"><div class="vis"><img src="assets/card/c-orange.png" alt="" /></div><div class="meta"><span class="name">Orange</span></div></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="In use">
+    <div class="section-head">
+      <div class="num">11.4 - In use</div>
+      <div class="head-text">
+        <h2>Card on the canvas.</h2>
+        <p>In posts, show the card inside the real app screen. Small floating chips for proof points ("Free beta", "Spend anywhere") may overlap the phone frame.</p>
+      </div>
+    </div>
+    <div class="in-use">
+      <div class="tile"><div class="vis"><img src="assets/social/card-android-beta.png" alt="" /></div><div class="meta"><span class="name">Android beta launch</span><span class="spec">16:9</span></div></div>
+      <div class="tile"><div class="vis"><iframe src="social-src/card-free-tier/card-free-tier.html" title="Card free tier" loading="lazy" tabindex="-1" data-scale style="position:absolute;top:0;left:0;width:1600px;height:900px;border:0;transform-origin:0 0;pointer-events:none"></iframe></div><div class="meta"><span class="name">Free tier teaser</span><span class="spec">16:9</span></div></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Specs">
+    <div class="section-head">
+      <div class="num">11.5 - Specs</div>
+      <div class="head-text"><h2>Getting it right.</h2></div>
+    </div>
+    <dl class="specs">
+      <dt>Ratio</dt><dd>1.586 : 1<span>ISO/IEC 7810 ID-1. Never stretch or crop the card face.</span></dd>
+      <dt>Corner radius</dt><dd>About 3.5% of card width<span>Match the physical card. Do not use the UI radius tokens.</span></dd>
+      <dt>Marks</dt><dd>Chevron centre, Mastercard top right, wordmark bottom right<span>The positions are fixed. Do not move, recolour or add marks.</span></dd>
+      <dt>Shadow</dt><dd>Soft and deep, straight down<span>0 20px 40px at 50% black on navy. No coloured glow behind the card.</span></dd>
+      <dt>Angle</dt><dd>Flat, or two cards at -8° / +6°<span>The hero pairing above is the only tilted layout we use.</span></dd>
+    </dl>
+  </section>
+
+  <section class="section" data-screen-label="Do and don't">
+    <div class="section-head">
+      <div class="num">11.6 - Do &amp; don't</div>
+      <div class="head-text"><h2>Protect the card.</h2></div>
+    </div>
+    <div class="compare">
+      <div class="col do"><div class="lbl">Do</div><ul><li>Lead with Sunrise when showing a single card.</li><li>Show a realistic but fake balance and card number (***5397).</li><li>Keep the card the brightest thing on the canvas.</li></ul></div>
+      <div class="col dont"><div class="lbl">Don't</div><ul><li>Invent new colourways or gradients.</li><li>Put the signal gradient on top of the card.</li><li>Show real card numbers, names or expiry dates.</li><li>Mix metal renders and digital cards in one layout.</li></ul></div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+<script>
+(function(){
+  document.querySelectorAll('iframe[data-scale]').forEach(function(f){f.parentElement.style.position='relative';});
+  function fit(){document.querySelectorAll('iframe[data-scale]').forEach(function(f){f.style.transform='scale('+(f.parentElement.clientWidth/1600)+')';});}
+  window.addEventListener('resize',fit);
+  if('ResizeObserver' in window){var ro=new ResizeObserver(fit);document.querySelectorAll('iframe[data-scale]').forEach(function(f){ro.observe(f.parentElement);});}
+  fit();
+})();
+</script>
+</body>
+</html>

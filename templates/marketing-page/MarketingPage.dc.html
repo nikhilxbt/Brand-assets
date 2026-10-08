@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Marketing page" description="thorwallet.org section stack — hero, proof band, capability rails, feature block, CTA" -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0A1A2B;-webkit-font-smoothing:antialiased}body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 50% at 82% 8%,rgba(0,204,255,0.10),transparent 60%),radial-gradient(55% 45% at 12% 78%,rgba(51,224,160,0.08),transparent 60%)}body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}a{color:#1FD9A6;text-decoration:none}a:hover{color:#33FF99}</style>
+</helmet>
+<div style="position:relative;z-index:1;background:#0A1A2B;color:#C5D2DE;font-family:'OT Sono',-apple-system,'Helvetica Neue',sans-serif;font-size:1.0625rem;line-height:1.6;letter-spacing:-0.005em">
+
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.SiteNav" logo="../../assets/logos/thorwallet-logo-white.png" active="Home" hint-size="100%,72px"></x-import>
+
+<section style="position:relative;overflow:hidden;padding:clamp(96px,11vh,150px) clamp(20px,5vw,80px) 0">
+<div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(50% 38% at 50% 18%,rgba(0,204,255,0.16),transparent 60%),radial-gradient(50% 50% at 72% 70%,rgba(51,255,153,0.12),transparent 64%)"></div>
+<div style="position:relative;max-width:1320px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center">
+<img src="../../assets/logos/thorwallet-lockup-gradient.png" alt="THORWallet" style="width:clamp(186px,21vw,300px);margin-bottom:clamp(20px,2.6vw,34px);filter:drop-shadow(0 10px 44px rgba(0,204,255,0.28))" />
+<h1 style="font-family:'OT Sono',sans-serif;font-weight:600;font-size:clamp(2.4rem,5.6vw,5.4rem);line-height:0.97;letter-spacing:-0.035em;color:#FFFFFF;text-wrap:balance;max-width:18ch">The headline goes here, with <span style="color:transparent;-webkit-text-stroke:1.5px #1FD9A6">one keyword</span></h1>
+<p style="font-size:clamp(1.1rem,1.5vw,1.45rem);line-height:1.5;color:#C5D2DE;max-width:56ch;margin:clamp(16px,2vw,26px) auto 0">One or two short sentences of supporting copy. Concrete, factual, no hype.</p>
+<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:clamp(24px,3vw,38px)">
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.StoreBadge" store="ios" href="#" hint-size="218px,56px"></x-import>
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.StoreBadge" store="android" href="#" hint-size="218px,56px"></x-import>
+</div>
+<img src="../../assets/hero-phone.webp" alt="THORWallet app" style="width:min(72vw,860px);margin-top:clamp(24px,4vw,56px)" />
+</div>
+</section>
+
+<section style="padding:clamp(56px,7vw,104px) clamp(20px,5vw,80px);border-block:1px solid rgba(255,255,255,0.08)">
+<div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+<div style="border-left:0"><x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.StatTile" variant="proof" value="$2.5B+" label="Swapped natively — no bridges" hint-size="100%,120px"></x-import></div>
+<div style="border-left:1px solid rgba(255,255,255,0.15)"><x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.StatTile" variant="proof" value="20,000+" label="Tokens across every major chain" hint-size="100%,120px"></x-import></div>
+<div style="border-left:1px solid rgba(255,255,255,0.15)"><x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.StatTile" variant="proof" value="★ 4.8" label="App Store · 3,000+ five-star ratings" hint-size="100%,120px"></x-import></div>
+<div style="border-left:1px solid rgba(255,255,255,0.15)"><x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.StatTile" variant="proof" value="175+" label="Countries the card is live in" hint-size="100%,120px"></x-import></div>
+</div>
+</section>
+
+<section style="padding:clamp(72px,9vw,132px) clamp(20px,5vw,80px)">
+<div style="max-width:1320px;margin:0 auto">
+<span style="font-family:'OT Sono',sans-serif;font-size:0.8125rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#8A9DB0;display:block;margin-bottom:18px">Section eyebrow</span>
+<h2 style="font-family:'OT Sono',sans-serif;font-weight:600;font-size:clamp(2.3rem,4.6vw,4.2rem);line-height:1.02;letter-spacing:-0.02em;color:#FFFFFF;max-width:760px;margin:0">Three capabilities, stated plainly.</h2>
+<p style="font-size:clamp(1.1rem,1.5vw,1.45rem);line-height:1.45;color:#C5D2DE;margin-top:20px;max-width:760px">The supporting lede for this section.</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);border-radius:24px;overflow:hidden;margin-top:56px">
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.CapabilityRail" number="01" name="Native cross-chain" desc="No bridges, no wrapped assets — real native settlement across every major chain." factKey="Volume" factValue="$2.5B+" hint-size="100%,240px"></x-import>
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.CapabilityRail" number="02" name="20,000+ tokens" desc="Trade across every major chain from one place, with one balance." factKey="Chains" factValue="12" hint-size="100%,240px"></x-import>
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.CapabilityRail" number="03" name="Best-rate routing" desc="Aggregated liquidity finds the best path automatically." factKey="Median saving" factValue="0.31%" hint-size="100%,240px"></x-import>
+</div>
+</div>
+</section>
+
+<section style="padding:clamp(72px,9vw,132px) clamp(20px,5vw,80px);background:#0E2233;border-block:1px solid rgba(255,255,255,0.08)">
+<div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center">
+<div>
+<span style="font-family:'OT Sono',sans-serif;font-size:0.8125rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#8A9DB0;display:block;margin-bottom:18px">Feature eyebrow</span>
+<h2 style="font-family:'OT Sono',sans-serif;font-weight:600;font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.02;letter-spacing:-0.02em;color:#FFFFFF;margin:0">Feature headline. <span style="background:linear-gradient(120deg,#00CCFF 0%,#19DAC8 52%,#33FF99 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Two words.</span></h2>
+<p style="font-size:clamp(1.1rem,1.5vw,1.45rem);line-height:1.45;color:#C5D2DE;margin-top:20px">A sentence explaining what this does and why it matters.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px">
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.FeaturePoint" number="01" title="First point" hint-size="100%,130px">A short explanatory line.</x-import>
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.FeaturePoint" number="02" title="Second point" hint-size="100%,130px">A short explanatory line.</x-import>
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.FeaturePoint" number="03" title="Third point" hint-size="100%,130px">A short explanatory line.</x-import>
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.FeaturePoint" number="04" title="Fourth point" hint-size="100%,130px">A short explanatory line.</x-import>
+</div>
+</div>
+<div style="display:flex;justify-content:center">
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.DeviceFrame" src="../../assets/screens/swap.png" hint-size="330px,700px"></x-import>
+</div>
+</div>
+</section>
+
+<section style="position:relative;text-align:center;padding:clamp(110px,14vw,190px) clamp(20px,5vw,80px);overflow:hidden">
+<div style="position:absolute;inset:0;background:radial-gradient(60% 70% at 50% 50%,rgba(31,217,166,0.22),transparent 70%),radial-gradient(50% 60% at 50% 50%,rgba(42,107,242,0.18),transparent 70%)"></div>
+<div style="position:relative;max-width:1320px;margin:0 auto">
+<h2 style="font-family:'OT Sono',sans-serif;font-weight:600;font-size:clamp(3rem,7.5vw,6.5rem);line-height:0.95;letter-spacing:-0.03em;color:#FFFFFF;margin-bottom:18px">All chains.<br />One app.</h2>
+<p style="font-size:clamp(1.1rem,1.5vw,1.45rem);color:#C5D2DE;margin:0 auto 32px;max-width:40ch">Your keys never leave your phone.</p>
+<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.StoreBadge" store="ios" href="#" hint-size="218px,56px"></x-import>
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.StoreBadge" store="android" href="#" hint-size="218px,56px"></x-import>
+</div>
+</div>
+</section>
+
+<x-import component-from-global-scope="ThorwalletBrandDesignWebsite_258ce2.SiteFooter" logo="../../assets/logos/thorwallet-logo-white.png" hint-size="100%,380px"></x-import>
+</div>
+
+</x-dc>
+</body>
+</html>

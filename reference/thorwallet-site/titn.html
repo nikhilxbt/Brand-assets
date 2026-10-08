@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>try{var t=localStorage.getItem("tw-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>$TITN - THORWallet</title>
+<meta name="description" content="$TITN unlocks the whole app. Stake to cut your swap fees, earn USDC fee rebates, and unlock community perks." />
+<link rel="stylesheet" href="site.css" />
+<link rel="canonical" href="https://www.thorwallet.org/titn.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0A1A2B" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="THORWallet" />
+<meta property="og:title" content="$TITN — Stake to Cut Fees &amp; Earn USDC Rebates | THORWallet" />
+<meta property="og:description" content="$TITN is THORWallet's utility token. Stake to cut swap fees to 0.2%, earn up to ~70% USDC fee rebates, and unlock community perks." />
+<meta property="og:url" content="https://www.thorwallet.org/titn.html" />
+<meta property="og:image" content="https://www.thorwallet.org/assets/og/og-titn.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thorwallet" />
+<meta name="twitter:title" content="$TITN — Stake to Cut Fees &amp; Earn USDC Rebates | THORWallet" />
+<meta name="twitter:description" content="$TITN is THORWallet's utility token. Stake to cut swap fees to 0.2%, earn up to ~70% USDC fee rebates, and unlock community perks." />
+<meta name="twitter:image" content="https://www.thorwallet.org/assets/og/og-titn.png" />
+<style>
+  .ex-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .ex-card { position: relative; display: flex; align-items: center; gap: 16px; padding: 20px 22px; background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--r-lg); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease); }
+  .ex-card:hover { transform: translateY(-4px); border-color: var(--accent-line); box-shadow: 0 0 0 1px var(--accent-line), 0 18px 40px -22px rgba(0,0,0,0.7); }
+  .ex-logo { width: 54px; height: 54px; border-radius: 13px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+  .ex-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .ex-logo.tw { background: var(--bg-base); border: 1px solid var(--hairline-strong); }
+  .ex-logo.tw img { object-fit: contain; padding: 9px; }
+  .ex-info { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+  .ex-card b { color: var(--text-hi); font-size: 1.05rem; }
+  .ex-pair { color: var(--text-low); font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.02em; }
+  .ex-go { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-solid); opacity: 0; transform: translateX(-4px); transition: opacity .18s var(--ease), transform .18s var(--ease); flex-shrink: 0; }
+  .ex-card:hover .ex-go { opacity: 1; transform: translateX(0); }
+  .ex-more { text-align: center; margin-top: 34px; }
+  .ex-variants { margin-top: 48px; }
+  .ev { display: none; }
+  .ex-variants[data-ev="1"] .ev-marquee, .ex-variants[data-ev="2"] .ev-cards, .ex-variants[data-ev="3"] .ev-wall { display: block; }
+  .ev-marquee { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+  .exm-track { display: flex; gap: 16px; width: max-content; animation: exmScroll 30s linear infinite; }
+  .ev-marquee:hover .exm-track { animation-play-state: paused; }
+  .exm-item { display: flex; align-items: center; gap: 13px; padding: 14px 22px; background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--r-pill); flex-shrink: 0; }
+  .exm-item b { color: var(--text-hi); font-size: 1rem; white-space: nowrap; }
+  @keyframes exmScroll { to { transform: translateX(-50%); } }
+  .exw-grid { display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; margin-top: 8px; }
+  .exw-item { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 32px 12px; border-right: 1px solid var(--hairline); text-align: center; transition: background .18s var(--ease); }
+  .exw-item:last-child { border-right: 0; }
+  .exw-item:hover { background: var(--surface); }
+  .exw-item b { display: none; }
+  .exw-logo { height: 34px; width: 100%; display: flex; align-items: center; justify-content: center; }
+  .exw-logo img { height: 30px; width: auto; max-width: 200px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9; }
+  .exw-logo.tw { }
+  .exw-logo.tw img { filter: none; opacity: 1; height: 30px; max-width: 200px; }
+  @media (max-width: 860px) { .exw-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px) { .ex-grid { grid-template-columns: 1fr; } }
+</style>
+
+<!-- Analytics: consent-gated, loaded by consent.js -->
+</head>
+<body>
+<main>
+  <section class="subhero">
+    <div class="container">
+      <span class="eyebrow reveal">$TITN token</span>
+      <h1 class="display reveal" data-delay="1">Stake. Save.<br/><span class="outline-accent">Unlock.</span></h1>
+      <p class="lead reveal" data-delay="2">$TITN is the utility token at the centre of THORWallet. Stake it to cut your swap fees, earn USDC fee rebates, and unlock community perks across the app.<a class="fn-ref" href="#fn-1" aria-label="See fine print note 1"><sup>1</sup></a></p>
+    </div>
+  </section>
+
+  
+
+  <section class="section" id="tiers" style="padding: 8px 0 0;">
+    <div class="container">
+      <div class="card-highlights reveal">
+        <div class="ch-item"><div class="ch-v">0.2%</div><div class="ch-k">Lowest swap fee, down from 1.25%</div></div>
+        <div class="ch-item"><div class="ch-v">~70%</div><div class="ch-k">Of fees back, paid in USDC</div></div>
+        <div class="ch-item"><div class="ch-v">$0</div><div class="ch-k">Fees on swaps under $100</div></div>
+      </div>
+
+      <div class="tiers" data-cv="1">
+        <article class="tier">
+          <div class="tier-eyebrow">01 / Tier</div>
+          <h3 class="tier-name">Standard</h3>
+          <p class="tier-tag">For getting started.</p>
+          <div class="tier-price"><span class="tp-amt">0</span><span class="tp-per">$TITN · free tier</span></div>
+          <div class="tier-rows">
+            <div class="tr"><span class="k">Swap fee</span><span class="v">1.25%</span></div>
+            <div class="tr"><span class="k">USDC fee rebate</span><span class="v">-</span></div>
+            <div class="tr"><span class="k">Community perks</span><span class="v">-</span></div>
+            <div class="tr"><span class="k">Volume discounts</span><span class="v">Standard</span></div>
+            <div class="tr"><span class="k">Support</span><span class="v">Standard</span></div>
+          </div>
+          <a class="btn btn-primary tier-cta" href="https://app.thorwallet.org">Get started</a>
+        </article>
+
+        <article class="tier featured">
+          <span class="ribbon">Most popular</span>
+          <div class="tier-eyebrow">02 / Tier</div>
+          <h3 class="tier-name">Community</h3>
+          <p class="tier-tag">For active swappers.</p>
+          <div class="tier-price"><span class="tp-amt">10,000</span><span class="tp-per">$TITN staked</span></div>
+          <div class="tier-rows">
+            <div class="tr"><span class="k">Swap fee</span><span class="v">0.5%</span></div>
+            <div class="tr"><span class="k">USDC fee rebate</span><span class="v">Up to ~70%</span></div>
+            <div class="tr"><span class="k">Community perks</span><span class="v">Yes</span></div>
+            <div class="tr"><span class="k">Volume discounts</span><span class="v">Boosted</span></div>
+            <div class="tr"><span class="k">Support</span><span class="v">Standard</span></div>
+          </div>
+          <a class="btn btn-primary tier-cta" href="https://app.thorwallet.org">Stake $TITN</a>
+        </article>
+
+        <article class="tier">
+          <div class="tier-eyebrow">03 / Tier</div>
+          <h3 class="tier-name">Community Plus</h3>
+          <p class="tier-tag">For power users &amp; whales.</p>
+          <div class="tier-price"><span class="tp-amt">100,000</span><span class="tp-per">$TITN staked</span></div>
+          <div class="tier-rows">
+            <div class="tr"><span class="k">Swap fee</span><span class="v">0.2%</span></div>
+            <div class="tr"><span class="k">USDC fee rebate</span><span class="v">Up to ~70%</span></div>
+            <div class="tr"><span class="k">Community perks</span><span class="v">Yes, priority</span></div>
+            <div class="tr"><span class="k">Volume discounts</span><span class="v">Maximum</span></div>
+            <div class="tr"><span class="k">Support</span><span class="v">Priority</span></div>
+          </div>
+          <a class="btn btn-primary tier-cta" href="https://app.thorwallet.org">Stake $TITN</a>
+        </article>
+      </div>
+      <p class="titn-note reveal" style="font-size: 20px;">No fees on swaps under $100. Higher trading volume unlocks further discounts on top of your tier.<a class="fn-ref" href="#fn-2" aria-label="See fine print note 2"><sup>2</sup></a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Volume discounts</span>
+        <h2 class="h1">Bigger trades, <span class="outline-accent">smaller fees.</span></h2>
+        <p class="lead">Fees fall further as your transaction size grows - applied automatically on top of your tier.</p>
+      </div>
+      <div class="compare-wrap reveal" data-delay="1">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Transaction size</th><th>&lt; $100</th><th>$100 - $50k</th><th>$50k - $500k</th><th>&gt; $500k</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Standard</td><td>0.0%</td><td>1.25%</td><td>0.6%</td><td>0.4%</td></tr>
+            <tr><td>Community</td><td>0.0%</td><td>0.5%</td><td>0.4%</td><td>0.2%</td></tr>
+            <tr><td>Community Plus</td><td>0.0%</td><td>0.2%</td><td>0.18%</td><td>0.16%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section elev">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Where to buy</span>
+        <h2 class="h1">Trade <span class="outline-accent">$TITN</span> on the world's premier exchanges.</h2>
+        <p class="lead">Buy and trade $TITN on leading cryptocurrency exchanges worldwide.</p>
+      </div>
+      <div class="ex-variants reveal" data-delay="1" data-ev="1">
+        <div class="ev ev-marquee">
+          <div class="exm-track">
+            <a class="exm-item" href="https://www.binance.com/en/alpha" target="_blank" rel="noopener"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/binance-wm.png" alt="Binance" /></span><b>Binance</b></a>
+            <a class="exm-item" href="https://www.coinbase.com" target="_blank" rel="noopener"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/coinbase-wm.png" alt="Coinbase" /></span><b>Coinbase</b></a>
+            <a class="exm-item" href="https://www.gate.io/trade/TITN_USDT" target="_blank" rel="noopener"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/gate-wm.png" alt="Gate.io" /></span><b>Gate.io</b></a>
+            <a class="exm-item" href="https://www.mexc.com/exchange/TITN_USDT" target="_blank" rel="noopener"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/mexc-wm.svg" alt="MEXC" /></span><b>MEXC</b></a>
+            
+            <a class="exm-item" href="https://app.thorwallet.org" target="_blank" rel="noopener"><span class="ex-logo tw"><img src="assets/thorwallet-logo-white.png" alt="THORWallet" /></span><b>THORWallet</b></a>
+            <a class="exm-item" href="https://www.binance.com/en/alpha" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/binance-wm.png" alt="" /></span><b>Binance</b></a>
+            <a class="exm-item" href="https://www.coinbase.com" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/coinbase-wm.png" alt="" /></span><b>Coinbase</b></a>
+            <a class="exm-item" href="https://www.gate.io/trade/TITN_USDT" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/gate-wm.png" alt="" /></span><b>Gate.io</b></a>
+            <a class="exm-item" href="https://www.mexc.com/exchange/TITN_USDT" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/mexc-wm.svg" alt="" /></span><b>MEXC</b></a>
+            
+            <a class="exm-item" href="https://app.thorwallet.org" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ex-logo tw"><img src="assets/thorwallet-logo-white.png" alt="" /></span><b>THORWallet</b></a>
+          </div>
+        </div>
+        <div class="ev ev-cards">
+          <div class="ex-grid">
+            <a class="ex-card" href="https://www.binance.com/en/alpha" target="_blank" rel="noopener"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/binance-wm.png" alt="Binance" /></span><span class="ex-info"><b>Binance</b><span class="ex-pair">Binance Alpha</span></span><span class="ex-go">Trade -&gt;</span></a>
+            <a class="ex-card" href="https://www.coinbase.com" target="_blank" rel="noopener"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/coinbase-wm.png" alt="Coinbase" /></span><span class="ex-info"><b>Coinbase</b><span class="ex-pair">TITN on Base</span></span><span class="ex-go">Trade -&gt;</span></a>
+            <a class="ex-card" href="https://www.gate.io/trade/TITN_USDT" target="_blank" rel="noopener"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/gate-wm.png" alt="Gate.io" /></span><span class="ex-info"><b>Gate.io</b><span class="ex-pair">TITN / USDT</span></span><span class="ex-go">Trade -&gt;</span></a>
+            <a class="ex-card" href="https://www.mexc.com/exchange/TITN_USDT" target="_blank" rel="noopener"><span class="ex-logo"><img loading="lazy" decoding="async" src="assets/exchanges/mexc-wm.svg" alt="MEXC" /></span><span class="ex-info"><b>MEXC</b><span class="ex-pair">TITN / USDT</span></span><span class="ex-go">Trade -&gt;</span></a>
+            
+            <a class="ex-card" href="https://app.thorwallet.org" target="_blank" rel="noopener"><span class="ex-logo tw"><img src="assets/thorwallet-logo-white.png" alt="THORWallet" /></span><span class="ex-info"><b>THORWallet</b><span class="ex-pair">Buy in-app, gasless</span></span><span class="ex-go">Trade -&gt;</span></a>
+          </div>
+        </div>
+        <div class="ev ev-wall">
+          <div class="exw-grid">
+            <a class="exw-item" href="https://www.binance.com/en/alpha" target="_blank" rel="noopener"><span class="exw-logo"><img loading="lazy" decoding="async" src="assets/exchanges/binance-wm.png" alt="Binance" /></span><b>Binance</b></a>
+            <a class="exw-item" href="https://www.coinbase.com" target="_blank" rel="noopener"><span class="exw-logo"><img loading="lazy" decoding="async" src="assets/exchanges/coinbase-wm.png" alt="Coinbase" /></span><b>Coinbase</b></a>
+            <a class="exw-item" href="https://www.gate.io/trade/TITN_USDT" target="_blank" rel="noopener"><span class="exw-logo"><img loading="lazy" decoding="async" src="assets/exchanges/gate-wm.png" alt="Gate.io" /></span><b>Gate.io</b></a>
+            <a class="exw-item" href="https://www.mexc.com/exchange/TITN_USDT" target="_blank" rel="noopener"><span class="exw-logo"><img loading="lazy" decoding="async" src="assets/exchanges/mexc-wm.svg" alt="MEXC" /></span><b>MEXC</b></a>
+            
+            <a class="exw-item" href="https://app.thorwallet.org" target="_blank" rel="noopener"><span class="exw-logo tw"><img src="assets/thorwallet-logo-white.png" alt="THORWallet" /></span><b>THORWallet</b></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section class="final">
+    <div class="container reveal">
+      <h2 class="display">Stake <span class="outline-accent">$TITN.</span></h2>
+      <p class="lead">Lower fees, USDC rebates, and the full community.</p>
+      <div class="cta-row">
+        <a class="btn btn-accent" href="https://app.thorwallet.org">Open the app</a>
+        <a class="btn btn-ghost" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINE PRINT (consolidated footnotes) ============ -->
+  <section class="fine-print" aria-label="Fine print">
+    <div class="container">
+      <h2 class="fp-h">The fine print</h2>
+      <ol>
+        <li id="fn-1">$TITN is a utility token, not an investment. Its value may fluctuate and could fall to zero. Nothing here is financial advice. Read the <a href="https://docs.google.com/document/d/e/2PACX-1vSWaGLT1ptjCInNErJJx2bEfSgx3AGdqUoarjftvzNlkRJ-7dBO1VsJAmJyXQSZ3A/pub" target="_blank" rel="noopener">full terms &amp; risks</a> before staking.</li>
+        <li id="fn-2">Swap fees, rebates and volume discounts are variable and may change.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<script src="site-nav.js"></script>
+<script src="i18n-data.js"></script>
+<script src="i18n-data2.js"></script>
+<script src="i18n-data3.js"></script>
+<script src="i18n-data4.js"></script>
+<script src="i18n-data5.js"></script>
+<script src="i18n-data6.js"></script>
+<script src="i18n-data7.js"></script>
+<script src="i18n-data8.js"></script>
+<script src="i18n.js"></script>
+<script src="consent.js"></script>
+<script src="site.js"></script>
+
+
+
+<script src="theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1600, initial-scale=1" />
+<title>MINE - MiCA Compliant</title>
+<style>
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-SemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:block;}
+
+  :root{
+    --bone:#F3ECE8; --paper:#FAF6F3; --taupe:#E3DCD9;
+    --ink:#0E1F2A; --ink2:#1A2F3D; --ink-soft:#4A5963; --ink-mute:#8A8580;
+    --teal:#5BB6B0; --teal-deep:#2C7E7B; --amber:#F0C28A; --amber-deep:#E0A03A;
+    --coral:#E27259; --coral-deep:#C94B30; --green:#1F8A5B;
+    --grad:linear-gradient(95deg,#89BAA4 6%,#F0C28A 50%,#E8906C 94%);
+    --grad-deep:linear-gradient(95deg,#2C7E7B 0%,#E0A03A 52%,#C94B30 100%);
+    --line:rgba(14,31,42,.10); --line-str:rgba(14,31,42,.16);
+    --font:"OT Sono",-apple-system,"Helvetica Neue",sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bone); font-family:var(--font); -webkit-font-smoothing:antialiased; width:1600px; height:900px; overflow:hidden;}
+
+  .art{position:absolute; left:0; top:0; width:1600px; height:900px; overflow:hidden; color:var(--ink);
+    background:linear-gradient(135deg,#FAF6F2 0%,#F2ECE6 48%,#EAF0EC 100%);}
+
+  .amb{position:absolute; inset:0; pointer-events:none;}
+  .amb .grid{position:absolute; inset:0; opacity:.7;
+    background-image:linear-gradient(rgba(14,31,42,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(14,31,42,0.03) 1px,transparent 1px);
+    background-size:60px 60px; -webkit-mask-image:radial-gradient(120% 110% at 28% 22%,#000 46%,transparent 100%); mask-image:radial-gradient(120% 110% at 28% 22%,#000 46%,transparent 100%);}
+  .amb .blob{position:absolute; border-radius:50%; filter:blur(30px);}
+
+  /* top bar */
+  .topbar{position:absolute; left:66px; right:66px; top:58px; display:flex; align-items:center; justify-content:space-between;}
+  .wordmark{height:30px; width:auto; display:block;}
+  .pill{display:inline-flex; align-items:center; gap:9px; height:38px; padding:0 18px; border-radius:999px;
+    background:#FFFFFF; border:1px solid var(--line-str); color:var(--ink-soft); font-size:14px; font-weight:500; letter-spacing:.02em;}
+  .pill .dot{width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 8px rgba(31,138,91,.5);}
+
+  /* hero text */
+  .left{position:absolute; left:66px; top:152px; width:900px;}
+  .eyebrow{display:inline-flex; align-items:center; gap:11px; font-size:14px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--green);}
+  .eyebrow .gdot{width:9px; height:9px; border-radius:50%; background:var(--grad); box-shadow:0 0 10px rgba(224,160,58,.6);}
+  h1{margin-top:20px; font-weight:600; font-size:76px; line-height:1.02; letter-spacing:-0.035em; color:var(--ink);}
+  h1 .g{background:var(--grad-deep); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;}
+  .sub{margin-top:24px; max-width:700px; font-size:21px; line-height:1.5; font-weight:400; color:var(--ink-soft);}
+  .sub b{color:var(--ink); font-weight:600;}
+
+  /* feature rows */
+  .feats{margin-top:32px; display:flex; flex-direction:column; gap:19px;}
+  .feat{display:flex; align-items:flex-start; gap:18px;}
+  .feat .ic{width:52px; height:52px; flex-shrink:0; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    background:#FFFFFF; border:1px solid var(--line); box-shadow:0 8px 20px -10px rgba(14,31,42,.18);}
+  .feat .ic svg{stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; fill:none;}
+  .feat .ic.teal svg{stroke:var(--teal-deep);} .feat .ic.grn svg{stroke:var(--green);} .feat .ic.acc svg{stroke:var(--coral-deep);}
+  .feat .ft{font-size:20px; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  .feat .fb{font-size:15.5px; font-weight:400; color:var(--ink-soft); margin-top:3px; line-height:1.42;}
+
+  /* shield visual */
+  .vis{position:absolute; right:110px; top:118px; width:560px; height:600px;}
+  .vis .vglow{position:absolute; left:50%; top:50%; width:620px; height:620px; transform:translate(-50%,-50%);
+    border-radius:50%; background:radial-gradient(circle,rgba(240,194,138,.38),rgba(137,186,164,.16) 58%,transparent 72%); filter:blur(28px);}
+  .vis svg.shield{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:block;}
+
+  /* floating callouts */
+  .callout{position:absolute; display:flex; align-items:center; gap:12px; padding:13px 17px; border-radius:16px;
+    background:rgba(255,255,255,.92); border:1px solid var(--line); backdrop-filter:blur(10px);
+    box-shadow:0 18px 40px -12px rgba(14,31,42,.25); z-index:5;}
+  .callout .cico{width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .callout .ct{font-size:15px; font-weight:600; color:var(--ink); line-height:1.15;}
+  .callout .cs{font-size:12.5px; font-weight:400; color:var(--ink-mute); margin-top:1px;}
+
+  /* bottom bar */
+  .bottombar{position:absolute; left:66px; right:92px; bottom:44px; display:flex; align-items:center; justify-content:space-between; z-index:6;}
+  .tagline{display:inline-flex; align-items:center; gap:12px; height:44px; padding:0 22px; border-radius:999px; background:var(--ink);
+    color:var(--bone); font-size:15px; font-weight:500; letter-spacing:.01em; box-shadow:0 14px 30px -12px rgba(14,31,42,.35);}
+  .tagline svg{stroke:var(--bone); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0;}
+  .tagline .sep{width:4px; height:4px; border-radius:50%; background:rgba(243,236,232,.4);}
+  .tagline b{font-weight:600; color:#fff;}
+  .foot{font-size:15px; font-weight:500; color:var(--ink-mute); letter-spacing:.02em;}
+</style>
+</head>
+<body>
+  <section class="art" data-screen-label="MiCA Compliant (MINE light)">
+    <div class="amb">
+      <div class="grid"></div>
+      <div class="blob" style="width:900px;height:900px;right:-240px;top:-320px;background:radial-gradient(circle,rgba(240,194,138,.30),transparent 62%);"></div>
+      <div class="blob" style="width:900px;height:900px;left:-300px;bottom:-380px;background:radial-gradient(circle,rgba(137,186,164,.28),transparent 62%);"></div>
+    </div>
+
+    <div class="topbar">
+      <img class="wordmark" src="assets/mine-wordmark-ink.svg" alt="mine" />
+      <span class="pill"><span class="dot"></span>MiCA · Fully compliant</span>
+    </div>
+
+    <div class="left">
+      <div class="eyebrow"><span class="gdot"></span>MiCA deadline passed - July 1</div>
+      <h1>80% of platforms are leaving Europe. <span class="g">We're staying.</span></h1>
+      <p class="sub">Unlicensed custodial platforms must now exit the EU. MINE is <b>self-custodial</b> - fully MiCA compliant, and <b>nothing changes for you</b>.</p>
+
+      <div class="feats">
+        <div class="feat">
+          <div class="ic grn"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div><div class="ft">Your keys never leave your phone</div><div class="fb">No custodian, no license deadline, no lockout. You hold the keys.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ic teal"><svg width="26" height="26" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <div><div class="ft">Nothing to freeze, nothing to delist</div><div class="fb">Native assets in your own vault - no platform can hold them hostage.</div></div>
+        </div>
+        <div class="feat">
+          <div class="ic acc"><svg width="26" height="26" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg></div>
+          <div><div class="ft">Card &amp; IBAN on regulated rails</div><div class="fb">Spending runs on fully licensed, compliant European partners.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- shield visual -->
+    <div class="vis">
+      <div class="vglow"></div>
+      <svg class="shield" width="420" height="475" viewBox="0 0 460 520" fill="none">
+        <defs>
+          <linearGradient id="sg" x1="60" y1="40" x2="400" y2="480" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#2C7E7B"/><stop offset=".5" stop-color="#E0A03A"/><stop offset="1" stop-color="#C94B30"/>
+          </linearGradient>
+          <linearGradient id="sf" x1="60" y1="40" x2="400" y2="480" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5BB6B0" stop-opacity=".14"/><stop offset=".5" stop-color="#F0C28A" stop-opacity=".12"/><stop offset="1" stop-color="#E27259" stop-opacity=".10"/>
+          </linearGradient>
+        </defs>
+        <!-- shield body -->
+        <path d="M230 30 L410 96 V250 C410 372 334 452 230 492 C126 452 50 372 50 250 V96 Z" fill="url(#sf)" stroke="url(#sg)" stroke-width="3"/>
+        <path d="M230 62 L380 118 V250 C380 355 316 424 230 460 C144 424 80 355 80 250 V118 Z" fill="none" stroke="rgba(14,31,42,.12)" stroke-width="1.5"/>
+        <!-- 12 EU stars -->
+        <g fill="#E0A03A" id="stars"></g>
+        <!-- check -->
+        <path d="M164 252 L212 300 L302 210" stroke="url(#sg)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <div class="callout" style="left:-64px; top:64px;">
+        <div class="cico" style="background:rgba(224,160,58,.14); border:1px solid rgba(224,160,58,.35);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E0A03A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <div><div class="ct">July 1, 2026</div><div class="cs">MiCA transition ended</div></div>
+      </div>
+
+      <div class="callout" style="right:-30px; bottom:76px;">
+        <div class="cico" style="background:rgba(31,138,91,.10); border:1px solid rgba(31,138,91,.30);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8A5B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div><div class="ct">Self-custodial</div><div class="cs">Fully compliant · unaffected</div></div>
+      </div>
+    </div>
+
+    <!-- bottom bar -->
+    <div class="bottombar">
+      <span class="tagline"><svg width="15" height="15" viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg><b>Money without borders, politics, or banks.</b><span class="sep"></span>The Best Crypto Wallet For Swaps &amp; DeFi</span>
+      <span class="foot">minewallet.io</span>
+    </div>
+  </section>
+
+  <script>
+    // EU stars ring
+    (function(){
+      var g = document.getElementById('stars');
+      var cx=230, cy=256, R=138;
+      function star(x,y,r){
+        var p='', rot=-Math.PI/2;
+        for(var i=0;i<10;i++){
+          var rr = i%2===0 ? r : r*0.42;
+          var a = rot + i*Math.PI/5;
+          p += (i===0?'M':'L') + (x+rr*Math.cos(a)).toFixed(1) + ' ' + (y+rr*Math.sin(a)).toFixed(1);
+        }
+        return p+'Z';
+      }
+      var d='';
+      for(var i=0;i<12;i++){
+        var a=-Math.PI/2 + i*Math.PI/6;
+        d += star(cx+R*Math.cos(a), cy+R*Math.sin(a), 11) + ' ';
+      }
+      var path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',d);
+      g.appendChild(path);
+    })();
+  </script>
+</body>
+</html>

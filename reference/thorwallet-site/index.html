@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>try{var t=localStorage.getItem("tw-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>THORWallet — Self-Custody Multi-Chain Crypto Wallet, Swaps &amp; DeFi</title>
+<meta name="description" content="THORWallet is a self-custody, multi-chain DeFi superapp — native cross-chain swaps with no bridges, yield, multisig vaults, and a Swiss account with a global Mastercard. iOS, Android &amp; Web." />
+<link rel="canonical" href="https://www.thorwallet.org/" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="keywords" content="THORWallet, crypto wallet, self-custody wallet, DeFi wallet, cross-chain swaps, multichain wallet, multisig wallet, crypto card, Swiss IBAN, TITN, Bitcoin, Ethereum, Solana, THORChain" />
+<meta name="author" content="THORWallet" />
+<meta name="theme-color" content="#0A1A2B" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="THORWallet" />
+<meta property="og:title" content="THORWallet — Self-Custody Multi-Chain Crypto Wallet, Swaps &amp; DeFi" />
+<meta property="og:description" content="All chains. All yield. One app. Native cross-chain swaps with no bridges, yield, multisig vaults, and a Swiss account with a global Mastercard." />
+<meta property="og:url" content="https://www.thorwallet.org/" />
+<meta property="og:image" content="https://www.thorwallet.org/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thorwallet" />
+<meta name="twitter:title" content="THORWallet — Self-Custody Multi-Chain Crypto Wallet" />
+<meta name="twitter:description" content="All chains. All yield. One app. Cross-chain swaps, yield, multisig, and a Swiss account with a global Mastercard." />
+<meta name="twitter:image" content="https://www.thorwallet.org/assets/og-cover.png" />
+
+<link rel="stylesheet" href="site.css" />
+<link rel="stylesheet" href="app-screens.css" />
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"THORWallet","url":"https://www.thorwallet.org/","logo":"https://www.thorwallet.org/assets/thorwallet-logo-white.png","description":"Self-custody, multi-chain DeFi superapp with native cross-chain swaps, yield, multisig vaults and a Swiss account with a global Mastercard.","sameAs":["https://x.com/thorwallet","https://t.me/THORWalletOfficial","https://thorwallet.medium.com"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"THORWallet","url":"https://www.thorwallet.org/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"THORWallet","applicationCategory":"FinanceApplication","operatingSystem":"iOS, Android, Web","description":"Self-custody, multi-chain DeFi superapp: native cross-chain swaps with no bridges, yield, multisig vaults, and a Swiss account with a global Mastercard.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+
+<!-- Analytics: consent-gated, loaded by consent.js -->
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="THORWallet home"><img src="assets/thorwallet-logo-white.png" alt="THORWallet" /></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#card">Card</a>
+      <div class="nav-trade">
+        <button aria-haspopup="true" aria-expanded="false">Features
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dropdown mega" role="menu">
+          <div class="mega-col">
+            <h5>Trade</h5>
+            <a href="swap.html" role="menuitem"><b>Swap</b><span>Native cross-chain, no bridges or wrapped tokens</span></a>
+            <a href="#limit" role="menuitem"><b>Limit Orders</b><span>Set a target price, executes automatically</span></a>
+            <a href="#stocks" role="menuitem"><b>Stocks</b><span>Tokenized US equities &amp; ETFs, 24/7</span></a>
+          </div>
+          <div class="mega-col">
+            <h5>Grow &amp; secure</h5>
+            <a href="#earn" role="menuitem"><b>Earn</b><span>Yield on stablecoins, pools &amp; $TITN staking</span></a>
+            <a href="#multisig" role="menuitem"><b>Multisig</b><span>Multi-device vaults for any chain &amp; token</span></a>
+            <a href="#card" role="menuitem"><b>Card &amp; Swiss account</b><span>Spend crypto with a global Mastercard</span></a>
+          </div>
+          <div class="mega-col">
+            <h5>Who it's for</h5>
+            <a href="#swaps" role="menuitem"><b>For traders</b><span>Best-rate routing across 20k+ tokens</span></a>
+            <a href="#multisig" role="menuitem"><b>For Whales &amp; Degens</b><span>Multisig vaults, 20k+ tokens, your keys</span></a>
+            <a href="#card" role="menuitem"><b>For everyday spend</b><span>Swiss account, 175+ countries</span></a>
+            <a href="compare.html" role="menuitem"><b>Compare wallets</b><span>vs MetaMask, Trust Wallet &amp; more</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="titn.html">$TITN</a>
+      <a href="blog.html">Blog</a>
+      <a href="https://faqs.thorwallet.org/" target="_blank" rel="noopener">FAQs</a>
+    </div>
+    <div class="nav-cta">
+      <div class="lang-picker" data-lang-picker></div>
+      <a class="btn btn-ghost btn-sm btn-web" href="https://app.thorwallet.org">Web App</a>
+      <a class="btn btn-primary btn-sm" href="download.html">Download</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="#card">Card</a>
+  <a href="#swaps">Swap</a>
+  <a href="#multisig">Multisig</a>
+  <a href="#limit">Limit Orders</a>
+  <a href="#stocks">Stocks</a>
+  <a href="#earn">Earn</a>
+  <a href="titn.html">$TITN</a>
+  <a href="blog.html">Blog</a>
+  <a href="compare.html">Compare</a>
+  <a href="https://faqs.thorwallet.org/" target="_blank" rel="noopener">FAQs</a>
+  <a class="btn btn-ghost" href="https://app.thorwallet.org">Web App</a>
+  <a class="btn btn-primary" href="download.html">Download</a>
+  <div class="lang-picker mobile-lang" data-lang-picker></div>
+</div>
+
+<main>
+  <!-- ============ HERO - centered, scroll-scrubbed phone ============ -->
+  <section class="hero-center hero-pin" id="top">
+    <div class="hero-stage">
+      <div class="hero-lede">
+        <img class="hero-mark" src="assets/thorwallet-lockup-gradient.png" alt="THORWallet" />
+        <h1 class="hero-h1">The Best Crypto Wallet For <span class="outline-accent">Swaps &amp; DeFi</span></h1>
+        <p class="hero-sub">All-in-one mobile DeFi wallet app. Swap BTC, ETH, SOL &amp; more easily. <span class="sub-desktop">Secure multi-chain multisig &amp; spend anywhere with your crypto card.</span></p>
+        <div class="hero-actions hero-dl" id="download">
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/ch/app/thorwallet-crypto-wallet/id1592064324" target="_blank" rel="noopener" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+              <span class="sb-txt"><span class="sb-top">Download on the</span><span class="sb-main">App Store</span></span>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=defisuisse.thorwallet&amp;hl=de_CH" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5v19l16-9.5z"/></svg>
+              <span class="sb-txt"><span class="sb-top">Get it on</span><span class="sb-main">Google Play</span></span>
+            </a>
+          </div>
+          <div class="hero-stats" data-hero-stats>
+            <div class="hstat"><div class="hstat-v"><span data-count="2.5" data-prefix="$" data-suffix="B+" data-dec="1">$2.5B+</span><button class="hstat-info" type="button" aria-label="Cumulative cross-chain volume. Variable." data-tip="Cumulative cross-chain volume. Variable."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></button></div><div class="hstat-k">Swapped natively</div></div>
+            <div class="hstat"><div class="hstat-v"><span data-count="20" data-suffix="k+">20k+</span></div><div class="hstat-k">Tokens supported</div></div>
+            <div class="hstat"><div class="hstat-v"><span class="hstat-star" aria-hidden="true">★</span> +3000</div><div class="hstat-k">Five-star ratings</div></div>
+            <div class="hstat"><div class="hstat-v">Since 2021</div><div class="hstat-k">Self-custody</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-phone">
+        <img id="rotato-frame" class="rotato-frame" src="assets/rotato-hd/frame-0004.webp" alt="THORWallet app" />
+      </div>
+
+      <div class="hero-panels" aria-hidden="true">
+        <article class="hero-panel" data-start="0.16" data-end="0.46">
+          <span class="hp-eyebrow">Cross-chain swaps</span>
+          <h2 class="hp-title"><span class="hp-l1">Swap across</span><span class="hp-l2">every chain.</span></h2>
+          <p>One tap, best rate, no bridges.</p>
+          <div class="hero-panel-coins">
+            <img src="assets/chains/btc.png" alt="" />
+            <img src="assets/chains/eth.png" alt="" />
+            <img src="assets/chains/sol.png" alt="" />
+            <img src="assets/chains/bnb.png" alt="" />
+            <img src="assets/chains/stellar.png" alt="" />
+            <img src="assets/chains/sui.png" alt="" />
+            <span class="more">+ many more</span>
+          </div>
+        </article>
+        <article class="hero-panel" data-start="0.50" data-end="0.96">
+          <span class="hp-eyebrow">Self-custody</span>
+          <h2 class="hp-title"><span class="hp-l1">Your money.</span><span class="hp-l2">Always.</span></h2>
+          <p>Your keys, your crypto. No intermediaries. No compromises.</p>
+        </article>
+      </div>
+
+      <div class="hero-scrollcue" aria-hidden="true">Scroll</div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF BAND - stats, ratings, award, credentials ============ -->
+  <section class="proof-band" id="proof">
+    <div class="container">
+      <div class="proof-row reveal">
+        <div class="pstat">
+          <div class="pstat-v"><span data-count="2.5" data-prefix="$" data-suffix="B+" data-dec="1">$2.5B+</span></div>
+          <div class="pstat-k">Swapped natively - no bridges</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-v"><span class="pstat-star" aria-hidden="true">★</span> 4.7</div>
+          <div class="pstat-k">App Store · 3,000+ five-star ratings</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-v"><span data-count="20" data-suffix="k+">20k+</span></div>
+          <div class="pstat-k">Tokens across every major chain</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-v">Winner</div>
+          <div class="pstat-k">Startup World Cup · Pegasus Tech Ventures</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-v">Top 10</div>
+          <div class="pstat-k">Swiss Fintech · Venture Leaders</div>
+        </div>
+      </div>
+      <div class="hero-creds reveal" data-delay="1">
+        <span class="eyebrow">Backed, featured &amp; recognised by</span>
+        <div class="creds-row">
+          <span class="cred cred-pegasus" aria-label="Pegasus Tech Ventures - Startup World Cup winner"><img loading="lazy" decoding="async" src="assets/logos/pegasus.png" alt="Pegasus Tech Ventures - Startup World Cup" /></span>
+          <span class="cred cred-accel" aria-label="Cointelegraph Accelerator"><img loading="lazy" decoding="async" src="assets/logos/cointelegraph-accelerator-trim.png" alt="Cointelegraph Accelerator" /></span>
+          <span class="cred" aria-label="Binance"><img loading="lazy" decoding="async" src="assets/logos/binance.png" alt="Binance" /></span>
+          <span class="cred" aria-label="CoinMarketCap"><img loading="lazy" decoding="async" src="assets/logos/coinmarketcap.svg" alt="CoinMarketCap" /></span>
+          <span class="cred cred-cva" aria-label="Crypto Valley Association"><img loading="lazy" decoding="async" src="assets/logos/cva.png" alt="Crypto Valley Association" /></span>
+          <span class="cred cred-vl" aria-label="Venture Leaders - Top 10 Swiss Fintech by Venturelab"><img loading="lazy" decoding="async" src="assets/logos/venture-leaders.png" alt="Venture Leaders by Venturelab" /></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5.2 CROSS-CHAIN SWAPS - capability rails ============ -->
+  <section class="section" id="swaps">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal">Cross-chain swaps</span>
+        <h2 class="h1 tw-head" data-tw><span class="tw-seg">More </span><span class="tw-seg outline-accent">cross&#8209;chain routes</span><span class="tw-seg"> than any wallet in crypto.</span></h2>
+        <p class="lead reveal" data-delay="1">THORWallet connects more networks and more swap routes than any wallet in the space. Native swaps - no bridges, no wrapped tokens.</p>
+      </div>
+      <div class="rails" data-rails>
+        <a class="rail" href="https://app.thorwallet.org">
+          <div class="rail-num">→ 01</div>
+          <div><div class="rail-name">Native cross-chain</div><p class="rail-desc">No bridges, no wrapped assets - real native settlement across every major chain.</p></div>
+          <div class="rail-fact"><span>Bridges</span><span class="v">None</span></div>
+        </a>
+        <a class="rail" href="https://app.thorwallet.org">
+          <div class="rail-num">→ 02</div>
+          <div><div class="rail-name">20,000+ tokens</div><p class="rail-desc">Trade across every major chain from one place, with one balance.</p></div>
+          <div class="rail-fact"><span>Tokens</span><span class="v">20k+</span></div>
+        </a>
+        <a class="rail" href="https://app.thorwallet.org">
+          <div class="rail-num">→ 03</div>
+          <div><div class="rail-name">Best-rate routing</div><p class="rail-desc">Aggregated liquidity finds the best path automatically - gasless on supported routes.</p></div>
+          <div class="rail-fact"><span>Liquidity</span><span class="v">Aggregated</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5.3–5.5 TRADE - pinned scrollytelling ============ -->
+  <section class="feat-pin" id="trade" style="height: 480vh;" data-feat data-fv="3">
+    <span class="feat-anchor" id="multisig" style="top: 6%;"></span>
+    <span class="feat-anchor" id="limit" style="top: 32%;"></span>
+    <span class="feat-anchor" id="stocks" style="top: 56%;"></span>
+    <span class="feat-anchor" id="earn" style="top: 80%;"></span>
+    <div class="feat-stage">
+      <div class="container feat-grid">
+        <!-- Copy panels (crossfade) -->
+        <div class="feat-copy">
+          <article class="feat-panel active" data-step="0">
+            <div class="feat-inline-media"><div class="device-frame"><div class="screen"><div class="app-screen" role="img" aria-label="THORWallet multisig" data-app="multisig"></div></div></div></div>
+            <span class="eyebrow">Multisig</span>
+            <h2 class="h1">Multisig for <span class="outline-accent">any chain &amp; token.</span></h2>
+            <p class="lead">Secure your assets across multiple devices - a universal multisig that works with any blockchain and token. Custom setups, each device individually backed up.</p>
+            <div class="fv fv-rows">
+              <div class="fr">Use multiple devices to sign</div>
+              <div class="fr">Each device individually backed up</div>
+              <div class="fr">Custom 2-of-3 &amp; 3-of-4 setups</div>
+              <div class="fr">Works with any chain &amp; token</div>
+            </div>
+            <div class="fv fv-stats">
+              <div class="stat-tiles">
+                <div class="stat-tile"><div class="v mono">2-of-3</div><div class="k">Custom multisig setups</div></div>
+                <div class="stat-tile"><div class="v">Any chain</div><div class="k">Bitcoin to THORChain</div></div>
+                <div class="stat-tile"><div class="v">100%</div><div class="k">Self-custody, your keys</div></div>
+              </div>
+            </div>
+            <div class="fv fv-chips">
+              <div class="chips">
+                <span class="chip-pill is-active">2-of-3</span>
+                <span class="chip-pill">3-of-4</span>
+                <span class="chip-pill">Multi-device signing</span>
+                <span class="chip-pill">Individual backups</span>
+                <span class="chip-pill chip-logos"><img src="assets/chains/btc.png" alt="" /><img src="assets/chains/eth.png" alt="" /><img src="assets/chains/sol.png" alt="" /><span>+ any chain</span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="feat-panel" data-step="1">
+            <div class="feat-inline-media"><div class="device-frame"><div class="screen"><div class="app-screen" role="img" aria-label="THORWallet limit orders" data-app="limit"></div></div></div></div>
+            <span class="eyebrow">Limit orders</span>
+            <h2 class="h1">Set your price.<br/><span class="outline-accent">We'll handle the rest.</span></h2>
+            <p class="lead">Place an order at your target and let it execute automatically - even across chains.</p>
+            <div class="fv fv-rows">
+              <div class="fr">Set your target price</div>
+              <div class="fr">Executes automatically</div>
+              <div class="fr">Works even across chains</div>
+              <div class="fr">Set a custom expiry</div>
+            </div>
+            <div class="fv fv-stats">
+              <div class="stat-tiles">
+                <div class="stat-tile"><div class="v">0 gas</div><div class="k">On supported routes</div></div>
+                <div class="stat-tile"><div class="v mono">24/7</div><div class="k">Always-on execution</div></div>
+              </div>
+            </div>
+            <div class="fv fv-chips">
+              <div class="chips">
+                <span class="chip-pill is-active">Market</span>
+                <span class="chip-pill">+5%</span>
+                <span class="chip-pill">+10%</span>
+                <span class="chip-pill">+15%</span>
+                <span class="chip-pill is-expiry">Expires in 3 days</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="feat-panel" data-step="2">
+            <div class="feat-inline-media"><div class="device-frame"><div class="screen"><div class="app-screen" role="img" aria-label="THORWallet tokenized stocks" data-app="stocks"></div></div></div></div>
+            <span class="eyebrow">Tokenized stocks</span>
+            <h2 class="h1">Trade stocks, <span class="outline-accent">onchain.</span></h2>
+            <p class="lead">Buy tokenized US equities and ETFs - Apple, Tesla, Nvidia, the S&amp;P 500 - around the clock, including after hours.<a class="fn-ref" href="#fn-1" aria-label="See fine print note 1"><sup>1</sup></a></p>
+            <div class="fv fv-rows">
+              <div class="fr">Tokenized US equities &amp; ETFs</div>
+              <div class="fr">Trade around the clock</div>
+              <div class="fr">After-hours included</div>
+              <div class="fr">Settled onchain</div>
+            </div>
+            <div class="fv fv-stats">
+              <div class="stat-tiles">
+                <div class="stat-tile"><div class="v mono">24/7</div><div class="k">Incl. after-hours</div></div>
+                <div class="stat-tile"><div class="v">Onchain</div><div class="k">Apple, Tesla, Nvidia, S&amp;P 500</div></div>
+              </div>
+            </div>
+            <div class="fv fv-chips">
+              <div class="chips">
+                <span class="ticker-chip"><span class="dot" style="background:#000;">A</span>AAPLON</span>
+                <span class="ticker-chip"><span class="dot" style="background:#E82127;">T</span>TSLAON</span>
+                <span class="ticker-chip"><span class="dot" style="background:#76B900;color:#06222B;">N</span>NVDAON</span>
+                <span class="ticker-chip"><span class="dot" style="background:#6633CC;">S</span>IVVON</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="feat-panel" data-step="3">
+            <div class="feat-inline-media"><div class="device-frame"><div class="screen"><div class="app-screen" role="img" aria-label="THORWallet earn" data-app="earn"></div></div></div></div>
+            <span class="eyebrow">Earn</span>
+            <h2 class="h1">Put your money <span class="outline-accent">to work.</span></h2>
+            <p class="lead">Earn yield on stablecoins and crypto, or stake $TITN for up to <span class="mono">~70%</span> fee rebates in USDC.<a class="fn-ref" href="#fn-2" aria-label="See fine print note 2"><sup>2</sup></a></p>
+            <div class="fv fv-rows">
+              <div class="fr">Yield on stablecoins &amp; crypto</div>
+              <div class="fr">Provide liquidity in Pools</div>
+              <div class="fr">Stake $TITN for USDC rebates</div>
+              <div class="fr">No lockups, withdraw anytime</div>
+            </div>
+            <div class="fv fv-stats">
+              <div class="stat-tiles">
+                <div class="stat-tile"><div class="v"><span class="mono">8.3%</span></div><div class="k">Stablecoin yield, variable</div></div>
+                <div class="stat-tile"><div class="v">Instant</div><div class="k">No lockups, withdraw anytime</div></div>
+                <div class="stat-tile"><div class="v mono">~70%</div><div class="k">$TITN fee rebate in USDC</div></div>
+              </div>
+            </div>
+            <div class="fv fv-chips">
+              <div class="chips">
+                <span class="chip-pill is-active">8.3% APY</span>
+                <span class="chip-pill">No lockups</span>
+                <span class="chip-pill">USDC rebates</span>
+                <span class="chip-pill">$TITN staking</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sticky device (screen crossfade) -->
+        <div class="feat-visual">
+          <div class="device-frame"><div class="screen">
+            <div class="feat-screen app-screen active" data-step="0" role="img" aria-label="THORWallet multisig" data-app="multisig"></div>
+            <div class="feat-screen app-screen" data-step="1" role="img" aria-label="THORWallet limit orders" data-app="limit"></div>
+            <div class="feat-screen app-screen" data-step="2" role="img" aria-label="THORWallet tokenized stocks" data-app="stocks"></div>
+            <div class="feat-screen app-screen" data-step="3" role="img" aria-label="THORWallet earn" data-app="earn"></div>
+          </div></div>
+          <div class="feat-rail" role="group" aria-label="Choose feature">
+            <button type="button" data-go="0" class="active"><span class="tick"></span>Multisig</button>
+            <button type="button" data-go="1"><span class="tick"></span>Limit</button>
+            <button type="button" data-go="2"><span class="tick"></span>Stocks</button>
+            <button type="button" data-go="3"><span class="tick"></span>Earn</button>
+          </div>
+        </div>
+      </div>
+      <div class="feat-progress" data-feat-progress></div>
+    </div>
+  </section>
+
+  <!-- ============ 5.6 CARD + SWISS BANKING ============ -->
+  <section class="section" id="card">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Card &amp; Swiss account</span>
+        <h2 class="card-title" data-ct="2"><span class="ct-l1">One card.</span> <span class="ct-l2">Unlimited possibilities.</span></h2>
+        <p class="lead">Spend crypto anywhere Mastercard is accepted, in 175+ countries including the US.<a class="fn-ref" href="#fn-3" aria-label="See fine print note 3"><sup>3</sup></a></p>
+      </div>
+      <div class="card-stage reveal" aria-hidden="true" data-card-stage>
+        <div class="cs-glow"></div>
+        <div class="cs-fan">
+          <img class="cs-card cs-back" loading="lazy" decoding="async" src="assets/cards/card-orange.png" alt="" />
+          <img class="cs-card cs-front" loading="lazy" decoding="async" src="assets/cards/card-dark.png" alt="" />
+        </div>
+      </div>
+      <div class="card-highlights reveal">
+        <div class="ch-item"><div class="ch-v">0%</div><div class="ch-k">Top-up fees</div></div>
+        <div class="ch-item"><div class="ch-v ch-blur">Up to 2%</div><div class="ch-k">Cashback on purchases</div></div>
+        <div class="ch-item"><div class="ch-v">175+</div><div class="ch-k">Countries, incl. the US</div></div>
+      </div>
+
+      <div class="titn-pin">
+        <div class="tiers reveal tiers-teaser" data-cv="1">
+        <article class="tier">
+          <div class="tier-eyebrow">01 / Tier</div>
+          <div class="tier-namerow"><h3 class="tier-name">Basic</h3><img class="tier-card" loading="lazy" decoding="async" src="assets/cards/card-basic.png" alt="THORWallet Basic card" /></div>
+          <p class="tier-tag">For getting started.</p>
+          <div class="tier-price"><span class="tp-amt">Free</span><span class="tp-per">forever</span></div>
+          <div class="tier-rows">
+            <div class="tr"><span class="k">Card type</span><span class="v">Virtual</span></div>
+            <div class="tr"><span class="k">Currencies</span><span class="v">USD</span></div>
+            <div class="tr"><span class="k">Cashback</span><span class="v">0%</span></div>
+            <div class="tr"><span class="k">Card FX</span><span class="v">1.5%</span></div>
+            <div class="tr"><span class="k">ATM withdraw</span><span class="v">$1 dom · $5 intl</span></div>
+            <div class="tr"><span class="k">Monthly limit</span><span class="v">$125,000</span></div>
+          </div>
+          <button type="button" class="tier-toggle" aria-expanded="false"><span>See all benefits &amp; fees</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="tier-more"><div class="tier-more-inner">
+            <div class="tr"><span class="k">24/7 chat support</span><span class="v">Standard</span></div>
+            <div class="tr"><span class="k">Cost / year</span><span class="v">Free</span></div>
+            <div class="tr"><span class="k">Card top-up fee</span><span class="v">0%</span></div>
+            <div class="tr"><span class="k">Ready in</span><span class="v">5 minutes</span></div>
+          </div></div>
+          <a class="btn btn-primary tier-cta" href="https://referral.thorwallet.org/oYHz/website">Join Basic</a>
+        </article>
+
+        <article class="tier featured">
+          <span class="ribbon">Most popular</span>
+          <div class="tier-eyebrow">02 / Tier</div>
+          <div class="tier-namerow"><h3 class="tier-name">Premium</h3><img class="tier-card" loading="lazy" decoding="async" src="assets/cards/card-premium.png" alt="THORWallet Premium card" /></div>
+          <p class="tier-tag">For people who spend.</p>
+          <div class="tier-price"><span class="tp-amt">$6.25</span><span class="tp-per">/ month · billed yearly</span></div>
+          <div class="tier-rows">
+            <div class="tr"><span class="k">Card type</span><span class="v">Virtual + Physical</span></div>
+            <div class="tr"><span class="k">Currencies</span><span class="v">USD</span></div>
+            <div class="tr"><span class="k">Cashback</span><span class="v">Up to 2%</span></div>
+            <div class="tr"><span class="k">Card FX</span><span class="v">0.5%</span></div>
+            <div class="tr"><span class="k">ATM withdraw</span><span class="v">$1 dom · $5 intl</span></div>
+            <div class="tr"><span class="k">Monthly limit</span><span class="v">$125,000</span></div>
+          </div>
+          <button type="button" class="tier-toggle" aria-expanded="false"><span>See all benefits &amp; fees</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="tier-more"><div class="tier-more-inner">
+            <div class="tr"><span class="k">24/7 chat support</span><span class="v">Priority</span></div>
+            <div class="tr"><span class="k">Cost / year</span><span class="v">$75</span></div>
+            <div class="tr"><span class="k">Card top-up fee</span><span class="v">0%</span></div>
+            <div class="tr"><span class="k">Max rewards / mo</span><span class="v">$5–15</span></div>
+            <div class="tr"><span class="k">$TITN staker boost</span><span class="v">Yes</span></div>
+            <div class="tr"><span class="k">Physical card</span><span class="v">Can be ordered</span></div>
+            <div class="tr"><span class="k">Ready in</span><span class="v">5 minutes</span></div>
+          </div></div>
+          <a class="btn btn-primary tier-cta" href="https://referral.thorwallet.org/oYHz/website">Join Premium</a>
+          <div class="tier-veil" aria-hidden="true"><span class="tier-veil-badge">Coming soon</span><div class="tier-veil-title">Announcement<br/>coming soon</div><p class="tier-veil-sub">Pricing &amp; full details drop with the reveal.</p></div>
+        </article>
+
+        <article class="tier">
+          <div class="tier-eyebrow">03 / Tier</div>
+          <div class="tier-namerow"><h3 class="tier-name">Swiss Banking</h3><img class="tier-card" loading="lazy" decoding="async" src="assets/cards/card-swiss.png" alt="THORWallet Swiss Banking card" /></div>
+          <p class="tier-tag">For people who send &amp; receive worldwide.</p>
+          <div class="tier-price"><span class="tp-amt">Free</span><span class="tp-per">forever</span></div>
+          <div class="tier-rows">
+            <div class="tr"><span class="k">Account</span><span class="v">Swiss IBAN &amp; SEPA</span></div>
+            <div class="tr"><span class="k">Currencies</span><span class="v">CHF · EUR · USD · RMB</span></div>
+            <div class="tr"><span class="k">Card FX</span><span class="v">1%</span></div>
+            <div class="tr"><span class="k">Top-up fee</span><span class="v">0.25–1%</span></div>
+            <div class="tr"><span class="k">Monthly limit</span><span class="v">Up to $10M</span></div>
+            <div class="tr"><span class="k">Send &amp; receive</span><span class="v">Like a bank</span></div>
+          </div>
+          <button type="button" class="tier-toggle" aria-expanded="false"><span>See all benefits &amp; fees</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="tier-more"><div class="tier-more-inner">
+            <div class="tr"><span class="k">24/7 chat support</span><span class="v">Standard</span></div>
+            <div class="tr"><span class="k">Cashback</span><span class="v">None</span></div>
+            <div class="tr"><span class="k">Cost / year</span><span class="v">Free</span></div>
+            <div class="tr"><span class="k">ATM withdraw</span><span class="v">None</span></div>
+            <div class="tr"><span class="k">Card type</span><span class="v">Virtual</span></div>
+          </div></div>
+          <a class="btn btn-primary tier-cta" href="https://referral.thorwallet.org/oYHz/website">Join Swiss Banking</a>
+        </article>
+      </div>
+      </div>
+
+      <div class="card-more reveal" style="text-align:center; margin-top:42px;">
+        <a class="btn btn-ghost" href="cards.html">See all card details &amp; availability</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5.8 $TITN ============ -->
+  <section class="section elev" id="titn" style="padding: 150px 0px 180px;">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">$TITN token</span>
+        <h2 class="ed-display reveal"><span class="ta-solid">$TITN unlocks</span><span class="ta-outline">the whole app.</span></h2>
+        <p class="lead">Stake to cut your fees, earn USDC fee rebates, and unlock community perks.<a class="fn-ref" href="#fn-4" aria-label="See fine print note 4"><sup>4</sup></a></p>
+      </div>
+      <div class="titn-variants reveal" data-delay="1" data-tv="2">
+
+        <div class="tv tv-rows">
+          <div class="titn-table">
+            <div class="titn-row head"><span>Tier</span><span class="stake">Stake</span><span class="fee">Swap fee</span></div>
+            <div class="titn-row" data-bar="100" data-fee="1.25"><span class="tier">Standard</span><span class="stake">0 $TITN</span><span class="fee">1.25%</span><span class="tn-bar"></span></div>
+            <div class="titn-row is-you" data-bar="40" data-fee="0.5"><span class="tier">Community</span><span class="stake">10,000 $TITN</span><span class="fee">0.5%</span><span class="tn-bar"></span></div>
+            <div class="titn-row" data-bar="16" data-fee="0.2"><span class="tier">Community Plus</span><span class="stake">100,000 $TITN</span><span class="fee">0.2%</span><span class="tn-bar"></span></div>
+          </div>
+        </div>
+
+        <div class="tv tv-cards">
+          <div class="tiers titn-fold" data-cv="1">
+            <article class="tier">
+              <div class="tier-eyebrow">01 / Tier</div>
+              <h3 class="tier-name">Standard</h3>
+              <p class="tier-tag">For getting started.</p>
+              <div class="tier-price"><span class="tp-amt">0</span><span class="tp-per">$TITN staked</span></div>
+              <div class="tier-rows">
+                <div class="tr"><span class="k">Swap fee</span><span class="v">1.25%</span></div>
+                <div class="tr"><span class="k">USDC rebate</span><span class="v">-</span></div>
+                <div class="tr"><span class="k">Perks</span><span class="v">-</span></div>
+              </div>
+              <a class="btn btn-primary tier-cta" href="https://app.thorwallet.org">Get started</a>
+            </article>
+            <article class="tier featured">
+              <span class="ribbon">Most popular</span>
+              <div class="tier-eyebrow">02 / Tier</div>
+              <h3 class="tier-name">Community</h3>
+              <p class="tier-tag">For active swappers.</p>
+              <div class="tier-price"><span class="tp-amt">10,000</span><span class="tp-per">$TITN staked</span></div>
+              <div class="tier-rows">
+                <div class="tr"><span class="k">Swap fee</span><span class="v">0.5%</span></div>
+                <div class="tr"><span class="k">USDC rebate</span><span class="v">Up to ~70%</span></div>
+                <div class="tr"><span class="k">Perks</span><span class="v">Yes</span></div>
+              </div>
+              <a class="btn btn-primary tier-cta" href="https://app.thorwallet.org">Stake $TITN</a>
+            </article>
+            <article class="tier">
+              <div class="tier-eyebrow">03 / Tier</div>
+              <h3 class="tier-name">Community Plus</h3>
+              <p class="tier-tag">For power users &amp; whales.</p>
+              <div class="tier-price"><span class="tp-amt">100,000</span><span class="tp-per">$TITN staked</span></div>
+              <div class="tier-rows">
+                <div class="tr"><span class="k">Swap fee</span><span class="v">0.2%</span></div>
+                <div class="tr"><span class="k">USDC rebate</span><span class="v">Up to ~70%</span></div>
+                <div class="tr"><span class="k">Perks</span><span class="v">Priority</span></div>
+              </div>
+              <a class="btn btn-primary tier-cta" href="https://app.thorwallet.org">Stake $TITN</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="tv tv-slider">
+          <div class="tnsl">
+            <div class="tnsl-head">
+              <div><div class="tnsl-label">Your tier</div><div class="tnsl-tier" id="tnsl-tier">Standard</div></div>
+              <div class="tnsl-feebox"><div class="tnsl-label">Swap fee</div><div class="tnsl-fee"><span id="tnsl-fee">1.25</span>%</div></div>
+            </div>
+            <input type="range" id="tnsl-range" min="0" max="110000" step="1000" value="0" aria-label="Amount of $TITN staked" />
+            <div class="tnsl-scale"><span>0</span><span>10k</span><span>100k+ $TITN</span></div>
+            <div class="tnsl-save" id="tnsl-save">Move the slider - stake more $TITN to cut your fee.</div>
+          </div>
+        </div>
+
+      </div>
+      <p class="titn-note reveal">No fees on swaps under $100. Higher volume unlocks further discounts. <a href="titn.html" style="color:var(--accent-solid);">See all tiers &amp; perks →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ 5.9 REWARDS ============ -->
+  <section class="section" id="rewards" style="padding: 150px 0px;">
+    <div class="container">
+      <div class="reward-band reveal">
+        <div>
+          <span class="eyebrow">Rewards</span>
+          <h2 class="h1" style="margin:16px 0;">Get rewarded for using your wallet.</h2>
+          <p class="lead">Spin the wheel, complete quests, build streaks, and enter live USDC raffles. Earn SPARKS and $TITN as you go.</p>
+          <div class="raffle-pill"><span class="v mono">473 USDC</span><span class="k">live raffle · ends in 02d 18h</span></div>
+        </div>
+        <div class="reward-visual">
+          <div class="spin-wrap">
+            <img class="spin-wheel" loading="lazy" decoding="async" src="assets/reward/spin-wheel.png" alt="Spin the wheel" />
+            <img class="free-spin-pill" loading="lazy" decoding="async" src="assets/reward/free-spin.png" alt="Free spin available" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5.95 TESTIMONIALS ============ -->
+  <section class="section" id="testimonials" style="padding: 40px 0px 120px;">
+    <div class="container">
+      <div class="tms-head reveal">
+        <span class="eyebrow">Loved by users</span>
+        <h2 class="h1">Don't just take <span class="outline-accent">our word for it.</span></h2>
+        <p class="lead" style="margin-inline:auto;">Unfiltered reviews, straight from the App Store.</p>
+        <div class="tms-rating">
+          <span class="tms-stars" aria-hidden="true">★★★★★</span>
+          <span><b>4.7</b> <span>on the App Store</span> · <b>3,000+</b> <span>ratings</span></span>
+        </div>
+      </div>
+
+      <div class="tms-grid">
+        <figure class="tm-card reveal">
+          <span class="tm-qmark" aria-hidden="true">“</span>
+          <div class="tm-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="tm-title">Brilliant solution</div>
+          <blockquote class="tm-quote">For me, the best solution in the crypto space - especially in combination with the Swiss account.</blockquote>
+          <figcaption class="tm-foot">
+            <span class="tm-who"><span class="tm-author">M_Joyman</span><span class="tm-date">09 Jun 2025</span></span>
+            <svg class="tm-src" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="App Store review"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card reveal" data-delay="1">
+          <span class="tm-qmark" aria-hidden="true">“</span>
+          <div class="tm-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="tm-title">Well-made app</div>
+          <blockquote class="tm-quote">Works flawlessly.</blockquote>
+          <figcaption class="tm-foot">
+            <span class="tm-who"><span class="tm-author">Alyfast</span><span class="tm-date">28 Dec 2021</span></span>
+            <svg class="tm-src" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="App Store review"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card reveal">
+          <span class="tm-qmark" aria-hidden="true">“</span>
+          <div class="tm-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="tm-title">An app with a lot of potential</div>
+          <blockquote class="tm-quote">A great app so far, and the dev team actually listens to users' suggestions. I'm excited to see how it all develops in the future.</blockquote>
+          <figcaption class="tm-foot">
+            <span class="tm-who"><span class="tm-author">Alucard2689</span><span class="tm-date">04 Dec 2021</span></span>
+            <svg class="tm-src" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="App Store review"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card reveal" data-delay="1">
+          <span class="tm-qmark" aria-hidden="true">“</span>
+          <div class="tm-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="tm-title">Lots of potential</div>
+          <blockquote class="tm-quote">Everything is working now for me. Thanks to the support team and dev team. There is still some work to do, but this project has potential ✌️</blockquote>
+          <figcaption class="tm-foot">
+            <span class="tm-who"><span class="tm-author">SatoshiMaster92</span><span class="tm-date">13 Jan 2025</span></span>
+            <svg class="tm-src" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="App Store review"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="tms-more reveal">
+        <a class="btn btn-ghost" href="https://apps.apple.com/ch/app/thorwallet-crypto-wallet/id1592064324" target="_blank" rel="noopener">Read all reviews on the App Store →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5.10 BLOG ============ -->
+  <section class="section" id="blog" style="padding: 150px 0px 260px;">
+    <div class="container">
+      <div class="blog-head">
+        <div class="blog-title">
+          <span class="eyebrow">Dispatches · THORWallet</span>
+          <h2 class="ed-display"><span class="ta-solid">THE</span><svg class="ta-blog" viewBox="0 0 232 92" role="img" aria-label="Blog"><defs><linearGradient id="blogGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00CCFF"/><stop offset="52%" stop-color="#19DAC8"/><stop offset="100%" stop-color="#33FF99"/></linearGradient></defs><text x="3" y="74" font-family="'OT Sono', sans-serif" font-weight="600" font-size="86" letter-spacing="-3" fill="url(#blogGrad)" stroke="none">BLOG</text></svg></h2>
+          <p class="lead">Releases, research and field notes from a self-custody team shipping in public.</p>
+        </div>
+      </div>
+      <div class="blog-grid" data-medium-feed data-limit="3">
+        <a class="post reveal" href="https://thorwallet.medium.com/whats-new-in-thorwallet-3-sprints-75-upgrades-7e82cbe92326">
+          <span class="date">11 Mar 2026</span>
+          <h3>What's New in THORWallet: 3 Sprints, 75+ Upgrades</h3>
+          <span class="more">Read on Medium →</span>
+        </a>
+        <a class="post reveal" data-delay="1" href="https://thorwallet.medium.com/titn-community-unlock-on-march-3rd-at-15-00-cet-c5f62ae2da83">
+          <span class="date">27 Feb 2026</span>
+          <h3>TITN Community Unlock on March 3rd</h3>
+          <span class="more">Read on Medium →</span>
+        </a>
+        <a class="post reveal" data-delay="2" href="https://thorwallet.medium.com/thorwallet-titn-airdrop-everything-you-need-to-know-b4e6d7c44a4a">
+          <span class="date">05 Jan 2026</span>
+          <h3>THORWallet TITN Airdrop: Everything You Need to Know</h3>
+          <span class="more">Read on Medium →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING (newsletter + final CTA, merged) ============ -->
+  <section class="closing" id="newsletter" data-cf="2" style="padding: 150px 0px 200px;">
+    <div class="container closing-inner">
+      <div class="closing-main reveal">
+        <span class="eyebrow">Take control</span>
+        <h2 class="closing-h"><span class="ch-solid">Your money.</span> <span class="outline-accent">Always.</span></h2>
+        <p class="lead">Self-custody, multi-chain, and a Swiss account with a global Mastercard. Download THORWallet and take full control.</p>
+        <div class="cta-row store-badges">
+          <a class="store-badge" href="https://apps.apple.com/ch/app/thorwallet-crypto-wallet/id1592064324" target="_blank" rel="noopener" aria-label="Download on the App Store">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+            <span class="sb-txt"><span class="sb-top">Download on the</span><span class="sb-main">App Store</span></span>
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=defisuisse.thorwallet&amp;hl=de_CH" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5v19l16-9.5z"/></svg>
+            <span class="sb-txt"><span class="sb-top">Get it on</span><span class="sb-main">Google Play</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="closing-news reveal">
+        <div class="closing-news-text">
+          <span class="eyebrow">Newsletter</span>
+          <h3 class="closing-news-h">Get THORWallet in your inbox.</h3>
+          <p>Product releases, $TITN updates and field notes - only when it matters. No spam.</p>
+        </div>
+        <a class="btn btn-accent news-btn" href="https://thorwalletdex.substack.com/subscribe?utm_source=menu&amp;simple=true&amp;next=https%3A%2F%2Fthorwallet.substack.com%2F" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Subscribe on Substack
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINE PRINT (consolidated footnotes) ============ -->
+  <section class="fine-print" aria-label="Fine print">
+    <div class="container">
+      <h2 class="fp-h">The fine print</h2>
+      <ol>
+        <li id="fn-1">Tokenized assets are issued by third parties. Availability varies by jurisdiction. Not investment advice.</li>
+        <li id="fn-2">Yield rates and rebates are variable and not guaranteed.</li>
+        <li id="fn-3">FX markups apply on top of network rates. ATM withdrawals cost $1 (domestic) or $5 (international). Limits and fees are indicative and may vary by jurisdiction and verification status.</li>
+        <li id="fn-4">$TITN is a utility token, not an investment. Its value may fluctuate and could fall to zero. See full <a href="https://docs.google.com/document/d/e/2PACX-1vSWaGLT1ptjCInNErJJx2bEfSgx3AGdqUoarjftvzNlkRJ-7dBO1VsJAmJyXQSZ3A/pub" target="_blank" rel="noopener">terms &amp; risks</a>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- sections injected in subsequent build steps -->
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/thorwallet-logo-white.png" alt="THORWallet" />
+        <p>The self-custody, multi-chain DeFi superapp. All chains. All yield. One app.</p>
+        <div class="footer-socials">
+          <a href="https://t.me/THORWalletOfficial" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6.1 13.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.8-7.2c.9-.3 1.6.2 1.6 1.4z"/></svg></a>
+          <a href="https://x.com/thorwallet" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22 22h-6.8l-4.8-6.3L4.8 22H2l7.1-8.1L2 2h6.9l4.3 5.7L18.2 2zm-2.4 18h1.9L8.3 4h-2l9.5 16z"/></svg></a>
+          <a href="https://thorwallet.medium.com" aria-label="Medium"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.5" cy="12" rx="5.5" ry="5"/><ellipse cx="16.5" cy="12" rx="2.6" ry="4.6"/><ellipse cx="21.5" cy="12" rx="1.2" ry="4.2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>THORWallet</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#card">Card</a></li>
+          <li><a href="swap.html">Trade</a></li>
+          <li><a href="#earn">Earn</a></li>
+          <li><a href="titn.html">$TITN</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="compare.html">Compare</a></li>
+          <li><a href="download.html">Download</a></li>
+          <li><a href="https://app.thorwallet.org">Web App</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="https://faqs.thorwallet.org/" target="_blank" rel="noopener">FAQs</a></li>
+          <li><a href="brand.html">Brand kit</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="mailto:info@thorwallet.org">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-fine">
+      <span>© 2026 THORWallet · EMM Ventures AG · Zug, Switzerland</span>
+      <span>Self-custody, non-custodial. $TITN is a utility token, not an investment, and its value may fall to zero.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n-data.js"></script>
+<script src="i18n-data2.js"></script>
+<script src="i18n-data3.js"></script>
+<script src="i18n-data4.js"></script>
+<script src="i18n-data5.js"></script>
+<script src="i18n-data6.js"></script>
+<script src="i18n-data7.js"></script>
+<script src="i18n-data8.js"></script>
+<script src="i18n.js"></script>
+<script src="consent.js"></script>
+<script src="medium-feed.js"></script>
+<script src="site.js"></script>
+<script src="app-screens.js"></script>
+
+
+
+<script>
+(function(){
+  var fold = document.querySelector(".titn-fold");
+  if (!fold || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.innerWidth <= 900) return;
+  if (fold.querySelectorAll(".tier").length < 3) return;
+  fold.classList.add("fold-init");
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { fold.classList.add("unfolded"); io.disconnect(); } });
+  }, { rootMargin: "0px 0px -20% 0px" });
+  io.observe(fold);
+})();
+</script>
+<script src="theme.js"></script>
+<script>
+(function(){
+  var box = document.querySelector("[data-hero-stats]"); if (!box) return;
+  var nums = box.querySelectorAll("[data-count]");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  function ease(t){ return 1 - Math.pow(1 - t, 3); }
+  function run(el){
+    var target = parseFloat(el.getAttribute("data-count"));
+    var pre = el.getAttribute("data-prefix") || "";
+    var suf = el.getAttribute("data-suffix") || "";
+    var dec = parseInt(el.getAttribute("data-dec") || "0", 10);
+    var dur = 1400, t0 = null;
+    function frame(ts){
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      var v = (target * ease(p)).toFixed(dec);
+      el.textContent = pre + v + suf;
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = pre + target.toFixed(dec) + suf;
+    }
+    requestAnimationFrame(frame);
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ run(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  nums.forEach(function(n){ io.observe(n); });
+})();
+</script>
+</body>
+</html>

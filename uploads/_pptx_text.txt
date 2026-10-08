@@ -1,0 +1,26 @@
+=== ppt/slides/slide1.xml ===
+●  THORWALLET TEAM OFF-SITE | Let’s build | together. | Roadmap, focus themes, and each other. | MON – WED | THORWallet
+
+=== ppt/slides/slide2.xml ===
+Agenda | 1 | Schedule: Mon–Wed | 2 | Thorwallet Roadmap Update | 3 | MINE | 4 | Focus Theme: AI | 5 | Focus Theme: Last Mile | 6 | Focus: 1:1
+
+=== ppt/slides/slide3.xml ===
+Schedule |  Mon–Wed | DAY 1 | Monday | Kick-off &amp; Roadmap | Welcome &amp; goals | Thorwallet Roadmap update | MINE | Working sessions | Group activity 5-6:30pm | DAY 2 | Tuesday | Focus Themes | Focus Theme: AI | Focus Theme: Last Mile | Focus: 1:1s | Working sessions | Team Dinner - Illuminarium | DAY 3 | Wednesday | People &amp; Wrap-up | Focus: 1:1s | Working sessions | Action items &amp; owners | Retro &amp; feedback | Close-out
+
+=== ppt/slides/slide4.xml ===
+Thorwallet  | Roadmap | WHERE WE STAND | Closing in on a genuine top-5 wallet | Recognised as an OG wallet — earned trust | Market consolidating as peers fade (CTRL, Leap) | WHAT WE’RE DRIVING | Finishing the hard last 10% (led by Pedro) | Embedding AI wherever it drives efficiency | Security as a non-negotiable | HOW WE WIN | Swap as our core revenue engine | Card as the second pillar | No shortcuts — every feature works, every time
+
+=== ppt/slides/slide5.xml ===
+MINE: | an AI-first lab. | A simple, self-custody money app for fintech users who don’t know crypto or gas — and our fastest way to test ideas. | What it is | AI-first test app | Branding ready from day one | Deliberately a “simple version” | Why it exists | Fewer users &amp; dependencies | AI ships cheaper with Swift | Fintech-first, crypto-invisible | Card first approach | Early traction | ~6K unique visitors / month | 700 organic downloads | Mostly new users — not from Thorwallet | ●   | FOCUS THEME | Independence is Mine. | mine.financial
+
+=== ppt/slides/slide6.xml ===
+MINE: | what we’re testing. | Fast experiments — the winners port to Thorwallet. | ●   | FOCUS THEME | Independence is Mine. | mine.financial | ✓    | KYC changes &amp; tests | ✓    | Expanding Ondo stocks functionality | ✓    | Gasless  | payments option (EVM) | ✓    | Mt Pelerin EUR &amp; CHF IBAN | ✓    | Hyperliquid integration | ✓    | Screen layout: table &amp; foldable | Two-pane layout on foldables &amp; tablets
+
+=== ppt/slides/slide7.xml ===
+Focus Theme:  | AI | Let’s take 10 minutes to share best practices — here’s my current workflow: | Plan &amp; implement | Plan with Fable (ultracode) | Implement with Fable 4.8 Max | ultracode when credits remain | Leave Fable 5 out of the build | Overnight builds | Fable 5 ultracode, 5-hour windows | When credits allow (~once a week) | e.g. first version of Hyperliquid | Design | Design work → Fable 5 only | Kept separate from build models | Everyone gets a $100 Claude Team account
+
+=== ppt/slides/slide8.xml ===
+Focus Theme:  | Last Mile | From ‘almost done’ to shipped — led by Pedro
+
+=== ppt/slides/slide9.xml ===
+Focus:  | 1:1 | Time to connect one-on-one — feedback, growth, and support | How it works | Paired 1:1 slots | ~30 min each | What to talk about | Wins &amp; challenges | Growth &amp; goals | Feedback both ways | Come prepared | One thing going well | One thing to improve | One ask or need

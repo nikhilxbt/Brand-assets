@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1080, initial-scale=1" />
+<title>THORWallet 3.8.0 — Release Announcement</title>
+<style>
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:block;}
+  @font-face{font-family:"OT Sono";src:url("fonts/OT-Sono-SemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:block;}
+
+  :root{
+    --navy:#0A1A2B; --surface:#142A40; --cyan:#00CCFF; --green:#33FF99;
+    --accent:#1FD9A6; --blue:#2A6BF2; --warn:#FBC538;
+    --grad:linear-gradient(120deg,#00CCFF 0%,#33FF99 100%);
+    --t100:#FFFFFF; --t70:rgba(255,255,255,.70); --t50:rgba(255,255,255,.50); --t34:rgba(255,255,255,.34);
+    --line:rgba(255,255,255,.09); --line-str:rgba(255,255,255,.16);
+    --font:"OT Sono","Space Grotesk",Inter,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:#0A1A2B; font-family:var(--font); -webkit-font-smoothing:antialiased; width:1080px; height:1080px; overflow:hidden;}
+
+  .art{position:absolute; overflow:hidden; background:var(--navy); color:var(--t100);}
+  #art16{display:none !important;}
+  #art11{left:0; top:0; width:1080px; height:1080px;}
+
+  /* ambient */
+  .amb{position:absolute; inset:0; pointer-events:none;}
+  .amb .grid{position:absolute; inset:0; opacity:.6;
+    background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);
+    background-size:60px 60px; mask-image:radial-gradient(120% 110% at 30% 20%,#000 45%,transparent 100%);}
+  .amb .blob{position:absolute; border-radius:50%; filter:blur(80px);}
+
+  /* top bar */
+  .topbar{position:absolute; left:0; right:0; display:flex; align-items:center; justify-content:space-between;}
+  .wordmark{height:34px; width:auto; display:block;}
+  .pill{display:inline-flex; align-items:center; gap:9px; height:38px; padding:0 18px; border-radius:999px;
+    background:rgba(255,255,255,.05); border:1px solid var(--line-str); color:var(--t70);
+    font-size:14px; font-weight:500; letter-spacing:.02em;}
+  .pill .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px rgba(31,217,166,.9);}
+
+  /* hero */
+  .eyebrow{font-size:14px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--accent);}
+  .ver{font-weight:600; line-height:.9; letter-spacing:-0.04em;
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;}
+  .headline{font-weight:500; color:var(--t100); letter-spacing:-0.015em;}
+  .headline.grad{background:var(--grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;}
+  .headline .dim{color:var(--t50);}
+
+  /* pillar cards */
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    box-shadow:0 12px 32px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04);
+    display:flex; flex-direction:column;}
+  .card .ico{display:flex; align-items:center; justify-content:center; border-radius:12px;
+    background:rgba(31,217,166,.10); border:1px solid rgba(31,217,166,.22); color:var(--accent);}
+  .card .ct{font-weight:600; color:var(--t100); letter-spacing:-0.01em;}
+  .card .cb{font-weight:400; color:var(--t70); line-height:1.45;}
+
+  /* footer */
+  .footer{position:absolute; left:0; right:0; display:flex; align-items:center; justify-content:space-between;}
+  .badges{display:flex; gap:12px;}
+  .badge{display:inline-flex; align-items:center; gap:11px; height:52px; padding:0 20px; border-radius:12px;
+    background:rgba(255,255,255,.05); border:1px solid var(--line-str);}
+  .badge svg{width:22px; height:22px; fill:#fff; flex-shrink:0;}
+  .badge .bt{display:flex; flex-direction:column; line-height:1.1;}
+  .badge .bt .s{font-size:10px; font-weight:400; color:var(--t50); letter-spacing:.04em;}
+  .badge .bt .m{font-size:16px; font-weight:600; color:#fff; letter-spacing:-0.01em;}
+  .update{font-size:16px; font-weight:500; color:var(--t70); letter-spacing:.01em;}
+  .update b{color:var(--t100); font-weight:600;}
+
+  /* ---------- PHONE ---------- */
+  .phone-wrap{position:absolute;}
+  .phglow{position:absolute; left:50%; top:50%; width:560px; height:560px; transform:translate(-50%,-50%);
+    border-radius:50%; background:radial-gradient(circle,rgba(0,204,255,.34),rgba(0,204,255,0) 62%); filter:blur(20px);}
+  .phone{position:relative; width:380px; height:790px; border-radius:52px; background:#05121e;
+    border:1px solid rgba(255,255,255,.12); padding:11px;
+    box-shadow:0 40px 100px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.08), 0 0 60px rgba(0,204,255,.10);}
+  .screen{position:relative; width:100%; height:100%; border-radius:42px; overflow:hidden;
+    background:linear-gradient(180deg,#102338 0%,#0B1B2C 34%,#0A1728 100%);}
+  .notch{position:absolute; top:12px; left:50%; transform:translateX(-50%); width:118px; height:30px; background:#000; border-radius:16px; z-index:5;}
+  .sbar{display:flex; align-items:center; justify-content:space-between; padding:15px 30px 0;}
+  .sbar .tm{font-size:14px; font-weight:600; color:#fff; letter-spacing:.02em;}
+  .sbar .si{display:flex; gap:6px; align-items:center; color:#fff;}
+  .sbar .si svg{height:12px; width:auto; fill:#fff;}
+  .scr-head{padding:20px 22px 12px;}
+  .scr-nav{display:flex; align-items:center; gap:12px;}
+  .scr-nav .bk{width:34px; height:34px; border-radius:11px; background:rgba(255,255,255,.06); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; color:var(--t70);}
+  .scr-nav .ttl{font-size:19px; font-weight:600; color:#fff; letter-spacing:-0.01em;}
+  .scr-sub{margin-top:12px; display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--t50); font-weight:400;}
+  .scr-sub .g{color:var(--accent); font-weight:500;}
+  .rows{padding:6px 16px;}
+  .arow{background:rgba(255,255,255,.028); border:1px solid var(--line); border-radius:16px; padding:14px 15px; margin-top:11px;}
+  .arow .r1{display:flex; align-items:center; gap:12px;}
+  .arow .tico{width:38px; height:38px; border-radius:50%; flex-shrink:0; overflow:hidden; display:flex; align-items:center; justify-content:center;}
+  .arow .tico img{width:100%; height:100%; object-fit:cover;}
+  .arow .nm{display:flex; flex-direction:column;}
+  .arow .sym{font-size:15.5px; font-weight:600; color:#fff; line-height:1.15;}
+  .arow .net{font-size:11.5px; font-weight:400; color:var(--t50); margin-top:2px;}
+  .arow .r1 .rev{margin-left:auto; display:inline-flex; align-items:center; height:32px; padding:0 15px; border-radius:999px;
+    background:rgba(51,255,153,.12); border:1px solid rgba(51,255,153,.32); color:var(--green); font-size:13px; font-weight:600;}
+  .arow .r2{display:flex; align-items:center; justify-content:space-between; margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,.06);}
+  .arow .spend{font-size:12px; font-weight:400; color:var(--t70);}
+  .arow .spend b{color:var(--t100); font-weight:500;}
+  .tag{display:inline-flex; align-items:center; gap:6px; height:26px; padding:0 12px; border-radius:8px; font-size:12px; font-weight:600; letter-spacing:.01em;}
+  .tag.unl{background:rgba(251,197,56,.14); border:1px solid rgba(251,197,56,.34); color:var(--warn);}
+  .tag.amt{background:rgba(255,255,255,.05); border:1px solid var(--line-str); color:var(--t70); font-weight:500;}
+  .tag .wdot{width:6px; height:6px; border-radius:50%; background:var(--warn);}
+</style>
+</head>
+<body>
+
+  <!-- ============ 16:9 ============ -->
+  <section class="art" id="art16" data-screen-label="16:9 Release">
+    <div class="amb">
+      <div class="grid"></div>
+      <div class="blob" style="width:620px;height:620px;right:-120px;top:-160px;background:rgba(0,204,255,.14);"></div>
+      <div class="blob" style="width:560px;height:560px;left:-180px;bottom:-220px;background:rgba(51,255,153,.10);"></div>
+    </div>
+
+    <div class="topbar" style="top:60px; left:66px; right:66px;">
+      <img class="wordmark" src="assets/thorwallet-logo-white.png" alt="THORWallet" />
+      <span class="pill"><span class="dot"></span>iOS + Android</span>
+    </div>
+
+    <!-- hero -->
+    <div style="position:absolute; left:66px; top:150px; width:840px;">
+      <div class="eyebrow">Release</div>
+      <div class="ver" style="font-size:132px; margin-top:12px;">3.8.0</div>
+      <div class="headline grad" style="font-size:30px; line-height:1.32; margin-top:24px; max-width:780px;">
+        Claim your airdrop. Control your approvals. Swap with confidence.
+      </div>
+    </div>
+
+    <!-- pillar cards -->
+    <div style="position:absolute; left:66px; top:492px; display:grid; grid-template-columns:repeat(3,272px); gap:22px;">
+      <!-- card 1 -->
+      <div class="card" style="padding:24px; height:262px;">
+        <div class="ico" style="width:46px;height:46px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"></path><path d="M12 8S10.5 3.5 8 3.5A2.5 2.5 0 0 0 8 8.5c2.5 0 4-.5 4-.5zM12 8s1.5-4.5 4-4.5A2.5 2.5 0 0 1 16 8.5c-2.5 0-4-.5-4-.5z"></path></svg>
+        </div>
+        <div class="ct" style="font-size:20px; margin-top:20px;">Claim your TITN airdrop</div>
+        <div class="cb" style="font-size:15px; margin-top:11px;">Now completes reliably, with the exact reward value shown before you claim.</div>
+      </div>
+      <!-- card 2 -->
+      <div class="card" style="padding:24px; height:262px;">
+        <div class="ico" style="width:46px;height:46px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div class="ct" style="font-size:20px; margin-top:20px;">See &amp; revoke approvals</div>
+        <div class="cb" style="font-size:15px; margin-top:11px;">A new Settings screen across Ethereum, Arbitrum, Base, BNB Chain and Avalanche. Flags unlimited approvals, revoke in one tap.</div>
+      </div>
+      <!-- card 3 -->
+      <div class="card" style="padding:24px; height:262px;">
+        <div class="ico" style="width:46px;height:46px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z"></path></svg>
+        </div>
+        <div class="ct" style="font-size:20px; margin-top:20px;">Smarter, safer swaps</div>
+        <div class="cb" style="font-size:15px; margin-top:11px;">MEV-aware route ranking, a one-tap “Use Min”, and a guard that stops swaps when fees would eat the whole output.</div>
+      </div>
+    </div>
+
+    <!-- phone -->
+    <div class="phone-wrap" id="phone16" style="right:100px; top:122px;">
+      <div class="phglow"></div>
+      <!--PHONE-->
+    </div>
+
+    <!-- footer -->
+    <div class="footer" style="bottom:56px; left:66px; right:66px;">
+      <div class="badges"><!--BADGES--></div>
+      <div class="update"><b>Update today.</b></div>
+    </div>
+  </section>
+
+  <!-- ============ 1:1 ============ -->
+  <section class="art" id="art11" data-screen-label="1:1 Release">
+    <div class="amb">
+      <div class="grid"></div>
+      <div class="blob" style="width:560px;height:560px;right:-140px;top:-160px;background:rgba(0,204,255,.14);"></div>
+      <div class="blob" style="width:520px;height:520px;left:-160px;bottom:-200px;background:rgba(51,255,153,.10);"></div>
+    </div>
+
+    <div class="topbar" style="top:58px; left:60px; right:60px;">
+      <img class="wordmark" src="assets/thorwallet-logo-white.png" alt="THORWallet" style="height:32px;" />
+      <span class="pill"><span class="dot"></span>iOS + Android</span>
+    </div>
+
+    <!-- hero -->
+    <div style="position:absolute; left:60px; top:132px; width:640px;">
+      <div class="eyebrow" style="font-size:13px;">Release</div>
+      <div class="ver" style="font-size:104px; margin-top:10px;">3.8.0</div>
+      <div class="headline grad" style="font-size:25px; line-height:1.34; margin-top:18px; max-width:600px;">
+        Claim your airdrop. Control your approvals. Swap with confidence.
+      </div>
+    </div>
+
+    <!-- phone (right of hero) -->
+    <div class="phone-wrap" id="phone11" style="right:36px; top:214px;">
+      <div class="phglow"></div>
+      <!--PHONE-->
+    </div>
+
+    <!-- pillar cards stacked -->
+    <div style="position:absolute; left:60px; top:472px; width:600px; display:flex; flex-direction:column; gap:16px;">
+      <div class="card" style="padding:20px 22px; flex-direction:row; gap:18px; align-items:flex-start;">
+        <div class="ico" style="width:46px;height:46px; flex-shrink:0;">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"></path><path d="M12 8S10.5 3.5 8 3.5A2.5 2.5 0 0 0 8 8.5c2.5 0 4-.5 4-.5zM12 8s1.5-4.5 4-4.5A2.5 2.5 0 0 1 16 8.5c-2.5 0-4-.5-4-.5z"></path></svg>
+        </div>
+        <div><div class="ct" style="font-size:19px;">Claim your TITN airdrop</div>
+        <div class="cb" style="font-size:14.5px; margin-top:6px;">Now completes reliably, with the exact reward value shown before you claim.</div></div>
+      </div>
+      <div class="card" style="padding:20px 22px; flex-direction:row; gap:18px; align-items:flex-start;">
+        <div class="ico" style="width:46px;height:46px; flex-shrink:0;">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div><div class="ct" style="font-size:19px;">See &amp; revoke approvals</div>
+        <div class="cb" style="font-size:14.5px; margin-top:6px;">A new Settings screen across Ethereum, Arbitrum, Base, BNB Chain and Avalanche. Flags unlimited approvals, revoke in one tap.</div></div>
+      </div>
+      <div class="card" style="padding:20px 22px; flex-direction:row; gap:18px; align-items:flex-start;">
+        <div class="ico" style="width:46px;height:46px; flex-shrink:0;">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z"></path></svg>
+        </div>
+        <div><div class="ct" style="font-size:19px;">Smarter, safer swaps</div>
+        <div class="cb" style="font-size:14.5px; margin-top:6px;">MEV-aware route ranking, a one-tap “Use Min”, and a guard that stops swaps when fees would eat the whole output.</div></div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer" style="bottom:56px; left:60px; right:60px;">
+      <div class="badges"><!--BADGES--></div>
+      <div class="update"><b>Update today.</b></div>
+    </div>
+  </section>
+
+  <template id="tpl-phone">
+    <div class="phone">
+      <div class="screen">
+        <div class="notch"></div>
+        <div class="sbar">
+          <span class="tm">9:41</span>
+          <span class="si">
+            <svg viewBox="0 0 20 12" width="18"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4" width="3" height="8" rx="1"/><rect x="10" y="1.5" width="3" height="10.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity=".45"/></svg>
+            <svg viewBox="0 0 24 12" width="22"><rect x="1" y="2" width="19" height="9" rx="2.5" fill="none" stroke="#fff" stroke-width="1" opacity=".6"/><rect x="2.5" y="3.5" width="14" height="6" rx="1.2"/><rect x="21" y="4.5" width="1.6" height="4" rx="1"/></svg>
+          </span>
+        </div>
+        <div class="scr-head">
+          <div class="scr-nav">
+            <span class="bk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>
+            <span class="ttl">Token Approvals</span>
+          </div>
+          <div class="scr-sub"><span class="g">5 networks</span> · <span>3 active approvals</span> · <span style="color:var(--warn)">2 unlimited</span></div>
+        </div>
+        <div class="rows">
+          <!-- row 1 -->
+          <div class="arow">
+            <div class="r1">
+              <span class="tico"><img src="assets/usdc.png" alt="USDC" /></span>
+              <span class="nm"><span class="sym">USDC</span><span class="net">Ethereum</span></span>
+              <span class="rev">Revoke</span>
+            </div>
+            <div class="r2">
+              <span class="spend">Uniswap · <b>Universal Router</b></span>
+              <span class="tag unl"><span class="wdot"></span>Unlimited</span>
+            </div>
+          </div>
+          <!-- row 2 -->
+          <div class="arow">
+            <div class="r1">
+              <span class="tico"><img src="assets/eth.png" alt="ETH" /></span>
+              <span class="nm"><span class="sym">ETH</span><span class="net">Arbitrum</span></span>
+              <span class="rev">Revoke</span>
+            </div>
+            <div class="r2">
+              <span class="spend">1inch · <b>Aggregation Router</b></span>
+              <span class="tag amt">500.00</span>
+            </div>
+          </div>
+          <!-- row 3 -->
+          <div class="arow">
+            <div class="r1">
+              <span class="tico" style="background:#26A17B;">
+                <svg width="24" height="24" viewBox="0 0 24 24"><text x="12" y="16.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">₮</text></svg>
+              </span>
+              <span class="nm"><span class="sym">USDT</span><span class="net">BNB Chain</span></span>
+              <span class="rev">Revoke</span>
+            </div>
+            <div class="r2">
+              <span class="spend">PancakeSwap · <b>Router v3</b></span>
+              <span class="tag unl"><span class="wdot"></span>Unlimited</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-badges">
+    <a class="badge">
+      <svg viewBox="0 0 24 24"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+      <span class="bt"><span class="s">Download on the</span><span class="m">App Store</span></span>
+    </a>
+    <a class="badge">
+      <svg viewBox="0 0 24 24"><path d="M3.6 2.4c-.25.26-.4.66-.4 1.18v16.84c0 .52.15.92.4 1.18l.06.05L13 12.06v-.12L3.66 2.35zM16.5 15.3l-3.1-3.1v-.24l3.1-3.1.07.04 3.67 2.09c1.05.6 1.05 1.58 0 2.18l-3.67 2.09zM13.4 12.06L4.02 21.4c.35.37.92.42 1.57.05l11-6.26zM5.6 2.55c-.65-.37-1.22-.32-1.57.05l9.38 9.34 3.17-3.17z"/></svg>
+      <span class="bt"><span class="s">Get it on</span><span class="m">Google Play</span></span>
+    </a>
+  </template>
+
+  <script>
+    const phoneTpl = document.getElementById('tpl-phone');
+    const badgeTpl = document.getElementById('tpl-badges');
+    document.querySelectorAll('.phone-wrap').forEach(function(w){
+      w.appendChild(phoneTpl.content.cloneNode(true));
+    });
+    document.querySelectorAll('.badges').forEach(function(b){
+      b.appendChild(badgeTpl.content.cloneNode(true));
+    });
+    // scale phones per artboard
+    (function(){
+      var p16 = document.querySelector('#phone16 .phone');
+      if(p16){ p16.style.transformOrigin='top right'; p16.style.transform='scale(0.85)'; }
+      var p11 = document.querySelector('#phone11 .phone');
+      if(p11){ p11.style.transformOrigin='top right'; p11.style.transform='scale(0.8)'; }
+    })();
+  </script>
+</body>
+</html>

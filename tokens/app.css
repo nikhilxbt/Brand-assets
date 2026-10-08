@@ -1,0 +1,58 @@
+/* THORWallet APP tokens — the mobile/desktop wallet UI only.
+   The app is a distinct surface from marketing: cooler slate-navy, Montserrat,
+   solid-blue primary buttons (NEVER the Signal gradient), tighter 12–16px radii.
+   Values lifted verbatim from Thorwallet Site/app-screens.css. */
+:root{
+  --app-font:"Montserrat",-apple-system,system-ui,sans-serif;
+
+  /* Surfaces, darkest → lightest */
+  --app-bg:#121F32;
+  --app-bg-sheet:#15263A;
+  --app-card:#18293D;
+  --app-elev:#1C3046;
+  --app-border:#243A54;
+  --app-border-soft:#1C3046;
+  --app-divider:#506A79;
+
+  /* Text */
+  --app-text:#FFFFFF;
+  --app-text-2:#D2DEE2;
+  --app-text-3:#ABBFC7;
+  --app-text-mute:#7E9EA8;
+  --app-active:#57A4FF;
+
+  /* Actions & values */
+  --app-primary:#2A7AF7;
+  --app-primary-indicator:#2867EA;
+  --app-up:#77FCBD;
+  --app-down:#ED6A6A;
+  --app-accent:#31FD9D;
+  --app-error:#ED3636;
+  --app-warning:#FBC538;
+  --app-header-grad:linear-gradient(#2867EA 41%,#121F32 100%); /* @kind color */
+
+  /* Type scale */
+  --app-fs-micro:10px; /* @kind font */
+  --app-fs-xs:11.5px; /* @kind font */
+  --app-fs-s:12.5px; /* @kind font */
+  --app-fs-body:14px; /* @kind font */
+  --app-fs-m:16px; /* @kind font */
+  --app-fs-title:20px; /* @kind font */
+  --app-fs-display:24px; /* @kind font */
+  --app-fs-display-l:32px; /* @kind font */
+
+  /* Geometry */
+  --app-r-sm:10px;
+  --app-r-md:12px;
+  --app-r-lg:14px;
+  --app-r-card:16px;
+  --app-r-sheet:20px;
+  --app-r-device:44px;
+  --app-pad:14px;
+  --app-screen-w:375px;
+  --app-screen-h:812px;
+  --app-status-h:54px;
+  --app-nav-h:112px;
+  --app-btn-h:50px;
+  --app-shadow-nav:0 -6px 4px rgba(0,0,0,0.25);
+}

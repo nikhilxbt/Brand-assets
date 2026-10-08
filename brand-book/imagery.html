@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Imagery — Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .principle-list {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;
+    border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden;
+    background: var(--surface);
+  }
+  @media (max-width: 900px) { .principle-list { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .principle-list { grid-template-columns: 1fr; } }
+  .principle-list .item { padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .principle-list .item h4 { font-family: var(--font-whyte); font-weight: 500; font-size: 18px; letter-spacing: -0.015em; margin: 0 0 8px; color: var(--ink); }
+  .principle-list .item .num { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.18em; color: var(--ink-mute); }
+  .principle-list .item p { font-family: var(--font-sono); font-size: 13px; color: var(--ink-soft); margin: 8px 0 0; }
+
+  /* device frames */
+  .screens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 760px; }
+  @media (max-width: 720px) { .screens { grid-template-columns: repeat(3, 1fr); gap: 12px; } }
+  .web-phone {
+    position: relative; width: 100%; aspect-ratio: 1320 / 2868;
+    border-radius: 13% / 6%; background: #05101A; border: 1px solid var(--line-strong);
+    padding: 6px; overflow: hidden;
+  }
+  .web-phone-inner { width: 100%; height: 100%; border-radius: 10% / 5%; overflow: hidden; }
+  .ph-screen {
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 30%, #14304a 0%, #0A1A2B 72%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 14%;
+  }
+  .ph-screen.rewards { background: radial-gradient(circle at 50% 28%, #2A6BF2 0%, #15357d 75%); }
+  .ph-screen img { width: 40%; max-width: 90px; height: auto; }
+  .ph-screen .lbl { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* card art */
+  .cards-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .cards-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .cards-row { grid-template-columns: 1fr; } }
+  .tier-card { border-radius: var(--r-md); border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
+  .tier-card .face { aspect-ratio: 1.586; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 14px; }
+  .tier-card .face .wm { position: absolute; right: -8%; top: 50%; transform: translateY(-50%); width: 58%; opacity: 0.18; }
+  .tier-card .face .tag { font-family: var(--font-display); font-weight: 600; font-size: 13px; color: #fff; position: relative; z-index: 1; }
+  .tier-card .face.basic { background: linear-gradient(160deg, #F0531F 0%, #D81E63 55%, #B0186A 100%); }
+  .tier-card .face.premium { background: linear-gradient(160deg, #14534A 0%, #0F3B36 100%); }
+  .tier-card .face.swiss { background: linear-gradient(160deg, #1B6F66 0%, #0E312C 100%); }
+  .tier-card .face.gold { background: linear-gradient(160deg, #E8B84B 0%, #B07F1E 100%); }
+  .tier-card .meta { padding: 12px 16px; }
+  .tier-card .meta .name { font-family: var(--font-whyte); font-weight: 500; font-size: 14px; color: var(--ink); }
+
+  /* token marks */
+  .tokens { display: flex; flex-wrap: wrap; gap: 14px; }
+  .tok { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 84px; }
+  .tok .badge { position: relative; width: 56px; height: 56px; }
+  .tok .badge .coin { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--font-whyte); font-weight: 700; font-size: 20px; }
+  .tok .badge .chain { position: absolute; right: -2px; bottom: -2px; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--bg); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #fff; }
+  .tok .nm { font-family: var(--font-sono); font-size: 11px; color: var(--ink-soft); }
+
+  /* reward world */
+  .reward-panel {
+    border-radius: var(--r-lg); padding: 32px;
+    background: radial-gradient(circle at 20% 0%, #2A6BF2 0%, #163e8f 60%, #112a66 100%);
+    position: relative; overflow: hidden;
+  }
+  .reward-panel::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(2px 2px at 12% 30%, rgba(255,255,255,0.5), transparent),
+                      radial-gradient(2px 2px at 80% 18%, rgba(255,255,255,0.45), transparent),
+                      radial-gradient(1.5px 1.5px at 60% 70%, rgba(255,255,255,0.4), transparent),
+                      radial-gradient(1.5px 1.5px at 35% 80%, rgba(255,255,255,0.35), transparent),
+                      radial-gradient(2px 2px at 92% 60%, rgba(255,255,255,0.4), transparent);
+  }
+  .rw-grid { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .rw-grid { grid-template-columns: repeat(2, 1fr); } }
+  .rw-tile {
+    background: linear-gradient(165deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.14); border-radius: 14px;
+    padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .rw-tile img { width: 86px; height: 86px; object-fit: contain; }
+  .rw-tile .cap { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.06em; color: #fff; }
+  .rw-wide { position: relative; margin-top: 16px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.14); }
+  .rw-wide img { width: 100%; display: block; }
+  .rw-curr { position: relative; display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .rw-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.16); font-family: var(--font-sono); font-size: 12px; color: #fff; }
+  .rw-chip .d { width: 16px; height: 16px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 9px; }
+
+  /* ambient backgrounds */
+  .ambient { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 720px) { .ambient { grid-template-columns: 1fr; } }
+  .amb { aspect-ratio: 16/10; border-radius: var(--r-md); border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .amb .lab { position: absolute; bottom: 12px; left: 14px; font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7); z-index: 1; }
+  .amb.navy { background: radial-gradient(circle at 75% 20%, rgba(42,107,242,0.5), transparent 55%), radial-gradient(circle at 15% 90%, rgba(51,224,160,0.4), transparent 55%), #0A1A2B; }
+  .amb.signal { background: radial-gradient(circle at 50% 50%, rgba(0,204,255,0.5), transparent 60%), #0A1A2B; }
+  .amb.rewards { background: radial-gradient(circle at 50% 30%, #2A6BF2, #15357d 80%); }
+
+  /* do/dont */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .compare { grid-template-columns: 1fr; } }
+  .compare .col { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+  .compare .col .vis { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; }
+  .compare .col .body { padding: 20px; }
+  .compare .col .lbl { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .compare .col.do .lbl::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--green); }
+  .compare .col.dont .lbl::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--danger); }
+  .compare .col p { font-family: var(--font-sono); font-size: 13px; color: var(--ink-soft); margin: 0; }
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="05 · Imagery"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta"><span>05 · Imagery</span><span>New Brand Guidelines · v0.2</span></div>
+    <div class="title">
+      <div class="eyebrow">Imagery</div>
+      <h1 class="display-1">The product<br/>is the picture.</h1>
+      <p class="lead">Thorwallet shows itself — app screens, gradient card art, token marks, and a playful reward world. There is <strong>no stock photography</strong>, no landscapes, no lifestyle scenes. The interface and its assets carry the brand.</p>
+    </div>
+  </header>
+
+  <section class="section" data-screen-label="Approach">
+    <div class="section-head">
+      <div class="num">05.1 — Approach</div>
+      <div class="head-text">
+        <h2>Six rules.</h2>
+        <p>Every Thorwallet visual answers to all six.</p>
+      </div>
+    </div>
+    <div class="principle-list">
+      <div class="item"><div class="num">I · 01</div><h4>The product is the hero.</h4><p>App screens in clean device frames are the primary imagery — not lifestyle photos.</p></div>
+      <div class="item"><div class="num">I · 02</div><h4>Dark by default.</h4><p>Deep navy backgrounds with soft blue and green ambient glow. Never a light canvas.</p></div>
+      <div class="item"><div class="num">I · 03</div><h4>Color lives on the card.</h4><p>Saturated color is reserved for the Mastercard art — one colorway per tier.</p></div>
+      <div class="item"><div class="num">I · 04</div><h4>Tokens are full-color.</h4><p>Coin and asset marks keep their native colors, with a small chain badge.</p></div>
+      <div class="item"><div class="num">I · 05</div><h4>Rewards play.</h4><p>The reward world is bright blue, sparkled, with illustrated 3D assets — a deliberate change of gear.</p></div>
+      <div class="item"><div class="num">I · 06</div><h4>No stock, no fakery.</h4><p>No landscapes, no stock smiles, no CG renders pretending to be photographs.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">05.2 — App screens</div>
+      <div class="head-text">
+        <h2>Screens in clean frames.</h2>
+        <p>The bezel-less navy phone frame from the Web System holds real product screenshots. No tilt, no glare, no floating.</p>
+      </div>
+    </div>
+    <div class="screens">
+      <div class="web-phone"><div class="web-phone-inner"><div class="ph-screen"><img src="assets/thorwallet-mark.png" alt=""/><span class="lbl">Wallet</span></div></div></div>
+      <div class="web-phone"><div class="web-phone-inner"><div class="ph-screen"><img src="assets/thorwallet-mark.png" alt=""/><span class="lbl">Trade</span></div></div></div>
+      <div class="web-phone"><div class="web-phone-inner"><div class="ph-screen rewards"><img src="assets/thorwallet-mark-white.png" alt=""/><span class="lbl">Rewards</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">05.3 — Card art</div>
+      <div class="head-text">
+        <h2>One colorway per tier.</h2>
+        <p>The Mastercard art is the brand's single home for saturated color. Each tier owns a gradient; the chevron is embossed as a tonal watermark.</p>
+      </div>
+    </div>
+    <div class="cards-row">
+      <div class="tier-card"><div class="face basic"><img class="wm" src="assets/thorwallet-mark-white.png" alt=""/><span class="tag">Basic · Free</span></div><div class="meta"><div class="name">Sunrise — virtual only</div></div></div>
+      <div class="tier-card"><div class="face premium"><img class="wm" src="assets/thorwallet-mark-white.png" alt=""/><span class="tag">Premium</span></div><div class="meta"><div class="name">Pine</div></div></div>
+      <div class="tier-card"><div class="face swiss"><img class="wm" src="assets/thorwallet-mark-white.png" alt=""/><span class="tag">Swiss Banking</span></div><div class="meta"><div class="name">Glacier</div></div></div>
+      <div class="tier-card"><div class="face gold"><img class="wm" src="assets/thorwallet-mark-white.png" alt=""/><span class="tag" style="color:#3a2a05;">Gold · Fiat24</span></div><div class="meta"><div class="name">Bullion · halftone</div></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">05.4 — Token &amp; chain marks</div>
+      <div class="head-text">
+        <h2>Full color, with a badge.</h2>
+        <p>Asset marks keep their native brand colors on a circular chip. A small chain badge (Ethereum, Solana, Base…) sits bottom-right to show where the asset lives.</p>
+      </div>
+    </div>
+    <div class="tokens">
+      <div class="tok"><div class="badge"><div class="coin" style="background:linear-gradient(135deg,#00CCFF,#33FF99);color:#06222B;">/</div><div class="chain" style="background:#000;">/</div></div><div class="nm">TITN</div></div>
+      <div class="tok"><div class="badge"><div class="coin" style="background:#f7931a;">₿</div></div><div class="nm">BTC</div></div>
+      <div class="tok"><div class="badge"><div class="coin" style="background:#fff;color:#627eea;">Ξ</div><div class="chain" style="background:#627eea;">◆</div></div><div class="nm">ETH</div></div>
+      <div class="tok"><div class="badge"><div class="coin" style="background:#14f195;color:#06222B;">S</div><div class="chain" style="background:#9945FF;">≈</div></div><div class="nm">SOL</div></div>
+      <div class="tok"><div class="badge"><div class="coin" style="background:#2775CA;">$</div><div class="chain" style="background:#627eea;">◆</div></div><div class="nm">USDC</div></div>
+      <div class="tok"><div class="badge"><div class="coin" style="background:#0052B4;color:#fff;font-size:13px;">EUR</div><div class="chain" style="background:#2A6BF2;">◆</div></div><div class="nm">EUR</div></div>
+      <div class="tok"><div class="badge"><div class="coin" style="background:#D8232A;font-size:22px;">+</div><div class="chain" style="background:#2A6BF2;">◆</div></div><div class="nm">CHF</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">05.5 — The reward world</div>
+      <div class="head-text">
+        <h2>A playful change of gear.</h2>
+        <p>Rewards, Quests, the Wheel, Shop and Tap &amp; Play live in a brighter royal-blue world with sparkles, gem motifs, and illustrated 3D assets. Currencies are <strong>TITN</strong>, <strong>SPARKS</strong> and tickets. This treatment is for gamification only — never the wallet or card surfaces.</p>
+      </div>
+    </div>
+    <div class="reward-panel">
+      <div class="rw-grid">
+        <div class="rw-tile"><img src="assets/reward/chest-gold.png" alt=""/><span class="cap">Gold chest</span></div>
+        <div class="rw-tile"><img src="assets/reward/chest-silver.png" alt=""/><span class="cap">Silver chest</span></div>
+        <div class="rw-tile"><img src="assets/reward/potion.png" alt=""/><span class="cap">Booster</span></div>
+        <div class="rw-tile"><img src="assets/reward/moneybag.png" alt=""/><span class="cap">Raffle pot</span></div>
+      </div>
+      <div class="rw-wide"><img src="assets/reward/wheel.png" alt="Spin wheel"/></div>
+      <div class="rw-curr">
+        <span class="rw-chip"><span class="d" style="background:#000;">/</span> TITN</span>
+        <span class="rw-chip"><span class="d" style="background:#E7A23C;color:#3a2a05;">⚡</span> SPARKS</span>
+        <span class="rw-chip"><span class="d" style="background:#33E0A0;color:#06342a;">●</span> Tickets</span>
+        <span class="rw-chip"><img src="assets/reward/mascot.png" alt="" style="width:18px;height:18px;border-radius:50%;object-fit:cover;"/> Avatars</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">05.6 — Ambient backgrounds</div>
+      <div class="head-text">
+        <h2>Glow, not grain.</h2>
+        <p>Backgrounds are deep navy lit by soft radial glows — blue and green for the app, brighter blue for rewards. No noise, no texture, no photography.</p>
+      </div>
+    </div>
+    <div class="ambient">
+      <div class="amb navy"><span class="lab">App · navy + glow</span></div>
+      <div class="amb signal"><span class="lab">Brand · signal glow</span></div>
+      <div class="amb rewards"><span class="lab">Rewards · bright blue</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="num">05.7 — Do &amp; Don't</div>
+      <div class="head-text">
+        <h2>Calibrate the eye.</h2>
+        <p>What belongs, and what doesn't.</p>
+      </div>
+    </div>
+    <div class="compare">
+      <div class="col do">
+        <div class="vis" style="background:radial-gradient(circle at 50% 35%,#14304a,#0A1A2B 72%);">
+          <div class="web-phone" style="width:120px;"><div class="web-phone-inner"><div class="ph-screen"><img src="assets/thorwallet-mark.png" alt=""/></div></div></div>
+        </div>
+        <div class="body"><div class="lbl">Do — the product in a clean frame</div><p>Real screens, navy glow, device chrome silent. The interface is the imagery.</p></div>
+      </div>
+      <div class="col dont">
+        <div class="vis" style="background:linear-gradient(135deg,#6b8e3a,#a9c08a);color:#fff;font-family:var(--font-whyte);font-size:22px;font-weight:500;">Alpine photo</div>
+        <div class="body"><div class="lbl">Don't — landscapes &amp; stock</div><p>Mountains, lifestyle, and stock photography belong to other brands — not Thorwallet.</p></div>
+      </div>
+      <div class="col do">
+        <div class="vis" style="background:radial-gradient(circle at 30% 0%,#2A6BF2,#163e8f 70%);">
+          <img src="assets/reward/chest-gold.png" alt="" style="width:120px;height:120px;object-fit:contain;"/>
+        </div>
+        <div class="body"><div class="lbl">Do — illustrated reward assets</div><p>Bright blue, sparkles, gem-and-gold 3D art — but only in the reward world.</p></div>
+      </div>
+      <div class="col dont">
+        <div class="vis" style="background:var(--surface);">
+          <img src="assets/reward/chest-gold.png" alt="" style="width:120px;height:120px;object-fit:contain;opacity:0.9;"/>
+        </div>
+        <div class="body"><div class="lbl">Don't — game art outside rewards</div><p>Keep chests, potions and mascots out of the wallet, swap, and card surfaces.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+</body>
+</html>

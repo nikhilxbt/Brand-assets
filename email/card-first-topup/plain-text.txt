@@ -1,0 +1,26 @@
+Hey {{ if .Subscriber.FirstName }}{{ .Subscriber.FirstName }}{{ else }}there{{ end }},
+
+Forgot to top up your card? Your application is already approved. Add USDC whenever you’re ready.
+
+Add USDC to your THORWallet Card and put it to work on the things you buy every day.
+
+Top up your card:
+https://referral.thorwallet.org/oYHz/website
+Open THORWallet and go to your card to add USDC.
+
+- No THORWallet USDC top-up fee.
+- A competitive 1.5% FX markup when paying in other currencies.
+- Spend on subscriptions, travel and everyday purchases wherever Mastercard is accepted.
+- Access your virtual Mastercard and 24/7 in-app support.
+
+Cashback is on the way. We’re putting the finishing touches on a new cashback program. We’ll share the details when it’s ready.
+
+Your next purchase starts here.
+The THORWallet team
+
+FX markup is 1.5%. Other fees, including ATM charges, may apply. The new cashback program is not live yet; details are being finalised.
+Card benefits and fees: https://faqs.thorwallet.org/thorwallet-card
+
+You’re receiving this because your THORWallet Card application was approved and you haven’t made your first top-up.
+THORWallet · [ADD SENDER POSTAL ADDRESS]
+Unsubscribe: {{ UnsubscribeURL }}

@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Print &amp; Applications — Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .spec-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+    padding: 28px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center;
+  }
+  @media (max-width: 760px) { .spec-card { grid-template-columns: 1fr; } }
+  .spec-card .stage {
+    aspect-ratio: 4/3; border-radius: var(--r-sm);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; background: var(--panel);
+  }
+  .spec-card dl { font-family: var(--font-sono); font-size: 12px; line-height: 1.7; margin: 0; }
+  .spec-card dt {
+    color: var(--ink-mute); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 12px;
+  }
+  .spec-card dt:first-of-type { margin-top: 0; }
+  .spec-card dd { margin: 4px 0 0; color: var(--ink); }
+
+  /* Business card — printed on bone stock */
+  .biz-card {
+    width: 78%;
+    aspect-ratio: 1.75/1;
+    background: #F3ECE8;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+    position: relative;
+  }
+  .biz-card .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .biz-card .mk { height: 30px; width: auto; }
+  .biz-card .meta { font-family: var(--font-sono); font-size: 9px; color: #6C8089; letter-spacing: 0.14em; text-transform: uppercase; }
+  .biz-card .person { font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: -0.01em; color: #0E1F2A; }
+  .biz-card .role { font-family: var(--font-sono); font-size: 10px; color: #4A5963; margin-top: 2px; }
+  .biz-card .contact { font-family: var(--font-sono); font-size: 9px; color: #4A5963; line-height: 1.5; margin-top: 6px; }
+
+  /* Letterhead */
+  .letter {
+    width: 70%;
+    aspect-ratio: 1/1.414;
+    background: #FAF6F3;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+    padding: 24px;
+    display: flex; flex-direction: column;
+    font-family: var(--font-sono); font-size: 6px; line-height: 1.7;
+    color: #4A5963;
+  }
+  .letter .head { display: flex; justify-content: space-between; align-items: flex-start; }
+  .letter .mk { height: 22px; width: auto; }
+  .letter .head .right { text-align: right; font-size: 6px; color: #6C8089; }
+  .letter .body { margin-top: 30px; flex: 1; }
+  .letter .lines { display: flex; flex-direction: column; gap: 3px; }
+  .letter .lines i { background: #D4CCC8; height: 2px; border-radius: 1px; display: block; font-style: normal; }
+  .letter .lines i.short { width: 60%; }
+  .letter .foot { font-size: 5px; color: #6C8089; border-top: 1px solid #D4CCC8; padding-top: 6px; }
+
+  /* Envelope */
+  .env {
+    width: 86%;
+    aspect-ratio: 2.1/1;
+    background: #F3ECE8;
+    border-radius: 4px;
+    padding: 16px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+    position: relative;
+  }
+  .env .mk { position: absolute; top: 14px; left: 14px; height: 20px; width: auto; }
+  .env .lines i { background: #D4CCC8; height: 2px; border-radius: 1px; display: block; margin-bottom: 3px; }
+  .env .lines { width: 50%; font-style: normal; }
+  .env .stamp { width: 36px; height: 28px; border: 1px dashed #8A8580; border-radius: 2px; }
+
+  /* Merch */
+  .merch {
+    width: 100%; aspect-ratio: 1; background: var(--panel); border-radius: var(--r-md);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative; border: 1px solid var(--line);
+  }
+  .merch.bone { background: #F3ECE8; }
+  .merch.gradient { background: linear-gradient(135deg, #00CCFF, #33FF99); border-color: transparent; }
+  .merch .mk { height: 42%; width: auto; }
+  .merch .label {
+    position: absolute; bottom: 12px; left: 14px;
+    font-family: var(--font-sono); font-size: 10px;
+    color: var(--ink-mute); letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .merch.bone .label { color: #6C8089; }
+  .merch.gradient .label { color: #06222B; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .grid-3 { grid-template-columns: 1fr; } }
+
+  .checklist {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+    padding: 28px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px 32px;
+    font-family: var(--font-sono); font-size: 13px; color: var(--ink);
+  }
+  @media (max-width: 720px) { .checklist { grid-template-columns: 1fr; } }
+  .checklist .row { display: flex; gap: 10px; align-items: flex-start; }
+  .checklist .row .b {
+    width: 14px; height: 14px; border: 1.5px solid var(--signal-end); border-radius: 3px;
+    flex-shrink: 0; margin-top: 2px; position: relative;
+  }
+  .checklist .row .b::after {
+    content: ""; position: absolute; left: 2px; top: -2px;
+    width: 8px; height: 5px; border-left: 2px solid var(--signal-end); border-bottom: 2px solid var(--signal-end);
+    transform: rotate(-45deg);
+  }
+  .checklist .row span.txt { flex: 1; }
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="09 · Print"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta"><span>09 · Print &amp; Applications</span><span>New Brand Guidelines · v0.1</span></div>
+    <div class="title">
+      <div class="eyebrow">Print &amp; Applications</div>
+      <h1 class="display-1">From paper<br/>to the granite.</h1>
+      <p class="lead">Real-world surfaces — stationery, merchandise, signage. Stationery prints on bone stock; the mark keeps its gradient. Specs are tight by design; print is permanent.</p>
+    </div>
+  </header>
+
+  <!-- Business Card -->
+  <section class="section" data-screen-label="Business card">
+    <div class="section-head">
+      <div class="num">09.1 — Business Card</div>
+      <div class="head-text">
+        <h2>85 × 55mm.</h2>
+        <p>Bone uncoated stock, 350gsm. The mark prints in the brand gradient (or foils in a single metallic). Type is OT Sono throughout.</p>
+      </div>
+    </div>
+    <div class="spec-card">
+      <div class="stage">
+        <div class="biz-card">
+          <div class="top">
+            <img class="mk" src="assets/thorwallet-mark.png" alt=""/>
+            <span class="meta">EMM Ventures AG</span>
+          </div>
+          <div>
+            <div class="person">Annika Vogt</div>
+            <div class="role">Brand Director</div>
+            <div class="contact">annika@thorwallet.org · +41 44 555 0118<br/>Bahnhofstrasse 11 · 6300 Zug</div>
+          </div>
+        </div>
+      </div>
+      <dl>
+        <dt>Format</dt><dd>85 × 55mm · landscape</dd>
+        <dt>Stock</dt><dd>Bone uncoated 350gsm · soft-touch finish</dd>
+        <dt>Print</dt><dd>4-color offset · spot gloss on the mark (front only)</dd>
+        <dt>Type</dt><dd>OT Sono Semibold 10pt · OT Sono Regular 7pt</dd>
+        <dt>Margin</dt><dd>5mm safe-area on all sides</dd>
+        <dt>Bleed</dt><dd>3mm</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Letterhead -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">09.2 — Letterhead</div>
+      <div class="head-text">
+        <h2>A4 letterhead.</h2>
+        <p>One mark, top-left. Address on the right in 8pt Sono. The page breathes.</p>
+      </div>
+    </div>
+    <div class="spec-card">
+      <div class="stage">
+        <div class="letter">
+          <div class="head">
+            <img class="mk" src="assets/thorwallet-mark-ink.png" alt=""/>
+            <div class="right">EMM Ventures AG<br/>Bahnhofstrasse 11<br/>6300 Zug</div>
+          </div>
+          <div class="body">
+            <div class="lines">
+              <i></i><i></i><i></i><i class="short"></i>
+              <span style="height:8px;"></span>
+              <i></i><i></i><i></i><i></i><i class="short"></i>
+              <span style="height:8px;"></span>
+              <i></i><i></i><i class="short"></i>
+            </div>
+          </div>
+          <div class="foot">thorwallet.org · CHE-118.402.501 · +41 44 555 0118</div>
+        </div>
+      </div>
+      <dl>
+        <dt>Format</dt><dd>A4 · 210 × 297mm</dd>
+        <dt>Stock</dt><dd>Bone uncoated 100gsm</dd>
+        <dt>Margins</dt><dd>20mm top &amp; bottom · 18mm left &amp; right</dd>
+        <dt>Mark size</dt><dd>14mm height · top-left, flush margin</dd>
+        <dt>Body type</dt><dd>OT Sono 9pt · 14pt leading · Ink color</dd>
+        <dt>Contact line</dt><dd>OT Sono 7pt · Ink Mute</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Envelope -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">09.3 — Envelope</div>
+      <div class="head-text">
+        <h2>DL envelope.</h2>
+        <p>110 × 220mm. Mark hard left. Recipient address typed in Sono.</p>
+      </div>
+    </div>
+    <div class="spec-card">
+      <div class="stage">
+        <div class="env">
+          <img class="mk" src="assets/thorwallet-mark-ink.png" alt=""/>
+          <div class="lines">
+            <i></i><i></i><i></i><i></i>
+          </div>
+          <div class="stamp"></div>
+        </div>
+      </div>
+      <dl>
+        <dt>Format</dt><dd>DL · 110 × 220mm</dd>
+        <dt>Stock</dt><dd>Bone uncoated 100gsm</dd>
+        <dt>Mark</dt><dd>12mm height · 10mm from top + left</dd>
+        <dt>Recipient block</dt><dd>OT Sono 9pt · positioned per Swiss Post grid</dd>
+        <dt>Return address</dt><dd>Reverse only · OT Sono 7pt</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Merchandise -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">09.4 — Merchandise</div>
+      <div class="head-text">
+        <h2>Three surfaces.</h2>
+        <p>Apparel, totes, and signage. The mark scales but never compromises — minimum print size 12mm.</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="merch">
+        <img class="mk" src="assets/thorwallet-mark-white.png" alt=""/>
+        <span class="label">Tee · embroidered chest</span>
+      </div>
+      <div class="merch bone">
+        <img class="mk" src="assets/thorwallet-mark-ink.png" alt=""/>
+        <span class="label">Tote · screen-printed</span>
+      </div>
+      <div class="merch gradient">
+        <img class="mk" src="assets/thorwallet-mark-white.png" alt=""/>
+        <span class="label">Event signage · vinyl</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- File Formats -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">09.5 — Files &amp; Hand-off</div>
+      <div class="head-text">
+        <h2>Master files.</h2>
+        <p>Always supply both vector and raster. Pantone for spot, CMYK for offset, RGB for screen.</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="caption">Vector masters</div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:24px;letter-spacing:-0.02em;margin:8px 0 0;color:var(--ink);">.svg · .pdf · .ai</h3>
+        <p style="font-family:var(--font-sono);font-size:13px;color:var(--ink-soft);margin-top:10px;">For all logo, type, and gradient assets. Outline strokes before hand-off; preserve named layers.</p>
+      </div>
+      <div class="card">
+        <div class="caption">Raster exports</div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:24px;letter-spacing:-0.02em;margin:8px 0 0;color:var(--ink);">.png · .jpg · .webp</h3>
+        <p style="font-family:var(--font-sono);font-size:13px;color:var(--ink-soft);margin-top:10px;">PNG @ 1×, 2×, 3× for digital. JPG quality 92 for photography. WebP for web only.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-flight checklist -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">09.6 — Pre-flight</div>
+      <div class="head-text">
+        <h2>Final-check list.</h2>
+        <p>Every print job goes through this list before sign-off.</p>
+      </div>
+    </div>
+    <div class="checklist">
+      <div class="row"><span class="b"></span><span class="txt">Logo uses an approved lockup (full-color, ink, or white).</span></div>
+      <div class="row"><span class="b"></span><span class="txt">Clear-space respects the mark-height rule.</span></div>
+      <div class="row"><span class="b"></span><span class="txt">Type is OT Sono — no substitutes (except Arial in email).</span></div>
+      <div class="row"><span class="b"></span><span class="txt">Color values are Pantone / CMYK, not screen RGB.</span></div>
+      <div class="row"><span class="b"></span><span class="txt">Imagery follows the six-rule approach in section 05.</span></div>
+      <div class="row"><span class="b"></span><span class="txt">Bleed and safe-area honored per format.</span></div>
+      <div class="row"><span class="b"></span><span class="txt">Final PDF is X-1a:2001 with embedded fonts.</span></div>
+      <div class="row"><span class="b"></span><span class="txt">Stock and finish are specified on the job ticket.</span></div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">∞</div>
+      <div class="head-text">
+        <h2>That's the system.</h2>
+        <p>Nine sections, one wallet. For revisions, exceptions, or new applications — write to <strong style="color:var(--ink);">brand@thorwallet.org</strong>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+</body>
+</html>

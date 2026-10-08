@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script>try{var t=localStorage.getItem("tw-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Membership Terms - THORWallet</title>
+<meta name="description" content="The terms governing THORWallet Basic and Premium memberships, including the Benefits Schedule, withdrawal rights and refunds." />
+<link rel="stylesheet" href="site.css" />
+<link rel="canonical" href="https://www.thorwallet.org/membership-terms.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0A1A2B" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="THORWallet" />
+<meta property="og:title" content="Membership Terms | THORWallet" />
+<meta property="og:description" content="The terms governing THORWallet Basic and Premium memberships, including the Benefits Schedule, withdrawal rights and refunds." />
+<meta property="og:url" content="https://www.thorwallet.org/membership-terms.html" />
+<meta property="og:image" content="https://www.thorwallet.org/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thorwallet" />
+<meta name="twitter:title" content="Membership Terms | THORWallet" />
+<meta name="twitter:description" content="The terms governing THORWallet Basic and Premium memberships, including the Benefits Schedule, withdrawal rights and refunds." />
+<meta name="twitter:image" content="https://www.thorwallet.org/assets/og-cover.png" />
+<style>
+  .legal-layout { display: grid; grid-template-columns: 260px 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; margin-top: 8px; }
+  .legal-toc { position: sticky; top: 100px; border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 22px; background: var(--surface); }
+  .legal-toc h4 { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-low); margin-bottom: 14px; }
+  .legal-toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 2px; }
+  .legal-toc li { counter-increment: toc; }
+  .legal-toc a { display: flex; gap: 10px; padding: 7px 8px; border-radius: 8px; font-size: 0.86rem; line-height: 1.35; color: var(--text-mid); transition: color var(--dur-micro) var(--ease), background var(--dur-micro) var(--ease); }
+  .legal-toc a::before { content: counter(toc, decimal-leading-zero); font-family: var(--font-mono); font-size: 0.74rem; color: var(--accent-solid); flex-shrink: 0; }
+  .legal-toc a:hover { color: var(--text-hi); background: var(--surface-2); }
+  .legal-body { max-width: 760px; }
+  .legal-body section { scroll-margin-top: 100px; padding-block: 26px; border-top: 1px solid var(--hairline); }
+  .legal-body section:first-of-type { border-top: 0; padding-top: 4px; }
+  .legal-body h2 { display: flex; align-items: baseline; gap: 14px; font-family: var(--font-display); font-weight: 600; color: var(--text-hi); font-size: clamp(1.4rem, 2.2vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+  .legal-body h2 .n { font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-solid); flex-shrink: 0; }
+  .legal-body h3 { font-family: var(--font-display); font-weight: 600; color: var(--text-hi); font-size: 1.12rem; letter-spacing: -0.01em; margin: 22px 0 8px; }
+  .legal-body p { color: var(--text-mid); margin-bottom: 14px; line-height: 1.65; }
+  .legal-body ul { margin: 0 0 16px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .legal-body ul li { position: relative; padding-left: 22px; color: var(--text-mid); line-height: 1.6; }
+  .legal-body ul li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-solid); }
+  .legal-body a { color: var(--accent-solid); }
+  .legal-body a:hover { text-decoration: underline; }
+  .subhero a { color: var(--accent-solid); }
+  .subhero a:hover { text-decoration: underline; }
+  .legal-callout { border: 1px solid var(--hairline-strong); border-left: 3px solid var(--accent-solid); border-radius: var(--r-md); padding: 18px 20px; background: var(--surface); margin-bottom: 16px; }
+  .legal-callout p { margin-bottom: 0; color: var(--text-mid); font-size: 0.92rem; }
+  .legal-callout p + p { margin-top: 10px; }
+  .legal-callout .cl-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-solid); display: block; margin-bottom: 8px; }
+  .legal-addr { border: 1px solid var(--hairline); border-radius: var(--r-md); padding: 18px 20px; background: var(--surface); color: var(--text-mid); line-height: 1.6; margin-bottom: 14px; }
+  .legal-addr b { color: var(--text-hi); font-weight: 600; }
+  .legal-table-wrap { overflow-x: auto; margin: 0 0 18px; border: 1px solid var(--hairline); border-radius: var(--r-md); background: var(--surface); }
+  table.legal-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 540px; }
+  table.legal-table th, table.legal-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--hairline); color: var(--text-mid); vertical-align: top; line-height: 1.5; }
+  table.legal-table thead th { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-low); }
+  table.legal-table tbody tr:last-child td { border-bottom: 0; }
+  table.legal-table td b, table.legal-table th b { color: var(--text-hi); font-weight: 600; }
+  table.legal-table .hi { color: var(--accent-solid); font-weight: 600; }
+  @media (max-width: 920px) {
+    .legal-layout { grid-template-columns: 1fr; }
+    .legal-toc { position: static; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <section class="subhero">
+    <div class="container">
+      <span class="eyebrow reveal">Documentation</span>
+      <h1 class="display reveal" data-delay="1">Membership Terms.</h1>
+      <p class="lead reveal" data-delay="2">The terms on which you buy and hold a THORWallet Membership. They supplement, and form part of, the <a href="terms.html">Terms of Service</a>.</p>
+      <p class="footnote reveal" data-delay="3">Version 1.0 · Last modified July 2026</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 24px;">
+    <div class="container">
+      <div class="legal-layout reveal">
+        <aside class="legal-toc" aria-label="Table of contents">
+          <h4>On this page</h4>
+          <ol>
+            <li><a href="#these-terms">These terms</a></li>
+            <li><a href="#definitions">Definitions &amp; nature of benefits</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#tiers">Tiers</a></li>
+            <li><a href="#buying">Buying a Premium Membership</a></li>
+            <li><a href="#swap-fees">Reduced swap fees</a></li>
+            <li><a href="#cards">Cards</a></li>
+            <li><a href="#third-party">Third-party benefits</a></li>
+            <li><a href="#cashback">Cashback</a></li>
+            <li><a href="#support">Support &amp; other benefits</a></li>
+            <li><a href="#refunds">Refunds</a></li>
+            <li><a href="#withdrawal">Right of withdrawal</a></li>
+            <li><a href="#termination">Suspension &amp; termination</a></li>
+            <li><a href="#changes">Changes</a></li>
+            <li><a href="#taxes">Taxes</a></li>
+            <li><a href="#liability">Liability</a></li>
+            <li><a href="#general">General</a></li>
+            <li><a href="#benefits">Annex A - Benefits Schedule</a></li>
+          </ol>
+        </aside>
+
+        <div class="legal-body">
+          <section id="these-terms">
+            <h2><span class="n">01</span>These terms</h2>
+            <div class="legal-callout">
+              <span class="cl-label">In short</span>
+              <p>A Membership is a one-off purchase. It does not renew and we will not charge you again. Some benefits last twelve months from the day you buy; the rest last for as long as you hold the Membership. Every rate and cap appears once only, in the <a href="#benefits">Benefits Schedule</a>.</p>
+            </div>
+            <p><b>1.1</b> These Membership Terms govern the purchase and holding of a THORWallet Membership. They are entered into between you and <b>EMM Ventures AG</b>, Bahnhofstrasse 11, 6300 Zug, Switzerland (“<b>THORWallet</b>”, “we”, “us”, “our”).</p>
+            <p><b>1.2</b> These Membership Terms supplement the <a href="terms.html">THORWallet Terms of Service</a> (the “<b>Terms of Service</b>”) and form part of them. Where these Membership Terms and the Terms of Service are inconsistent in respect of a Membership, these Membership Terms prevail. Words defined in the Terms of Service have the same meaning here unless stated otherwise.</p>
+            <p><b>1.3 Who is not a party.</b> Fiat24 (SR Saphirstein AG) and Atomo Sarl, operator of the Unblock card program, together with their respective regulated card issuing and programme management partners (each a “<b>Card Provider</b>”), are not parties to these Membership Terms, owe you no obligation under them, and take no benefit under them. The same applies to every other Third-Party Service Provider, including Ondo Global Markets (BVI) Limited, Aave, Compass Labs, Kiln, Rujira Staking, and each Swap Provider. Your cards, your card accounts, and any fiat payment services are governed exclusively by the relevant Card Provider's own terms. No Third-Party Service Provider is a beneficiary of these Membership Terms and nothing in them confers any right on any person other than you and us.</p>
+            <p><b>1.4 Staking is not Membership.</b> Benefits available to Users who stake TITN tokens and qualify for the Community Tier under Section 13 of the Terms of Service are governed by the <a href="https://docs.google.com/document/d/e/2PACX-1vSWaGLT1ptjCInNErJJx2bEfSgx3AGdqUoarjftvzNlkRJ-7dBO1VsJAmJyXQSZ3A/pub" target="_blank" rel="noopener">$TITN Token Terms of Use</a>, are not acquired by paying a Membership Fee, and are not Membership Benefits. This includes any USDC fee rebate, which is paid by a smart contract to staked positions only and cannot be obtained through a Membership at any tier.</p>
+          </section>
+
+          <section id="definitions">
+            <h2><span class="n">02</span>Definitions and nature of benefits</h2>
+            <p><b>2.1</b> In these Membership Terms:</p>
+            <div class="legal-table-wrap">
+              <table class="legal-table">
+                <thead><tr><th style="width:190px">Term</th><th>Meaning</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Benefits Schedule</b></td><td>The schedule of tiers, benefits, rates and caps at <a href="#benefits">Annex A</a>, as amended in accordance with clause 14.</td></tr>
+                  <tr><td><b>Community Tier</b></td><td>The tier available to Users who stake the required amount of TITN, governed by the <a href="https://docs.google.com/document/d/e/2PACX-1vSWaGLT1ptjCInNErJJx2bEfSgx3AGdqUoarjftvzNlkRJ-7dBO1VsJAmJyXQSZ3A/pub" target="_blank" rel="noopener">$TITN Token Terms of Use</a>.</td></tr>
+                  <tr><td><b>Included Period</b></td><td>The period of twelve (12) months from the Start Date during which the time-limited Membership Benefits identified in the Benefits Schedule are available to you.</td></tr>
+                  <tr><td><b>Membership</b></td><td>Your enrolment in a tier described in the Benefits Schedule.</td></tr>
+                  <tr><td><b>Membership Benefits</b></td><td>The benefits attributed to your tier in the Benefits Schedule, and nothing else.</td></tr>
+                  <tr><td><b>Membership Fee</b></td><td>The one-off amount payable for a Premium Membership, or the activation fee payable for a Basic Membership where no valid invite code is applied.</td></tr>
+                  <tr><td><b>Standard Rate</b></td><td>The swap fee applicable to the Basic tier, as stated in the Benefits Schedule.</td></tr>
+                  <tr><td><b>Start Date</b></td><td>The date on which we confirm your purchase in writing or in the App.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><b>2.2</b> Your Membership Benefits are those attributed to your tier in the Benefits Schedule. Nothing outside the Benefits Schedule is a Membership Benefit. No statement made in marketing material, social media, community channels, support correspondence or any other communication creates or varies a Membership Benefit.</p>
+            <p><b>2.3</b> Membership Benefits are not transferable, have no cash value, and may not be exchanged, redeemed for money, or applied to any account other than your own.</p>
+            <p><b>2.4 Nature of benefits.</b> Membership Benefits are commercial concessions granted by us. They are not, and shall not be construed as, a guarantee, an entitlement in perpetuity, a financial product, an investment, a deposit, a security, a payment service, or a return of any kind. Except for a benefit expressly stated to be available for the Included Period, no Membership Benefit is guaranteed for any period.</p>
+          </section>
+
+          <section id="eligibility">
+            <h2><span class="n">03</span>Eligibility</h2>
+            <p><b>3.1</b> You may hold a Membership only if you are eligible to use the Service under Section 03(a) of the Terms of Service, satisfy each representation in Section 03(a-bis) of the Terms of Service, are at least 18 years old, and are not resident or present in an excluded jurisdiction. Paid Memberships are not available to Users resident in the United Kingdom.</p>
+            <p><b>3.2</b> A Membership is personal to you, attaches to your THORWallet account and not to any card, and may not be sold, assigned, gifted, shared or transferred. Any attempted transfer is void and entitles us to terminate under clause 13.1.</p>
+            <p><b>3.3</b> You may hold one Membership per account. Where we determine that you hold or control more than one account, we may terminate any or all of them under clause 13.1.</p>
+            <p><b>3.4</b> Individual Membership Benefits may be subject to narrower eligibility criteria imposed by a third party. Where a benefit is unavailable to you for that reason, clause 14.3 applies and is your sole remedy.</p>
+          </section>
+
+          <section id="tiers">
+            <h2><span class="n">04</span>Tiers</h2>
+            <p><b>4.1</b> THORWallet offers a <b>Basic</b> tier and a paid <b>Premium</b> tier. The benefits attributed to each are set out in the <a href="#benefits">Benefits Schedule</a>.</p>
+            <p><b>4.2</b> Basic is available without charge on application of a valid invite code. Where no valid invite code is applied, a one-off activation fee is payable in the amount stated in the Benefits Schedule.</p>
+            <p><b>4.3</b> A THORWallet card is available on every tier, including Basic, under each card programme for which you qualify. Membership is not a condition of applying for, obtaining, holding, or continuing to use any THORWallet card, under either card programme.</p>
+            <p><b>4.4</b> We may add, rename, restructure, merge, close or withdraw any tier at any time. Clause 14 applies to any resulting change to your own benefits.</p>
+            <p><b>4.5 No cross-product entitlement.</b> A Membership entitles you only to the benefits stated in the Benefits Schedule for the product in which it was purchased. It confers no right, benefit, credit or status in any other product, application or service operated by us or by any affiliate, whether or not similarly named or branded, unless the Benefits Schedule expressly states otherwise.</p>
+          </section>
+
+          <section id="buying">
+            <h2><span class="n">05</span>Buying a Premium Membership</h2>
+            <p><b>5.1 One-off payment.</b> The Membership Fee is a single payment. <b>Your Membership does not renew and we will not charge you again.</b> No recurring authority is taken over your payment method.</p>
+            <p><b>5.2 What the fee buys.</b> The Membership Fee purchases two distinct things, distinguished in the Benefits Schedule:</p>
+            <ul>
+              <li>(a) benefits available for the <b>Included Period of twelve (12) months</b> from the Start Date; and</li>
+              <li>(b) benefits available for as long as you hold the Membership, subject to clause 14.</li>
+            </ul>
+            <p><b>5.3 End of the Included Period.</b> At the end of the Included Period the benefits at clause 5.2(a) cease automatically and without further notice. Your swap fee reverts to the Standard Rate and your monthly cashback cap reduces to the amount stated in the Benefits Schedule for that state. The benefits at clause 5.2(b) are unaffected.</p>
+            <p><b>5.4</b> You acknowledge that the duration of the Included Period is stated to you before you purchase and forms part of what you are buying. Its expiry is not a change to, withdrawal of, or reduction in a Membership Benefit, and clause 14 does not apply to it.</p>
+            <p><b>5.5 Reminder.</b> We will notify you at least thirty (30) days before the end of the Included Period, setting out which benefits will cease and how you may obtain equivalent benefits by qualifying for the Community Tier.</p>
+            <p><b>5.6 Restoring benefits.</b> After the Included Period you may obtain benefits equivalent to those at clause 5.2(a) by staking the required amount of TITN and qualifying for the Community Tier under Section 13 of the Terms of Service. Those benefits are then governed by the <a href="https://docs.google.com/document/d/e/2PACX-1vSWaGLT1ptjCInNErJJx2bEfSgx3AGdqUoarjftvzNlkRJ-7dBO1VsJAmJyXQSZ3A/pub" target="_blank" rel="noopener">$TITN Token Terms of Use</a>, not by these Membership Terms, and continue only while you meet the staking requirement.</p>
+            <p><b>5.7 Price.</b> The Membership Fee is the amount stated at checkout, in the currency stated. Invite codes reduce the amount payable at checkout and are not rebates, credits or refunds. We may withdraw, restrict, expire or invalidate any invite code at any time.</p>
+            <p><b>5.8 Payment.</b> The Membership Fee is denominated in US dollars and is payable in USDC, settled at one USDC per one US dollar, by an on-chain transfer from your own wallet to the address displayed to you at checkout, initiated by you in the App as a Transaction. Your purchase is complete, and the Start Date occurs, when we confirm receipt following finality on the relevant network. You are responsible for any network fee on the transfer and for sending the exact amount on the network specified; amounts sent to a different address, on a different network, or in a different asset are treated as a Cross-Chain Transaction under the Terms of Service. On-chain transfers are irreversible once broadcast; your refund rights are those in clauses 12 and 14.3, not a reversal of the transfer.</p>
+          </section>
+
+          <section id="swap-fees">
+            <h2><span class="n">06</span>Reduced swap fees</h2>
+            <p><b>6.1</b> During the Included Period, swaps you initiate through the App are charged at the reduced rate stated in the Benefits Schedule instead of the Standard Rate.</p>
+            <p><b>6.2</b> The reduced rate applies only to the fee charged by THORWallet. It does not affect any network fee, protocol fee, slippage, spread, or fee charged by a Swap Provider or other third party, none of which THORWallet controls, and Section 03(b-bis) of the Terms of Service applies.</p>
+            <p><b>6.3</b> We may change the Standard Rate and the reduced rate under clause 14. Clause 14 does not apply to the expiry of the Included Period.</p>
+            <p><b>6.4</b> We may determine at our reasonable discretion whether any transaction is a swap qualifying for the reduced rate.</p>
+          </section>
+
+          <section id="cards">
+            <h2><span class="n">07</span>Cards</h2>
+            <p><b>7.1</b> Cards are issued to you by the relevant Card Provider under that Card Provider's terms. THORWallet does not issue cards and Section 12 of the Terms of Service applies.</p>
+            <p><b>7.2</b> Where the Benefits Schedule includes a physical card in your tier, that card is issued under the Unblock programme, and THORWallet arranges its production and delivery at no separate charge to you. The cost of production and delivery is borne by THORWallet and is recoverable under clause 12.5 where you withdraw.</p>
+            <p><b>7.3</b> Physical cards are shipped only to addresses in countries THORWallet supports for delivery. Where delivery is unavailable, clause 14.3 applies and is your sole remedy.</p>
+            <p><b>7.4</b> Preferential foreign exchange treatment associated with a tier is applied by Atomo Sarl at card-product level within the Unblock programme. It is not applied by THORWallet, THORWallet cannot vary it for an individual User, and it continues to apply to your Unblock-programme card after the Included Period ends.</p>
+            <p><b>7.5</b> We may replace or substitute the card product associated with a tier at any time. Clause 14 applies where the substitution materially reduces a benefit.</p>
+          </section>
+
+          <section id="third-party">
+            <h2><span class="n">08</span>Third-party benefits</h2>
+            <p><b>8.1</b> Benefits applied, delivered or supported by a third party, including any foreign exchange treatment applied by a Card Provider, any card, and any card scheme benefit, are provided by that third party under its own terms.</p>
+            <p><b>8.2</b> We do not control such benefits, do not warrant them, and give no assurance as to their continuation.</p>
+            <p><b>8.3</b> We are not liable for the variation, degradation, suspension, withdrawal or unavailability of any third-party benefit, nor for any act, omission, error, insolvency or default of the third party providing it. Where such a benefit becomes unavailable, clause 14.3 is your sole remedy.</p>
+          </section>
+
+          <section id="cashback">
+            <h2><span class="n">09</span>Cashback</h2>
+            <p><b>9.1</b> Where the Benefits Schedule attributes cashback to your tier, THORWallet may credit you a percentage of qualifying card spend on the Unblock programme, subject to the monthly cap applicable to your state under the Benefits Schedule.</p>
+            <p><b>9.2 Nature.</b> Cashback is a promotional concession provided by THORWallet within the limits of these Membership Terms. It is not interest, yield, a return on an investment, a deposit, e-money, or a payment service. It is a partial rebate of amounts you have spent. Reward balances are not held by THORWallet on your behalf.</p>
+            <p><b>9.3 Discretion.</b> We may vary the rate, the cap, the qualifying categories and the mechanics under clause 14. We may determine whether any transaction qualifies, and our determination is final absent manifest error.</p>
+            <p><b>9.4 Qualifying spend.</b> Cashback accrues on purchase transactions made with your Unblock-programme card only. It does not accrue on transactions made with a Fiat24-programme card. It does not accrue on, and we may exclude, the merchant categories listed in the Benefits Schedule, including cash and quasi-cash, money transfer and remittance, gambling and betting, purchases of crypto-assets, gift cards and stored value, and any transaction we reasonably determine to be manufactured spend.</p>
+            <p><b>9.5 Caps.</b> The monthly cap applies to accrued cashback, is assessed on the calendar month, and is not carried forward. Caps are stated in the Benefits Schedule and nowhere else.</p>
+            <p><b>9.6 Reversal and clawback.</b> We may withhold, suspend, reverse, cancel or reclaim any cashback, and recover it by set-off under Section 15(d) of the Terms of Service or as a debt, where the underlying transaction is refunded, reversed, disputed or charged back, where it did not qualify, where it arose from our error, or where we reasonably suspect abuse.</p>
+            <p><b>9.7 Forfeiture.</b> All accrued and unredeemed cashback is forfeited immediately and without compensation on termination under clause 13.1. On ordinary cancellation under clause 13.3, accrued and unredeemed cashback remains available for <b>thirty (30) days</b> and is then forfeited.</p>
+            <p><b>9.8 Abuse.</b> Abuse includes, without limitation: manufactured or circular spend; transactions with a merchant you own, control, are employed by, or are otherwise connected to; use of multiple, linked or nominee accounts; automated or scripted activity; splitting or structuring transactions to defeat a cap; and any activity whose principal purpose in our reasonable opinion is to obtain cashback rather than to acquire goods or services for genuine personal use. This list is not exhaustive and we may treat any conduct as abuse where we reasonably consider it inconsistent with the purpose of the programme.</p>
+            <p><b>9.9 Tax.</b> You are responsible for determining and meeting any tax obligation arising from cashback you receive. THORWallet does not provide tax advice.</p>
+          </section>
+
+          <section id="support">
+            <h2><span class="n">10</span>Support and other benefits</h2>
+            <p><b>10.1</b> Priority support means that support requests from Premium members are placed ahead of others in the queue. It is not a guaranteed response time, a service level, or a commitment to resolve any matter.</p>
+            <p><b>10.2</b> We do not warrant that support will resolve any issue, and we may be unable to assist with any matter caused by a Third-Party Service Provider, in which case Section 03(d) of the Terms of Service applies.</p>
+            <p><b>10.3</b> Community perks consist of access to community channels, groups, events and similar arrangements provided outside the App. They are discretionary, may be limited in number, may require separate registration, and may be withdrawn at any time. Community perks do not include any content, feature, screen, badge or functionality within the App.</p>
+            <p><b>10.4</b> Volume discounts and boosted rates apply on the terms stated in the Benefits Schedule and are subject to clause 14.</p>
+            <p><b>10.5 Fiat24 programme.</b> Foreign exchange and cashback benefits attributed to a tier apply to the Unblock card programme only. They do not apply to any card issued under the Fiat24 programme, and a Membership confers no benefit within the Fiat24 programme unless the Benefits Schedule expressly states otherwise.</p>
+          </section>
+
+          <section id="refunds">
+            <h2><span class="n">11</span>Refunds</h2>
+            <p><b>11.1 No refunds.</b> The Membership Fee is earned in full on the Start Date and is non-refundable. No refund, credit, pro-rating or compensation is payable on cancellation, downgrade, account closure, non-use, partial use, dissatisfaction, unavailability of any benefit, expiry of the Included Period, or termination under clause 13.1.</p>
+            <p><b>11.2</b> The only exceptions to clause 11.1 are a valid exercise of a right of withdrawal under clause 12, a termination by us for convenience under clause 13.2, and clause 14.3 where it applies.</p>
+          </section>
+
+          <section id="withdrawal">
+            <h2><span class="n">12</span>Right of withdrawal</h2>
+            <div class="legal-callout">
+              <span class="cl-label">14 days to change your mind</span>
+              <p>You may withdraw from your Membership within fourteen (14) days of the Start Date, without giving a reason, using the withdrawal function in the App. Where you have already used benefits, we deduct their value from the refund under clause 12.5.</p>
+            </div>
+            <p><b>12.1</b> This clause applies if you are a consumer resident in the European Economic Area, and in any other case where mandatory law confers a right of withdrawal. Under Swiss law there is no general right of withdrawal for contracts concluded at a distance. THORWallet grants the rights in this clause to all consumers regardless of residence.</p>
+            <p><b>12.2 Period.</b> You may withdraw from your Membership within <b>fourteen (14) days</b> of the Start Date, without giving a reason.</p>
+            <p><b>12.3 How to withdraw.</b> Use the withdrawal function in the App. The function is available continuously throughout the withdrawal period. You may also write to <a href="mailto:info@thorwallet.org">info@thorwallet.org</a>. We will acknowledge your withdrawal on a durable medium without delay.</p>
+            <p><b>12.4 Immediate performance.</b> Where you ask us to begin providing Membership Benefits before the end of the withdrawal period, we will do so. You retain your right of withdrawal, and if you withdraw you will pay an amount proportionate to the benefits supplied up to the point of withdrawal.</p>
+            <p><b>12.5 Deduction.</b> Where you withdraw, we deduct from the refund an amount proportionate to the service supplied, comprising:</p>
+            <ul>
+              <li>(a) the full cost of any physical card produced, personalised, issued or dispatched, together with delivery and any applicable duty or tax, whether or not you have received or activated it;</li>
+              <li>(b) the full value of every fee reduction, discount and preferential rate you have received, calculated as the difference between the amount you paid and the amount you would have paid on the Basic tier;</li>
+              <li>(c) the full value of all cashback credited to you; and</li>
+              <li>(d) the value of any other Membership Benefit supplied.</li>
+            </ul>
+            <p>Ordering a physical card constitutes the supply of a benefit. Where the deductions equal or exceed the Membership Fee, no refund is payable. The amounts at (a) are stated in the Benefits Schedule.</p>
+            <p><b>12.6</b> We refund using the same means of payment you used, within fourteen (14) days of receiving your withdrawal, subject to clause 12.5. Where you paid in USDC, we refund in USDC to the address from which your payment was made, which constitutes the same means of payment. You bear the risk of losing control of that address after payment.</p>
+          </section>
+
+          <section id="termination">
+            <h2><span class="n">13</span>Suspension and termination</h2>
+            <p><b>13.1 Termination for cause.</b> We may suspend or terminate your Membership immediately, without notice and without refund of any part of the Membership Fee, where we reasonably suspect any of: breach of these Membership Terms or of the Terms of Service; breach of any representation in Section 03(a-bis) of the Terms of Service; fraud, abuse or manipulation; provision of false, incomplete or misleading information; use of the Service other than for your own genuine personal use; multiple or linked accounts; circumvention of any limit, cap, restriction or geographic control; or any circumstance which in our reasonable opinion exposes us to legal, regulatory, reputational or financial risk. Our suspicion, reasonably held, is sufficient. We are not required to prove the underlying conduct, and we are not required to disclose our reasons and may be prohibited by law from doing so.</p>
+            <p><b>13.2 Termination for convenience.</b> We may terminate your Membership for any other reason on thirty (30) days' notice, in which case clause 14.3 applies to the refund calculation.</p>
+            <p><b>13.3 Cancellation by you.</b> You may cancel your Membership at any time by writing to <a href="mailto:info@thorwallet.org">info@thorwallet.org</a>. Outside clause 12 and clause 14.3, no refund is payable and your Membership Benefits cease on cancellation.</p>
+            <p><b>13.4 Your cards are unaffected.</b> If your Membership ends for any reason, your THORWallet cards and card accounts, under both card programmes, continue on their existing terms. Ending a Membership does not close your account or cancel any card.</p>
+            <p><b>13.5 Survival.</b> Clauses 1.3, 1.4, 2.4, 9.6, 9.7, 9.9, 11, 15, 16 and 17 survive termination.</p>
+          </section>
+
+          <section id="changes">
+            <h2><span class="n">14</span>Changes</h2>
+            <p><b>14.1</b> We may change the Benefits Schedule, including any rate, cap, category or benefit, and may change these Membership Terms.</p>
+            <p><b>14.2</b> Changes which are neutral or favourable to you, or which are required by law, regulation or a card scheme rule, take effect immediately on publication. Any other change not within clause 14.3 takes effect on publication or on the later date stated in the notice of change.</p>
+            <p><b>14.3 Material adverse change.</b> Where a change materially reduces a Membership Benefit you have paid for, we will give you not less than thirty (30) days' prior notice. You may then terminate your Membership before the change takes effect and receive a refund of a proportionate part of the Membership Fee, calculated on a straight-line basis over twenty-four (24) months from the Start Date. This is your sole and exclusive remedy in respect of any such change.</p>
+            <p><b>14.4</b> Clause 14.3 does not apply to the expiry of the Included Period under clause 5.3.</p>
+            <p><b>14.5</b> Changes to the Membership Fee do not affect Memberships already purchased.</p>
+          </section>
+
+          <section id="taxes">
+            <h2><span class="n">15</span>Taxes</h2>
+            <p><b>15.1</b> The Membership Fee is stated inclusive of value added tax or equivalent indirect tax, where such tax applies.</p>
+            <p><b>15.2</b> We are responsible for accounting for any indirect tax properly due on the Membership Fee. You are responsible for any other tax arising from your use of the Service or from any Membership Benefit you receive.</p>
+          </section>
+
+          <section id="liability">
+            <h2><span class="n">16</span>Liability</h2>
+            <p><b>16.1</b> Our liability under these Membership Terms is limited as set out in Section 15(b) of the <a href="terms.html#misc">Terms of Service</a>, and the excluded heads of loss in that Section apply.</p>
+            <p><b>16.2</b> We are not liable for any act or omission of any Card Provider or of any other Third-Party Service Provider.</p>
+            <p><b>16.3</b> Section 15(c) of the Terms of Service applies, so you must notify us of any claim within thirty (30) days.</p>
+            <p><b>16.4</b> Nothing in these Membership Terms limits or excludes liability which cannot lawfully be limited or excluded, including for gross negligence, unlawful intent, or personal injury.</p>
+          </section>
+
+          <section id="general">
+            <h2><span class="n">17</span>General</h2>
+            <p><b>17.1 Complaints.</b> Write to <a href="mailto:info@thorwallet.org">info@thorwallet.org</a>. We will acknowledge within five (5) business days and respond substantively within thirty (30) days.</p>
+            <p><b>17.2 Disputes.</b> Sections 15(f) to 15(j) of the Terms of Service apply.</p>
+            <p><b>17.3 Governing law.</b> Swiss law, on the basis set out in Section 15(e) of the Terms of Service.</p>
+            <p><b>17.4 Assignment.</b> You may not assign these Membership Terms. We may assign, transfer, novate or subcontract them, in whole or in part, to any affiliate or in connection with a reorganisation or sale of business or assets, without your consent.</p>
+            <p><b>17.5 Severability.</b> Section 15(m) of the Terms of Service applies, including the modification of any provision held invalid to the minimum extent necessary to make it enforceable.</p>
+            <p><b>17.6 Entire agreement.</b> These Membership Terms, the Benefits Schedule and the Terms of Service are the entire agreement between us in respect of your Membership. Section 15(m) of the Terms of Service applies to reliance.</p>
+            <h3>17.7 Contact</h3>
+            <div class="legal-addr"><b>EMM Ventures AG</b><br/>Bahnhofstrasse 11<br/>6300 Zug, Switzerland<br/><a href="mailto:info@thorwallet.org">info@thorwallet.org</a></div>
+          </section>
+
+          <section id="benefits">
+            <h2><span class="n">A</span>Annex A - Benefits Schedule</h2>
+            <p>Version 1.0 · effective July 2026. Single source of truth for every rate and cap. No rate or cap appears anywhere else in these Membership Terms, in the Terms of Service, or in the App.</p>
+
+            <h3>Tiers and fees</h3>
+            <div class="legal-table-wrap">
+              <table class="legal-table">
+                <thead><tr><th style="width:150px"></th><th>Basic</th><th>Premium</th></tr></thead>
+                <tbody>
+                  <tr><td><b>Fee</b></td><td>Free with a valid invite code, otherwise <b>USD 5</b> one-off activation</td><td><b>USD 124</b> one-off, or <b>USD 99</b> with a valid invite code</td></tr>
+                  <tr><td><b>Renewal</b></td><td>None</td><td>None. Does not auto-renew.</td></tr>
+                  <tr><td><b>Payment</b></td><td>USDC, clause 5.8</td><td>USDC, clause 5.8</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Benefits</h3>
+            <div class="legal-table-wrap">
+              <table class="legal-table">
+                <thead><tr><th style="width:190px">Benefit</th><th>Basic</th><th>Premium, months 1-12</th><th>Premium, month 13 onward</th><th style="width:96px">Time-limited</th></tr></thead>
+                <tbody>
+                  <tr><td><b>THORWallet swap fee</b></td><td>1.25%</td><td class="hi">0.50%</td><td>1.25%</td><td><b>Yes</b></td></tr>
+                  <tr><td><b>Community perks</b></td><td>-</td><td class="hi">Included</td><td>-</td><td><b>Yes</b></td></tr>
+                  <tr><td><b>Volume discounts</b></td><td>Standard</td><td class="hi">Boosted</td><td>Standard</td><td><b>Yes</b></td></tr>
+                  <tr><td><b>Cashback rate</b> (Unblock card spend)</td><td>None</td><td class="hi">0.50%</td><td class="hi">0.50%</td><td>No</td></tr>
+                  <tr><td><b>Monthly cashback cap</b></td><td>-</td><td class="hi">USD 5,000 of qualifying spend</td><td class="hi">USD 2,000 of qualifying spend</td><td>Cap only</td></tr>
+                  <tr><td><b>FX markup</b> (Unblock programme)</td><td>1.50%</td><td>1.50%</td><td>1.50%</td><td>No</td></tr>
+                  <tr><td><b>Card</b></td><td>Virtual (Unblock)</td><td class="hi">Physical and virtual (Unblock), delivery included</td><td>Continues</td><td>No</td></tr>
+                  <tr><td><b>Support</b></td><td>Standard</td><td class="hi">Priority</td><td class="hi">Priority</td><td>No</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Benefits marked <b>Yes</b> are available during the Included Period of twelve months from the Start Date and cease automatically at its end. Equivalent benefits may be obtained thereafter by staking TITN and qualifying for the Community Tier.</p>
+            <p><b>Programme scoping.</b> All foreign exchange and cashback figures in this schedule apply to the Unblock card programme only. Cards issued under the Fiat24 programme carry the Fiat24 programme's own terms and receive no Membership benefit.</p>
+
+            <h3>Not a Membership Benefit</h3>
+            <p>The <b>USDC fee rebate</b> is paid by the TITN staking contract to staked positions. It requires an active stake, is governed by the <a href="https://docs.google.com/document/d/e/2PACX-1vSWaGLT1ptjCInNErJJx2bEfSgx3AGdqUoarjftvzNlkRJ-7dBO1VsJAmJyXQSZ3A/pub" target="_blank" rel="noopener">$TITN Token Terms of Use</a>, and is not available through a Membership at any tier.</p>
+
+            <h3>Excluded merchant categories for cashback</h3>
+            <p>Cash and quasi-cash · money transfer and remittance · gambling and betting · purchases of crypto-assets · gift cards and stored value · financial institution merchandise · and any further category notified in the App.</p>
+
+            <h3>Amounts deducted on withdrawal under clause 12.5(a)</h3>
+            <p>Physical card: <b>USD 6</b>. Delivery: at cost, disclosed to you before purchase.</p>
+
+            <p class="footnote" style="margin-top:18px;">Version 1.0 · Last modified July 2026 · THORWallet · EMM Ventures AG · Zug, Switzerland</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="site-nav.js"></script>
+<script src="i18n-data.js"></script>
+<script src="i18n-data2.js"></script>
+<script src="i18n-data3.js"></script>
+<script src="i18n-data4.js"></script>
+<script src="i18n-data5.js"></script>
+<script src="i18n-data6.js"></script>
+<script src="i18n-data7.js"></script>
+<script src="i18n-data8.js"></script>
+<script src="i18n.js"></script>
+<script src="consent.js"></script>
+<script src="site.js"></script>
+<script src="theme.js"></script>
+</body>
+</html>

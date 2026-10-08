@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thorwallet — New Brand Guidelines</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    padding: 96px 32px 0;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: end;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
+    margin-bottom: 56px;
+    font-family: var(--font-sono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(56px, 9vw, 144px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .hero h1 .underline {
+    background: linear-gradient(90deg, var(--blue), var(--signal-start) 55%, var(--green));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .hero-side {
+    background: var(--panel);
+    color: var(--on-dark);
+    padding: 32px;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--line);
+    aspect-ratio: 4/5;
+    background-image:
+      radial-gradient(circle at 70% 24%, rgba(42,107,242,0.55), transparent 55%),
+      radial-gradient(circle at 18% 92%, rgba(51,224,160,0.40), transparent 55%);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
+  }
+  .hero-side::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(8,20,29,0.35) 0%, rgba(8,20,29,0.82) 88%);
+    pointer-events: none;
+  }
+  .hero-side .wm {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 64%;
+    max-width: 320px;
+    height: auto;
+  }
+  .hero-side .label {
+    position: absolute;
+    bottom: 24px; left: 24px; right: 24px;
+    display: flex; justify-content: space-between;
+    color: var(--on-dark);
+    font-family: var(--font-sono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  .hero-foot {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 32px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  @media (max-width: 720px) {
+    .hero-foot { grid-template-columns: 1fr; }
+  }
+  .hero-foot .col-label {
+    font-family: var(--font-sono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-foot p {
+    font-family: var(--font-sono);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 50ch;
+  }
+  .hero-foot strong { color: var(--ink); font-weight: 600; }
+
+  /* ============ TOC ============ */
+  .toc {
+    max-width: var(--max);
+    margin: 96px auto 0;
+    padding: 0 32px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 900px) { .toc-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .toc-grid { grid-template-columns: 1fr; } }
+
+  .toc-item {
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    padding: 32px;
+    text-decoration: none;
+    color: inherit;
+    display: grid;
+    gap: 16px;
+    align-content: space-between;
+    min-height: 220px;
+    background: transparent;
+    transition: background .2s;
+    position: relative;
+  }
+  .toc-item:hover { background: var(--surface); }
+  .toc-item:hover .arrow { transform: translate(4px, -4px); }
+  .toc-item .num {
+    font-family: var(--font-sono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+  }
+  .toc-item .name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .toc-item .desc {
+    font-family: var(--font-sono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .toc-item .arrow {
+    position: absolute;
+    top: 32px; right: 32px;
+    width: 22px; height: 22px;
+    color: var(--ink-soft);
+    transition: transform .2s ease;
+  }
+
+  /* ============ SUMMARY STRIPE ============ */
+  .summary {
+    max-width: var(--max);
+    margin: 96px auto;
+    padding: 0 32px;
+  }
+  .summary-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-row:first-child { border-top: 1px solid var(--line); }
+  .summary-row dt {
+    font-family: var(--font-sono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 0;
+  }
+  .summary-row dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .summary-row dd .accent { color: var(--green); }
+
+  /* ============ BIG QUOTE ============ */
+  .big-quote {
+    max-width: var(--max);
+    margin: 0 auto 96px;
+    padding: 64px 32px;
+    background: var(--panel);
+    color: var(--on-dark);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .big-quote::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 90% 20%, rgba(42,107,242,0.45), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(51,224,160,0.32), transparent 50%);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  .big-quote-inner {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .big-quote .label {
+    font-family: var(--font-sono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(243,236,232,0.6);
+    margin-bottom: 32px;
+  }
+  .big-quote q {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    quotes: none;
+    display: block;
+    color: var(--on-dark);
+  }
+  .big-quote q::before, .big-quote q::after { content: ""; }
+  .big-quote .who {
+    margin-top: 32px;
+    font-family: var(--font-sono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: rgba(243,236,232,0.7);
+  }
+</style>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" data-bg-color="#0A1A2B"><rect width="100" height="100" fill="#0A1A2B"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00CCFF"/><stop offset="1" stop-color="#33FF99"/></linearGradient></defs><path d="M62 30 L40 48 L55 52 L38 70 L60 52 L45 48 Z" fill="url(#g)"/></svg></template>
+<header data-brand-nav data-section="Overview"></header>
+
+<main>
+  <section class="hero" data-screen-label="Cover">
+    <div class="hero-meta">
+      <span>Thorwallet &middot; New Brand Manual</span>
+      <span>v 0.1 &middot; 2026</span>
+      <span>Internal &amp; Partner Use</span>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom: 24px;">A guide to our new brand</div>
+        <h1>
+          All chains.<br/>
+          All yield.<br/>
+          <span class="underline">One app.</span>
+        </h1>
+      </div>
+      <aside class="hero-side" aria-hidden="true">
+        <img class="wm" src="assets/thorwallet-logo.png" alt="Thorwallet" />
+        <div class="label">
+          <span>Cover &middot; Brand DNA</span>
+          <span>2026</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="hero-foot">
+      <div class="col-label">About this manual</div>
+      <p>This manual defines how Thorwallet looks, sounds, and behaves across every surface — from the app and the card to outdoor mockups and printed collateral. Use it as a working reference, not a museum piece.</p>
+      <p>The brand is built on three promises — <strong>Self-Custody</strong>, <strong>Cross-Chain&nbsp;Swaps</strong>, <strong>DeFi&nbsp;&amp;&nbsp;Yield</strong> — anchored in Swiss craft and DeFi-native engineering. Every choice in this document points back to one of them.</p>
+    </div>
+  </section>
+
+  <section class="toc" aria-label="Table of contents">
+    <div class="eyebrow" style="margin-bottom: 16px;">01 — Contents</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="story.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">01 / 11</div>
+        <div>
+          <div class="name">Story &amp;<br/>Tone of Voice</div>
+          <p class="desc" style="margin-top:8px;">The three brand promises, our positioning, and how Thorwallet sounds in writing.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="logo.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">02 / 11</div>
+        <div>
+          <div class="name">Logo &amp;<br/>Mark</div>
+          <p class="desc" style="margin-top:8px;">Wordmark, mark, clearspace, sizing, and incorrect usage.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="color.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">03 / 11</div>
+        <div>
+          <div class="name">Color<br/>Palette</div>
+          <p class="desc" style="margin-top:8px;">Deep navy surfaces, white ink, blue primary and the cyan-green signal — with print and digital codes.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="typography.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">04 / 11</div>
+        <div>
+          <div class="name">Typography</div>
+          <p class="desc" style="margin-top:8px;">OT Sono — one corporate typeface, three weights, every context.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="imagery.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">05 / 11</div>
+        <div>
+          <div class="name">Imagery</div>
+          <p class="desc" style="margin-top:8px;">Studio &amp; landscape direction. Stone as the unifying element.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="iconography.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">06 / 11</div>
+        <div>
+          <div class="name">Iconography</div>
+          <p class="desc" style="margin-top:8px;">The line-icon system used across the wallet UI and marketing.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="ui.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">07 / 11</div>
+        <div>
+          <div class="name">UI &amp;<br/>Digital Design</div>
+          <p class="desc" style="margin-top:8px;">Wallet components, screens, and the dark-theme app system.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="web.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">08 / 11</div>
+        <div>
+          <div class="name">Web<br/>System</div>
+          <p class="desc" style="margin-top:8px;">Outline-keyword headline, scroll-driven device, mega-menu, tier cards, light &amp; dark, social &amp; SEO.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="print.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">09 / 11</div>
+        <div>
+          <div class="name">Print<br/>Specs</div>
+          <p class="desc" style="margin-top:8px;">Paper, finishes, and production guidance for offline output.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="social.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">10 / 11</div>
+        <div>
+          <div class="name">Social<br/>Posts</div>
+          <p class="desc" style="margin-top:8px;">How we build posts for X: anatomy, rules, formats and our latest posts.</p>
+        </div>
+      </a>
+      <a class="toc-item" href="card.html">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 L17 7 M9 7 H17 V15"/></svg>
+        <div class="num">11 / 11</div>
+        <div>
+          <div class="name">THORWallet<br/>Card</div>
+          <p class="desc" style="margin-top:8px;">Digital card faces, tier art, metal renders and how to show the card.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="summary">
+    <div class="eyebrow" style="margin-bottom:24px;">02 — At a glance</div>
+    <dl>
+      <div class="summary-row">
+        <dt>Promise</dt>
+        <dd>All chains. All yield. <span class="accent">One app.</span></dd>
+      </div>
+      <div class="summary-row">
+        <dt>Type</dt>
+        <dd>OT Sono — one corporate typeface, three weights, used across display, body, UI and data.</dd>
+      </div>
+      <div class="summary-row">
+        <dt>Color</dt>
+        <dd>Deep navy surface, white ink, royal-blue primary, cyan-green signal accent.</dd>
+      </div>
+      <div class="summary-row">
+        <dt>Imagery</dt>
+        <dd>Swiss alpine. Granite stone. Harsh studio light. Device mockups at angle.</dd>
+      </div>
+      <div class="summary-row">
+        <dt>Voice</dt>
+        <dd>Direct. Confident. Technical but plain-spoken. Facts over hype.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="big-quote" data-screen-label="Brand Statement">
+    <div class="big-quote-inner">
+      <div class="label">Brand Statement</div>
+      <q>Swap, earn and hold across every major chain — no bridges, no wrapped tokens, no custodian. Your keys never leave your device, and your money keeps working for you.</q>
+      <div class="who">— Thorwallet, brand promise &middot; 2026</div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

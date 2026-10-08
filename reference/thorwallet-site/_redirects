@@ -1,0 +1,47 @@
+# THORWallet - Cloudflare Pages redirects
+# Cloudflare Pages already serves /cards for cards.html and redirects
+# /cards.html -> /cards automatically. These rules catch legacy URLs
+# from the previous (Webflow) site so old links and search results land
+# on the right pages instead of 404s.
+#
+# IMPORTANT: check Google Search Console -> Pages / Indexing for the
+# actual top legacy URLs and extend this list before launch.
+
+# legacy page names
+/home              /            301
+/card              /cards       301
+/cards-page        /cards       301
+/token             /titn        301
+/tgt               /titn        301
+/titn-token        /titn        301
+/staking           /titn        301
+/privacy           /privacy-policy 301
+/privacy_policy    /privacy-policy 301
+/terms-of-service  /terms       301
+/terms-and-conditions /terms    301
+/career            /careers     301
+/jobs              /careers     301
+/press             /brand       301
+/media             /brand       301
+/brand-kit         /brand       301
+/faq               https://faqs.thorwallet.org/ 301
+/faqs              https://faqs.thorwallet.org/ 301
+/support           https://faqs.thorwallet.org/ 301
+/app               https://app.thorwallet.org/  301
+/web               https://app.thorwallet.org/  301
+
+# legacy blog posts -> blog index (Medium hosts the archive)
+/blog/*            /blog        301
+/post/*            /blog        301
+/news/*            /blog        301
+
+# legacy localized paths (old site language folders) -> home
+/de/*              /            301
+/es/*              /            301
+/fr/*              /            301
+/pt/*              /            301
+/ru/*              /            301
+/zh/*              /            301
+/ko/*              /            301
+/nl/*              /            301
+/uk/*              /            301

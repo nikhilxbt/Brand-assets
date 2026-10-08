@@ -1,0 +1,1045 @@
+{
+  "$schema": "https://www.thorwallet.org/api/schemas/card-countries.schema.json",
+  "resource": "card-countries",
+  "description": "Countries where the THORWallet crypto Mastercard and Swiss account can be issued. Derived from AML country classification: non-serviced countries are unavailable; no-risk and high-risk (enhanced due diligence) countries are available.",
+  "documentation": "https://www.thorwallet.org/cards",
+  "updated": "2026-08-25",
+  "license": "CC-BY-4.0",
+  "count": {
+    "total": 205,
+    "available": 174,
+    "unavailable": 31
+  },
+  "fields": {
+    "name": "Country name in English.",
+    "code": "ISO 3166-1 alpha-2 country code.",
+    "available": "true if the card and Swiss account can be issued to a resident of this country."
+  },
+  "countries": [
+    {
+      "name": "Afghanistan",
+      "code": "AF",
+      "available": true
+    },
+    {
+      "name": "Albania",
+      "code": "AL",
+      "available": true
+    },
+    {
+      "name": "Algeria",
+      "code": "DZ",
+      "available": false
+    },
+    {
+      "name": "Andorra",
+      "code": "AD",
+      "available": true
+    },
+    {
+      "name": "Angola",
+      "code": "AO",
+      "available": false
+    },
+    {
+      "name": "Anguilla",
+      "code": "AI",
+      "available": true
+    },
+    {
+      "name": "Antigua & Barbuda",
+      "code": "AG",
+      "available": true
+    },
+    {
+      "name": "Argentina",
+      "code": "AR",
+      "available": true
+    },
+    {
+      "name": "Armenia",
+      "code": "AM",
+      "available": true
+    },
+    {
+      "name": "Aruba",
+      "code": "AW",
+      "available": true
+    },
+    {
+      "name": "Australia",
+      "code": "AU",
+      "available": true
+    },
+    {
+      "name": "Austria",
+      "code": "AT",
+      "available": true
+    },
+    {
+      "name": "Azerbaijan",
+      "code": "AZ",
+      "available": true
+    },
+    {
+      "name": "Bahamas",
+      "code": "BS",
+      "available": true
+    },
+    {
+      "name": "Bahrain",
+      "code": "BH",
+      "available": true
+    },
+    {
+      "name": "Bangladesh",
+      "code": "BD",
+      "available": true
+    },
+    {
+      "name": "Barbados",
+      "code": "BB",
+      "available": true
+    },
+    {
+      "name": "Belarus",
+      "code": "BY",
+      "available": false
+    },
+    {
+      "name": "Belgium",
+      "code": "BE",
+      "available": true
+    },
+    {
+      "name": "Belize",
+      "code": "BZ",
+      "available": true
+    },
+    {
+      "name": "Benin",
+      "code": "BJ",
+      "available": true
+    },
+    {
+      "name": "Bermuda",
+      "code": "BM",
+      "available": true
+    },
+    {
+      "name": "Bolivia",
+      "code": "BO",
+      "available": false
+    },
+    {
+      "name": "Bosnia & Herzegovina",
+      "code": "BA",
+      "available": true
+    },
+    {
+      "name": "Botswana",
+      "code": "BW",
+      "available": true
+    },
+    {
+      "name": "British Virgin Islands",
+      "code": "VG",
+      "available": false
+    },
+    {
+      "name": "Brazil",
+      "code": "BR",
+      "available": true
+    },
+    {
+      "name": "Brunei",
+      "code": "BN",
+      "available": true
+    },
+    {
+      "name": "Bulgaria",
+      "code": "BG",
+      "available": false
+    },
+    {
+      "name": "Burkina Faso",
+      "code": "BF",
+      "available": false
+    },
+    {
+      "name": "Burundi",
+      "code": "BI",
+      "available": true
+    },
+    {
+      "name": "Cambodia",
+      "code": "KH",
+      "available": true
+    },
+    {
+      "name": "Cameroon",
+      "code": "CM",
+      "available": false
+    },
+    {
+      "name": "Canada",
+      "code": "CA",
+      "available": true
+    },
+    {
+      "name": "Cayman Islands",
+      "code": "KY",
+      "available": true
+    },
+    {
+      "name": "Central African Republic",
+      "code": "CF",
+      "available": true
+    },
+    {
+      "name": "Chad",
+      "code": "TD",
+      "available": true
+    },
+    {
+      "name": "Chile",
+      "code": "CL",
+      "available": true
+    },
+    {
+      "name": "China",
+      "code": "CN",
+      "available": false
+    },
+    {
+      "name": "Colombia",
+      "code": "CO",
+      "available": true
+    },
+    {
+      "name": "Comoros",
+      "code": "KM",
+      "available": true
+    },
+    {
+      "name": "Congo - Brazzaville",
+      "code": "CG",
+      "available": true
+    },
+    {
+      "name": "Congo - Kinshasa",
+      "code": "CD",
+      "available": false
+    },
+    {
+      "name": "Costa Rica",
+      "code": "CR",
+      "available": true
+    },
+    {
+      "name": "Côte d'Ivoire",
+      "code": "CI",
+      "available": false
+    },
+    {
+      "name": "Croatia",
+      "code": "HR",
+      "available": true
+    },
+    {
+      "name": "Cuba",
+      "code": "CU",
+      "available": true
+    },
+    {
+      "name": "Curaçao",
+      "code": "CW",
+      "available": true
+    },
+    {
+      "name": "Cyprus",
+      "code": "CY",
+      "available": true
+    },
+    {
+      "name": "Czechia",
+      "code": "CZ",
+      "available": true
+    },
+    {
+      "name": "Denmark",
+      "code": "DK",
+      "available": true
+    },
+    {
+      "name": "Djibouti",
+      "code": "DJ",
+      "available": true
+    },
+    {
+      "name": "Dominica",
+      "code": "DM",
+      "available": true
+    },
+    {
+      "name": "Dominican Republic",
+      "code": "DO",
+      "available": true
+    },
+    {
+      "name": "Ecuador",
+      "code": "EC",
+      "available": true
+    },
+    {
+      "name": "Egypt",
+      "code": "EG",
+      "available": true
+    },
+    {
+      "name": "El Salvador",
+      "code": "SV",
+      "available": true
+    },
+    {
+      "name": "Equatorial Guinea",
+      "code": "GQ",
+      "available": true
+    },
+    {
+      "name": "Eritrea",
+      "code": "ER",
+      "available": true
+    },
+    {
+      "name": "Estonia",
+      "code": "EE",
+      "available": true
+    },
+    {
+      "name": "Eswatini",
+      "code": "SZ",
+      "available": true
+    },
+    {
+      "name": "Ethiopia",
+      "code": "ET",
+      "available": true
+    },
+    {
+      "name": "Fiji",
+      "code": "FJ",
+      "available": true
+    },
+    {
+      "name": "Finland",
+      "code": "FI",
+      "available": true
+    },
+    {
+      "name": "France",
+      "code": "FR",
+      "available": true
+    },
+    {
+      "name": "Gabon",
+      "code": "GA",
+      "available": true
+    },
+    {
+      "name": "Gambia",
+      "code": "GM",
+      "available": true
+    },
+    {
+      "name": "Georgia",
+      "code": "GE",
+      "available": true
+    },
+    {
+      "name": "Germany",
+      "code": "DE",
+      "available": true
+    },
+    {
+      "name": "Ghana",
+      "code": "GH",
+      "available": true
+    },
+    {
+      "name": "Gibraltar",
+      "code": "GI",
+      "available": true
+    },
+    {
+      "name": "Greece",
+      "code": "GR",
+      "available": true
+    },
+    {
+      "name": "Grenada",
+      "code": "GD",
+      "available": true
+    },
+    {
+      "name": "Guernsey",
+      "code": "GG",
+      "available": true
+    },
+    {
+      "name": "Guinea",
+      "code": "GN",
+      "available": true
+    },
+    {
+      "name": "Guinea-Bissau",
+      "code": "GW",
+      "available": true
+    },
+    {
+      "name": "Guyana",
+      "code": "GY",
+      "available": true
+    },
+    {
+      "name": "Haiti",
+      "code": "HT",
+      "available": false
+    },
+    {
+      "name": "Honduras",
+      "code": "HN",
+      "available": true
+    },
+    {
+      "name": "Hong Kong",
+      "code": "HK",
+      "available": true
+    },
+    {
+      "name": "Hungary",
+      "code": "HU",
+      "available": true
+    },
+    {
+      "name": "Iceland",
+      "code": "IS",
+      "available": true
+    },
+    {
+      "name": "India",
+      "code": "IN",
+      "available": false
+    },
+    {
+      "name": "Indonesia",
+      "code": "ID",
+      "available": true
+    },
+    {
+      "name": "Iran",
+      "code": "IR",
+      "available": false
+    },
+    {
+      "name": "Iraq",
+      "code": "IQ",
+      "available": true
+    },
+    {
+      "name": "Ireland",
+      "code": "IE",
+      "available": true
+    },
+    {
+      "name": "Isle of Man",
+      "code": "IM",
+      "available": true
+    },
+    {
+      "name": "Israel",
+      "code": "IL",
+      "available": true
+    },
+    {
+      "name": "Italy",
+      "code": "IT",
+      "available": true
+    },
+    {
+      "name": "Jamaica",
+      "code": "JM",
+      "available": true
+    },
+    {
+      "name": "Japan",
+      "code": "JP",
+      "available": true
+    },
+    {
+      "name": "Jersey",
+      "code": "JE",
+      "available": true
+    },
+    {
+      "name": "Jordan",
+      "code": "JO",
+      "available": true
+    },
+    {
+      "name": "Kazakhstan",
+      "code": "KZ",
+      "available": true
+    },
+    {
+      "name": "Kenya",
+      "code": "KE",
+      "available": false
+    },
+    {
+      "name": "Kiribati",
+      "code": "KI",
+      "available": true
+    },
+    {
+      "name": "Kosovo",
+      "code": "XK",
+      "available": true
+    },
+    {
+      "name": "Kuwait",
+      "code": "KW",
+      "available": true
+    },
+    {
+      "name": "Kyrgyzstan",
+      "code": "KG",
+      "available": true
+    },
+    {
+      "name": "Laos",
+      "code": "LA",
+      "available": false
+    },
+    {
+      "name": "Latvia",
+      "code": "LV",
+      "available": true
+    },
+    {
+      "name": "Lebanon",
+      "code": "LB",
+      "available": false
+    },
+    {
+      "name": "Lesotho",
+      "code": "LS",
+      "available": true
+    },
+    {
+      "name": "Liberia",
+      "code": "LR",
+      "available": true
+    },
+    {
+      "name": "Libya",
+      "code": "LY",
+      "available": true
+    },
+    {
+      "name": "Liechtenstein",
+      "code": "LI",
+      "available": true
+    },
+    {
+      "name": "Lithuania",
+      "code": "LT",
+      "available": true
+    },
+    {
+      "name": "Luxembourg",
+      "code": "LU",
+      "available": true
+    },
+    {
+      "name": "Macau",
+      "code": "MO",
+      "available": true
+    },
+    {
+      "name": "Madagascar",
+      "code": "MG",
+      "available": true
+    },
+    {
+      "name": "Malaysia",
+      "code": "MY",
+      "available": true
+    },
+    {
+      "name": "Maldives",
+      "code": "MV",
+      "available": true
+    },
+    {
+      "name": "Mali",
+      "code": "ML",
+      "available": true
+    },
+    {
+      "name": "Malta",
+      "code": "MT",
+      "available": true
+    },
+    {
+      "name": "Marshall Islands",
+      "code": "MH",
+      "available": true
+    },
+    {
+      "name": "Mauritania",
+      "code": "MR",
+      "available": true
+    },
+    {
+      "name": "Mauritius",
+      "code": "MU",
+      "available": true
+    },
+    {
+      "name": "Mexico",
+      "code": "MX",
+      "available": true
+    },
+    {
+      "name": "Micronesia",
+      "code": "FM",
+      "available": true
+    },
+    {
+      "name": "Moldova",
+      "code": "MD",
+      "available": true
+    },
+    {
+      "name": "Monaco",
+      "code": "MC",
+      "available": false
+    },
+    {
+      "name": "Mongolia",
+      "code": "MN",
+      "available": true
+    },
+    {
+      "name": "Montserrat",
+      "code": "MS",
+      "available": true
+    },
+    {
+      "name": "Morocco",
+      "code": "MA",
+      "available": true
+    },
+    {
+      "name": "Mozambique",
+      "code": "MZ",
+      "available": false
+    },
+    {
+      "name": "Myanmar",
+      "code": "MM",
+      "available": false
+    },
+    {
+      "name": "Namibia",
+      "code": "NA",
+      "available": false
+    },
+    {
+      "name": "Nauru",
+      "code": "NR",
+      "available": true
+    },
+    {
+      "name": "Nepal",
+      "code": "NP",
+      "available": false
+    },
+    {
+      "name": "Netherlands",
+      "code": "NL",
+      "available": true
+    },
+    {
+      "name": "New Zealand",
+      "code": "NZ",
+      "available": true
+    },
+    {
+      "name": "Nicaragua",
+      "code": "NI",
+      "available": true
+    },
+    {
+      "name": "Nigeria",
+      "code": "NG",
+      "available": false
+    },
+    {
+      "name": "Niue",
+      "code": "NU",
+      "available": true
+    },
+    {
+      "name": "North Korea",
+      "code": "KP",
+      "available": false
+    },
+    {
+      "name": "North Macedonia",
+      "code": "MK",
+      "available": true
+    },
+    {
+      "name": "Norway",
+      "code": "NO",
+      "available": true
+    },
+    {
+      "name": "Oman",
+      "code": "OM",
+      "available": true
+    },
+    {
+      "name": "Pakistan",
+      "code": "PK",
+      "available": true
+    },
+    {
+      "name": "Palau",
+      "code": "PW",
+      "available": true
+    },
+    {
+      "name": "Panama",
+      "code": "PA",
+      "available": true
+    },
+    {
+      "name": "Papua New Guinea",
+      "code": "PG",
+      "available": true
+    },
+    {
+      "name": "Paraguay",
+      "code": "PY",
+      "available": true
+    },
+    {
+      "name": "Peru",
+      "code": "PE",
+      "available": true
+    },
+    {
+      "name": "Philippines",
+      "code": "PH",
+      "available": true
+    },
+    {
+      "name": "Poland",
+      "code": "PL",
+      "available": true
+    },
+    {
+      "name": "Portugal",
+      "code": "PT",
+      "available": true
+    },
+    {
+      "name": "Puerto Rico",
+      "code": "PR",
+      "available": true
+    },
+    {
+      "name": "Qatar",
+      "code": "QA",
+      "available": true
+    },
+    {
+      "name": "Romania",
+      "code": "RO",
+      "available": true
+    },
+    {
+      "name": "Russia",
+      "code": "RU",
+      "available": false
+    },
+    {
+      "name": "Rwanda",
+      "code": "RW",
+      "available": true
+    },
+    {
+      "name": "Saint Kitts & Nevis",
+      "code": "KN",
+      "available": true
+    },
+    {
+      "name": "Saint Lucia",
+      "code": "LC",
+      "available": true
+    },
+    {
+      "name": "Saint Vincent & Grenadines",
+      "code": "VC",
+      "available": true
+    },
+    {
+      "name": "San Marino",
+      "code": "SM",
+      "available": true
+    },
+    {
+      "name": "São Tomé & Príncipe",
+      "code": "ST",
+      "available": true
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "SA",
+      "available": true
+    },
+    {
+      "name": "Senegal",
+      "code": "SN",
+      "available": true
+    },
+    {
+      "name": "Serbia",
+      "code": "RS",
+      "available": true
+    },
+    {
+      "name": "Seychelles",
+      "code": "SC",
+      "available": true
+    },
+    {
+      "name": "Sierra Leone",
+      "code": "SL",
+      "available": true
+    },
+    {
+      "name": "Singapore",
+      "code": "SG",
+      "available": true
+    },
+    {
+      "name": "Slovakia",
+      "code": "SK",
+      "available": true
+    },
+    {
+      "name": "Slovenia",
+      "code": "SI",
+      "available": true
+    },
+    {
+      "name": "Solomon Islands",
+      "code": "SB",
+      "available": true
+    },
+    {
+      "name": "Somalia",
+      "code": "SO",
+      "available": true
+    },
+    {
+      "name": "South Africa",
+      "code": "ZA",
+      "available": false
+    },
+    {
+      "name": "South Korea",
+      "code": "KR",
+      "available": true
+    },
+    {
+      "name": "South Sudan",
+      "code": "SS",
+      "available": false
+    },
+    {
+      "name": "Spain",
+      "code": "ES",
+      "available": true
+    },
+    {
+      "name": "Sri Lanka",
+      "code": "LK",
+      "available": true
+    },
+    {
+      "name": "Sudan",
+      "code": "SD",
+      "available": true
+    },
+    {
+      "name": "Suriname",
+      "code": "SR",
+      "available": true
+    },
+    {
+      "name": "Sweden",
+      "code": "SE",
+      "available": true
+    },
+    {
+      "name": "Switzerland",
+      "code": "CH",
+      "available": true
+    },
+    {
+      "name": "Syria",
+      "code": "SY",
+      "available": false
+    },
+    {
+      "name": "Taiwan",
+      "code": "TW",
+      "available": true
+    },
+    {
+      "name": "Tajikistan",
+      "code": "TJ",
+      "available": true
+    },
+    {
+      "name": "Tanzania",
+      "code": "TZ",
+      "available": true
+    },
+    {
+      "name": "Thailand",
+      "code": "TH",
+      "available": true
+    },
+    {
+      "name": "Timor-Leste",
+      "code": "TL",
+      "available": true
+    },
+    {
+      "name": "Togo",
+      "code": "TG",
+      "available": true
+    },
+    {
+      "name": "Tonga",
+      "code": "TO",
+      "available": true
+    },
+    {
+      "name": "Trinidad & Tobago",
+      "code": "TT",
+      "available": true
+    },
+    {
+      "name": "Tunisia",
+      "code": "TN",
+      "available": true
+    },
+    {
+      "name": "Turkey",
+      "code": "TR",
+      "available": true
+    },
+    {
+      "name": "Turkmenistan",
+      "code": "TM",
+      "available": true
+    },
+    {
+      "name": "Turks & Caicos",
+      "code": "TC",
+      "available": true
+    },
+    {
+      "name": "Tuvalu",
+      "code": "TV",
+      "available": true
+    },
+    {
+      "name": "Uganda",
+      "code": "UG",
+      "available": true
+    },
+    {
+      "name": "Ukraine",
+      "code": "UA",
+      "available": true
+    },
+    {
+      "name": "United Arab Emirates",
+      "code": "AE",
+      "available": true
+    },
+    {
+      "name": "United Kingdom",
+      "code": "GB",
+      "available": true
+    },
+    {
+      "name": "United States",
+      "code": "US",
+      "available": true
+    },
+    {
+      "name": "Uruguay",
+      "code": "UY",
+      "available": true
+    },
+    {
+      "name": "Uzbekistan",
+      "code": "UZ",
+      "available": true
+    },
+    {
+      "name": "Vanuatu",
+      "code": "VU",
+      "available": true
+    },
+    {
+      "name": "Vatican City",
+      "code": "VA",
+      "available": true
+    },
+    {
+      "name": "Venezuela",
+      "code": "VE",
+      "available": false
+    },
+    {
+      "name": "Vietnam",
+      "code": "VN",
+      "available": false
+    },
+    {
+      "name": "Yemen",
+      "code": "YE",
+      "available": false
+    },
+    {
+      "name": "Zambia",
+      "code": "ZM",
+      "available": true
+    },
+    {
+      "name": "Zimbabwe",
+      "code": "ZW",
+      "available": true
+    }
+  ]
+}

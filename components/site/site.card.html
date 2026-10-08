@@ -1,0 +1,66 @@
+<!-- @dsCard group="Components" viewport="1200x900" name="Marketing site components" subtitle="Nav, section heads, rails, plans, tables, bands, footer" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Site</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>*{box-sizing:border-box;margin:0}body{background:var(--bg-base);color:var(--text-hi);font-family:var(--font-body);padding:20px}a{color:var(--accent-solid)}a:hover{color:var(--accent-to)}.lbl{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-low);display:block;margin-bottom:9px}body{padding:0}.pad{padding:24px}.lbl{padding-left:0}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { SiteNav, SiteFooter, SectionHead, FeaturePoint, CapabilityRail, PlanCard, PostCard, DataTable, TierRow, CountryRow, FaqItem, RewardBand, NewsletterBand, LogoWall, AccentText } = window.ThorwalletBrandDesignWebsite_258ce2;
+function Demo(){return(<div>
+  <SiteNav active="Card"/>
+  <div className="pad">
+    <span className="lbl">SectionHead</span>
+    <SectionHead eyebrow="Cross-chain swaps" title={<>Swap across <AccentText outline>every chain.</AccentText></>} lead="One tap, best rate, no bridges or wrapped tokens." size="h2"/>
+    <span className="lbl" style={{marginTop:28}}>FeaturePoint</span>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14}}>
+      <FeaturePoint number="01" title="No bridges">Real native settlement across every major chain.</FeaturePoint>
+      <FeaturePoint number="02" title="Best-rate routing">Aggregated liquidity finds the best path automatically.</FeaturePoint>
+    </div>
+    <span className="lbl" style={{marginTop:28}}>CapabilityRail</span>
+    <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:1,background:'var(--hairline)',border:'1px solid var(--hairline)',borderRadius:'var(--r-lg)',overflow:'hidden'}}>
+      <CapabilityRail number="01" name="Native cross-chain" desc="No bridges, no wrapped assets." factKey="Volume" factValue="$2.5B+"/>
+      <CapabilityRail number="02" name="20,000+ tokens" desc="Every major chain, one balance." factKey="Chains" factValue="12"/>
+      <CapabilityRail number="03" name="Swiss IBAN" desc="Spend crypto with a global Mastercard." factKey="Countries" factValue="175+"/>
+    </div>
+    <span className="lbl" style={{marginTop:28}}>PlanCard</span>
+    <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20,alignItems:'start'}}>
+      <PlanCard name="Basic" price="$0" art="../../assets/cards/card-basic.png" benefits={['Virtual card','2% FX','Apple & Google Pay']} cta="Get started"/>
+      <PlanCard name="Swiss" price="$129" per="once" art="../../assets/cards/card-swiss.png" ribbon="Most popular" featured benefits={['Swiss IBAN in your name','0.5% FX','Priority support']}/>
+      <PlanCard name="Gold" price="$499" per="once" art="../../assets/cards/c-gold.png" benefits={['Metal card','0% FX','Concierge']} cta="Join the list"/>
+    </div>
+    <span className="lbl" style={{marginTop:28}}>DataTable — compare / rate</span>
+    <div style={{display:'grid',gridTemplateColumns:'1.4fr 1fr',gap:20}}>
+      <DataTable head={['','THORWallet','MetaMask']} rows={[['Native cross-chain',{value:'Yes',win:true},'Bridges only'],['Chains supported',{value:'12',win:true},'EVM only'],['Card & IBAN',{value:'Included',win:true},'—']]}/>
+      <DataTable variant="rate" head={['Spend','Fee']} rows={[['EUR / CHF','0%'],['Other FX','0.5%'],['ATM','1.5%']]}/>
+    </div>
+    <span className="lbl" style={{marginTop:28}}>TierRow · CountryRow</span>
+    <div style={{display:'grid',gridTemplateColumns:'1.3fr 1fr',gap:20}}>
+      <div style={{border:'1px solid var(--hairline)',borderRadius:'var(--r-lg)',overflow:'hidden',background:'var(--surface)'}}>
+        <TierRow head tier="Tier" stake="$TITN staked" fee="Swap fee"/>
+        <TierRow tier="Silver" stake="25,000" fee="0.25%"/>
+        <TierRow tier="Gold" stake="250,000" fee="0.10%" you/>
+      </div>
+      <ul style={{border:'1px solid var(--hairline)',borderRadius:'var(--r-lg)',overflow:'hidden',background:'var(--surface)',margin:0,padding:0}}>
+        <CountryRow flag="🇨🇭" name="Switzerland"/>
+        <CountryRow flag="🇩🇪" name="Germany"/>
+        <CountryRow flag="🇺🇸" name="United States" supported={false} last/>
+      </ul>
+    </div>
+    <span className="lbl" style={{marginTop:28}}>PostCard · FaqItem</span>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1.2fr',gap:20}}>
+      <PostCard date="12 Aug 2026" title="Native swaps, explained"/>
+      <PostCard date="04 Aug 2026" title="The Swiss account is live in 175 countries"/>
+      <div><FaqItem question="Do you hold my keys?">No. Keys are generated and stored on your device.</FaqItem><FaqItem question="Which chains?">Bitcoin, Ethereum, Solana, Cosmos and more.</FaqItem></div>
+    </div>
+    <span className="lbl" style={{marginTop:28}}>RewardBand</span>
+    <RewardBand title="Spin. Win. Repeat." lead="A free spin every day you swap." art="../../assets/reward/spin-wheel.png" pillValue="$40,000" pillLabel="in monthly raffles"/>
+    <span className="lbl" style={{marginTop:28}}>NewsletterBand</span>
+    <NewsletterBand title="Ship notes, once a month." lead="Releases, chains, card news. No noise."/>
+    <span className="lbl" style={{marginTop:28}}>LogoWall</span>
+    <LogoWall logos={[{src:'../../assets/press/pegasus.png',height:62},{src:'../../assets/press/venture-leaders.png',height:52},{src:'../../assets/press/cva.png',height:46},{src:'../../assets/press/cointelegraph-accelerator.png',height:30}]}/>
+  </div>
+  <SiteFooter logo="../../assets/logos/thorwallet-logo-white.png"/>
+</div>)}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

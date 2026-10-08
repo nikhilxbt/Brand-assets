@@ -1,0 +1,83 @@
+/* THORWallet color system.
+   Canvas is deep navy. Primary action is royal blue. The cyan→green
+   "Signal" gradient is the brand light source: mark, accents, highlights.
+   Values lifted verbatim from Thorwallet Site/site.css and Thorwallet Brand/styles.css. */
+:root{
+  /* ---- Canvas / surfaces (dark, the default) ---- */
+  --bg-base:#0A1A2B;
+  --bg-elev-1:#0E2233;
+  --surface:#142A40;
+  --surface-2:#1A3450;
+  --panel:#112338;          /* brand-book feature panel */
+  --deck-panel:#0F2438;     /* slide panel */
+  --deck-panel-2:#12293E;
+
+  /* ---- Signal: the cyan → green brand gradient ---- */
+  --accent-from:#00CCFF;
+  --accent-to:#33FF99;
+  --accent-solid:#1FD9A6;
+  --accent-glow:rgba(31,217,166,0.35);
+  --signal:linear-gradient(120deg,#00CCFF 0%,#19DAC8 52%,#33FF99 100%); /* @kind color */
+  --signal-135:linear-gradient(135deg,#00CCFF 0%,#33FF99 100%); /* @kind color */
+  --signal-text:var(--signal); /* @kind color */
+  --brand-grad:linear-gradient(120deg,#2A6BF2 0%,#1FB0D8 55%,#33FF99 100%); /* @kind color */
+
+  /* ---- Primary action: royal blue ---- */
+  --blue:#2A6BF2;
+  --blue-bright:#3D80FF;
+  --blue-deep:#1D3FB0;
+
+  /* ---- Text / ink ---- */
+  --text-hi:#FFFFFF;
+  --text-mid:#C5D2DE;
+  --text-low:#8A9DB0;
+  --text-faint:#5F7286;
+  --on-accent:#06241B;      /* ink on the signal gradient */
+
+  /* ---- Hairlines ---- */
+  --hairline:rgba(255,255,255,0.08);
+  --hairline-strong:rgba(255,255,255,0.15);
+  --accent-line:rgba(0,204,255,0.30);
+
+  /* ---- Semantic ---- */
+  --success:#33E0A0;
+  --warning:#E7A23C;
+  --danger:#E2603F;
+  --danger-deep:#C94B30;
+  --info:#57A4FF;
+  --gold:#D4AF37;
+
+  /* ---- Card-tier art gradients (crypto card plans) ---- */
+  --card-basic-from:#F0531F;   --card-basic-to:#B0186A;    /* sunrise magenta */
+  --card-premium-from:#14534A; --card-premium-to:#0A2A24;  /* pine teal */
+  --card-swiss-from:#3B82F6;   --card-swiss-to:#1D3FB0;    /* electric blue */
+
+  /* ---- Chain / token accents ---- */
+  --chain-btc:#F7931A;
+  --chain-eth:#627EEA;
+  --chain-sol:#9945FF;
+  --chain-bnb:#F3BA2F;
+  --chain-atom:#2E3148;
+  --chain-arb:#44AEF4;
+  --chain-op:#FB2E45;
+}
+
+/* Light theme — opt in with [data-theme="light"] on <html>.
+   Apple-clean: white canvas, navy ink, accents deepened for contrast. */
+[data-theme="light"]{
+  --bg-base:#FFFFFF;
+  --bg-elev-1:#F4F7FB;
+  --surface:#F2F6FB;
+  --surface-2:#E7EEF6;
+  --accent-solid:#0C9E73;
+  --accent-glow:rgba(12,158,115,0.20);
+  --signal-text:linear-gradient(120deg,#0094C6 0%,#07A07C 52%,#12B257 100%); /* @kind color */
+  --text-hi:#0A1A2B;
+  --text-mid:#3A5168;
+  --text-low:#6A8198;
+  --hairline:rgba(10,26,43,0.10);
+  --hairline-strong:rgba(10,26,43,0.16);
+  --accent-line:rgba(0,150,200,0.45);
+  --shadow-ambient:0 18px 48px -28px rgba(20,45,75,0.30);
+  --shadow-glow:0 0 60px -30px var(--accent-glow);
+}

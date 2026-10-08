@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MINE — 172 Countries (build)</title>
+<style>
+  @font-face{ font-family:"OT Sono"; src:url("../../Thorwallet Brand/fonts/OT-Sono-Regular.otf") format("opentype"); font-weight:400; font-display:swap; }
+  @font-face{ font-family:"OT Sono"; src:url("../../Thorwallet Brand/fonts/OT-Sono-Medium.otf") format("opentype"); font-weight:500; font-display:swap; }
+  @font-face{ font-family:"OT Sono"; src:url("../../Thorwallet Brand/fonts/OT-Sono-SemiBold.otf") format("opentype"); font-weight:600; font-display:swap; }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:#1a1d22; }
+  :root{
+    --ink:#0E1F2A;
+    --ink-soft:#5F7286;
+    --ink-mute:#8294A1;
+    --g-green:#89BAA4;
+    --g-gold:#F0C28A;
+    --g-coral:#E8906C;
+  }
+  .frame{
+    position:relative; width:1600px; height:900px; overflow:hidden;
+    font-family:"OT Sono",-apple-system,"Helvetica Neue",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 700px at 88% 4%, rgba(137,186,164,0.22), transparent 60%),
+      radial-gradient(900px 600px at 6% 96%, rgba(240,194,138,0.10), transparent 60%),
+      linear-gradient(135deg,#FAF6F2 0%, #F2ECE6 48%, #EAF0EC 100%);
+  }
+  /* faint globe */
+  .globe{ position:absolute; top:-180px; left:50%; transform:translateX(-50%); width:980px; height:980px; opacity:0.5; pointer-events:none; }
+  .globe svg{ width:100%; height:100%; }
+
+  .inner{ position:relative; z-index:2; height:100%; display:flex; flex-direction:column;
+          align-items:center; padding:50px 48px 50px; }
+
+  .wordmark{ height:46px; width:auto; }
+  .eyebrow{ margin-top:22px; font-weight:500; font-size:13px; letter-spacing:0.26em;
+            text-transform:uppercase; color:var(--ink-soft); }
+
+  .num{ margin-top:2px; font-weight:600; font-size:130px; line-height:1; letter-spacing:-0.02em;
+        background:linear-gradient(95deg,var(--g-green) 8%, var(--g-gold) 50%, var(--g-coral) 92%);
+        -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .word-countries{ margin-top:-2px; font-weight:600; font-size:38px; letter-spacing:0.16em;
+                   text-transform:uppercase; color:var(--ink); }
+
+  /* tagline — treatment A: hero line + muted subline */
+  .tagline{ margin-top:18px; text-align:center; }
+  .tag-hero{ font-weight:500; font-size:24px; letter-spacing:-0.01em; color:var(--ink); }
+  .tag-sub{ margin-top:7px; font-weight:400; font-size:16px; letter-spacing:0.01em; color:var(--ink-mute); }
+
+  .divider{ margin-top:18px; width:210px; height:4px; border-radius:999px;
+            background:linear-gradient(95deg,var(--g-green),var(--g-gold),var(--g-coral)); }
+
+  .grid{ margin-top:26px; width:100%; height:430px; display:grid;
+         grid-template-columns:repeat(7,1fr); grid-template-rows:repeat(25,1fr);
+         grid-auto-flow:column; column-gap:14px; }
+  .row{ display:flex; align-items:center; gap:7px; min-width:0; }
+  .row .flag{ flex:0 0 18px; width:18px; overflow:hidden; font-size:15px; line-height:1; text-align:left;
+              font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif; }
+  .row .name{ flex:1 1 auto; font-size:12.5px; font-weight:400; color:#26323B; letter-spacing:-0.01em;
+              white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+</style>
+</head>
+<body>
+  <div class="frame" id="frame">
+    <div class="globe">
+      <svg viewBox="0 0 980 980" fill="none">
+        <g stroke="#0E1F2A" stroke-width="1" opacity="0.10">
+          <circle cx="490" cy="490" r="430"/>
+          <ellipse cx="490" cy="490" rx="430" ry="160"/>
+          <ellipse cx="490" cy="490" rx="430" ry="300"/>
+          <ellipse cx="490" cy="490" rx="160" ry="430"/>
+          <ellipse cx="490" cy="490" rx="300" ry="430"/>
+          <line x1="60" y1="490" x2="920" y2="490"/>
+          <line x1="490" y1="60" x2="490" y2="920"/>
+        </g>
+      </svg>
+    </div>
+    <div class="inner">
+      <img class="wordmark" src="personal/assets/mine-wordmark-ink.svg" alt="MINE" />
+      <div class="eyebrow">The MINE card is available in</div>
+      <div class="num">172</div>
+      <div class="word-countries">Countries</div>
+      <div class="tagline">
+        <div class="tag-hero">Money without borders, politics, or banks.</div>
+        <div class="tag-sub">Your money, fully in your control.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+
+  <script>
+    var LIST = [["Afghanistan","AF"],["Albania","AL"],["Andorra","AD"],["Anguilla","AI"],["Antigua & Barbuda","AG"],["Argentina","AR"],["Armenia","AM"],["Aruba","AW"],["Australia","AU"],["Austria","AT"],["Azerbaijan","AZ"],["Bahamas","BS"],["Bahrain","BH"],["Bangladesh","BD"],["Barbados","BB"],["Belgium","BE"],["Belize","BZ"],["Benin","BJ"],["Bermuda","BM"],["Bosnia & Herz.","BA"],["Botswana","BW"],["Brunei","BN"],["Burundi","BI"],["Cambodia","KH"],["Canada","CA"],["Cayman Islands","KY"],["Central African Republic","CF"],["Chad","TD"],["Chile","CL"],["Colombia","CO"],["Comoros","KM"],["Congo, Republic of","CG"],["Costa Rica","CR"],["Croatia","HR"],["Cuba","CU"],["Curacao","CW"],["Cyprus","CY"],["Czech Republic","CZ"],["Denmark","DK"],["Djibouti","DJ"],["Dominica","DM"],["Dominican Republic","DO"],["Ecuador","EC"],["Egypt","EG"],["El Salvador","SV"],["Equatorial Guinea","GQ"],["Eritrea","ER"],["Estonia","EE"],["Eswatini (Swaziland)","SZ"],["Ethiopia","ET"],["Fiji","FJ"],["Finland","FI"],["France","FR"],["Gabon","GA"],["Gambia","GM"],["Georgia","GE"],["Germany","DE"],["Ghana","GH"],["Gibraltar","GI"],["Greece","GR"],["Grenada","GD"],["Guernsey","GG"],["Guinea","GN"],["Guinea-Bissau","GW"],["Guyana","GY"],["Honduras","HN"],["Hong Kong","HK"],["Hungary","HU"],["Iceland","IS"],["India","IN"],["Indonesia","ID"],["Iraq","IQ"],["Ireland","IE"],["Isle of Man","IM"],["Israel","IL"],["Italy","IT"],["Jamaica","JM"],["Japan","JP"],["Jersey","JE"],["Jordan","JO"],["Kazakhstan","KZ"],["Kiribati","KI"],["Kosovo","XK"],["Kuwait","KW"],["Kyrgyzstan","KG"],["Latvia","LV"],["Lesotho","LS"],["Liberia","LR"],["Libya","LY"],["Liechtenstein","LI"],["Lithuania","LT"],["Luxembourg","LU"],["Macao","MO"],["Madagascar","MG"],["Malaysia","MY"],["Maldives","MV"],["Mali","ML"],["Malta","MT"],["Marshall Islands","MH"],["Mauritania","MR"],["Mauritius","MU"],["Mexico","MX"],["Micronesia","FM"],["Moldova","MD"],["Mongolia","MN"],["Montserrat","MS"],["Morocco","MA"],["Nauru","NR"],["Netherlands","NL"],["New Zealand","NZ"],["Nicaragua","NI"],["Niue","NU"],["North Macedonia","MK"],["Norway","NO"],["Pakistan","PK"],["Palau","PW"],["Panama","PA"],["Papua New Guinea","PG"],["Paraguay","PY"],["Peru","PE"],["Philippines","PH"],["Poland","PL"],["Portugal","PT"],["Puerto Rico","PR"],["Qatar","QA"],["Romania","RO"],["Rwanda","RW"],["Saint Kitts and Nevis","KN"],["Saint Lucia","LC"],["Saint Vincent & Grenadines","VC"],["San Marino","SM"],["Sao Tome and Principe","ST"],["Saudi Arabia","SA"],["Senegal","SN"],["Serbia","RS"],["Seychelles","SC"],["Sierra Leone","SL"],["Singapore","SG"],["Slovakia","SK"],["Slovenia","SI"],["Solomon Islands","SB"],["Somalia","SO"],["Spain","ES"],["Sri Lanka","LK"],["Sudan","SD"],["Suriname","SR"],["Sweden","SE"],["Switzerland","CH"],["Taiwan","TW"],["Tajikistan","TJ"],["Tanzania","TZ"],["Thailand","TH"],["Timor-Leste","TL"],["Togo","TG"],["Tonga","TO"],["Trinidad and Tobago","TT"],["Tunisia","TN"],["Turkey","TR"],["Turkmenistan","TM"],["Turks & Caicos Islands","TC"],["Tuvalu","TV"],["Uganda","UG"],["Ukraine","UA"],["UAE","AE"],["United Kingdom","GB"],["United States","US"],["Uruguay","UY"],["Uzbekistan","UZ"],["Vanuatu","VU"],["Vatican City","VA"],["Zambia","ZM"],["Zimbabwe","ZW"]];
+    function flag(cc){ return cc.toUpperCase().replace(/./g,function(ch){ return String.fromCodePoint(127397+ch.charCodeAt(0)); }); }
+    var html = LIST.map(function(c){
+      return '<div class="row"><span class="flag">'+flag(c[1])+'</span><span class="name">'+c[0]+'</span></div>';
+    }).join('');
+    document.getElementById('grid').innerHTML = html;
+  </script>
+</body>
+</html>

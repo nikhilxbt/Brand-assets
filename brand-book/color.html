@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Color — Thorwallet</title>
+<meta name="ext-resource-dependency" content="assets/thorwallet-logo.png" data-resource-id="twLogo" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 900px) { .palette { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .palette { grid-template-columns: 1fr; } }
+  .swatch.lg .chip { height: 200px; }
+  .swatch .chip-inner { padding: 16px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+  .swatch .chip-inner .name-on { font-family: var(--font-whyte); font-weight: 500; font-size: 18px; letter-spacing: -0.01em; }
+  .swatch .chip-inner .pct { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+
+  .gradient-hero {
+    height: 240px;
+    border-radius: var(--r-lg);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 32px;
+  }
+  .gradient-hero.signal { background: linear-gradient(120deg, #00CCFF 0%, #19DAC8 50%, #33FF99 100%); }
+  .gradient-hero.brand { background: var(--brand-grad); }
+  .gradient-hero .label {
+    color: #06222B; font-family: var(--font-sono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; display: flex; gap: 32px; font-weight: 600;
+  }
+  .gradient-stops { display: grid; gap: 0; margin-top: 16px; border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+  .gradient-stops.s2 { grid-template-columns: repeat(2, 1fr); }
+  .gradient-stops .stop { padding: 16px; border-right: 1px solid rgba(255,255,255,0.25); }
+  .gradient-stops .stop:last-child { border-right: 0; }
+  .gradient-stops .stop .pos { font-family: var(--font-sono); font-size: 10px; letter-spacing: 0.16em; opacity: 0.75; }
+  .gradient-stops .stop .hex { font-family: var(--font-sono); font-size: 12px; font-weight: 600; margin-top: 4px; }
+
+  .accent-rules { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .accent-rules { grid-template-columns: 1fr; } }
+  .accent-cell { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; }
+  .accent-cell .pct { font-family: var(--font-whyte); font-weight: 500; font-size: 56px; letter-spacing: -0.03em; line-height: 1; margin: 0 0 8px; color: var(--ink); }
+  .accent-cell .name { font-family: var(--font-sono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mute); }
+  .accent-cell p { font-family: var(--font-sono); font-size: 13px; color: var(--ink-soft); margin: 12px 0 0; }
+
+  /* tier card chips */
+  .cards-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .cards-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .cards-row { grid-template-columns: 1fr; } }
+  .tier-card { border-radius: var(--r-md); border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
+  .tier-card .face { aspect-ratio: 1.586; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 14px; }
+  .tier-card .face .wm { position: absolute; right: -8%; top: 50%; transform: translateY(-50%); width: 58%; opacity: 0.18; }
+  .tier-card .face .tag { font-family: var(--font-display); font-weight: 600; font-size: 13px; color: #fff; position: relative; z-index: 1; }
+  .tier-card .face.basic { background: linear-gradient(160deg, #F0531F 0%, #D81E63 55%, #B0186A 100%); }
+  .tier-card .face.premium { background: linear-gradient(160deg, #14534A 0%, #0F3B36 100%); }
+  .tier-card .face.swiss { background: linear-gradient(160deg, #1B6F66 0%, #0E312C 100%); }
+  .tier-card .face.gold { background: linear-gradient(160deg, #E8B84B 0%, #B07F1E 100%); }
+  .tier-card .meta { padding: 12px 16px; display: grid; gap: 4px; }
+  .tier-card .meta .name { font-family: var(--font-whyte); font-weight: 500; font-size: 14px; color: var(--ink); }
+  .tier-card .meta .codes { font-family: var(--font-sono); font-size: 11px; color: var(--ink-soft); }
+
+  .a11y-table { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--surface); }
+  .a11y-row {
+    display: grid; grid-template-columns: 80px 1fr 1fr 80px 100px;
+    align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--line);
+    font-family: var(--font-sono); font-size: 12px; color: var(--ink-2);
+  }
+  .a11y-row:last-child { border-bottom: 0; }
+  .a11y-row.head { background: var(--surface-2); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; color: var(--ink-soft); }
+  .a11y-pass { color: var(--success); font-weight: 500; }
+  .a11y-fail { color: var(--coral); font-weight: 500; }
+  .pair-preview { border-radius: 6px; padding: 10px 14px; font-family: var(--font-whyte); font-weight: 500; font-size: 14px; width: max-content; }
+</style>
+</head>
+<body>
+<header data-brand-nav data-section="03 · Color"></header>
+
+<main class="page">
+  <header class="page-header">
+    <div class="meta"><span>03 · Color Palette</span><span>New Brand Guidelines · v0.2</span></div>
+    <div class="title">
+      <div class="eyebrow">Color</div>
+      <h1 class="display-1">Navy, blue<br/>&amp; a signal.</h1>
+      <p class="lead">A deep navy surface system carries the product. <strong>Royal blue</strong> is the single primary — every key action. <strong>Mint green</strong> marks positive value and highlights. The cyan→green <strong>signal</strong> lives in the logo and small accents. The marketing site ships <strong>dark by default with an opt-in light theme</strong> (see 03.2).</p>
+    </div>
+  </header>
+
+  <!-- Surfaces -->
+  <section class="section" data-screen-label="Surfaces">
+    <div class="section-head">
+      <div class="num">03.1 — Surfaces</div>
+      <div class="head-text">
+        <h2>The everyday palette.</h2>
+        <p>The colors of the app and most of the manual: a deep navy surface scale and white ink. They carry 90% of the brand.</p>
+      </div>
+    </div>
+    <div class="palette">
+      <div class="swatch lg">
+        <div class="chip" style="background:#0A1A2B"><div class="chip-inner"><span class="pct" style="color:var(--ink-soft);">Page background</span><span class="name-on" style="color:var(--ink);">Abyss</span></div></div>
+        <div class="meta"><div class="name">Abyss</div><div class="codes">HEX #0A1A2B · RGB 10 26 43 · darkest surface</div></div>
+      </div>
+      <div class="swatch lg">
+        <div class="chip" style="background:#16273D"><div class="chip-inner"><span class="pct" style="color:var(--ink-soft);">Card surface</span><span class="name-on" style="color:var(--ink);">Slate</span></div></div>
+        <div class="meta"><div class="name">Slate</div><div class="codes">HEX #16273D · RGB 22 39 61 · cards &amp; panels</div></div>
+      </div>
+      <div class="swatch lg">
+        <div class="chip" style="background:#1E3450"><div class="chip-inner"><span class="pct" style="color:var(--ink-soft);">Elevated</span><span class="name-on" style="color:var(--ink);">Harbor</span></div></div>
+        <div class="meta"><div class="name">Harbor</div><div class="codes">HEX #1E3450 · RGB 30 52 80 · hover, segments, headers</div></div>
+      </div>
+      <div class="swatch lg">
+        <div class="chip" style="background:#FFFFFF"><div class="chip-inner"><span class="pct" style="color:#5F7286;">Primary ink</span><span class="name-on" style="color:#0A1A2B;">White</span></div></div>
+        <div class="meta"><div class="name">White</div><div class="codes">HEX #FFFFFF · all primary text &amp; balances</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Light theme -->
+  <section class="section" data-screen-label="Light theme">
+    <div class="section-head">
+      <div class="num">03.2 — Light theme</div>
+      <div class="head-text">
+        <h2>One brand, two modes.</h2>
+        <p>The website is <strong>dark by default</strong> with an opt-in light theme, toggled from the nav and remembered across visits (applied before first paint, so there is no flash). Light is Apple-clean: white canvas, navy ink, a deepened accent and a darker signal-text gradient that stay readable, and monochrome logos flipped to black. Dark remains the primary brand surface.</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="swatch">
+        <div class="chip" style="height:150px;background:#0A1A2B;"><div class="chip-inner"><span class="pct" style="color:#5F7286;">Dark · default</span><span class="name-on" style="color:#fff;font-family:var(--font-display);font-weight:600;">Swap across <span style="color:transparent;-webkit-text-stroke:1.4px #00CCFF;">every chain.</span></span></div></div>
+        <div class="meta"><div class="name">Navy canvas · white ink</div><div class="codes">Keyword = cyan outline · accent #33E0A0</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="height:150px;background:#FFFFFF;"><div class="chip-inner"><span class="pct" style="color:#6A8198;">Light · opt-in</span><span class="name-on" style="color:#0A1A2B;font-family:var(--font-display);font-weight:600;">Swap across <span style="color:transparent;-webkit-text-stroke:1.4px #0094C6;">every chain.</span></span></div></div>
+        <div class="meta"><div class="name">White canvas · navy ink</div><div class="codes">Keyword = deep-cyan outline · accent #0C9E73</div></div>
+      </div>
+    </div>
+    <div class="a11y-table" style="margin-top:16px;">
+      <div class="a11y-row head" style="grid-template-columns:1fr 1fr 1fr;">
+        <div>Token</div><div>Dark (default)</div><div>Light</div>
+      </div>
+      <div class="a11y-row" style="grid-template-columns:1fr 1fr 1fr;"><div>Canvas</div><div>#0A1A2B</div><div>#FFFFFF</div></div>
+      <div class="a11y-row" style="grid-template-columns:1fr 1fr 1fr;"><div>Surface</div><div>#16273D</div><div>#F2F6FB</div></div>
+      <div class="a11y-row" style="grid-template-columns:1fr 1fr 1fr;"><div>Ink — primary</div><div>#FFFFFF</div><div>#0A1A2B</div></div>
+      <div class="a11y-row" style="grid-template-columns:1fr 1fr 1fr;"><div>Ink — secondary</div><div>#C5D2DE</div><div>#3A5168</div></div>
+      <div class="a11y-row" style="grid-template-columns:1fr 1fr 1fr;"><div>Hairline</div><div>white @ 8%</div><div>navy @ 10%</div></div>
+      <div class="a11y-row" style="grid-template-columns:1fr 1fr 1fr;"><div>Accent (text/outline)</div><div>#33E0A0</div><div>#0C9E73</div></div>
+      <div class="a11y-row" style="grid-template-columns:1fr 1fr 1fr;"><div>Signal-text gradient</div><div>#00CCFF→#33FF99</div><div>#0094C6→#12B257</div></div>
+      <div class="a11y-row" style="grid-template-columns:1fr 1fr 1fr;"><div>Mono logos</div><div>white</div><div>black</div></div>
+    </div>
+    <p class="body" style="margin-top:14px;color:var(--ink-soft);">Royal blue (#2A6BF2) and the card-art colorways are <strong>shared</strong> across both modes — only surfaces, ink, hairlines and the accent/signal-text shift. The bright signal gradient is kept for fills (buttons, bars); only gradient <em>text</em> deepens in light mode so it stays legible on white.</p>
+  </section>
+
+  <!-- Primary + accent -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">03.3 — Primary &amp; Accent</div>
+      <div class="head-text">
+        <h2>Blue acts. Green confirms.</h2>
+        <p>Royal blue is the one primary — buttons, the Trade FAB, active tabs, links. Mint green is reserved for positive values, success, and the occasional highlight. Never use green as a button fill.</p>
+      </div>
+    </div>
+    <div class="palette">
+      <div class="swatch lg">
+        <div class="chip" style="background:#2A6BF2"><div class="chip-inner"><span class="pct" style="color:rgba(255,255,255,0.8);">Primary action</span><span class="name-on" style="color:#fff;">Royal Blue</span></div></div>
+        <div class="meta"><div class="name">Royal Blue</div><div class="codes">HEX #2A6BF2 · RGB 42 107 242 · primary CTA, links, FAB</div></div>
+      </div>
+      <div class="swatch lg">
+        <div class="chip" style="background:#3D80FF"><div class="chip-inner"><span class="pct" style="color:rgba(255,255,255,0.85);">Hover / bright</span><span class="name-on" style="color:#fff;">Bright Blue</span></div></div>
+        <div class="meta"><div class="name">Bright Blue</div><div class="codes">HEX #3D80FF · RGB 61 128 255 · hover, focus</div></div>
+      </div>
+      <div class="swatch lg">
+        <div class="chip" style="background:#33E0A0"><div class="chip-inner"><span class="pct" style="color:#06342a;">Positive / accent</span><span class="name-on" style="color:#06342a;">Mint Green</span></div></div>
+        <div class="meta"><div class="name">Mint Green</div><div class="codes">HEX #33E0A0 · RGB 51 224 160 · gains, success, highlight</div></div>
+      </div>
+      <div class="swatch lg">
+        <div class="chip" style="background:#1FB47E"><div class="chip-inner"><span class="pct" style="color:#fff;">Deep accent</span><span class="name-on" style="color:#fff;">Pine</span></div></div>
+        <div class="meta"><div class="name">Pine</div><div class="codes">HEX #1FB47E · RGB 31 180 126 · green on light, badges</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signal gradient -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">03.4 — The Signal (logo gradient)</div>
+      <div class="head-text">
+        <h2>Cyan to green. The mark.</h2>
+        <p>The signal lives in the logo mark, the app icon, the fee-rebate lightning, and small brand accents. Cyan to green, 135°. Never recolored.</p>
+      </div>
+    </div>
+    <div class="gradient-hero signal">
+      <div class="label"><span>The Signal</span><span>135° linear</span><span>2 stops</span></div>
+    </div>
+    <div class="gradient-stops s2">
+      <div class="stop" style="background:#00CCFF; color:#04222B;"><div class="pos">0%</div><div class="hex">#00CCFF</div></div>
+      <div class="stop" style="background:#33FF99; color:#04222B;"><div class="pos">100%</div><div class="hex">#33FF99</div></div>
+    </div>
+  </section>
+
+  <!-- Brand gradient -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">03.5 — Brand gradient (expressive)</div>
+      <div class="head-text">
+        <h2>Blue into green.</h2>
+        <p>For reward banners, the "free spin" border, and hero highlights — the expressive blue→green gradient. One per surface. Not for body buttons (those stay solid blue).</p>
+      </div>
+    </div>
+    <div class="gradient-hero brand">
+      <div class="label"><span>Brand Gradient</span><span>120° linear</span><span>Blue → Green</span></div>
+    </div>
+    <div class="gradient-stops s2" style="grid-template-columns:repeat(3,1fr);">
+      <div class="stop" style="background:#2A6BF2; color:#fff;"><div class="pos">0%</div><div class="hex">#2A6BF2</div></div>
+      <div class="stop" style="background:#1FB0D8; color:#04222B;"><div class="pos">55%</div><div class="hex">#1FB0D8</div></div>
+      <div class="stop" style="background:#33FF99; color:#04222B;"><div class="pos">100%</div><div class="hex">#33FF99</div></div>
+    </div>
+  </section>
+
+  <!-- Card art colors -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">03.6 — Card art</div>
+      <div class="head-text">
+        <h2>One colorway per tier.</h2>
+        <p>The Mastercard art is the brand's one place for saturated color. Each tier owns a colorway — and tier flows tint the whole screen background to match (red for Basic, teal for Premium).</p>
+      </div>
+    </div>
+    <div class="cards-row">
+      <div class="tier-card">
+        <div class="face basic"><img class="wm" src="assets/thorwallet-mark-white.png" alt=""/><span class="tag">Basic · Free</span></div>
+        <div class="meta"><div class="name">Sunrise</div><div class="codes">#F0531F → #B0186A · virtual only</div></div>
+      </div>
+      <div class="tier-card">
+        <div class="face premium"><img class="wm" src="assets/thorwallet-mark-white.png" alt=""/><span class="tag">Premium</span></div>
+        <div class="meta"><div class="name">Pine</div><div class="codes">#14534A → #0F3B36</div></div>
+      </div>
+      <div class="tier-card">
+        <div class="face swiss"><img class="wm" src="assets/thorwallet-mark-white.png" alt=""/><span class="tag">Swiss Banking</span></div>
+        <div class="meta"><div class="name">Glacier</div><div class="codes">#1B6F66 → #0E312C</div></div>
+      </div>
+      <div class="tier-card">
+        <div class="face gold"><img class="wm" src="assets/thorwallet-mark-white.png" alt=""/><span class="tag" style="color:#3a2a05;">Gold · Fiat24</span></div>
+        <div class="meta"><div class="name">Bullion</div><div class="codes">#E8B84B → #B07F1E · halftone</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color ratios -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">03.7 — Mix Ratios</div>
+      <div class="head-text">
+        <h2>The 60/30/10 rule.</h2>
+        <p>Keep designs grounded by following these proportions. Saturated accents are the seasoning, never the dish.</p>
+      </div>
+    </div>
+    <div class="accent-rules">
+      <div class="accent-cell">
+        <div class="pct">60%</div>
+        <div class="name">Surface</div>
+        <p>Abyss, Slate or Harbor navy. The dominant tone of every screen.</p>
+      </div>
+      <div class="accent-cell">
+        <div class="pct">30%</div>
+        <div class="name">Ink</div>
+        <p>White type, hairlines and structural shapes. The information layer.</p>
+      </div>
+      <div class="accent-cell">
+        <div class="pct">10%</div>
+        <div class="name">Action</div>
+        <p>Royal blue for actions, mint green for positive — used as emphasis only.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Functional -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">03.8 — Functional Colors</div>
+      <div class="head-text">
+        <h2>Status in the app.</h2>
+        <p>Tuned to stay legible on the dark navy shell. Positive values are green; negatives stay white, not red.</p>
+      </div>
+    </div>
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#33E0A0"></div><div class="meta"><div class="name">Success</div><div class="codes">HEX #33E0A0</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#E7A23C"></div><div class="meta"><div class="name">Warning</div><div class="codes">HEX #E7A23C</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#E2603F"></div><div class="meta"><div class="name">Danger</div><div class="codes">HEX #E2603F</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#57A4FF"></div><div class="meta"><div class="name">Info</div><div class="codes">HEX #57A4FF</div></div></div>
+    </div>
+  </section>
+
+  <!-- Accessibility -->
+  <section class="section">
+    <div class="section-head">
+      <div class="num">03.9 — Accessibility</div>
+      <div class="head-text">
+        <h2>Approved pairings.</h2>
+        <p>WCAG AA contrast for body text (4.5:1) and large display (3:1). Pairings outside this table need explicit sign-off.</p>
+      </div>
+    </div>
+    <div class="a11y-table">
+      <div class="a11y-row head">
+        <div>Sample</div><div>Foreground</div><div>Background</div><div>Ratio</div><div>Verdict</div>
+      </div>
+      <div class="a11y-row">
+        <div class="pair-preview" style="background:#0A1A2B;color:#FFFFFF;">Aa</div>
+        <div>White #FFFFFF</div><div>Abyss #0A1A2B</div><div>16.1 : 1</div><div class="a11y-pass">AAA</div>
+      </div>
+      <div class="a11y-row">
+        <div class="pair-preview" style="background:#2A6BF2;color:#FFFFFF;">Aa</div>
+        <div>White #FFFFFF</div><div>Royal Blue #2A6BF2</div><div>4.8 : 1</div><div class="a11y-pass">AA</div>
+      </div>
+      <div class="a11y-row">
+        <div class="pair-preview" style="background:#0A1A2B;color:#33E0A0;">Aa</div>
+        <div>Mint #33E0A0</div><div>Abyss</div><div>11.0 : 1</div><div class="a11y-pass">AAA</div>
+      </div>
+      <div class="a11y-row">
+        <div class="pair-preview" style="background:#0A1A2B;color:#57A4FF;">Aa</div>
+        <div>Info #57A4FF</div><div>Abyss</div><div>6.6 : 1</div><div class="a11y-pass">AA</div>
+      </div>
+      <div class="a11y-row">
+        <div class="pair-preview" style="background:#0A1A2B;color:#2A6BF2;">Aa</div>
+        <div>Royal Blue #2A6BF2</div><div>Abyss</div><div>3.3 : 1</div><div class="a11y-fail">Large only</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-brand-foot></footer>
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+# THORWallet
+
+> THORWallet is a self-custody, multi-chain DeFi superapp for iOS, Android and Web. It offers native cross-chain swaps with no bridges or wrapped tokens, yield, multisig vaults, and a Swiss account with a global Mastercard. Tagline: "All chains. All yield. One app." Utility token: $TITN.
+
+## Key facts
+
+- Type: Non-custodial / self-custody crypto wallet — your keys never leave your device.
+- Platforms: iOS, Android, Web (app.thorwallet.org).
+- Swaps: Native cross-chain swaps across 20,000+ tokens, best-rate routing, no bridges, no wrapped tokens.
+- Earn: Yield on stablecoins and crypto, liquidity pools, and $TITN staking.
+- Multisig: Multi-device multisig vaults (e.g. 2-of-3, 3-of-4) for any chain and token.
+- Card: Spend crypto via a global Mastercard in 175+ countries; 0% top-up fees, up to 2% cashback; Swiss IBAN & SEPA account.
+- $TITN: Utility token. Stake to cut swap fees (down to 0.2%), earn up to ~70% USDC fee rebates, and unlock community perks. $TITN is a utility token, not an investment.
+- Company: EMM Ventures AG, Zug, Switzerland.
+
+## Pages
+
+- [Home](https://www.thorwallet.org/): Overview, cross-chain swaps, card, $TITN, rewards.
+- [Swap](https://www.thorwallet.org/swap.html): Native cross-chain swaps - no bridges, no wrapped tokens, 20,000+ tokens.
+- [Card](https://www.thorwallet.org/cards.html): Crypto Mastercard, Swiss account, plans and fees.
+- [$TITN](https://www.thorwallet.org/titn.html): Token utility, staking tiers, fee discounts and USDC rebates.
+- [Blog](https://www.thorwallet.org/blog.html): Releases, research and field notes.
+- [Download](https://www.thorwallet.org/download.html): Get the app for iOS or Android, or open the web app.
+- [Compare](https://www.thorwallet.org/compare.html): THORWallet vs MetaMask, Trust Wallet and other wallets, side by side.
+- [Brand Kit](https://www.thorwallet.org/brand.html): Logos, token icon, colors, typography.
+- [Privacy Policy](https://www.thorwallet.org/privacy-policy.html)
+- [Terms of Service](https://docs.google.com/document/d/e/2PACX-1vQQgOgrk9zBuFafb30hSBZptLoiZ4JYlJ-Q4QjUmAV-9wG5DHYPA4cMNjYwrwRAv_jx2K_BmPDDyIwt/pub)
+
+## Contact
+
+- Email: info@thorwallet.org
+- X: https://x.com/thorwallet
+- Telegram: https://t.me/THORWalletOfficial
+- Medium: https://thorwallet.medium.com
